@@ -10,8 +10,6 @@ import net.modificationstation.stationapi.api.util.Null;
 
 public class ItemListener {
 
-    public static TemplateItemBase coolItem;
-
     @Entrypoint.ModID
     public static final ModID MOD_ID = Null.get();
 

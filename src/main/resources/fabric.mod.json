@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
-  "version": "${version}",
+  "id": "brickforgery",
+  "version": "1.0",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Brick Forgery",
+  "description": "Successor mod to Beta Extras, with a very complex progression system mainly focused around bricks.",
   "authors": [
-    "Me!"
+    "Atilist"
   ],
   "contact": {
     "homepage": "https://glass-launcher.net/",
@@ -14,7 +14,7 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/examplemod/icon.png",
+  "icon": "assets/brickforgery/icon.png",
 
   "environment": "*",
   "entrypoints": {
