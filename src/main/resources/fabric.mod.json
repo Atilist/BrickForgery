@@ -19,20 +19,20 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "net.glasslauncher.example.events.init.AchievementListener",
-      "net.glasslauncher.example.events.init.BlockListener",
-      "net.glasslauncher.example.events.init.ItemListener",
-      "net.glasslauncher.example.events.init.PlayerHandlerListener",
-      "net.glasslauncher.example.events.init.RecipeListener"
+      "net.alternateadventure.brickforgery.events.init.AchievementListener",
+      "net.alternateadventure.brickforgery.events.init.BlockListener",
+      "net.alternateadventure.brickforgery.events.init.ItemListener",
+      "net.alternateadventure.brickforgery.events.init.PlayerHandlerListener",
+      "net.alternateadventure.brickforgery.events.init.RecipeListener"
     ],
     "stationapi:event_bus_client": [
-      "net.glasslauncher.example.events.init.ModelListener",
-      "net.glasslauncher.example.events.init.KeyBindingListener",
-      "net.glasslauncher.example.events.init.TextureListener",
-      "net.glasslauncher.example.events.ingame.KeyPressedListener"
+      "net.alternateadventure.brickforgery.events.init.ModelListener",
+      "net.alternateadventure.brickforgery.events.init.KeyBindingListener",
+      "net.alternateadventure.brickforgery.events.init.TextureListener",
+      "net.alternateadventure.brickforgery.events.ingame.KeyPressedListener"
     ],
     "stationapi:event_bus_server": [
-      "net.glasslauncher.example.events.init.ServerInitListener"
+      "net.alternateadventure.brickforgery.events.init.ServerInitListener"
     ]
   },
   "mixins": [

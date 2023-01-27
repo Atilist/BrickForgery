@@ -1,6 +1,6 @@
-package net.glasslauncher.example.wrappers;
+package net.alternateadventure.brickforgery.wrappers;
 
-import net.glasslauncher.example.events.init.ModelListener;
+import net.alternateadventure.brickforgery.events.init.ModelListener;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.BlockView;
 import net.modificationstation.stationapi.api.client.model.Model;

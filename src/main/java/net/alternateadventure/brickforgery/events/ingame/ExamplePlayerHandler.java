@@ -1,4 +1,4 @@
-package net.glasslauncher.example.events.ingame;
+package net.alternateadventure.brickforgery.events.ingame;
 
 import net.modificationstation.stationapi.api.entity.player.PlayerHandler;
 

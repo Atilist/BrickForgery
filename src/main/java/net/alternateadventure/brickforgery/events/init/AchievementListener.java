@@ -1,6 +1,6 @@
-package net.glasslauncher.example.events.init;
+package net.alternateadventure.brickforgery.events.init;
 
-import net.glasslauncher.example.custom.ExampleAchievementPage;
+import net.alternateadventure.brickforgery.custom.ExampleAchievementPage;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.achievement.Achievement;
 import net.minecraft.item.ItemBase;
