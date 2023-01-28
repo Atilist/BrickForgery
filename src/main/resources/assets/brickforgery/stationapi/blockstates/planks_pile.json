@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "uses=0": {
+      "model": "brickforgery:consumables/planks/planksone"
+    },
+    "uses=1": {
+      "model": "brickforgery:consumables/planks/plankstwo"
+    },
+    "uses=2": {
+      "model": "brickforgery:consumables/planks/planksthree"
+    },
+    "uses=3": {
+      "model": "brickforgery:consumables/planks/planksfour"
+    },
+    "uses=4": {
+      "model": "brickforgery:consumables/planks/planksfive"
+    },
+    "uses=5": {
+      "model": "brickforgery:consumables/planks/plankssix"
+    },
+    "uses=6": {
+      "model": "brickforgery:consumables/planks/planksseven"
+    },
+    "uses=7": {
+      "model": "brickforgery:consumables/planks/plankseight"
+    },
+    "uses=8": {
+      "model": "brickforgery:consumables/planks/planksnine"
+    },
+    "uses=9": {
+      "model": "brickforgery:consumables/planks/planksten"
+    },
+    "uses=10": {
+      "model": "brickforgery:consumables/planks/plankseleven"
+    },
+    "uses=11": {
+      "model": "brickforgery:consumables/planks/plankstwelve"
+    },
+    "uses=12": {
+      "model": "brickforgery:consumables/planks/planksthirteen"
+    },
+    "uses=13": {
+      "model": "brickforgery:consumables/planks/planksfourteen"
+    },
+    "uses=14": {
+      "model": "brickforgery:consumables/planks/planksfifteen"
+    },
+    "uses=15": {
+      "model": "brickforgery:consumables/planks/plankssixteen"
+    }
+  }
+}

@@ -1,1 +1,12 @@
 tile.desert_pot.name=Desert Pot
+
+tile.brick_frame_crafter_dusted.name=Brick Frame Crafter Dusted
+tile.brick_frame_crafter.name=Brick Frame Crafter
+
+tile.clay_pile.name=Clay Pile
+tile.planks_pile.name=Planks Pile
+
+item.archeology_tool_base.name=Archeology Tool Base
+item.archeology_brush.name=Archeology Brush
+
+item.brick_frame.name=Brick Frame

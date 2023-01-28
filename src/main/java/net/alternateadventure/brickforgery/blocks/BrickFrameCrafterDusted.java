@@ -8,25 +8,18 @@ import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
 import java.util.Random;
 
-public class DesertPot extends TemplateBlockBase {
-
-    public DesertPot(Identifier identifier, Material material) {
+public class BrickFrameCrafterDusted extends TemplateBlockBase {
+    public BrickFrameCrafterDusted(Identifier identifier, Material material) {
         super(identifier, material);
-        setSounds(GLASS_SOUNDS);
     }
 
     @Override
-    public DesertPot setHardness(float Hardness) {
-        return (DesertPot) super.setHardness(Hardness);
-    }
-
-    @Override
-    public int getDropId(int i, Random random) {
-        return ItemListener.archeologyToolBase.id;
+    public BrickFrameCrafterDusted setHardness(float Hardness) {
+        return (BrickFrameCrafterDusted) super.setHardness(Hardness);
     }
 
     @Override
     public int getTextureForSide(int i) {
-        return i == 0 ? TextureListener.DesertPotBottom : i == 1 ? TextureListener.DesertPotTop : TextureListener.DesertPotSide;
+        return i == 0 ? TextureListener.BrickFrameCrafterBottom : i == 1 ? TextureListener.BrickFrameCrafterTopDusted : TextureListener.BrickFrameCrafterSide;
     }
 }

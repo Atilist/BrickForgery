@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "uses=0": {
+      "model": "brickforgery:consumables/clay/clayone"
+    },
+    "uses=1": {
+      "model": "brickforgery:consumables/clay/claytwo"
+    },
+    "uses=2": {
+      "model": "brickforgery:consumables/clay/claythree"
+    },
+    "uses=3": {
+      "model": "brickforgery:consumables/clay/clayfour"
+    },
+    "uses=4": {
+      "model": "brickforgery:consumables/clay/clayfive"
+    },
+    "uses=5": {
+      "model": "brickforgery:consumables/clay/claysix"
+    },
+    "uses=6": {
+      "model": "brickforgery:consumables/clay/clayseven"
+    },
+    "uses=7": {
+      "model": "brickforgery:consumables/clay/clayeight"
+    },
+    "uses=8": {
+      "model": "brickforgery:consumables/clay/claynine"
+    },
+    "uses=9": {
+      "model": "brickforgery:consumables/clay/clayten"
+    },
+    "uses=10": {
+      "model": "brickforgery:consumables/clay/clayeleven"
+    },
+    "uses=11": {
+      "model": "brickforgery:consumables/clay/claytwelve"
+    },
+    "uses=12": {
+      "model": "brickforgery:consumables/clay/claythirteen"
+    },
+    "uses=13": {
+      "model": "brickforgery:consumables/clay/clayfourteen"
+    },
+    "uses=14": {
+      "model": "brickforgery:consumables/clay/clayfifteen"
+    },
+    "uses=15": {
+      "model": "brickforgery:consumables/clay/claysixteen"
+    }
+  }
+}
