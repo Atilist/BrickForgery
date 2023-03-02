@@ -18,6 +18,8 @@ public class RecipeListener {
         //Output <- Input
         if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type()) {
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.archeologyBrush), "X", "Y", "Z", 'X', new ItemInstance(ItemBase.wheat), 'Y', new ItemInstance(ItemBase.string), 'Z', new ItemInstance(ItemListener.archeologyToolBase));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.archeologyChisel), " X ", "#Y#", " Z ", 'X', new ItemInstance(ItemBase.goldIngot), 'Y', new ItemInstance(ItemBase.flint), 'Z', new ItemInstance(ItemListener.archeologyToolBase), '#', new ItemInstance(ItemListener.brickFrame));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.archeologyIceKnife), "X", "Y", "Z", 'X', new ItemInstance(ItemListener.iceBlade), 'Y', new ItemInstance(ItemListener.brickFrame), 'Z', new ItemInstance(ItemListener.archeologyToolBase));
         }
     }
 }

@@ -14,6 +14,9 @@ public class BlockListener {
 
     public static BlockBase
             desertPot,
+            frozenPotSealed,
+            frozenPot,
+
             brickFrameCrafterDusted,
             brickFrameCrafter,
 
@@ -26,6 +29,9 @@ public class BlockListener {
     @EventListener
     public void registerBlocks(BlockRegistryEvent event) {
         desertPot = new DesertPot(Identifier.of(MOD_ID, "desert_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "desert_pot");
+        frozenPotSealed = new FrozenPotSealed(Identifier.of(MOD_ID, "frozen_pot_sealed"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot_sealed");
+        frozenPot = new FrozenPot(Identifier.of(MOD_ID, "frozen_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot");
+
         brickFrameCrafterDusted = new BrickFrameCrafterDusted(Identifier.of(MOD_ID, "brick_frame_crafter_dusted"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_frame_crafter_dusted");
         brickFrameCrafter = new BrickFrameCrafter(Identifier.of(MOD_ID, "brick_frame_crafter"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_frame_crafter");
 

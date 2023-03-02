@@ -23,7 +23,8 @@
       "net.alternateadventure.brickforgery.events.init.BlockListener",
       "net.alternateadventure.brickforgery.events.init.ItemListener",
       "net.alternateadventure.brickforgery.events.init.PlayerHandlerListener",
-      "net.alternateadventure.brickforgery.events.init.RecipeListener"
+      "net.alternateadventure.brickforgery.events.init.RecipeListener",
+      "net.alternateadventure.brickforgery.events.init.ChunkListener"
     ],
     "stationapi:event_bus_client": [
       "net.alternateadventure.brickforgery.events.init.KeyBindingListener",
