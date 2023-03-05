@@ -8,6 +8,15 @@ tile.brick_frame_crafter.name=Brick Frame Crafter
 tile.clay_pile.name=Clay Pile
 tile.planks_pile.name=Planks Pile
 
+tile.wooden_bricks.name=Wooden Bricks
+
+tile.dust.name=Block of Dust
+
+tile.brick_crop.name=Brick Crop
+
+tile.brick_soil.name=Brick Soil
+tile.brick_soil_depleted.name=Brick Soil Depleted
+
 item.archeology_brush.name=Archeology Brush
 item.archeology_chisel.name=Archeology Chisel
 item.archeology_ice_knife.name=Archeology Ice Knife
@@ -16,3 +25,12 @@ item.archeology_tool_base.name=Archeology Tool Base
 item.ice_blade.name=Ice Blade
 
 item.brick_frame.name=Brick Frame
+item.dry_brick_frame.name=Dry Brick Frame
+
+item.wooden_brick.name=Wooden Brick
+item.brick_ash.name=Brick Ash
+
+item.brick_seedlings.name=Brick Seedlings
+item.brick_catalyst.name=Brick Catalyst
+
+item.brick_hammer.name=Brick Hammer

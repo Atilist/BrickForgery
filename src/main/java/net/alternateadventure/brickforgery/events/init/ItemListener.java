@@ -15,14 +15,23 @@ public class ItemListener {
     public static final ModID MOD_ID = Null.get();
 
     public static TemplateItemBase
-            archeologyToolBase,
             archeologyBrush,
             archeologyChisel,
             archeologyIceKnife,
 
+            archeologyToolBase,
             iceBlade,
 
-            brickFrame;
+            brickFrame,
+            dryBrickFrame,
+
+            woodenBrick,
+            brickAsh,
+
+            brickSeedlings,
+            brickCatalyst,
+
+            brickHammer;
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
@@ -34,5 +43,14 @@ public class ItemListener {
         iceBlade = new TemplateItemBase(Identifier.of(MOD_ID, "ice_blade")).setTranslationKey(MOD_ID, "ice_blade");
 
         brickFrame = new TemplateItemBase(Identifier.of(MOD_ID, "brick_frame")).setTranslationKey(MOD_ID, "brick_frame");
+        dryBrickFrame = new TemplateItemBase(Identifier.of(MOD_ID, "dry_brick_frame")).setTranslationKey(MOD_ID, "dry_brick_frame");
+
+        woodenBrick = new TemplateItemBase(Identifier.of(MOD_ID, "wooden_brick")).setTranslationKey(MOD_ID, "wooden_brick");
+        brickAsh = new TemplateItemBase(Identifier.of(MOD_ID, "brick_ash")).setTranslationKey(MOD_ID, "brick_ash");
+
+        brickSeedlings = new BrickSeedlings(Identifier.of(MOD_ID, "brick_seedlings")).setTranslationKey(MOD_ID, "brick_seedlings");
+        brickCatalyst = new TemplateItemBase(Identifier.of(MOD_ID, "brick_catalyst")).setTranslationKey(MOD_ID, "brick_catalyst");
+
+        brickHammer = new BrickHammer(Identifier.of(MOD_ID, "brick_hammer")).setTranslationKey(MOD_ID, "brick_hammer");
     }
 }

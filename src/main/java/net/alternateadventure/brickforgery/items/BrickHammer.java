@@ -1,18 +1,16 @@
 package net.alternateadventure.brickforgery.items;
 
 import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.minecraft.block.BlockBase;
-import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 
-public class ArcheologyChisel extends TemplateItemBase {
+public class BrickHammer extends TemplateItemBase {
 
-    public ArcheologyChisel(Identifier identifier) {
+    public BrickHammer(Identifier identifier) {
         super(identifier);
         this.maxStackSize = 1;
         this.setDurability(256);
@@ -21,17 +19,16 @@ public class ArcheologyChisel extends TemplateItemBase {
     @Override
     public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int facing) {
         ItemInstance tool = player.getHeldItem();
-        if (level.getTileId(x, y, z) == BlockListener.frozenPotSealed.id)
+        if (level.getTileId(x, y, z) == BlockBase.SAND.id)
         {
-            level.setTile(x, y, z, BlockListener.frozenPot.id);
+            level.setTile(x, y, z, BlockListener.dust.id);
             tool.applyDamage(1, player);
             return true;
         }
-        else if (level.getTileId(x, y, z) == BlockBase.WOOD.id)
+        else if (level.getTileId(x, y, z) == BlockBase.BRICKS.id && level.getTileId(x, y + 1, z) == 0)
         {
-            level.setTile(x, y, z, 0);
+            level.setTile(x, y, z, BlockListener.brickSoil.id);
             tool.applyDamage(1, player);
-            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.woodenBrick, 4)));
             return true;
         }
         return false;
