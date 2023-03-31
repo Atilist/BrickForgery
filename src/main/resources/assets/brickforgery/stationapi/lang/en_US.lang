@@ -1,36 +1,38 @@
-tile.desert_pot.name=Desert Pot
-tile.frozen_pot.name=Frozen Pot
-tile.frozen_pot_sealed.name=Sealed Frozen Pot
+tile.desert_pot.name=Common Surprise Mechanic
+tile.frozen_pot.name=Epic Surprise Mechanic
+tile.frozen_pot_sealed.name=Epic Surprise Mechanic (Locked)
 
-tile.brick_frame_crafter_dusted.name=Brick Frame Crafter Dusted
-tile.brick_frame_crafter.name=Brick Frame Crafter
+tile.brick_frame_crafter_dusted.name=Ekisbokis Series Ekis (Please sign up to your Brickrosoft account)
+tile.brick_frame_crafter.name=Ekisbokis Series Ekis
 
-tile.clay_pile.name=Clay Pile
-tile.planks_pile.name=Planks Pile
+tile.clay_pile.name=Mom's Credit Card
+tile.planks_pile.name=Dad's Credit Card
 
-tile.wooden_bricks.name=Wooden Bricks
+tile.wooden_bricks.name=Brick Skin (Common)
 
-tile.dust.name=Block of Dust
+tile.dust.name=Sand without Profanity
 
-tile.brick_crop.name=Brick Crop
+tile.brick_crop.name=Marketplace
 
-tile.brick_soil.name=Brick Soil
-tile.brick_soil_depleted.name=Brick Soil Depleted
+tile.brick_soil.name=Brickrock Edition Premium Subscription
+tile.brick_soil_depleted.name=Your Subscription has expired
 
-item.archeology_brush.name=Archeology Brush
-item.archeology_chisel.name=Archeology Chisel
-item.archeology_ice_knife.name=Archeology Ice Knife
+item.archeology_brush.name=Brickrosoft Phone
+item.archeology_chisel.name=Credit Card Reader
+item.archeology_ice_knife.name=Brickrosoft Laptop
 
-item.archeology_tool_base.name=Archeology Tool Base
-item.ice_blade.name=Ice Blade
+item.archeology_tool_base.name=Brickrosoft Electronics (Protected by Patent and Trademark)
+item.ice_blade.name=Cracked Laptop Screen (Visit a Brickrosoft Store for professional Repair)
 
-item.brick_frame.name=Brick Frame
-item.dry_brick_frame.name=Dry Brick Frame
+item.brick_frame.name=One Minecoin
+item.dry_brick_frame.name=Five Minecoins
 
-item.wooden_brick.name=Wooden Brick
-item.brick_ash.name=Brick Ash
+item.wooden_brick.name=Brick Skin Part (Common)
+item.brick_ash.name=Brickrock Edition Battle Pass
+item.snow_brick.name=The Energy left in a Brickrosoft Worker after four Minutes of Bug Fixing
+item.frozen_brick.name=Most excited Programmer at Brickrosoft
 
-item.brick_seedlings.name=Brick Seedlings
-item.brick_catalyst.name=Brick Catalyst
+item.brick_seedlings.name=Marketplace Button
+item.brick_catalyst.name=World from the Marketplace
 
-item.brick_hammer.name=Brick Hammer
+item.brick_hammer.name=Verification E-Mail

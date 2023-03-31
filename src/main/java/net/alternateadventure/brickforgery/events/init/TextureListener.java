@@ -27,8 +27,10 @@ public class TextureListener {
 
         ItemListener.woodenBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/WoodenBrick"));
         ItemListener.brickAsh.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickAsh"));
+        ItemListener.snowBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SnowBrick"));
+        ItemListener.frozenBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/FrozenBrick"));
 
-        ItemListener.brickSeedlings.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSeedlings"));
+        ItemListener.brickSeedlings.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSeedlings"));
         ItemListener.brickCatalyst.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickCatalyst"));
 
         ItemListener.brickHammer.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Tools/BrickHammer"));
@@ -54,17 +56,17 @@ public class TextureListener {
 
         Dust = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/Dust")).index;
 
-        BrickCropBud = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickCropBud")).index;
-        BrickCropSmall = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickCropSmall")).index;
-        BrickCropBlooming = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickCropBlooming")).index;
-        BrickCropMature = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickCropMature")).index;
+        BrickCropBud = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickCropBud")).index;
+        BrickCropSmall = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickCropSmall")).index;
+        BrickCropBlooming = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickCropBlooming")).index;
+        BrickCropMature = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickCropMature")).index;
 
-        BrickSoilTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSoilTop")).index;
-        BrickSoilSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSoilSide")).index;
-        BrickSoilBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSoilBottom")).index;
-        BrickSoilTopDepleted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSoilTopDepleted")).index;
-        BrickSoilSideDepleted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSoilSideDepleted")).index;
-        BrickSoilBottomDepleted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSoilBottomDepleted")).index;
+        BrickSoilTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSoilTop")).index;
+        BrickSoilSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSoilSide")).index;
+        BrickSoilBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSoilBottom")).index;
+        BrickSoilTopDepleted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSoilTopDepleted")).index;
+        BrickSoilSideDepleted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSoilSideDepleted")).index;
+        BrickSoilBottomDepleted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSoilBottomDepleted")).index;
     }
 
     public static int

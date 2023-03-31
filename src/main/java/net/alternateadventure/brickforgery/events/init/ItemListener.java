@@ -27,6 +27,8 @@ public class ItemListener {
 
             woodenBrick,
             brickAsh,
+            snowBrick,
+            frozenBrick,
 
             brickSeedlings,
             brickCatalyst,
@@ -47,6 +49,8 @@ public class ItemListener {
 
         woodenBrick = new TemplateItemBase(Identifier.of(MOD_ID, "wooden_brick")).setTranslationKey(MOD_ID, "wooden_brick");
         brickAsh = new TemplateItemBase(Identifier.of(MOD_ID, "brick_ash")).setTranslationKey(MOD_ID, "brick_ash");
+        snowBrick = new TemplateItemBase(Identifier.of(MOD_ID, "snow_brick")).setTranslationKey(MOD_ID, "snow_brick");
+        frozenBrick = new TemplateItemBase(Identifier.of(MOD_ID, "frozen_brick")).setTranslationKey(MOD_ID, "frozen_brick");
 
         brickSeedlings = new BrickSeedlings(Identifier.of(MOD_ID, "brick_seedlings")).setTranslationKey(MOD_ID, "brick_seedlings");
         brickCatalyst = new TemplateItemBase(Identifier.of(MOD_ID, "brick_catalyst")).setTranslationKey(MOD_ID, "brick_catalyst");
