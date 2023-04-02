@@ -21,17 +21,20 @@ public class ItemListener {
 
             archeologyToolBase,
             iceBlade,
+            brokenSpikeHolder,
 
             brickFrame,
             dryBrickFrame,
 
             woodenBrick,
             brickAsh,
+            stoneBrick,
             snowBrick,
             frozenBrick,
 
             brickSeedlings,
             brickCatalyst,
+            clayPowder,
 
             brickHammer;
 
@@ -43,17 +46,20 @@ public class ItemListener {
 
         archeologyToolBase = new TemplateItemBase(Identifier.of(MOD_ID, "archeology_tool_base")).setTranslationKey(MOD_ID, "archeology_tool_base");
         iceBlade = new TemplateItemBase(Identifier.of(MOD_ID, "ice_blade")).setTranslationKey(MOD_ID, "ice_blade");
+        brokenSpikeHolder = new TemplateItemBase(Identifier.of(MOD_ID, "broken_spike_holder")).setTranslationKey(MOD_ID, "broken_spike_holder");
 
         brickFrame = new TemplateItemBase(Identifier.of(MOD_ID, "brick_frame")).setTranslationKey(MOD_ID, "brick_frame");
         dryBrickFrame = new TemplateItemBase(Identifier.of(MOD_ID, "dry_brick_frame")).setTranslationKey(MOD_ID, "dry_brick_frame");
 
         woodenBrick = new TemplateItemBase(Identifier.of(MOD_ID, "wooden_brick")).setTranslationKey(MOD_ID, "wooden_brick");
         brickAsh = new TemplateItemBase(Identifier.of(MOD_ID, "brick_ash")).setTranslationKey(MOD_ID, "brick_ash");
+        stoneBrick = new TemplateItemBase(Identifier.of(MOD_ID, "stone_brick")).setTranslationKey(MOD_ID, "stone_brick");
         snowBrick = new TemplateItemBase(Identifier.of(MOD_ID, "snow_brick")).setTranslationKey(MOD_ID, "snow_brick");
         frozenBrick = new TemplateItemBase(Identifier.of(MOD_ID, "frozen_brick")).setTranslationKey(MOD_ID, "frozen_brick");
 
         brickSeedlings = new BrickSeedlings(Identifier.of(MOD_ID, "brick_seedlings")).setTranslationKey(MOD_ID, "brick_seedlings");
-        brickCatalyst = new TemplateItemBase(Identifier.of(MOD_ID, "brick_catalyst")).setTranslationKey(MOD_ID, "brick_catalyst");
+        brickCatalyst = new BrickCatalyst(Identifier.of(MOD_ID, "brick_catalyst")).setTranslationKey(MOD_ID, "brick_catalyst");
+        clayPowder = new TemplateItemBase(Identifier.of(MOD_ID, "clay_powder")).setTranslationKey(MOD_ID, "clay_powder");
 
         brickHammer = new BrickHammer(Identifier.of(MOD_ID, "brick_hammer")).setTranslationKey(MOD_ID, "brick_hammer");
     }

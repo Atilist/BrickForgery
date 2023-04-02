@@ -1,5 +1,9 @@
 package net.alternateadventure.brickforgery.events.init;
 
+import net.alternateadventure.brickforgery.blocks.Dust;
+import net.alternateadventure.brickforgery.blocks.SpikeMount;
+import net.alternateadventure.brickforgery.blocks.StoneBrickOre;
+import net.alternateadventure.brickforgery.blocks.WoodenBricks;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
@@ -21,17 +25,20 @@ public class TextureListener {
 
         ItemListener.archeologyToolBase.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyToolBase"));
         ItemListener.iceBlade.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/IceBlade"));
+        ItemListener.brokenSpikeHolder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/BrokenSpikeHolder"));
 
         ItemListener.brickFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickFrame"));
         ItemListener.dryBrickFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DryBrickFrame"));
 
         ItemListener.woodenBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/WoodenBrick"));
         ItemListener.brickAsh.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickAsh"));
+        ItemListener.stoneBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/StoneBrick"));
         ItemListener.snowBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SnowBrick"));
         ItemListener.frozenBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/FrozenBrick"));
 
         ItemListener.brickSeedlings.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSeedlings"));
         ItemListener.brickCatalyst.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickCatalyst"));
+        ItemListener.clayPowder.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ClayPowder"));
 
         ItemListener.brickHammer.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Tools/BrickHammer"));
 
@@ -48,13 +55,18 @@ public class TextureListener {
         BrickFrameCrafterTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Machines/BrickFrameCrafterTop")).index;
         BrickFrameCrafterSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Machines/BrickFrameCrafterSide")).index;
         BrickFrameCrafterBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Machines/BrickFrameCrafterBottom")).index;
+        BrickLauncherTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickLauncherTop")).index;
+        BrickLauncherSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickLauncherSide")).index;
+        BrickLauncherBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickLauncherBottom")).index;
 
         IcyTerracotta = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/IcyTerracotta")).index;
         DenseIce = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/DenseIce")).index;
 
         WoodenBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/WoodenBricks")).index;
+        StoneBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/StoneBricks")).index;
 
         Dust = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/Dust")).index;
+        StoneBrickOre = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/StoneBrickOre")).index;
 
         BrickCropBud = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickCropBud")).index;
         BrickCropSmall = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickCropSmall")).index;
@@ -67,6 +79,9 @@ public class TextureListener {
         BrickSoilTopDepleted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSoilTopDepleted")).index;
         BrickSoilSideDepleted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSoilSideDepleted")).index;
         BrickSoilBottomDepleted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/BrickSoilBottomDepleted")).index;
+
+        SpikeMount = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/SpikeMount")).index;
+        SpikeMountLoaded = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/SpikeMountLoaded")).index;
     }
 
     public static int
@@ -83,13 +98,18 @@ public class TextureListener {
             BrickFrameCrafterTop,
             BrickFrameCrafterSide,
             BrickFrameCrafterBottom,
+            BrickLauncherTop,
+            BrickLauncherSide,
+            BrickLauncherBottom,
 
             IcyTerracotta,
             DenseIce,
 
             WoodenBricks,
+            StoneBricks,
 
             Dust,
+            StoneBrickOre,
 
             BrickCropBud,
             BrickCropSmall,
@@ -101,5 +121,9 @@ public class TextureListener {
             BrickSoilBottom,
             BrickSoilTopDepleted,
             BrickSoilSideDepleted,
-            BrickSoilBottomDepleted;
+            BrickSoilBottomDepleted,
+
+            SpikeMount,
+            SpikeMountLoaded;
+
 }

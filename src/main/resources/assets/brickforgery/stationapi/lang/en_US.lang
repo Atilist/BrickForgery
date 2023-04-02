@@ -1,21 +1,27 @@
 tile.desert_pot.name=Desert Pot
 tile.frozen_pot.name=Frozen Pot
 tile.frozen_pot_sealed.name=Sealed Frozen Pot
+tile.mossy_pots.name=Mossy Pots
 
 tile.brick_frame_crafter_dusted.name=Dusted Brick Frame Crafter
 tile.brick_frame_crafter.name=Brick Frame Crafter
+tile.brick_launcher.name=Brick Launcher
 
 tile.clay_pile.name=Clay Pile
 tile.planks_pile.name=Wooden Planks Pile
 
 tile.wooden_bricks.name=Wooden Bricks
+tile.stone_bricks.name=Stone Bricks
 
 tile.dust.name=Block of Dust
+tile.stone_brick_ore.name=Stone Brick Ore
 
 tile.brick_crop.name=Brick Crop
 
 tile.brick_soil.name=Brick Soil
 tile.brick_soil_depleted.name=Depleted Brick Soil
+
+tile.spike_mount.name=Spike Mount
 
 item.archeology_brush.name=Archeology Brush
 item.archeology_chisel.name=Archeology Chisel
@@ -23,16 +29,19 @@ item.archeology_ice_knife.name=Archeology Ice Knife
 
 item.archeology_tool_base.name=Archeology Tool Handle
 item.ice_blade.name=Ice Blade
+item.broken_spike_holder.name=Broken Spike Holder
 
 item.brick_frame.name=Brick Frame
 item.dry_brick_frame.name=Dry Brick Frame
 
 item.wooden_brick.name=Wooden Brick
 item.brick_ash.name=Brick Ash
+item.stone_brick.name=Stone Brick
 item.snow_brick.name=Snow Brick
 item.frozen_brick.name=Frozen Brick
 
 item.brick_seedlings.name=Brick Seedlings
 item.brick_catalyst.name=Brick Catalyst
+item.clay_powder.name=Clay Powder
 
 item.brick_hammer.name=Brick Hammer

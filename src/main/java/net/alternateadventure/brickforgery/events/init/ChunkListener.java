@@ -2,6 +2,8 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.structures.BrickFrameCrafterRoom;
 import net.alternateadventure.brickforgery.structures.DesertPotArea;
+import net.alternateadventure.brickforgery.structures.FrozenPotArea;
+import net.alternateadventure.brickforgery.structures.MossyPotsArea;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.level.biome.Biome;
 import net.minecraft.level.dimension.Overworld;
@@ -27,6 +29,18 @@ public class ChunkListener {
             int y = event.random.nextInt(48) + 64;
             int z = event.z + event.random.nextInt(16);
             new DesertPotArea().generate(event.level, event.random, x, y, z);
+        }
+        if (event.biome == Biome.TUNDRA) {
+            int x = event.x + event.random.nextInt(16);
+            int y = event.random.nextInt(48) + 64;
+            int z = event.z + event.random.nextInt(16);
+            new FrozenPotArea().generate(event.level, event.random, x, y, z);
+        }
+        if (event.biome == Biome.RAINFOREST) {
+            int x = event.x + event.random.nextInt(16);
+            int y = event.random.nextInt(48) + 64;
+            int z = event.z + event.random.nextInt(16);
+            new MossyPotsArea().generate(event.level, event.random, x, y, z);
         }
     }
 }

@@ -9,7 +9,6 @@ public class WoodenBricks extends TemplateBlockBase {
 
     public WoodenBricks(Identifier identifier, Material material) {
         super(identifier, material);
-        setSounds(WOOD_SOUNDS);
     }
 
     @Override

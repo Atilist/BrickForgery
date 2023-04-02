@@ -5,6 +5,7 @@ import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
+import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -32,6 +33,13 @@ public class ArcheologyBrush extends TemplateItemBase {
             level.setTile(x, y, z, 0);
             tool.applyDamage(1, player);
             level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.brickSeedlings)));
+            return true;
+        }
+        else if (level.getTileId(x, y, z) == BlockBase.GRAVEL.id)
+        {
+            level.setTile(x, y, z, 0);
+            tool.applyDamage(1, player);
+            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemBase.flint, 2)));
             return true;
         }
         else if (level.getTileId(x, y, z) == BlockListener.brickCrop.id && level.getTileMeta(x, y, z) == 3)
