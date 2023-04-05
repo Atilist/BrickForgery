@@ -1,7 +1,7 @@
 {
   "variants": {
     "types=0": {
-      "model": "brickforgery:pots/mossypots"
+      "model": "brickforgery:pots/mossypot"
     }
   }
 }

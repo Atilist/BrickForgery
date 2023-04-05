@@ -1,7 +1,7 @@
 tile.desert_pot.name=Desert Pot
 tile.frozen_pot.name=Frozen Pot
 tile.frozen_pot_sealed.name=Sealed Frozen Pot
-tile.mossy_pots.name=Mossy Pots
+tile.mossy_pot.name=Mossy Pot
 
 tile.brick_frame_crafter_dusted.name=Dusted Brick Frame Crafter
 tile.brick_frame_crafter.name=Brick Frame Crafter

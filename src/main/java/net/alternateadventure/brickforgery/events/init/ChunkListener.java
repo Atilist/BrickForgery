@@ -3,7 +3,7 @@ package net.alternateadventure.brickforgery.events.init;
 import net.alternateadventure.brickforgery.structures.BrickFrameCrafterRoom;
 import net.alternateadventure.brickforgery.structures.DesertPotArea;
 import net.alternateadventure.brickforgery.structures.FrozenPotArea;
-import net.alternateadventure.brickforgery.structures.MossyPotsArea;
+import net.alternateadventure.brickforgery.structures.MossyPotArea;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.level.biome.Biome;
 import net.minecraft.level.dimension.Overworld;
@@ -25,10 +25,12 @@ public class ChunkListener {
             new BrickFrameCrafterRoom().generate(event.level, event.random, x, y, z);
         }
         if (event.biome == Biome.DESERT) {
-            int x = event.x + event.random.nextInt(16);
-            int y = event.random.nextInt(48) + 64;
-            int z = event.z + event.random.nextInt(16);
-            new DesertPotArea().generate(event.level, event.random, x, y, z);
+            for (int attempts = 0; attempts < 8; attempts++) {
+                int x = event.x + event.random.nextInt(16);
+                int y = event.random.nextInt(48) + 64;
+                int z = event.z + event.random.nextInt(16);
+                new DesertPotArea().generate(event.level, event.random, x, y, z);
+            }
         }
         if (event.biome == Biome.TUNDRA) {
             int x = event.x + event.random.nextInt(16);
@@ -37,10 +39,12 @@ public class ChunkListener {
             new FrozenPotArea().generate(event.level, event.random, x, y, z);
         }
         if (event.biome == Biome.RAINFOREST) {
-            int x = event.x + event.random.nextInt(16);
-            int y = event.random.nextInt(48) + 64;
-            int z = event.z + event.random.nextInt(16);
-            new MossyPotsArea().generate(event.level, event.random, x, y, z);
+            for (int attempts = 0; attempts < 32; attempts++) {
+                int x = event.x + event.random.nextInt(16);
+                int y = event.random.nextInt(48) + 64;
+                int z = event.z + event.random.nextInt(16);
+                new MossyPotArea().generate(event.level, event.random, x, y, z);
+            }
         }
     }
 }
