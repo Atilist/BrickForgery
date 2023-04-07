@@ -13,11 +13,11 @@ import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
 import java.util.Random;
 
-public class MossyPots extends TemplateBlockBase {
+public class MossyPot extends TemplateBlockBase {
 
     public static final IntProperty TYPES = IntProperty.of("types", 0, 1);
 
-    public MossyPots(Identifier identifier, Material material) {
+    public MossyPot(Identifier identifier, Material material) {
         super(identifier, material);
     }
 

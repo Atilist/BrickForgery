@@ -1,9 +1,5 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.blocks.Dust;
-import net.alternateadventure.brickforgery.blocks.SpikeMount;
-import net.alternateadventure.brickforgery.blocks.StoneBrickOre;
-import net.alternateadventure.brickforgery.blocks.WoodenBricks;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
@@ -19,6 +15,10 @@ public class TextureListener {
 
     @EventListener
     public void registerTextures(TextureRegisterEvent event) {
+        ItemListener.exoticFruit.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticFruit"));
+        ItemListener.nightSeeds.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightSeeds"));
+        ItemListener.nightWheat.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheat"));
+
         ItemListener.archeologyBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyBrush"));
         ItemListener.archeologyChisel.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyChisel"));
         ItemListener.archeologyIceKnife.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyIceKnife"));
@@ -41,6 +41,28 @@ public class TextureListener {
         ItemListener.clayPowder.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ClayPowder"));
 
         ItemListener.brickHammer.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Tools/BrickHammer"));
+
+        ExoticShrub = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrub")).index;
+        ExoticShrubMature = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrubMature")).index;
+
+        NightWheatCropBud = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropBud")).index;
+        NightWheatCropSmall = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropSmall")).index;
+        NightWheatCropMedium = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropMedium")).index;
+        NightWheatCropLarge = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropLarge")).index;
+        NightWheatCropThriving = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropThriving")).index;
+        NightWheatCropBlooming = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropBlooming")).index;
+        NightWheatCropMature = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropMature")).index;
+        NightWheatCropRipe = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropRipe")).index;
+
+        NightSapling = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightSapling")).index;
+        NightLogTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightLogTop")).index;
+        NightLogSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightLogSide")).index;
+        NightLeaves = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightLeaves")).index;
+        NightPlanks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightPlanks")).index;
+
+        PotPedestalTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PotPedestalTop")).index;
+        PotPedestalSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PotPedestalSide")).index;
+        PotPedestalBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PotPedestalBottom")).index;
 
         DesertPotTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotTop")).index;
         DesertPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotSide")).index;
@@ -85,6 +107,28 @@ public class TextureListener {
     }
 
     public static int
+            ExoticShrub,
+            ExoticShrubMature,
+
+            NightWheatCropBud,
+            NightWheatCropSmall,
+            NightWheatCropMedium,
+            NightWheatCropLarge,
+            NightWheatCropThriving,
+            NightWheatCropBlooming,
+            NightWheatCropMature,
+            NightWheatCropRipe,
+
+            NightSapling,
+            NightLogTop,
+            NightLogSide,
+            NightLeaves,
+            NightPlanks,
+
+            PotPedestalTop,
+            PotPedestalSide,
+            PotPedestalBottom,
+
             DesertPotTop,
             DesertPotSide,
             DesertPotBottom,

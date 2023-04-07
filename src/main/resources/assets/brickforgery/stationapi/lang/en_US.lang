@@ -1,3 +1,10 @@
+tile.exotic_shrub.name=Exotic Shrub
+tile.night_wheat_crop.name=Night Wheat Crop
+tile.night_sapling.name=Night Sapling
+tile.night_log.name=Night Log
+tile.night_leaves.name=Night Leaves
+tile.night_planks.name=Night Planks
+
 tile.desert_pot.name=Desert Pot
 tile.frozen_pot.name=Frozen Pot
 tile.frozen_pot_sealed.name=Sealed Frozen Pot
@@ -22,6 +29,10 @@ tile.brick_soil.name=Brick Soil
 tile.brick_soil_depleted.name=Depleted Brick Soil
 
 tile.spike_mount.name=Spike Mount
+
+item.exotic_fruit.name=Exotic Fruit
+item.night_seeds.name=Night Seeds
+item.night_wheat.name=Night Wheat
 
 item.archeology_brush.name=Archeology Brush
 item.archeology_chisel.name=Archeology Chisel

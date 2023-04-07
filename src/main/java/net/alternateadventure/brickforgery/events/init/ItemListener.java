@@ -15,6 +15,10 @@ public class ItemListener {
     public static final ModID MOD_ID = Null.get();
 
     public static TemplateItemBase
+            exoticFruit,
+            nightSeeds,
+            nightWheat,
+
             archeologyBrush,
             archeologyChisel,
             archeologyIceKnife,
@@ -40,6 +44,10 @@ public class ItemListener {
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
+        exoticFruit = new TemplateItemBase(Identifier.of(MOD_ID, "exotic_fruit")).setTranslationKey(MOD_ID, "exotic_fruit");
+        nightSeeds = new NightSeeds(Identifier.of(MOD_ID, "night_seeds")).setTranslationKey(MOD_ID, "night_seeds");
+        nightWheat = new TemplateItemBase(Identifier.of(MOD_ID, "night_wheat")).setTranslationKey(MOD_ID, "night_wheat");
+
         archeologyBrush = new ArcheologyBrush(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
         archeologyChisel = new ArcheologyChisel(Identifier.of(MOD_ID, "archeology_chisel")).setTranslationKey(MOD_ID, "archeology_chisel");
         archeologyIceKnife = new ArcheologyIceKnife(Identifier.of(MOD_ID, "archeology_ice_knife")).setTranslationKey(MOD_ID, "archeology_ice_knife");
