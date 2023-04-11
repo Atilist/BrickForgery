@@ -43,10 +43,10 @@ public class BrickFrameCrafter extends TemplateBlockBase {
         if (level.getTileId(x, y, z + 1) == BlockBase.CLAY.id || level.getTileId(x, y, z + 1) == BlockListener.clayPile.id) hasClay = true;
         if (level.getTileId(x, y, z - 1) == BlockBase.CLAY.id || level.getTileId(x, y, z - 1) == BlockListener.clayPile.id) hasClay = true;
 
-        if (level.getTileId(x + 1, y, z) == BlockBase.WOOD.id || level.getTileId(x + 1, y, z) == BlockListener.planksPile.id) hasPlanks = true;
-        if (level.getTileId(x - 1, y, z) == BlockBase.WOOD.id || level.getTileId(x - 1, y, z) == BlockListener.planksPile.id) hasPlanks = true;
-        if (level.getTileId(x, y, z + 1) == BlockBase.WOOD.id || level.getTileId(x, y, z + 1) == BlockListener.planksPile.id) hasPlanks = true;
-        if (level.getTileId(x, y, z - 1) == BlockBase.WOOD.id || level.getTileId(x, y, z - 1) == BlockListener.planksPile.id) hasPlanks = true;
+        if (level.getTileId(x + 1, y, z) == BlockListener.nightPlanks.id || level.getTileId(x + 1, y, z) == BlockListener.planksPile.id) hasPlanks = true;
+        if (level.getTileId(x - 1, y, z) == BlockListener.nightPlanks.id || level.getTileId(x - 1, y, z) == BlockListener.planksPile.id) hasPlanks = true;
+        if (level.getTileId(x, y, z + 1) == BlockListener.nightPlanks.id || level.getTileId(x, y, z + 1) == BlockListener.planksPile.id) hasPlanks = true;
+        if (level.getTileId(x, y, z - 1) == BlockListener.nightPlanks.id || level.getTileId(x, y, z - 1) == BlockListener.planksPile.id) hasPlanks = true;
 
         if (!(hasClay && hasPlanks)) return;
 
@@ -77,7 +77,7 @@ public class BrickFrameCrafter extends TemplateBlockBase {
         else if (level.getTileId(x, y, z) == BlockListener.clayPile.id)
         {
             int blockState = level.getBlockState(x, y, z).get(ResourcePile.USES);
-            if (blockState == 0) level.setTile(x, y, z, 0);
+            if (blockState == 1) level.setTile(x, y, z, 0);
             else level.setBlockStateWithNotify(x, y, z, BlockListener.clayPile.getDefaultState().with(ResourcePile.USES, blockState - 1));
             return true;
         }
@@ -86,7 +86,7 @@ public class BrickFrameCrafter extends TemplateBlockBase {
 
     public boolean decreasePlanks (Level level, int x, int y, int z)
     {
-        if (level.getTileId(x, y, z) == BlockBase.WOOD.id)
+        if (level.getTileId(x, y, z) == BlockListener.nightPlanks.id)
         {
             level.setTile(x, y, z, BlockListener.planksPile.id);
             level.setBlockStateWithNotify(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePile.USES, 15));
@@ -95,7 +95,7 @@ public class BrickFrameCrafter extends TemplateBlockBase {
         else if (level.getTileId(x, y, z) == BlockListener.planksPile.id)
         {
             int blockState = level.getBlockState(x, y, z).get(ResourcePile.USES);
-            if (blockState == 0) level.setTile(x, y, z, 0);
+            if (blockState == 1) level.setTile(x, y, z, 0);
             else level.setBlockStateWithNotify(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePile.USES, blockState - 1));
             return true;
         }

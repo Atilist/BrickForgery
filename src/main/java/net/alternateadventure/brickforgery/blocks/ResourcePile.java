@@ -10,6 +10,8 @@ import net.modificationstation.stationapi.api.state.StateManager;
 import net.modificationstation.stationapi.api.state.property.IntProperty;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
+import java.util.Random;
+
 public class ResourcePile extends TemplateBlockBase {
 
     public static final IntProperty USES = IntProperty.of("uses", 0, 15);
@@ -22,6 +24,11 @@ public class ResourcePile extends TemplateBlockBase {
     public void appendProperties(StateManager.Builder<BlockBase, BlockState> builder) {
         super.appendProperties(builder);
         builder.add(USES);
+    }
+
+    @Override
+    public int getDropCount(Random random) {
+        return 0;
     }
 
     @Override

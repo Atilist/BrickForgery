@@ -19,6 +19,9 @@ public class TextureListener {
         ItemListener.nightSeeds.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightSeeds"));
         ItemListener.nightWheat.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheat"));
 
+        ItemListener.desertPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/DesertPotItem"));
+        ItemListener.primitiveBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveBrush"));
+
         ItemListener.archeologyBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyBrush"));
         ItemListener.archeologyChisel.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyChisel"));
         ItemListener.archeologyIceKnife.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyIceKnife"));
@@ -64,6 +67,8 @@ public class TextureListener {
         PotPedestalSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PotPedestalSide")).index;
         PotPedestalBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PotPedestalBottom")).index;
 
+        BountifulSand = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/BountifulSand")).index;
+
         DesertPotTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotTop")).index;
         DesertPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotSide")).index;
         DesertPotBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotBottom")).index;
@@ -104,6 +109,9 @@ public class TextureListener {
 
         SpikeMount = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/SpikeMount")).index;
         SpikeMountLoaded = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/SpikeMountLoaded")).index;
+
+        BlockListener.potPedestal.specifyTextures(PotPedestalTop, PotPedestalSide, PotPedestalBottom);
+        BlockListener.bountifulSand.specifyTextures(BountifulSand, BountifulSand, BountifulSand);
     }
 
     public static int
@@ -128,6 +136,8 @@ public class TextureListener {
             PotPedestalTop,
             PotPedestalSide,
             PotPedestalBottom,
+
+            BountifulSand,
 
             DesertPotTop,
             DesertPotSide,

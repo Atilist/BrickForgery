@@ -22,7 +22,14 @@ public class ArcheologyBrush extends TemplateItemBase {
     @Override
     public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int facing) {
         ItemInstance tool = player.getHeldItem();
-        if (level.getTileId(x, y, z) == BlockListener.brickFrameCrafterDusted.id)
+        if (level.getTileId(x, y, z) == BlockListener.bountifulSand.id)
+        {
+            level.setTile(x, y, z, 0);
+            tool.applyDamage(1, player);
+            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.desertPotItem)));
+            return true;
+        }
+        else if (level.getTileId(x, y, z) == BlockListener.brickFrameCrafterDusted.id)
         {
             level.setTile(x, y, z, BlockListener.brickFrameCrafter.id);
             tool.applyDamage(1, player);

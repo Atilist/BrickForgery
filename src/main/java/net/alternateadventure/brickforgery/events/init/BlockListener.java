@@ -45,6 +45,10 @@ public class BlockListener {
 
             spikeMount;
 
+    public static LazyBlockTemplate
+            potPedestal,
+            bountifulSand;
+
     @Entrypoint.ModID
     public static final ModID MOD_ID = Null.get();
 
@@ -56,6 +60,9 @@ public class BlockListener {
         nightLog = new NightLog(Identifier.of(MOD_ID, "night_log"), Material.WOOD).setHardness(1.5F).setSounds(BlockBase.WOOD_SOUNDS).setTranslationKey(MOD_ID, "night_log");
         nightLeaves = new NightLeaves(Identifier.of(MOD_ID, "night_leaves"), Material.LEAVES).setHardness(0.5F).setSounds(BlockBase.GRASS_SOUNDS).setTranslationKey(MOD_ID, "night_leaves");
         nightPlanks = new NightPlanks(Identifier.of(MOD_ID, "night_planks"), Material.WOOD).setHardness(1.5F).setSounds(BlockBase.WOOD_SOUNDS).setTranslationKey(MOD_ID, "night_planks");
+
+        potPedestal = new LazyBlockTemplate(Identifier.of(MOD_ID, "pot_pedestal"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
+        bountifulSand = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_sand"), Material.SAND, 1.5F, BlockBase.SAND_SOUNDS);
 
         desertPot = new DesertPot(Identifier.of(MOD_ID, "desert_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "desert_pot");
         frozenPotSealed = new FrozenPotSealed(Identifier.of(MOD_ID, "frozen_pot_sealed"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot_sealed");

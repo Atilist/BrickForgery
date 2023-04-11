@@ -16,13 +16,19 @@ public class RecipeListener {
         Identifier type = event.recipeId;
         // Output <- Input
         if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type()) {
-            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.archeologyBrush), "X", "Y", "Z", 'X', new ItemInstance(ItemListener.nightWheat), 'Y', new ItemInstance(ItemBase.string), 'Z', new ItemInstance(ItemListener.archeologyToolBase));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.primitiveBrush), "X", "Y", "Z", 'X', new ItemInstance(ItemListener.nightWheat), 'Y', new ItemInstance(ItemBase.paper), 'Z', new ItemInstance(BlockListener.nightPlanks));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.potPedestal), "XXX", "YZY", "YZY", 'X', new ItemInstance(ItemBase.feather), 'Y', new ItemInstance(BlockListener.nightLog), 'Z', new ItemInstance(BlockListener.nightPlanks));
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.archeologyToolBase), "X", "Y", 'X', new ItemInstance(ItemListener.dryBrickFrame), 'Y', new ItemInstance(ItemListener.brickCatalyst));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.archeologyBrush), " X ", "ZYZ", 'X', new ItemInstance(ItemListener.primitiveBrush), 'Y', new ItemInstance(ItemListener.archeologyToolBase), 'Z', new ItemInstance(ItemBase.string));
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.archeologyChisel), " X ", "#Y#", " Z ", 'X', new ItemInstance(ItemBase.goldIngot), 'Y', new ItemInstance(ItemBase.flint), 'Z', new ItemInstance(ItemListener.archeologyToolBase), '#', new ItemInstance(ItemListener.brickFrame));
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.archeologyIceKnife), "X", "Y", "Z", 'X', new ItemInstance(ItemListener.iceBlade), 'Y', new ItemInstance(ItemListener.dryBrickFrame), 'Z', new ItemInstance(ItemListener.archeologyToolBase));
+
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.woodenBricks), "XX", "XX", 'X', new ItemInstance(ItemListener.woodenBrick));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.stoneBricks), "XX", "XX", 'X', new ItemInstance(ItemListener.stoneBrick));
+
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.brickHammer), "XYX", " Z ", " Z ", 'X', new ItemInstance(ItemBase.brick), 'Y', new ItemInstance(ItemListener.brickFrame), 'Z', new ItemInstance(ItemListener.woodenBrick));
-            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.archeologyToolBase), "X", "Y", 'X', new ItemInstance(ItemListener.dryBrickFrame), 'Y', new ItemInstance(ItemListener.brickCatalyst));
+
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.brickLauncher), "XYX", "XZX", "XYX", 'X', new ItemInstance(BlockListener.stoneBricks), 'Y', new ItemInstance(BlockBase.PISTON), 'Z', new ItemInstance(BlockBase.DISPENSER));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.spikeMount), " X ", "XYX", "ZZZ", 'X', new ItemInstance(ItemBase.ironIngot), 'Y', new ItemInstance(ItemListener.brokenSpikeHolder), 'Z', new ItemInstance(ItemListener.dryBrickFrame));
         }

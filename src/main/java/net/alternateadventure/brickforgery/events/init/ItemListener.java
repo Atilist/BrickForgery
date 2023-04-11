@@ -42,11 +42,18 @@ public class ItemListener {
 
             brickHammer;
 
+    public static LazyItemTemplate
+            desertPotItem,
+            primitiveBrush;
+
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
         exoticFruit = new TemplateItemBase(Identifier.of(MOD_ID, "exotic_fruit")).setTranslationKey(MOD_ID, "exotic_fruit");
         nightSeeds = new NightSeeds(Identifier.of(MOD_ID, "night_seeds")).setTranslationKey(MOD_ID, "night_seeds");
         nightWheat = new TemplateItemBase(Identifier.of(MOD_ID, "night_wheat")).setTranslationKey(MOD_ID, "night_wheat");
+
+        desertPotItem = new DesertPotItem(Identifier.of(MOD_ID, "desert_pot_item"));
+        primitiveBrush = new PrimitiveBrush(Identifier.of(MOD_ID, "primitive_brush"));
 
         archeologyBrush = new ArcheologyBrush(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
         archeologyChisel = new ArcheologyChisel(Identifier.of(MOD_ID, "archeology_chisel")).setTranslationKey(MOD_ID, "archeology_chisel");

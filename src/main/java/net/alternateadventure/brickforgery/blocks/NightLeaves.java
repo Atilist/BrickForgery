@@ -2,12 +2,8 @@ package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.Level;
-import net.minecraft.util.maths.Box;
 import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
@@ -43,7 +39,7 @@ public class NightLeaves extends TemplateBlockBase {
 
     @Override
     public int getDropCount(Random random) {
-        return random.nextInt(2);
+        return random.nextInt(20) == 0 ? 1 : 0;
     }
 
     @Override

@@ -69,7 +69,7 @@ public class ExoticShrub extends TemplateBlockBase {
 
     @Override
     public boolean canPlaceAt(Level level, int x, int y, int z) {
-        return level.getTileId(x, y, z) == 0 && level.getTileId(x, y, z) == BlockBase.GRASS.id;
+        return level.getTileId(x, y, z) == 0 && level.getTileId(x, y - 1, z) == BlockBase.GRASS.id;
     }
 
     @Override

@@ -5,6 +5,9 @@ tile.night_log.name=Night Log
 tile.night_leaves.name=Night Leaves
 tile.night_planks.name=Night Planks
 
+tile.pot_pedestal.name=Pot Pedestal
+tile.bountiful_sand.name=Bountiful Sand
+
 tile.desert_pot.name=Desert Pot
 tile.frozen_pot.name=Frozen Pot
 tile.frozen_pot_sealed.name=Sealed Frozen Pot
@@ -33,6 +36,9 @@ tile.spike_mount.name=Spike Mount
 item.exotic_fruit.name=Exotic Fruit
 item.night_seeds.name=Night Seeds
 item.night_wheat.name=Night Wheat
+
+item.desert_pot_item.name=Desert Pot
+item.primitive_brush.name=Primitive Brush
 
 item.archeology_brush.name=Archeology Brush
 item.archeology_chisel.name=Archeology Chisel
