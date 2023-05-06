@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {
+      "type": "directory",
+      "source": "ExplorationFeatures",
+      "prefix": "ExplorationFeatures/"
+    },
+    {
+      "type": "directory",
+      "source": "MaterialProcessing",
+      "prefix": "MaterialProcessing/"
+    },
+    {
+      "type": "directory",
+      "source": "modeltextures",
+      "prefix": "modeltextures/"
+    }
+  ]
+}

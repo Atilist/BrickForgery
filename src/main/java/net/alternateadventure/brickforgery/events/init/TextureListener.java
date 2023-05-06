@@ -18,6 +18,7 @@ public class TextureListener {
         ItemListener.exoticFruit.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticFruit"));
         ItemListener.nightSeeds.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightSeeds"));
         ItemListener.nightWheat.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheat"));
+        ItemListener.fernItem.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/FernItem"));
 
         ItemListener.desertPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/DesertPotItem"));
         ItemListener.primitiveBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveBrush"));
@@ -62,6 +63,9 @@ public class TextureListener {
         NightLogSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightLogSide")).index;
         NightLeaves = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightLeaves")).index;
         NightPlanks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightPlanks")).index;
+
+        DoubleRose = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/DoubleRose")).index;
+        DoubleDandelion = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/DoubleDandelion")).index;
 
         PotPedestalTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PotPedestalTop")).index;
         PotPedestalSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PotPedestalSide")).index;
@@ -112,6 +116,10 @@ public class TextureListener {
 
         BlockListener.potPedestal.specifyTextures(PotPedestalTop, PotPedestalSide, PotPedestalBottom);
         BlockListener.bountifulSand.specifyTextures(BountifulSand, BountifulSand, BountifulSand);
+
+        BlockListener.spikeMount.asItem().setTexturePosition(SpikeMount);
+        BlockListener.exoticShrub.asItem().setTexturePosition(ExoticShrub);
+        BlockListener.nightSapling.asItem().setTexturePosition(NightSapling);
     }
 
     public static int
@@ -132,6 +140,9 @@ public class TextureListener {
             NightLogSide,
             NightLeaves,
             NightPlanks,
+
+            DoubleRose,
+            DoubleDandelion,
 
             PotPedestalTop,
             PotPedestalSide,

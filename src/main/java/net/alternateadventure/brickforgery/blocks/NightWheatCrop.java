@@ -1,5 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
+import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.fabricmc.api.EnvType;
@@ -77,8 +78,16 @@ public class NightWheatCrop extends TemplateBlockBase {
 
     @Override
     public void onScheduledTick(Level level, int x, int y, int z, Random random) {
-        if (level.getTileMeta(x, y, z) == 7 || level.getLevelTime() % 24000 < 12000) return;
-        level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
+        if (level.getLevelTime() % 24000 < 12000) return;
+        if (level.getTileMeta(x, y, z) == 7)
+        {
+            if (random.nextInt(16) != 0) return;
+            if (level.getTileId(x + 1, y, z) == BlockBase.TALLGRASS.id && level.getTileMeta(x + 1, y, z) == 2) level.setTile(x + 1, y, z, BlockListener.exoticShrub.id);
+            if (level.getTileId(x - 1, y, z) == BlockBase.TALLGRASS.id && level.getTileMeta(x - 1, y, z) == 2) level.setTile(x - 1, y, z, BlockListener.exoticShrub.id);
+            if (level.getTileId(x, y, z + 1) == BlockBase.TALLGRASS.id && level.getTileMeta(x, y, z + 1) == 2) level.setTile(x, y, z + 1, BlockListener.exoticShrub.id);
+            if (level.getTileId(x, y, z - 1) == BlockBase.TALLGRASS.id && level.getTileMeta(x, y, z - 1) == 2) level.setTile(x, y, z - 1, BlockListener.exoticShrub.id);
+        }
+        else if (random.nextInt(4) == 0) level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
     }
 
     @Override

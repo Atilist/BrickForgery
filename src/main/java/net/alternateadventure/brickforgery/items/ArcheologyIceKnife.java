@@ -28,6 +28,13 @@ public class ArcheologyIceKnife extends TemplateItemBase {
             tool.applyDamage(1, player);
             return true;
         }
+        if (level.getTileId(x, y, z) == BlockBase.TALLGRASS.id && level.getTileMeta(x, y, z) == 2)
+        {
+            level.setTile(x, y, z, 0);
+            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.fernItem)));
+            tool.applyDamage(1, player);
+            return true;
+        }
         return false;
     }
 }

@@ -74,7 +74,20 @@ public class ExoticShrub extends TemplateBlockBase {
 
     @Override
     public void onScheduledTick(Level level, int x, int y, int z, Random random) {
-        if (level.getTileMeta(x, y, z) == 15 || level.getLevelTime() % 24000 < 12000) return;
-        level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
+        if (level.getLevelTime() % 24000 < 12000) return;
+        if (level.getTileMeta(x, y, z) == 15)
+        {
+            if (random.nextInt(2) != 0) return;
+            if (level.getTileId(x + 1, y, z) == BlockBase.ROSE.id) level.placeBlockWithMetaData(x + 1, y, z, BlockListener.doublePlant.id, 0);
+            if (level.getTileId(x - 1, y, z) == BlockBase.ROSE.id) level.placeBlockWithMetaData(x - 1, y, z, BlockListener.doublePlant.id, 0);
+            if (level.getTileId(x, y, z + 1) == BlockBase.ROSE.id) level.placeBlockWithMetaData(x, y, z + 1, BlockListener.doublePlant.id, 0);
+            if (level.getTileId(x, y, z - 1) == BlockBase.ROSE.id) level.placeBlockWithMetaData(x, y, z - 1, BlockListener.doublePlant.id, 0);
+            if (level.getTileId(x + 1, y, z) == BlockBase.DANDELION.id) level.placeBlockWithMetaData(x + 1, y, z, BlockListener.doublePlant.id, 1);
+            if (level.getTileId(x - 1, y, z) == BlockBase.DANDELION.id) level.placeBlockWithMetaData(x - 1, y, z, BlockListener.doublePlant.id, 1);
+            if (level.getTileId(x, y, z + 1) == BlockBase.DANDELION.id) level.placeBlockWithMetaData(x, y, z + 1, BlockListener.doublePlant.id, 1);
+            if (level.getTileId(x, y, z - 1) == BlockBase.DANDELION.id) level.placeBlockWithMetaData(x, y, z - 1, BlockListener.doublePlant.id, 1);
+            level.setTileMeta(x, y, z, 0);
+        }
+        else level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
     }
 }

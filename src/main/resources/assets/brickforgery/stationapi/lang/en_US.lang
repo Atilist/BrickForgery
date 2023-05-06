@@ -36,6 +36,7 @@ tile.spike_mount.name=Spike Mount
 item.exotic_fruit.name=Exotic Fruit
 item.night_seeds.name=Night Seeds
 item.night_wheat.name=Night Wheat
+item.fern_item.name=Fern
 
 item.desert_pot_item.name=Desert Pot
 item.primitive_brush.name=Primitive Brush

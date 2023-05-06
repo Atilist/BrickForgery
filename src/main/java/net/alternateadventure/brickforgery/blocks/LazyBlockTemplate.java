@@ -30,8 +30,9 @@ public class LazyBlockTemplate extends TemplateBlockBase {
         bottomTextureInternal = bottomTexture;
     }
 
+
     @Override
-    public int getTextureForSide(int i) {
+    public int getTextureForSide(int i, int j) {
         return i == 0 ? bottomTextureInternal : i == 1 ? topTextureInternal : sideTextureInternal;
     }
 }

@@ -2,6 +2,7 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.items.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
+import net.minecraft.item.ItemBase;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -14,7 +15,7 @@ public class ItemListener {
     @Entrypoint.ModID
     public static final ModID MOD_ID = Null.get();
 
-    public static TemplateItemBase
+    public static ItemBase
             exoticFruit,
             nightSeeds,
             nightWheat,
@@ -44,13 +45,15 @@ public class ItemListener {
 
     public static LazyItemTemplate
             desertPotItem,
-            primitiveBrush;
+            primitiveBrush,
+            fernItem;
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
         exoticFruit = new TemplateItemBase(Identifier.of(MOD_ID, "exotic_fruit")).setTranslationKey(MOD_ID, "exotic_fruit");
         nightSeeds = new NightSeeds(Identifier.of(MOD_ID, "night_seeds")).setTranslationKey(MOD_ID, "night_seeds");
         nightWheat = new TemplateItemBase(Identifier.of(MOD_ID, "night_wheat")).setTranslationKey(MOD_ID, "night_wheat");
+        fernItem = new FernItem(Identifier.of(MOD_ID, "fern_item"));
 
         desertPotItem = new DesertPotItem(Identifier.of(MOD_ID, "desert_pot_item"));
         primitiveBrush = new PrimitiveBrush(Identifier.of(MOD_ID, "primitive_brush"));
