@@ -48,7 +48,13 @@ public class BlockListener {
     public static LazyBlockTemplate
             potPedestal,
             bountifulSand,
-            doublePlant;
+            doublePlant,
+
+            coalOreBricks,
+            ironOreBricks,
+            goldOreBricks,
+            redstoneOreBricks,
+            diamondOreBricks;
 
     @Entrypoint.ModID
     public static final ModID MOD_ID = Null.get();
@@ -90,5 +96,11 @@ public class BlockListener {
         brickSoilDepleted = new BrickSoilDepleted(Identifier.of(MOD_ID, "brick_soil_depleted"), Material.SAND).setHardness(0.5F).setSounds(BlockBase.SAND_SOUNDS).setTranslationKey(MOD_ID, "brick_soil_depleted");
 
         spikeMount = new SpikeMount(Identifier.of(MOD_ID, "spike_mount"), Material.METAL).setHardness(1.5F).setSounds(BlockBase.METAL_SOUNDS).setTranslationKey(MOD_ID, "spike_mount");
+
+        coalOreBricks = new CoalOreBricks(Identifier.of(MOD_ID, "coal_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+        ironOreBricks = new IronOreBricks(Identifier.of(MOD_ID, "iron_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+        goldOreBricks = new GoldOreBricks(Identifier.of(MOD_ID, "gold_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+        redstoneOreBricks = new RedstoneOreBricks(Identifier.of(MOD_ID, "redstone_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+        diamondOreBricks = new DiamondOreBricks(Identifier.of(MOD_ID, "diamond_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
     }
 }

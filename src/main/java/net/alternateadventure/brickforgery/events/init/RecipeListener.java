@@ -40,10 +40,17 @@ public class RecipeListener {
             CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockListener.nightSapling), new ItemInstance(ItemListener.exoticFruit), new ItemInstance(BlockBase.SAPLING));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockListener.nightPlanks, 4), new ItemInstance(BlockListener.nightLog));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.nightSeeds), new ItemInstance(ItemListener.nightWheat));
+            CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.exoticCatalyst), new ItemInstance(ItemListener.brickCatalyst), new ItemInstance(ItemListener.exoticFruit));
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {
             SmeltingRegistry.addSmeltingRecipe(BlockListener.woodenBricks.id, new ItemInstance(ItemListener.brickAsh));
+
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.coalOreBrick.id, new ItemInstance(ItemBase.coal));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreBrick.id, new ItemInstance(ItemBase.ironIngot));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOreBrick.id, new ItemInstance(ItemBase.goldIngot));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.redstoneOreBrick.id, new ItemInstance(ItemBase.redstoneDust, 4));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.diamondOreBrick.id, new ItemInstance(ItemBase.diamond));
         }
     }
 }

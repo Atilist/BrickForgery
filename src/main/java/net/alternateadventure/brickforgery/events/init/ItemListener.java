@@ -46,7 +46,14 @@ public class ItemListener {
     public static LazyItemTemplate
             desertPotItem,
             primitiveBrush,
-            fernItem;
+            fernItem,
+            exoticCatalyst,
+
+            coalOreBrick,
+            ironOreBrick,
+            goldOreBrick,
+            redstoneOreBrick,
+            diamondOreBrick;
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
@@ -80,5 +87,13 @@ public class ItemListener {
         clayPowder = new TemplateItemBase(Identifier.of(MOD_ID, "clay_powder")).setTranslationKey(MOD_ID, "clay_powder");
 
         brickHammer = new BrickHammer(Identifier.of(MOD_ID, "brick_hammer")).setTranslationKey(MOD_ID, "brick_hammer");
+        exoticCatalyst = new ExoticCatalyst(Identifier.of(MOD_ID, "exotic_catalyst"));
+
+        coalOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "coal_ore_brick"));
+        ironOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "iron_ore_brick"));
+        goldOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "gold_ore_brick"));
+        redstoneOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "redstone_ore_brick"));
+        diamondOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "diamond_ore_brick"));
+
     }
 }

@@ -1,5 +1,6 @@
 package net.alternateadventure.brickforgery.events.init;
 
+import net.alternateadventure.brickforgery.blocks.IronOreBricks;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
@@ -45,6 +46,13 @@ public class TextureListener {
         ItemListener.clayPowder.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ClayPowder"));
 
         ItemListener.brickHammer.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Tools/BrickHammer"));
+        ItemListener.exoticCatalyst.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ExoticCatalyst"));
+
+        ItemListener.coalOreBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/CoalOreBrick"));
+        ItemListener.ironOreBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/IronOreBrick"));
+        ItemListener.goldOreBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/GoldOreBrick"));
+        ItemListener.redstoneOreBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/RedstoneOreBrick"));
+        ItemListener.diamondOreBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/DiamondOreBrick"));
 
         ExoticShrub = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrub")).index;
         ExoticShrubMature = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrubMature")).index;
@@ -114,8 +122,20 @@ public class TextureListener {
         SpikeMount = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/SpikeMount")).index;
         SpikeMountLoaded = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/SpikeMountLoaded")).index;
 
+        IronOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/IronOreBricks")).index;
+        CoalOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/CoalOreBricks")).index;
+        GoldOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/GoldOreBricks")).index;
+        RedstoneOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/RedstoneOreBricks")).index;
+        DiamondOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/DiamondOreBricks")).index;
+
         BlockListener.potPedestal.specifyTextures(PotPedestalTop, PotPedestalSide, PotPedestalBottom);
-        BlockListener.bountifulSand.specifyTextures(BountifulSand, BountifulSand, BountifulSand);
+        BlockListener.bountifulSand.specifyTextures(BountifulSand);
+
+        BlockListener.coalOreBricks.specifyTextures(CoalOreBricks);
+        BlockListener.ironOreBricks.specifyTextures(IronOreBricks);
+        BlockListener.goldOreBricks.specifyTextures(GoldOreBricks);
+        BlockListener.redstoneOreBricks.specifyTextures(RedstoneOreBricks);
+        BlockListener.diamondOreBricks.specifyTextures(DiamondOreBricks);
 
         BlockListener.spikeMount.asItem().setTexturePosition(SpikeMount);
         BlockListener.exoticShrub.asItem().setTexturePosition(ExoticShrub);
@@ -189,6 +209,12 @@ public class TextureListener {
             BrickSoilBottomDepleted,
 
             SpikeMount,
-            SpikeMountLoaded;
+            SpikeMountLoaded,
+
+            CoalOreBricks,
+            IronOreBricks,
+            GoldOreBricks,
+            RedstoneOreBricks,
+            DiamondOreBricks;
 
 }
