@@ -7,6 +7,8 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Item;
+import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.util.maths.Box;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -56,6 +58,15 @@ public class BrickCrop extends TemplateBlockBase {
     @Environment(EnvType.CLIENT)
     public int getRenderType() {
         return 1;
+    }
+
+    @Override
+    public void onAdjacentBlockUpdate(Level arg, int i, int j, int k, int l) {
+        if (arg.getTileId(i, j - 1, k) != BlockListener.brickSoil.id && arg.getTileId(i, j - 1, k) != BlockListener.brickSoilDepleted.id)
+        {
+            arg.setTile(i, j, k, 0);
+            arg.spawnEntity(new Item(arg, i, j, k, new ItemInstance(ItemListener.brickSeedlings)));
+        }
     }
 
     @Override

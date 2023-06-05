@@ -1,0 +1,14 @@
+{
+  "values": [
+    "brickforgery:coal_ore_bricks",
+    "brickforgery:iron_ore_bricks",
+    "brickforgery:gold_ore_bricks",
+    "brickforgery:redstone_ore_bricks",
+    "brickforgery:diamond_ore_bricks",
+    "brickforgery:spike_mount",
+    "brickforgery:brick_soil",
+    "brickforgery:brick_frame_crafter_dusted",
+    "brickforgery:brick_frame_crafter",
+    "brickforgery:stone_bricks"
+  ]
+}
