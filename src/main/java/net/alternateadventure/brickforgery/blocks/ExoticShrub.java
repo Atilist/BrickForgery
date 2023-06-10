@@ -77,17 +77,31 @@ public class ExoticShrub extends TemplateBlockBase {
         if (level.getLevelTime() % 24000 < 12000) return;
         if (level.getTileMeta(x, y, z) == 15)
         {
+            boolean fertilizedFlowers = false;
             if (random.nextInt(2) != 0) return;
-            if (level.getTileId(x + 1, y, z) == BlockBase.ROSE.id) level.placeBlockWithMetaData(x + 1, y, z, BlockListener.doublePlant.id, 0);
-            if (level.getTileId(x - 1, y, z) == BlockBase.ROSE.id) level.placeBlockWithMetaData(x - 1, y, z, BlockListener.doublePlant.id, 0);
-            if (level.getTileId(x, y, z + 1) == BlockBase.ROSE.id) level.placeBlockWithMetaData(x, y, z + 1, BlockListener.doublePlant.id, 0);
-            if (level.getTileId(x, y, z - 1) == BlockBase.ROSE.id) level.placeBlockWithMetaData(x, y, z - 1, BlockListener.doublePlant.id, 0);
-            if (level.getTileId(x + 1, y, z) == BlockBase.DANDELION.id) level.placeBlockWithMetaData(x + 1, y, z, BlockListener.doublePlant.id, 1);
-            if (level.getTileId(x - 1, y, z) == BlockBase.DANDELION.id) level.placeBlockWithMetaData(x - 1, y, z, BlockListener.doublePlant.id, 1);
-            if (level.getTileId(x, y, z + 1) == BlockBase.DANDELION.id) level.placeBlockWithMetaData(x, y, z + 1, BlockListener.doublePlant.id, 1);
-            if (level.getTileId(x, y, z - 1) == BlockBase.DANDELION.id) level.placeBlockWithMetaData(x, y, z - 1, BlockListener.doublePlant.id, 1);
-            level.setTileMeta(x, y, z, 0);
+
+            if (checkForFlowerAndGrow(level, x + 1, y, z, BlockBase.ROSE.id, 0))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x - 1, y, z, BlockBase.ROSE.id, 0))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x, y, z + 1, BlockBase.ROSE.id, 0))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x, y, z - 1, BlockBase.ROSE.id, 0))  fertilizedFlowers = true;
+
+            if (checkForFlowerAndGrow(level, x + 1, y, z, BlockBase.DANDELION.id, 1))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x - 1, y, z, BlockBase.DANDELION.id, 1))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x, y, z + 1, BlockBase.DANDELION.id, 1))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x, y, z - 1, BlockBase.DANDELION.id, 1))  fertilizedFlowers = true;
+
+            if (fertilizedFlowers) level.setTileMeta(x, y, z, 0);
         }
         else level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
+    }
+
+    public boolean checkForFlowerAndGrow(Level level, int x, int y, int z, int inputBlockID, int outputBlockMeta)
+    {
+        if (level.getTileId(x, y, z) == inputBlockID)
+        {
+            level.placeBlockWithMetaData(x , y, z, BlockListener.doublePlant.id, outputBlockMeta);
+            return true;
+        }
+        return false;
     }
 }
