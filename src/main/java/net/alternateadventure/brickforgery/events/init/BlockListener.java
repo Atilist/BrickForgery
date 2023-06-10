@@ -48,6 +48,7 @@ public class BlockListener {
     public static LazyBlockTemplate
             potPedestal,
             bountifulSand,
+            bountifulSnow,
             doublePlant,
 
             coalOreBricks,
@@ -71,6 +72,7 @@ public class BlockListener {
 
         potPedestal = new LazyBlockTemplate(Identifier.of(MOD_ID, "pot_pedestal"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
         bountifulSand = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_sand"), Material.SAND, 1.5F, BlockBase.SAND_SOUNDS);
+        bountifulSnow = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_snow"), Material.SNOW_BLOCK, 1.5F, BlockBase.WOOL_SOUNDS);
 
         desertPot = new DesertPot(Identifier.of(MOD_ID, "desert_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "desert_pot");
         frozenPotSealed = new FrozenPotSealed(Identifier.of(MOD_ID, "frozen_pot_sealed"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot_sealed");

@@ -1,5 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
+import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.minecraft.block.material.Material;
@@ -23,5 +24,10 @@ public class FrozenPotSealed extends TemplateBlockBase {
     @Override
     public int getTextureForSide(int i) {
         return i == 0 ? TextureListener.FrozenPotBottom : i == 1 ? TextureListener.FrozenPotTopSealed : TextureListener.FrozenPotSide;
+    }
+
+    @Override
+    public int getDropId(int i, Random random) {
+        return ItemListener.archeologyToolBase.id;
     }
 }

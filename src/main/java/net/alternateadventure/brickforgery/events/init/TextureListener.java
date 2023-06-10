@@ -22,6 +22,7 @@ public class TextureListener {
         ItemListener.fernItem.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/FernItem"));
 
         ItemListener.desertPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/DesertPotItem"));
+        ItemListener.frozenPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/FrozenPotItem"));
         ItemListener.primitiveBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveBrush"));
 
         ItemListener.archeologyBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyBrush"));
@@ -80,6 +81,7 @@ public class TextureListener {
         PotPedestalBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PotPedestalBottom")).index;
 
         BountifulSand = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/BountifulSand")).index;
+        BountifulSnow = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/BountifulSnow")).index;
 
         DesertPotTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotTop")).index;
         DesertPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotSide")).index;
@@ -130,6 +132,7 @@ public class TextureListener {
 
         BlockListener.potPedestal.specifyTextures(PotPedestalTop, PotPedestalSide, PotPedestalBottom);
         BlockListener.bountifulSand.specifyTextures(BountifulSand);
+        BlockListener.bountifulSnow.specifyTextures(BountifulSnow);
 
         BlockListener.coalOreBricks.specifyTextures(CoalOreBricks);
         BlockListener.ironOreBricks.specifyTextures(IronOreBricks);
@@ -169,6 +172,7 @@ public class TextureListener {
             PotPedestalBottom,
 
             BountifulSand,
+            BountifulSnow,
 
             DesertPotTop,
             DesertPotSide,

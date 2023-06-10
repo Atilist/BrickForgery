@@ -25,6 +25,13 @@ public class PrimitiveBrush extends LazyItemTemplate {
             if (rand.nextBoolean()) level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.desertPotItem)));
             return true;
         }
+        else if (level.getTileId(x, y, z) == BlockListener.bountifulSnow.id)
+        {
+            level.setTile(x, y, z, 0);
+            tool.applyDamage(1, player);
+            if (rand.nextBoolean()) level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.frozenPotItem)));
+            return true;
+        }
         return false;
     }
 }

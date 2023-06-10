@@ -32,10 +32,12 @@ public class ChunkListener {
             }
         }
         if (event.biome == Biome.TUNDRA) {
-            x = event.x + event.random.nextInt(16);
-            y = event.random.nextInt(48) + 64;
-            z = event.z + event.random.nextInt(16);
-            new FrozenPotArea().generate(event.level, event.random, x, y, z);
+            for (int attempts = 0; attempts < 8; attempts++) {
+                x = event.x + event.random.nextInt(16);
+                y = event.random.nextInt(48) + 64;
+                z = event.z + event.random.nextInt(16);
+                new FrozenPotArea().generate(event.level, event.random, x, y, z);
+            }
         }
         if (event.biome == Biome.RAINFOREST) {
             for (int attempts = 0; attempts < 64; attempts++) {
@@ -45,7 +47,7 @@ public class ChunkListener {
                 new MossyPotArea().generate(event.level, event.random, x, y, z);
             }
         }
-        if (event.biome == Biome.PLAINS || event.biome == Biome.SHRUBLAND || event.biome == Biome.SAVANNA || event.biome == Biome.SWAMPLAND) {
+        if (event.biome == Biome.PLAINS || event.biome == Biome.SHRUBLAND || event.biome == Biome.SAVANNA || event.biome == Biome.SWAMPLAND || event.biome == Biome.TUNDRA) {
             for (int attempts = 0; attempts < 4; attempts++) {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(48) + 64;

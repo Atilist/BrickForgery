@@ -45,6 +45,7 @@ public class ItemListener {
 
     public static LazyItemTemplate
             desertPotItem,
+            frozenPotItem,
             primitiveBrush,
             fernItem,
             exoticCatalyst,
@@ -63,8 +64,9 @@ public class ItemListener {
         fernItem = new FernItem(Identifier.of(MOD_ID, "fern_item"));
 
         desertPotItem = new DesertPotItem(Identifier.of(MOD_ID, "desert_pot_item"));
-        primitiveBrush = new PrimitiveBrush(Identifier.of(MOD_ID, "primitive_brush"));
+        frozenPotItem = new FrozenPotItem(Identifier.of(MOD_ID, "frozen_pot_item"));
 
+        primitiveBrush = new PrimitiveBrush(Identifier.of(MOD_ID, "primitive_brush"));
         archeologyBrush = new ArcheologyBrush(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
         archeologyChisel = new ArcheologyChisel(Identifier.of(MOD_ID, "archeology_chisel")).setTranslationKey(MOD_ID, "archeology_chisel");
         archeologyIceKnife = new ArcheologyIceKnife(Identifier.of(MOD_ID, "archeology_ice_knife")).setTranslationKey(MOD_ID, "archeology_ice_knife");

@@ -8,6 +8,6 @@ import java.util.Random;
 
 public class ExoticShrubArea {
     public void generate(Level level, Random rand, int x, int y, int z) {
-        if (level.getTileId(x, y, z) == 0 && level.getTileId(x, y - 1, z) == BlockBase.GRASS.id) level.setTile(x, y, z, BlockListener.exoticShrub.id);
+        if ((level.getTileId(x, y, z) == 0 || level.getTileId(x, y ,z) == BlockBase.SNOW.id) && level.getTileId(x, y - 1, z) == BlockBase.GRASS.id) level.setTile(x, y, z, BlockListener.exoticShrub.id);
     }
 }

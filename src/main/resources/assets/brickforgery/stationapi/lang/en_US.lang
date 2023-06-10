@@ -7,6 +7,7 @@ tile.night_planks.name=Night Planks
 
 tile.pot_pedestal.name=Pot Pedestal
 tile.bountiful_sand.name=Bountiful Sand
+tile.bountiful_snow.name=Bountiful Snow
 
 tile.desert_pot.name=Desert Pot
 tile.frozen_pot.name=Frozen Pot
@@ -45,6 +46,7 @@ item.night_wheat.name=Night Wheat
 item.fern_item.name=Fern
 
 item.desert_pot_item.name=Desert Pot
+item.frozen_pot_item.name=Sealed Frozen Pot
 item.primitive_brush.name=Primitive Brush
 
 item.archeology_brush.name=Archeology Brush
