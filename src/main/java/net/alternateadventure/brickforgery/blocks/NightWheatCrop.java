@@ -8,6 +8,8 @@ import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Item;
+import net.minecraft.entity.player.PlayerBase;
+import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.util.maths.Box;
@@ -74,6 +76,18 @@ public class NightWheatCrop extends TemplateBlockBase {
     @Override
     public boolean canPlaceAt(Level level, int x, int y, int z) {
         return level.getTileId(x, y, z) == 0 && level.getTileId(x, y - 1, z) == BlockBase.FARMLAND.id;
+    }
+
+    @Override
+    public boolean canUse(Level level, int x, int y, int z, PlayerBase player) {
+        if (level.getLevelTime() % 24000 < 12000) return false;
+        if (level.getTileMeta(x, y, z) == 7) return false;
+        ItemInstance item = player.getHeldItem();
+        if (item == null) return false;
+        if (item.itemId != ItemBase.dyePowder.id && item.getDamage() != 15) return false;
+        item.count--;
+        level.placeBlockWithMetaData(x, y, z, BlockListener.nightWheatCrop.id, 7);
+        return true;
     }
 
     @Override

@@ -37,7 +37,7 @@ public class RecipeListener {
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.dryBrickFrame), new ItemInstance(ItemListener.brickFrame), new ItemInstance(ItemListener.brickAsh), new ItemInstance(ItemListener.brickCatalyst));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemBase.clay), new ItemInstance(ItemListener.clayPowder), new ItemInstance(ItemListener.snowBrick));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.nightSeeds), new ItemInstance(ItemListener.exoticFruit), new ItemInstance(ItemBase.seeds));
-            CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockListener.nightSapling), new ItemInstance(ItemListener.exoticFruit), new ItemInstance(BlockBase.SAPLING));
+            CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockListener.nightSapling), new ItemInstance(ItemListener.exoticFruit), new ItemInstance(BlockBase.SAPLING, 1, -1));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(BlockListener.nightPlanks, 4), new ItemInstance(BlockListener.nightLog));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.nightSeeds), new ItemInstance(ItemListener.nightWheat));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.exoticCatalyst), new ItemInstance(ItemListener.brickCatalyst), new ItemInstance(ItemListener.exoticFruit));

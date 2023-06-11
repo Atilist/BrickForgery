@@ -6,6 +6,9 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.player.PlayerBase;
+import net.minecraft.item.ItemBase;
+import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.util.maths.Box;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -68,12 +71,24 @@ public class NightSapling extends TemplateBlockBase {
             growTree(level, x, y, z, random);
             return;
         }
-        level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
+        if (level.getTileMeta(x, y, z) < 15) level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
+    }
+
+    @Override
+    public boolean canUse(Level level, int x, int y, int z, PlayerBase player) {
+        if (level.getLevelTime() % 24000 < 12000) return false;
+        ItemInstance item = player.getHeldItem();
+        if (item == null) return false;
+        if (item.itemId != ItemBase.dyePowder.id && item.getDamage() != 15) return false;
+        item.count--;
+        growTree(level, x, y, z, new Random());
+        return true;
     }
 
     private void growTree(Level level, int x, int y, int z, Random random)
     {
         int randomHeight = random.nextInt(5) + 4;
+        level.setTile(x, y - 1, z, BlockBase.DIRT.id);
         for (int height = 0; height < randomHeight; height++)
         {
             level.setTile(x, y + height, z, BlockListener.nightLog.id);
