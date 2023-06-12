@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.blocks.IronOreBricks;
+import net.alternateadventure.brickforgery.blocks.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
@@ -24,6 +24,7 @@ public class TextureListener {
         ItemListener.desertPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/DesertPotItem"));
         ItemListener.frozenPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/FrozenPotItem"));
         ItemListener.primitiveBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveBrush"));
+        ItemListener.primitiveChisel.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveChisel"));
 
         ItemListener.archeologyBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyBrush"));
         ItemListener.archeologyChisel.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/ArcheologyChisel"));
@@ -57,6 +58,7 @@ public class TextureListener {
 
         ExoticShrub = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrub")).index;
         ExoticShrubMature = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrubMature")).index;
+        ExoticShrubDead = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrubDead")).index;
 
         NightWheatCropBud = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropBud")).index;
         NightWheatCropSmall = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheatCropSmall")).index;
@@ -86,6 +88,7 @@ public class TextureListener {
         DesertPotTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotTop")).index;
         DesertPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotSide")).index;
         DesertPotBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotBottom")).index;
+        DesertPotTopSealed = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotTopSealed")).index;
 
         FrozenPotTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotTop")).index;
         FrozenPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotSide")).index;
@@ -133,6 +136,7 @@ public class TextureListener {
         BlockListener.potPedestal.specifyTextures(PotPedestalTop, PotPedestalSide, PotPedestalBottom);
         BlockListener.bountifulSand.specifyTextures(BountifulSand);
         BlockListener.bountifulSnow.specifyTextures(BountifulSnow);
+        BlockListener.desertPotSealed.specifyTextures(DesertPotTopSealed, DesertPotSide, DesertPotBottom);
 
         BlockListener.coalOreBricks.specifyTextures(CoalOreBricks);
         BlockListener.ironOreBricks.specifyTextures(IronOreBricks);
@@ -148,6 +152,7 @@ public class TextureListener {
     public static int
             ExoticShrub,
             ExoticShrubMature,
+            ExoticShrubDead,
 
             NightWheatCropBud,
             NightWheatCropSmall,
@@ -177,6 +182,7 @@ public class TextureListener {
             DesertPotTop,
             DesertPotSide,
             DesertPotBottom,
+            DesertPotTopSealed,
 
             FrozenPotTop,
             FrozenPotSide,

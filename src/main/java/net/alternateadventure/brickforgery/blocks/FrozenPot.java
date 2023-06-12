@@ -22,6 +22,7 @@ public class FrozenPot extends TemplateBlockBase {
 
     @Override
     public int getDropId(int i, Random random) {
+        if (random.nextInt(4) != 0) return ItemListener.archeologyToolBase.id;
         return ItemListener.iceBlade.id;
     }
 

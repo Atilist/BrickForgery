@@ -65,7 +65,7 @@ public class NightSapling extends TemplateBlockBase {
 
     @Override
     public void onScheduledTick(Level level, int x, int y, int z, Random random) {
-        if (level.getLevelTime() % 24000 < 12000) return;
+        if (level.isDaylight()) return;
         if (level.getTileMeta(x, y, z) == 15 && random.nextInt(4) == 0)
         {
             growTree(level, x, y, z, random);
@@ -76,7 +76,7 @@ public class NightSapling extends TemplateBlockBase {
 
     @Override
     public boolean canUse(Level level, int x, int y, int z, PlayerBase player) {
-        if (level.getLevelTime() % 24000 < 12000) return false;
+        if (level.isDaylight()) return false;
         ItemInstance item = player.getHeldItem();
         if (item == null) return false;
         if (item.itemId != ItemBase.dyePowder.id && item.getDamage() != 15) return false;

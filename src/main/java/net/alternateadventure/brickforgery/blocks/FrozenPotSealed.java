@@ -28,6 +28,6 @@ public class FrozenPotSealed extends TemplateBlockBase {
 
     @Override
     public int getDropId(int i, Random random) {
-        return ItemListener.archeologyToolBase.id;
+        return ItemListener.frozenPotItem.id;
     }
 }

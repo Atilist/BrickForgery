@@ -1,21 +1,17 @@
 package net.alternateadventure.brickforgery.items;
 
 import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.alternateadventure.brickforgery.events.init.ItemListener;
-import net.minecraft.block.BlockBase;
-import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
 
-public class ArcheologyChisel extends TemplateItemBase {
+public class PrimitiveChisel extends LazyItemTemplate {
 
-    public ArcheologyChisel(Identifier identifier) {
+    public PrimitiveChisel(Identifier identifier) {
         super(identifier);
         this.maxStackSize = 1;
-        this.setDurability(256);
+        this.setDurability(32);
     }
 
     @Override
@@ -31,13 +27,6 @@ public class ArcheologyChisel extends TemplateItemBase {
         {
             level.setTile(x, y, z, BlockListener.desertPot.id);
             tool.applyDamage(1, player);
-            return true;
-        }
-        else if (level.getTileId(x, y, z) == BlockBase.WOOD.id)
-        {
-            level.setTile(x, y, z, 0);
-            tool.applyDamage(1, player);
-            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.woodenBrick, 4)));
             return true;
         }
         return false;

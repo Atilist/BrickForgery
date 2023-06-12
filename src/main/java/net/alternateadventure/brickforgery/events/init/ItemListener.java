@@ -47,6 +47,7 @@ public class ItemListener {
             desertPotItem,
             frozenPotItem,
             primitiveBrush,
+            primitiveChisel,
             fernItem,
             exoticCatalyst,
 
@@ -67,6 +68,7 @@ public class ItemListener {
         frozenPotItem = new FrozenPotItem(Identifier.of(MOD_ID, "frozen_pot_item"));
 
         primitiveBrush = new PrimitiveBrush(Identifier.of(MOD_ID, "primitive_brush"));
+        primitiveChisel = new PrimitiveChisel(Identifier.of(MOD_ID, "primitive_chisel"));
         archeologyBrush = new ArcheologyBrush(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
         archeologyChisel = new ArcheologyChisel(Identifier.of(MOD_ID, "archeology_chisel")).setTranslationKey(MOD_ID, "archeology_chisel");
         archeologyIceKnife = new ArcheologyIceKnife(Identifier.of(MOD_ID, "archeology_ice_knife")).setTranslationKey(MOD_ID, "archeology_ice_knife");

@@ -80,7 +80,7 @@ public class NightWheatCrop extends TemplateBlockBase {
 
     @Override
     public boolean canUse(Level level, int x, int y, int z, PlayerBase player) {
-        if (level.getLevelTime() % 24000 < 12000) return false;
+        if (level.isDaylight()) return false;
         if (level.getTileMeta(x, y, z) == 7) return false;
         ItemInstance item = player.getHeldItem();
         if (item == null) return false;
@@ -92,7 +92,7 @@ public class NightWheatCrop extends TemplateBlockBase {
 
     @Override
     public void onScheduledTick(Level level, int x, int y, int z, Random random) {
-        if (level.getLevelTime() % 24000 < 12000) return;
+        if (level.isDaylight()) return;
         if (level.getTileMeta(x, y, z) == 7)
         {
             if (random.nextInt(16) != 0) return;

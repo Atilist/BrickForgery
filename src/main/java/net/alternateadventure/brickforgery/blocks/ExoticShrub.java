@@ -69,12 +69,17 @@ public class ExoticShrub extends TemplateBlockBase {
 
     @Override
     public boolean canPlaceAt(Level level, int x, int y, int z) {
-        return level.getTileId(x, y, z) == 0 && level.getTileId(x, y - 1, z) == BlockBase.GRASS.id;
+        return level.getTileId(x, y, z) == 0 && (level.getTileId(x, y - 1, z) == BlockBase.GRASS.id || level.getTileId(x, y - 1, z) == BlockBase.DIRT.id || level.getTileId(x, y - 1, z) == BlockBase.FARMLAND.id);
     }
 
     @Override
     public void onScheduledTick(Level level, int x, int y, int z, Random random) {
-        if (level.getLevelTime() % 24000 < 12000) return;
+        if (!getsSkylight(level, x, y, z))
+        {
+            level.placeBlockWithMetaData(x, y, z, BlockListener.exoticShrubDead.id, level.getTileMeta(x, y, z));
+            return;
+        }
+        if (level.isDaylight()) return;
         if (level.getTileMeta(x, y, z) == 15)
         {
             boolean fertilizedFlowers = false;
@@ -99,9 +104,18 @@ public class ExoticShrub extends TemplateBlockBase {
     {
         if (level.getTileId(x, y, z) == inputBlockID)
         {
-            level.placeBlockWithMetaData(x , y, z, BlockListener.doublePlant.id, outputBlockMeta);
+            level.placeBlockWithMetaData(x, y, z, BlockListener.doublePlant.id, outputBlockMeta);
             return true;
         }
         return false;
+    }
+
+    public boolean getsSkylight(Level level, int x, int y, int z)
+    {
+        for (int height = y + 1; height <= level.getHeight(x, z); height++) {
+            if (level.getTileId(x, height, z) == 0) continue;
+            if (level.isFullOpaque(x, height, z)) return false;
+        }
+        return true;
     }
 }

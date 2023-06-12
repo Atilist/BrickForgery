@@ -3,6 +3,7 @@ package net.alternateadventure.brickforgery.events.init;
 import net.alternateadventure.brickforgery.blocks.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
+import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
@@ -14,6 +15,7 @@ public class BlockListener {
 
     public static BlockBase
             exoticShrub,
+            exoticShrubDead,
             nightWheatCrop,
             nightSapling,
             nightLog,
@@ -46,6 +48,8 @@ public class BlockListener {
             spikeMount;
 
     public static LazyBlockTemplate
+            desertPotSealed,
+
             potPedestal,
             bountifulSand,
             bountifulSnow,
@@ -63,6 +67,7 @@ public class BlockListener {
     @EventListener
     public void registerBlocks(BlockRegistryEvent event) {
         exoticShrub = new ExoticShrub(Identifier.of(MOD_ID, "exotic_shrub"), Material.PLANT).setHardness(0.0F).setSounds(BlockBase.GRASS_SOUNDS).setTranslationKey(MOD_ID, "exotic_shrub");
+        exoticShrubDead = new ExoticShrubDead(Identifier.of(MOD_ID, "exotic_shrub_dead"), Material.PLANT).setHardness(0.0F).setSounds(BlockBase.GRASS_SOUNDS).setTranslationKey(MOD_ID, "exotic_shrub_dead");
         nightWheatCrop = new NightWheatCrop(Identifier.of(MOD_ID, "night_wheat_crop"), Material.PLANT).setHardness(0.0F).setSounds(BlockBase.GRASS_SOUNDS).setTranslationKey(MOD_ID, "night_wheat_crop");
         nightSapling = new NightSapling(Identifier.of(MOD_ID, "night_sapling"), Material.PLANT).setHardness(0.0F).setSounds(BlockBase.GRASS_SOUNDS).setTranslationKey(MOD_ID, "night_sapling");
         nightLog = new NightLog(Identifier.of(MOD_ID, "night_log"), Material.WOOD).setHardness(1.5F).setSounds(BlockBase.WOOD_SOUNDS).setTranslationKey(MOD_ID, "night_log");
@@ -74,6 +79,7 @@ public class BlockListener {
         bountifulSand = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_sand"), Material.SAND, 1.5F, BlockBase.SAND_SOUNDS);
         bountifulSnow = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_snow"), Material.SNOW_BLOCK, 1.5F, BlockBase.WOOL_SOUNDS);
 
+        desertPotSealed = new DesertPotSealed(Identifier.of(MOD_ID, "desert_pot_sealed"), Material.STONE, 1.0F, BlockBase.GLASS_SOUNDS);
         desertPot = new DesertPot(Identifier.of(MOD_ID, "desert_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "desert_pot");
         frozenPotSealed = new FrozenPotSealed(Identifier.of(MOD_ID, "frozen_pot_sealed"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot_sealed");
         frozenPot = new FrozenPot(Identifier.of(MOD_ID, "frozen_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot");
