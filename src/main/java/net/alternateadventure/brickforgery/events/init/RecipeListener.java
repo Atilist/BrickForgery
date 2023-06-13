@@ -27,11 +27,30 @@ public class RecipeListener {
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.woodenBricks), "XX", "XX", 'X', new ItemInstance(ItemListener.woodenBrick));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.stoneBricks), "XX", "XX", 'X', new ItemInstance(ItemListener.stoneBrick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.largeStoneBricks, 4), "XY", "YX", 'X', new ItemInstance(ItemListener.stoneBrick), 'Y', new ItemInstance(BlockBase.STONE));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.largeStoneBricks, 4), "YX", "XY", 'X', new ItemInstance(ItemListener.stoneBrick), 'Y', new ItemInstance(BlockBase.STONE));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.fastBricks), "XXX", "YZY", 'X', new ItemInstance(ItemListener.exoticFruit), 'Y', new ItemInstance(ItemListener.brickFrame), 'Z', new ItemInstance(BlockBase.BRICKS));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.brickHammer), "XYX", " Z ", " Z ", 'X', new ItemInstance(ItemBase.brick), 'Y', new ItemInstance(ItemListener.brickFrame), 'Z', new ItemInstance(ItemListener.woodenBrick));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.brickLauncher), "XYX", "XZX", "XYX", 'X', new ItemInstance(BlockListener.stoneBricks), 'Y', new ItemInstance(BlockBase.PISTON), 'Z', new ItemInstance(BlockBase.DISPENSER));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.spikeMount), " X ", "XYX", "ZZZ", 'X', new ItemInstance(ItemBase.ironIngot), 'Y', new ItemInstance(ItemListener.brokenSpikeHolder), 'Z', new ItemInstance(ItemListener.dryBrickFrame));
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.stick, 4), "X", "X", 'X', new ItemInstance(BlockListener.nightPlanks));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.WORKBENCH), "XX", "XX", 'X', new ItemInstance(BlockListener.nightPlanks));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.STONE_PRESSURE_PLATE), "XX", 'X', new ItemInstance(BlockListener.nightPlanks));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.CHEST), "XXX", "X X", "XXX", 'X', new ItemInstance(BlockListener.nightPlanks));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.sign), "XXX", "XXX", " Y ", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemBase.stick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.woodAxe), "XX", "XY", " Y", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemBase.stick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.woodAxe), "XX", "YX", "Y ", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemBase.stick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.woodHoe), "XX", " Y", " Y", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemBase.stick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.woodHoe), "XX", "Y ", "Y ", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemBase.stick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.woodPickaxe), "XXX", " Y ", " Y ", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemBase.stick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.woodShovel), "X", "Y", "Y", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemBase.stick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.woodSword), "X", "X", "Y", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemBase.stick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.STONE_SLAB, 3, 2), "XXX", 'X', new ItemInstance(BlockListener.nightPlanks));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.WOOD_STAIRS, 4), "X  ", "XX ", "XXX", 'X', new ItemInstance(BlockListener.nightPlanks));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.WOOD_STAIRS, 4), "  X", " XX", "XXX", 'X', new ItemInstance(BlockListener.nightPlanks));
         }
         // Output <- Input
         else if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type()) {
@@ -45,6 +64,9 @@ public class RecipeListener {
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {
+            SmeltingRegistry.addSmeltingRecipe(BlockListener.nightLog.id, new ItemInstance(ItemBase.coal, 1, 1));
+            SmeltingRegistry.addSmeltingRecipe(BlockListener.nightPlanks.id, new ItemInstance(BlockBase.WOOD));
+
             SmeltingRegistry.addSmeltingRecipe(BlockListener.woodenBricks.id, new ItemInstance(ItemListener.brickAsh));
 
             SmeltingRegistry.addSmeltingRecipe(ItemListener.coalOreBrick.id, new ItemInstance(ItemBase.coal));

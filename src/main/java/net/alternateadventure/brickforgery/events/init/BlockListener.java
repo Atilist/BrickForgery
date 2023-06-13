@@ -55,6 +55,9 @@ public class BlockListener {
             bountifulSnow,
             doublePlant,
 
+            largeStoneBricks,
+            fastBricks,
+
             coalOreBricks,
             ironOreBricks,
             goldOreBricks,
@@ -94,6 +97,8 @@ public class BlockListener {
 
         woodenBricks = new WoodenBricks(Identifier.of(MOD_ID, "wooden_bricks"), Material.WOOD).setHardness(1.5F).setSounds(BlockBase.WOOD_SOUNDS).setTranslationKey(MOD_ID, "wooden_bricks");
         stoneBricks = new StoneBricks(Identifier.of(MOD_ID, "stone_bricks"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "stone_bricks");
+        largeStoneBricks = new LazyBlockTemplate(Identifier.of(MOD_ID, "large_stone_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+        fastBricks = new FastBricks(Identifier.of(MOD_ID, "fast_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
 
         dust = new Dust(Identifier.of(MOD_ID, "dust"), Material.SAND).setHardness(0.5F).setSounds(BlockBase.SAND_SOUNDS).setTranslationKey(MOD_ID, "dust");
         stoneBrickOre = new StoneBrickOre(Identifier.of(MOD_ID, "stone_brick_ore"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "stone_brick_ore");

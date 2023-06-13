@@ -9,6 +9,8 @@
     "brickforgery:brick_soil",
     "brickforgery:brick_frame_crafter_dusted",
     "brickforgery:brick_frame_crafter",
-    "brickforgery:stone_bricks"
+    "brickforgery:stone_bricks",
+    "brickforgery:large_stone_bricks",
+    "brickforgery:fast_bricks"
   ]
 }

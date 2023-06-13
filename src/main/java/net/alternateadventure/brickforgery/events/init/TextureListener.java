@@ -108,6 +108,8 @@ public class TextureListener {
 
         WoodenBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/WoodenBricks")).index;
         StoneBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/StoneBricks")).index;
+        LargeStoneBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/LargeStoneBricks")).index;
+        FastBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/FastBricks")).index;
 
         Dust = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/Dust")).index;
         StoneBrickOre = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/StoneBrickOre")).index;
@@ -137,6 +139,9 @@ public class TextureListener {
         BlockListener.bountifulSand.specifyTextures(BountifulSand);
         BlockListener.bountifulSnow.specifyTextures(BountifulSnow);
         BlockListener.desertPotSealed.specifyTextures(DesertPotTopSealed, DesertPotSide, DesertPotBottom);
+
+        BlockListener.largeStoneBricks.specifyTextures(LargeStoneBricks);
+        BlockListener.fastBricks.specifyTextures(FastBricks);
 
         BlockListener.coalOreBricks.specifyTextures(CoalOreBricks);
         BlockListener.ironOreBricks.specifyTextures(IronOreBricks);
@@ -202,6 +207,8 @@ public class TextureListener {
 
             WoodenBricks,
             StoneBricks,
+            LargeStoneBricks,
+            FastBricks,
 
             Dust,
             StoneBrickOre,

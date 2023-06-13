@@ -25,6 +25,8 @@ tile.planks_pile.name=Wooden Planks Pile
 
 tile.wooden_bricks.name=Wooden Bricks
 tile.stone_bricks.name=Stone Bricks
+tile.large_stone_bricks.name=Large Stone Bricks
+tile.fast_bricks.name=Fast Bricks
 
 tile.dust.name=Block of Dust
 tile.stone_brick_ore.name=Stone Brick Ore
