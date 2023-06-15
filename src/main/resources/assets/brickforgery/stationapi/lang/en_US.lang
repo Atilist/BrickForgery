@@ -16,6 +16,11 @@ tile.frozen_pot.name=Frozen Pot
 tile.frozen_pot_sealed.name=Sealed Frozen Pot
 tile.mossy_pot.name=Mossy Pot
 
+tile.primitive_machine_frame.name=Primitive Machine Frame
+tile.primitive_brick_frame_crafter.name=Primitive Brick Frame Crafter
+tile.primitive_slicer.name=Primitive Slicer
+tile.primitive_metalworking_station.name=Primitive Metalworking Station
+
 tile.brick_frame_crafter_dusted.name=Dusted Brick Frame Crafter
 tile.brick_frame_crafter.name=Brick Frame Crafter
 tile.brick_launcher.name=Brick Launcher
@@ -54,6 +59,14 @@ item.frozen_pot_item.name=Sealed Frozen Pot
 
 item.primitive_brush.name=Primitive Brush
 item.primitive_chisel.name=Primitive Chisel
+item.primitive_grabber.name=Primitive Grabber
+
+item.leather_strap.name=Leather Strap
+item.golden_screw.name=Golden Screw
+
+item.night_wood_beam.name=Night Wood Beam
+
+item.tool_repair_kit.name=Tool Repair Kit
 
 item.archeology_brush.name=Archeology Brush
 item.archeology_chisel.name=Archeology Chisel

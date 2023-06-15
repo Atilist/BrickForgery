@@ -2,29 +2,21 @@ package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.ItemListener;
-import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.minecraft.block.BlockBase;
+import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
+import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
-public class BrickFrameCrafter extends TemplateBlockBase {
-    public BrickFrameCrafter(Identifier identifier, Material material) {
-        super(identifier, material);
-    }
+import java.util.Random;
 
-    @Override
-    public BrickFrameCrafter setHardness(float Hardness) {
-        return (BrickFrameCrafter) super.setHardness(Hardness);
-    }
-
-    @Override
-    public int getTextureForSide(int i) {
-        return i == 0 ? TextureListener.BrickFrameCrafterBottom : i == 1 ? TextureListener.BrickFrameCrafterTop : TextureListener.BrickFrameCrafterSide;
+public class PrimitiveBrickFrameCrafter extends LazyBlockTemplate {
+    public PrimitiveBrickFrameCrafter(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
+        super(identifier, material, hardness, blockSounds);
     }
 
     @Override
@@ -50,7 +42,10 @@ public class BrickFrameCrafter extends TemplateBlockBase {
 
         if (!(hasClay && hasPlanks)) return;
 
-        level.spawnEntity(new Item(level, x + 0.5, y + 1, z + 0.5, new ItemInstance(ItemListener.brickFrame)));
+        Random random = new Random();
+
+        if (random.nextBoolean()) level.spawnEntity(new Item(level, x + 0.5, y + 1, z + 0.5, new ItemInstance(ItemListener.brickFrame)));
+        else if (random.nextInt(8) == 0) level.spawnEntity(new Item(level, x + 0.5, y + 1, z + 0.5, new ItemInstance(ItemBase.clay)));
 
         boolean clayDecreased;
         boolean planksDecreased;

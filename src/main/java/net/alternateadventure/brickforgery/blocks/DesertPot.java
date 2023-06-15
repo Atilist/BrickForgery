@@ -21,8 +21,13 @@ public class DesertPot extends TemplateBlockBase {
     }
 
     @Override
+    public int getDropCount(Random random) {
+        return 0;
+    }
+
+    @Override
     public int getDropId(int i, Random random) {
-        return ItemListener.archeologyToolBase.id;
+        return 0;
     }
 
     @Override

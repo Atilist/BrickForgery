@@ -46,8 +46,18 @@ public class ItemListener {
     public static LazyItemTemplate
             desertPotItem,
             frozenPotItem,
+
             primitiveBrush,
             primitiveChisel,
+            primitiveGrabber,
+
+            leatherStrap,
+            goldenScrew,
+
+            nightWoodBeam,
+
+            toolRepairKit,
+
             fernItem,
             exoticCatalyst,
 
@@ -69,6 +79,15 @@ public class ItemListener {
 
         primitiveBrush = new PrimitiveBrush(Identifier.of(MOD_ID, "primitive_brush"));
         primitiveChisel = new PrimitiveChisel(Identifier.of(MOD_ID, "primitive_chisel"));
+        primitiveGrabber = new PrimitiveGrabber(Identifier.of(MOD_ID, "primitive_grabber"));
+
+        leatherStrap = new LazyItemTemplate(Identifier.of(MOD_ID, "leather_strap"));
+        goldenScrew = new LazyItemTemplate(Identifier.of(MOD_ID, "golden_screw"));
+
+        nightWoodBeam = new LazyItemTemplate(Identifier.of(MOD_ID, "night_wood_beam"));
+
+        toolRepairKit = new LazyItemTemplate(Identifier.of(MOD_ID, "tool_repair_kit"));
+
         archeologyBrush = new ArcheologyBrush(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
         archeologyChisel = new ArcheologyChisel(Identifier.of(MOD_ID, "archeology_chisel")).setTranslationKey(MOD_ID, "archeology_chisel");
         archeologyIceKnife = new ArcheologyIceKnife(Identifier.of(MOD_ID, "archeology_ice_knife")).setTranslationKey(MOD_ID, "archeology_ice_knife");
