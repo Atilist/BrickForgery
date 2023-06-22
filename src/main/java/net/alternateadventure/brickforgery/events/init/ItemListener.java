@@ -51,10 +51,19 @@ public class ItemListener {
             primitiveChisel,
             primitiveGrabber,
 
+            durableLeather,
+            brickSteelIngot,
+            bricksidianIngot,
+
             leatherStrap,
             goldenScrew,
+            durableLeatherStrap,
+            bricksidianScrew,
+            brickSteelPlate,
 
             nightWoodBeam,
+            brickSteelBeam,
+            hardenedBrickFrame,
 
             toolRepairKit,
 
@@ -81,10 +90,19 @@ public class ItemListener {
         primitiveChisel = new PrimitiveChisel(Identifier.of(MOD_ID, "primitive_chisel"));
         primitiveGrabber = new PrimitiveGrabber(Identifier.of(MOD_ID, "primitive_grabber"));
 
+        durableLeather = new LazyItemTemplate(Identifier.of(MOD_ID, "durable_leather"));
+        brickSteelIngot = new LazyItemTemplate(Identifier.of(MOD_ID, "brick_steel_ingot"));
+        bricksidianIngot = new LazyItemTemplate(Identifier.of(MOD_ID, "bricksidian_ingot"));
+
         leatherStrap = new LazyItemTemplate(Identifier.of(MOD_ID, "leather_strap"));
         goldenScrew = new LazyItemTemplate(Identifier.of(MOD_ID, "golden_screw"));
+        durableLeatherStrap = new LazyItemTemplate(Identifier.of(MOD_ID, "durable_leather_strap"));
+        bricksidianScrew = new LazyItemTemplate(Identifier.of(MOD_ID, "bricksidian_screw"));
+        brickSteelPlate = new LazyItemTemplate(Identifier.of(MOD_ID, "brick_steel_plate"));
 
         nightWoodBeam = new LazyItemTemplate(Identifier.of(MOD_ID, "night_wood_beam"));
+        brickSteelBeam = new LazyItemTemplate(Identifier.of(MOD_ID, "brick_steel_beam"));
+        hardenedBrickFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "hardened_brick_frame"));
 
         toolRepairKit = new LazyItemTemplate(Identifier.of(MOD_ID, "tool_repair_kit"));
 

@@ -12,6 +12,11 @@
     },
     {
       "type": "directory",
+      "source": "guitextures",
+      "prefix": "guitextures/"
+    },
+    {
+      "type": "directory",
       "source": "modeltextures",
       "prefix": "modeltextures/"
     }

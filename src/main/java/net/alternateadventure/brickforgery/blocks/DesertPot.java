@@ -8,6 +8,7 @@ import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
 
 import java.util.Random;
 
+// TODO: Add custom pot models
 public class DesertPot extends TemplateBlockBase {
 
     public DesertPot(Identifier identifier, Material material) {

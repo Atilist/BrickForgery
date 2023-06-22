@@ -7,6 +7,7 @@ import net.minecraft.item.ItemInstance;
 
 import java.util.Random;
 
+// TODO: Make dedicated loot pool for frozen pots
 public class DesertPotLootPool {
 
     public static ItemInstance getLoot(int reliability, int luck, Random random)

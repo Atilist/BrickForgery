@@ -1,10 +1,12 @@
 package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.blocks.*;
+import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
-import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.ItemBase;
+import net.minecraft.item.ItemInstance;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.registry.Identifier;
@@ -53,12 +55,18 @@ public class BlockListener {
             potPedestal,
             bountifulSand,
             bountifulSnow,
+            factoryRubble,
+
             doublePlant,
 
             primitiveMachineFrame,
             primitiveBrickFrameCrafter,
             primitiveSlicer,
             primitiveMetalworkingStation,
+
+            brickSteelMachineFrame,
+            slicer,
+            metalworkingStation,
 
             largeStoneBricks,
             fastBricks,
@@ -68,6 +76,10 @@ public class BlockListener {
             goldOreBricks,
             redstoneOreBricks,
             diamondOreBricks;
+
+    public static DirectionalMachineTemplate
+            alloySmelter,
+            alloySmelterActive;
 
     @Entrypoint.ModID
     public static final ModID MOD_ID = Null.get();
@@ -86,6 +98,7 @@ public class BlockListener {
         potPedestal = new LazyBlockTemplate(Identifier.of(MOD_ID, "pot_pedestal"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
         bountifulSand = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_sand"), Material.SAND, 1.5F, BlockBase.SAND_SOUNDS);
         bountifulSnow = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_snow"), Material.SNOW_BLOCK, 1.5F, BlockBase.WOOL_SOUNDS);
+        factoryRubble = new LazyBlockTemplate(Identifier.of(MOD_ID,  "factory_rubble"), Material.DIRT, 1.5F, BlockBase.GRAVEL_SOUNDS);
 
         desertPotSealed = new DesertPotSealed(Identifier.of(MOD_ID, "desert_pot_sealed"), Material.STONE, 1.0F, BlockBase.GLASS_SOUNDS);
         desertPot = new DesertPot(Identifier.of(MOD_ID, "desert_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "desert_pot");
@@ -93,10 +106,16 @@ public class BlockListener {
         frozenPot = new FrozenPot(Identifier.of(MOD_ID, "frozen_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot");
         mossyPot = new MossyPot(Identifier.of(MOD_ID, "mossy_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "mossy_pot");
 
-        primitiveMachineFrame = new PrimitiveMachineFrame(Identifier.of(MOD_ID, "primitive_machine_frame"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
+        primitiveMachineFrame = new MachineFrame(Identifier.of(MOD_ID, "primitive_machine_frame"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
         primitiveBrickFrameCrafter = new PrimitiveBrickFrameCrafter(Identifier.of(MOD_ID, "primitive_brick_frame_crafter"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
         primitiveSlicer = new PrimitiveSlicer(Identifier.of(MOD_ID, "primitive_slicer"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
         primitiveMetalworkingStation = new PrimitiveMetalworkingStation(Identifier.of(MOD_ID, "primitive_metalworking_station"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
+
+        brickSteelMachineFrame = new MachineFrame(Identifier.of(MOD_ID, "brick_steel_machine_frame"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS);
+        slicer = new Slicer(Identifier.of(MOD_ID, "slicer"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS);
+        metalworkingStation = new MetalworkingStation(Identifier.of(MOD_ID, "metalworking_station"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS);
+        alloySmelter = new AlloySmelter(Identifier.of(MOD_ID, "alloy_smelter"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS, false);
+        alloySmelterActive = new AlloySmelter(Identifier.of(MOD_ID, "alloy_smelter_active"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS, true);
 
         brickFrameCrafterDusted = new BrickFrameCrafterDusted(Identifier.of(MOD_ID, "brick_frame_crafter_dusted"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_frame_crafter_dusted");
         brickFrameCrafter = new BrickFrameCrafter(Identifier.of(MOD_ID, "brick_frame_crafter"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_frame_crafter");
@@ -125,5 +144,14 @@ public class BlockListener {
         goldOreBricks = new GoldOreBricks(Identifier.of(MOD_ID, "gold_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
         redstoneOreBricks = new RedstoneOreBricks(Identifier.of(MOD_ID, "redstone_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
         diamondOreBricks = new DiamondOreBricks(Identifier.of(MOD_ID, "diamond_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+
+
+
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(BlockBase.STONE), new ItemInstance(ItemListener.brickFrame), new ItemInstance(ItemListener.stoneBrick, 1));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(ItemBase.ironIngot), new ItemInstance(BlockBase.LOG), new ItemInstance(ItemListener.brickSteelIngot, 1));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(ItemBase.goldIngot), new ItemInstance(BlockBase.OBSIDIAN), new ItemInstance(ItemListener.bricksidianIngot, 1));
+
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.leather), new ItemInstance(ItemListener.nightWheat), new ItemInstance(ItemListener.exoticFruit), new ItemInstance(ItemListener.durableLeather, 1));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemListener.brickFrame), new ItemInstance(ItemListener.bricksidianIngot), new ItemInstance(ItemListener.brickSteelIngot), new ItemInstance(ItemListener.hardenedBrickFrame, 1));
     }
 }

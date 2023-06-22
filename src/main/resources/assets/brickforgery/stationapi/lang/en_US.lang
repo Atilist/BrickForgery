@@ -7,8 +7,10 @@ tile.night_leaves.name=Night Leaves
 tile.night_planks.name=Night Planks
 
 tile.pot_pedestal.name=Pot Pedestal
+
 tile.bountiful_sand.name=Bountiful Sand
 tile.bountiful_snow.name=Bountiful Snow
+tile.factory_rubble.name=Factory Rubble
 
 tile.desert_pot.name=Desert Pot
 tile.desert_pot_sealed.name=Sealed Desert Pot
@@ -21,8 +23,14 @@ tile.primitive_brick_frame_crafter.name=Primitive Brick Frame Crafter
 tile.primitive_slicer.name=Primitive Slicer
 tile.primitive_metalworking_station.name=Primitive Metalworking Station
 
+tile.brick_steel_machine_frame.name=Brick Steel Machine Frame
+tile.slicer.name=Slicer
+tile.metalworking_station.name=Metalworking Station
+tile.alloy_smelter.name=Alloy Smelter
+tile.alloy_smelter_active.name=Lit Alloy Smelter
 tile.brick_frame_crafter_dusted.name=Dusted Brick Frame Crafter
 tile.brick_frame_crafter.name=Brick Frame Crafter
+
 tile.brick_launcher.name=Brick Launcher
 
 tile.clay_pile.name=Clay Pile
@@ -61,10 +69,19 @@ item.primitive_brush.name=Primitive Brush
 item.primitive_chisel.name=Primitive Chisel
 item.primitive_grabber.name=Primitive Grabber
 
+item.durable_leather.name=Durable Leather
+item.brick_steel_ingot.name=Brick Steel Ingot
+item.bricksidian_ingot.name=Bricksidian Ingot
+
 item.leather_strap.name=Leather Strap
 item.golden_screw.name=Golden Screw
+item.durable_leather_strap.name=Durable Leather Strap
+item.bricksidian_screw.name=Bricksidian Screw
+item.brick_steel_plate.name=Brick Steel Plate
 
 item.night_wood_beam.name=Night Wood Beam
+item.brick_steel_beam.name=Brick Steel Beam
+item.hardened_brick_frame.name=Hardened Brick Frame
 
 item.tool_repair_kit.name=Tool Repair Kit
 

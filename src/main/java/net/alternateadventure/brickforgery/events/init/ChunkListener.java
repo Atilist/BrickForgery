@@ -17,11 +17,13 @@ public class ChunkListener {
         int x;
         int y;
         int z;
-        for (int attempts = 0; attempts < 8; attempts++) {
-            x = event.x + event.random.nextInt(16);
-            y = event.random.nextInt(36) + 12;
-            z = event.z + event.random.nextInt(16);
-            new BrickFrameCrafterRoom().generate(event.level, event.random, x, y, z);
+        if (event.x > 512 || event.x < -512 || event.z > 512 || event.z < -512) {
+            for (int attempts = 0; attempts < 8; attempts++) {
+                x = event.x + event.random.nextInt(16);
+                y = event.random.nextInt(36) + 12;
+                z = event.z + event.random.nextInt(16);
+                new FactoryRuins().generate(event.level, event.random, x, y, z);
+            }
         }
         if (event.biome == Biome.DESERT) {
             for (int attempts = 0; attempts < 4; attempts++) {

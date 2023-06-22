@@ -7,6 +7,7 @@ import net.modificationstation.stationapi.api.registry.Identifier;
 
 import java.util.Random;
 
+// TODO: Add custom pot models
 public class DesertPotSealed extends LazyBlockTemplate {
     public DesertPotSealed(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
         super(identifier, material, hardness, blockSounds);

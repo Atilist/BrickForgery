@@ -31,6 +31,15 @@ public class PrimitiveBrush extends LazyItemTemplate {
             tool.applyDamage(1, player);
             if (rand.nextBoolean()) level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.frozenPotItem)));
             return true;
+        } else if (level.getTileId(x, y, z) == BlockListener.factoryRubble.id)
+        {
+            level.setTile(x, y, z, 0);
+            tool.applyDamage(1, player);
+            if (rand.nextInt(6) == 0) level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.brickSteelPlate)));
+            if (rand.nextInt(6) == 0) level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.bricksidianScrew)));
+            if (rand.nextInt(6) == 0) level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.brickSteelIngot)));
+            if (rand.nextBoolean()) level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.durableLeatherStrap)));
+            return true;
         }
         return false;
     }

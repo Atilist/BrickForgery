@@ -6,7 +6,7 @@ import net.minecraft.level.Level;
 
 import java.util.Random;
 
-public class BrickFrameCrafterRoom {
+public class FactoryRuins {
 
     public void generate(Level level, Random rand, int x, int y, int z) {
         if (!(level.getTileId(x, y, z) != 0 && level.getTileId(x, y + 1, z) == 0)) return;
@@ -28,15 +28,11 @@ public class BrickFrameCrafterRoom {
         for (; yOffset > -15; yOffset--) {
             for (int xOffset = -3; xOffset <= 3; xOffset++) {
                 for (int zOffset = -3; zOffset <= 3; zOffset++) {
-                    if (xOffset > -3 && xOffset < 3 && zOffset > -3 && zOffset < 3) level.setTile(x + xOffset, y + yOffset, z + zOffset, 0);
-                    else if ((xOffset == -3 || xOffset == 3) && zOffset == 0 || (zOffset == -3 || zOffset == 3) && xOffset == 0) level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockBase.CLAY.id);
-                    else level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockBase.WOOD.id);
+                    if (xOffset > -3 && xOffset < 3 && zOffset > -3 && zOffset < 3) level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockListener.factoryRubble.id);
+                    else level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockListener.largeStoneBricks.id);
                 }
             }
         }
-        yOffset++;
-        level.setTile(x, y + yOffset, z, BlockListener.brickFrameCrafterDusted.id);
-        yOffset--;
         for (int xOffset = -3; xOffset <= 3; xOffset++) {
             for (int zOffset = -3; zOffset <= 3; zOffset++) {
                 level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockBase.BRICKS.id);

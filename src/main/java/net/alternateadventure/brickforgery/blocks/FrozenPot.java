@@ -10,6 +10,7 @@ import java.util.Random;
 
 public class FrozenPot extends TemplateBlockBase {
 
+    // TODO: Add custom pot models
     public FrozenPot(Identifier identifier, Material material) {
         super(identifier, material);
         setSounds(GLASS_SOUNDS);
