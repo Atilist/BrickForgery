@@ -15,6 +15,7 @@ public class DirectionalMachineTemplate extends TemplateBlockWithEntity {
     int sideTextureInternal;
     int bottomTextureInternal;
     int frontTextureInternal;
+    int backTextureInternal;
 
     public DirectionalMachineTemplate(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
         super(identifier, material);
@@ -23,12 +24,22 @@ public class DirectionalMachineTemplate extends TemplateBlockWithEntity {
         setSounds(blockSounds);
     }
 
+    public void specifyTextures(int topTexture, int sideTexture, int bottomTexture, int frontTexture, int backTexture)
+    {
+        topTextureInternal = topTexture;
+        sideTextureInternal = sideTexture;
+        bottomTextureInternal = bottomTexture;
+        frontTextureInternal = frontTexture;
+        backTextureInternal = backTexture;
+    }
+
     public void specifyTextures(int topTexture, int sideTexture, int bottomTexture, int frontTexture)
     {
         topTextureInternal = topTexture;
         sideTextureInternal = sideTexture;
         bottomTextureInternal = bottomTexture;
         frontTextureInternal = frontTexture;
+        backTextureInternal = sideTexture;
     }
 
     @Override
@@ -39,6 +50,10 @@ public class DirectionalMachineTemplate extends TemplateBlockWithEntity {
         if (i == 3 && j % 4 == 2) return frontTextureInternal;
         if (i == 4 && j % 4 == 3) return frontTextureInternal;
         if (i == 5 && j % 4 == 1) return frontTextureInternal;
+        if (i == 2 && j % 4 == 2) return backTextureInternal;
+        if (i == 3 && j % 4 == 0) return backTextureInternal;
+        if (i == 4 && j % 4 == 1) return backTextureInternal;
+        if (i == 5 && j % 4 == 3) return backTextureInternal;
         return sideTextureInternal;
     }
 

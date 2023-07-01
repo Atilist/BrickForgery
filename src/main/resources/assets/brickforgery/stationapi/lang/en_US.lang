@@ -12,6 +12,7 @@ tile.bountiful_sand.name=Bountiful Sand
 tile.bountiful_snow.name=Bountiful Snow
 tile.factory_rubble.name=Factory Rubble
 
+tile.common_pot.name=Common Pot
 tile.desert_pot.name=Desert Pot
 tile.desert_pot_sealed.name=Sealed Desert Pot
 tile.frozen_pot.name=Frozen Pot
@@ -30,6 +31,10 @@ tile.alloy_smelter.name=Alloy Smelter
 tile.alloy_smelter_active.name=Lit Alloy Smelter
 tile.brick_frame_crafter_dusted.name=Dusted Brick Frame Crafter
 tile.brick_frame_crafter.name=Brick Frame Crafter
+
+tile.item_chute.name=Item Chute
+tile.item_slide.name=Item Slide
+tile.item_elevator.name=Item Elevator
 
 tile.brick_launcher.name=Brick Launcher
 

@@ -23,6 +23,13 @@ public class PrimitiveGrabber extends LazyItemTemplate {
         ItemInstance tool = player.getHeldItem();
         final int reliability = 3;
         final int luck = 5;
+        if (level.getTileId(x, y, z) == BlockListener.commonPot.id)
+        {
+            level.setTile(x, y, z, 0);
+            tool.applyDamage(1, player);
+            if (rand.nextBoolean()) level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.leatherStrap)));
+            return true;
+        }
         if (level.getTileId(x, y, z) == BlockListener.desertPot.id)
         {
             level.setTile(x, y, z, 0);

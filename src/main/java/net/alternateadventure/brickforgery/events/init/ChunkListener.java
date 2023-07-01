@@ -57,5 +57,13 @@ public class ChunkListener {
                 new ExoticShrubArea().generate(event.level, event.random, x, y, z);
             }
         }
+        if (event.biome == Biome.FOREST || event.biome == Biome.SEASONAL_FOREST || event.biome == Biome.RAINFOREST || event.biome == Biome.TAIGA) {
+            if (event.random.nextInt(4) == 0) {
+                x = event.x + event.random.nextInt(16);
+                y = event.random.nextInt(48) + 64;
+                z = event.z + event.random.nextInt(16);
+                new CommonPotArea().generate(event.level, event.random, x, y, z);
+            }
+        }
     }
 }

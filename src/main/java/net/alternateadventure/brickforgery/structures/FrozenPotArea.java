@@ -13,8 +13,11 @@ public class FrozenPotArea {
         for (int xOffset = -4; xOffset <= 4; xOffset++) {
             for (int yOffset = -5; yOffset <= 2; yOffset++) {
                 for (int zOffset = -4; zOffset <= 4; zOffset++) {
-                    if (level.getTileId(x + xOffset, y + yOffset, z + zOffset) != BlockBase.GRASS.id) continue;
-                    if (rand.nextInt(4) == 0) level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockListener.bountifulSnow.id);
+                    if (level.getTileId(x + xOffset, y + yOffset, z + zOffset) != BlockBase.GRASS.id)
+                    {
+                        if (level.getTileId(x + xOffset, y + yOffset, z + zOffset) == BlockBase.SNOW.id && level.getTileId(x + xOffset, y + yOffset - 1, z + zOffset) == BlockListener.bountifulSnow.id && rand.nextInt(8) == 0) level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockListener.frozenPotSealed.id);
+                    }
+                    else if (rand.nextInt(4) == 0) level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockListener.bountifulSnow.id);
                 }
             }
         }

@@ -2,6 +2,8 @@ package net.alternateadventure.brickforgery.tileentities;
 
 import net.alternateadventure.brickforgery.blocks.AlloySmelter;
 import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
+import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
+import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockBase;
@@ -14,7 +16,7 @@ import net.minecraft.tileentity.TileEntityBase;
 import net.minecraft.util.io.CompoundTag;
 import net.minecraft.util.io.ListTag;
 
-public class TileEntityAlloySmelter extends TileEntityBase implements InventoryBase {
+public class TileEntityAlloySmelter extends TileEntityBase implements InventoryBase, BlockWithOutput, BlockWithInput {
     private ItemInstance[] inventory = new ItemInstance[5];
     public int burnTime = 0;
     public int fuelTime = 0;
@@ -200,7 +202,8 @@ public class TileEntityAlloySmelter extends TileEntityBase implements InventoryB
             --this.inventory[3].count;
             if (this.inventory[3].count <= 0) {
                 this.inventory[3] = null;
-            }--this.inventory[4].count;
+            }
+            --this.inventory[4].count;
             if (this.inventory[4].count <= 0) {
                 this.inventory[4] = null;
             }
@@ -232,5 +235,62 @@ public class TileEntityAlloySmelter extends TileEntityBase implements InventoryB
         } else {
             return !(arg.squaredDistanceTo((double)this.x + 0.5D, (double)this.y + 0.5D, (double)this.z + 0.5D) > 64.0D);
         }
+    }
+
+    @Override
+    public boolean isValidOutputSide(int side) {
+        return true;
+    }
+
+    @Override
+    public int getOutputSlotCount() {
+        return 1;
+    }
+
+    @Override
+    public ItemInstance getItemFromOutputSlot(int slot) {
+        return inventory[2];
+    }
+
+    @Override
+    public void clearOutput(int slot) {
+        inventory[2] = null;
+    }
+
+    @Override
+    public void setOutputItemCount(int slot, int count) {
+        inventory[2].count = count;
+    }
+
+    @Override
+    public boolean isValidInputSide(int side) {
+        return true;
+    }
+
+    @Override
+    public int getInputSlotCount() {
+        return 3;
+    }
+
+    @Override
+    public ItemInstance getItemFromInputSlot(int slot) {
+        if (slot == 0) return inventory[0];
+        else if (slot == 1) return inventory[3];
+        else if (slot == 2) return inventory[4];
+        return null;
+    }
+
+    @Override
+    public void setInputItem(int slot, ItemInstance itemInstance) {
+        if (slot == 0) inventory[0] = itemInstance;
+        else if (slot == 1) inventory[3] = itemInstance;
+        else if (slot == 2) inventory[4] = itemInstance;
+    }
+
+    @Override
+    public void setInputItemCount(int slot, int count) {
+        if (slot == 0) inventory[0].count = count;
+        else if (slot == 1) inventory[3].count = count;
+        else if (slot == 2) inventory[4].count = count;
     }
 }

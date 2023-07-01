@@ -1,6 +1,5 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.blocks.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
@@ -104,6 +103,9 @@ public class TextureListener {
         BountifulSnow = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/BountifulSnow")).index;
         FactoryRubble = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/FactoryRubble")).index;
 
+        CommonPotTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/CommonPotTop")).index;
+        CommonPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/CommonPotSide")).index;
+        CommonPotBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/CommonPotBottom")).index;
         DesertPotTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotTop")).index;
         DesertPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotSide")).index;
         DesertPotBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotBottom")).index;
@@ -113,11 +115,6 @@ public class TextureListener {
         FrozenPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotSide")).index;
         FrozenPotBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotBottom")).index;
         FrozenPotTopSealed = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotTopSealed")).index;
-
-        BrickFrameCrafterTopDusted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickFrameCrafterTopDusted")).index;
-        BrickFrameCrafterTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickFrameCrafterTop")).index;
-        BrickFrameCrafterSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickFrameCrafterSide")).index;
-        BrickFrameCrafterBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickFrameCrafterBottom")).index;
 
         PrimitiveMachineFrame = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveMachineFrame")).index;
         PrimitiveBrickFrameCrafterTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveBrickFrameCrafterTop")).index;
@@ -144,6 +141,22 @@ public class TextureListener {
         AlloySmelterTopActive = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/AlloySmelterTopActive")).index;
         AlloySmelterSideActive = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/AlloySmelterSideActive")).index;
         AlloySmelterFrontActive = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/AlloySmelterFrontActive")).index;
+        BrickFrameCrafterTopDusted = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickFrameCrafterTopDusted")).index;
+        BrickFrameCrafterTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickFrameCrafterTop")).index;
+        BrickFrameCrafterSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickFrameCrafterSide")).index;
+        BrickFrameCrafterBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickFrameCrafterBottom")).index;
+
+        ItemChuteTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemChuteTop")).index;
+        ItemChuteSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemChuteSide")).index;
+        ItemChuteBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemChuteBottom")).index;
+        ItemSlideTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideTop")).index;
+        ItemSlideSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideSide")).index;
+        ItemSlideBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideBottom")).index;
+        ItemSlideFront = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideFront")).index;
+        ItemSlideBack = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideBack")).index;
+        ItemElevatorTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemElevatorTop")).index;
+        ItemElevatorSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemElevatorSide")).index;
+        ItemElevatorBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemElevatorBottom")).index;
 
         BrickLauncherTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickLauncherTop")).index;
         BrickLauncherSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickLauncherSide")).index;
@@ -187,6 +200,7 @@ public class TextureListener {
         BlockListener.bountifulSnow.specifyTextures(BountifulSnow);
         BlockListener.factoryRubble.specifyTextures(FactoryRubble);
 
+        BlockListener.commonPot.specifyTextures(CommonPotTop, CommonPotSide, CommonPotBottom);
         BlockListener.desertPotSealed.specifyTextures(DesertPotTopSealed, DesertPotSide, DesertPotBottom);
 
         BlockListener.primitiveMachineFrame.specifyTextures(PrimitiveMachineFrame);
@@ -199,6 +213,10 @@ public class TextureListener {
         BlockListener.metalworkingStation.specifyTextures(MetalworkingStationTop, MetalworkingStationSide, MetalworkingStationBottom);
         BlockListener.alloySmelter.specifyTextures(AlloySmelterTop, AlloySmelterSide, AlloySmelterBottom, AlloySmelterFront);
         BlockListener.alloySmelterActive.specifyTextures(AlloySmelterTopActive, AlloySmelterSideActive, AlloySmelterBottom, AlloySmelterFrontActive);
+
+        BlockListener.itemChute.specifyTextures(ItemChuteTop, ItemChuteSide, ItemChuteBottom);
+        BlockListener.itemSlide.specifyTextures(ItemSlideTop, ItemSlideSide, ItemSlideBottom, ItemSlideFront, ItemSlideBack);
+        BlockListener.itemElevator.specifyTextures(ItemElevatorTop, ItemElevatorSide, ItemElevatorBottom);
 
         BlockListener.largeStoneBricks.specifyTextures(LargeStoneBricks);
         BlockListener.fastBricks.specifyTextures(FastBricks);
@@ -245,6 +263,9 @@ public class TextureListener {
             BountifulSnow,
             FactoryRubble,
 
+            CommonPotTop,
+            CommonPotSide,
+            CommonPotBottom,
             DesertPotTop,
             DesertPotSide,
             DesertPotBottom,
@@ -280,11 +301,23 @@ public class TextureListener {
             AlloySmelterTopActive,
             AlloySmelterSideActive,
             AlloySmelterFrontActive,
-
             BrickFrameCrafterTopDusted,
             BrickFrameCrafterTop,
             BrickFrameCrafterSide,
             BrickFrameCrafterBottom,
+
+            ItemChuteTop,
+            ItemChuteSide,
+            ItemChuteBottom,
+            ItemSlideTop,
+            ItemSlideSide,
+            ItemSlideBottom,
+            ItemSlideFront,
+            ItemSlideBack,
+            ItemElevatorTop,
+            ItemElevatorSide,
+            ItemElevatorBottom,
+
             BrickLauncherTop,
             BrickLauncherSide,
             BrickLauncherBottom,

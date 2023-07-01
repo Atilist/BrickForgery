@@ -2,6 +2,9 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.guis.GUIAlloySmelter;
 import net.alternateadventure.brickforgery.tileentities.TileEntityAlloySmelter;
+import net.alternateadventure.brickforgery.tileentities.TileEntityItemChute;
+import net.alternateadventure.brickforgery.tileentities.TileEntityItemElevator;
+import net.alternateadventure.brickforgery.tileentities.TileEntityItemSlide;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.client.gui.screen.ScreenBase;
 import net.minecraft.entity.player.PlayerBase;
@@ -24,6 +27,9 @@ public class TileEntityListener {
     private static void registerTileEntities(TileEntityRegisterEvent event)
     {
         event.register(TileEntityAlloySmelter.class, Identifier.of(MOD_ID, "tile_entity_alloy_smelter").toString());
+        event.register(TileEntityItemChute.class, Identifier.of(MOD_ID, "tile_entity_item_chute").toString());
+        event.register(TileEntityItemSlide.class, Identifier.of(MOD_ID, "tile_entity_item_slide").toString());
+        event.register(TileEntityItemElevator.class, Identifier.of(MOD_ID, "tile_entity_item_elevator").toString());
     }
 
     @EventListener

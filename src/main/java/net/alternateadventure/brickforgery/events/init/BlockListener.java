@@ -50,6 +50,7 @@ public class BlockListener {
             spikeMount;
 
     public static LazyBlockTemplate
+            commonPot,
             desertPotSealed,
 
             potPedestal,
@@ -79,7 +80,13 @@ public class BlockListener {
 
     public static DirectionalMachineTemplate
             alloySmelter,
-            alloySmelterActive;
+            alloySmelterActive,
+
+            itemSlide;
+
+    public static LazySimpleMachine
+            itemChute,
+            itemElevator;
 
     @Entrypoint.ModID
     public static final ModID MOD_ID = Null.get();
@@ -100,6 +107,7 @@ public class BlockListener {
         bountifulSnow = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_snow"), Material.SNOW_BLOCK, 1.5F, BlockBase.WOOL_SOUNDS);
         factoryRubble = new LazyBlockTemplate(Identifier.of(MOD_ID,  "factory_rubble"), Material.DIRT, 1.5F, BlockBase.GRAVEL_SOUNDS);
 
+        commonPot = new CommonPot(Identifier.of(MOD_ID, "common_pot"), Material.STONE, 1.5F, BlockBase.GLASS_SOUNDS);
         desertPotSealed = new DesertPotSealed(Identifier.of(MOD_ID, "desert_pot_sealed"), Material.STONE, 1.0F, BlockBase.GLASS_SOUNDS);
         desertPot = new DesertPot(Identifier.of(MOD_ID, "desert_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "desert_pot");
         frozenPotSealed = new FrozenPotSealed(Identifier.of(MOD_ID, "frozen_pot_sealed"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot_sealed");
@@ -116,10 +124,13 @@ public class BlockListener {
         metalworkingStation = new MetalworkingStation(Identifier.of(MOD_ID, "metalworking_station"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS);
         alloySmelter = new AlloySmelter(Identifier.of(MOD_ID, "alloy_smelter"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS, false);
         alloySmelterActive = new AlloySmelter(Identifier.of(MOD_ID, "alloy_smelter_active"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS, true);
-
         brickFrameCrafterDusted = new BrickFrameCrafterDusted(Identifier.of(MOD_ID, "brick_frame_crafter_dusted"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_frame_crafter_dusted");
         brickFrameCrafter = new BrickFrameCrafter(Identifier.of(MOD_ID, "brick_frame_crafter"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_frame_crafter");
         brickLauncher = new BrickLauncher(Identifier.of(MOD_ID, "brick_launcher"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_launcher");
+
+        itemChute = new ItemChute(Identifier.of(MOD_ID, "item_chute"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);
+        itemSlide = new ItemSlide(Identifier.of(MOD_ID, "item_slide"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);
+        itemElevator = new ItemElevator(Identifier.of(MOD_ID, "item_elevator"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);
 
         clayPile = new ResourcePile(Identifier.of(MOD_ID, "clay_pile"), Material.DIRT).setHardness(0.5F).setSounds(BlockBase.GRAVEL_SOUNDS).setTranslationKey(MOD_ID, "clay_pile");
         planksPile = new ResourcePile(Identifier.of(MOD_ID, "planks_pile"), Material.WOOD).setHardness(1.5F).setSounds(BlockBase.WOOD_SOUNDS).setTranslationKey(MOD_ID, "planks_pile");
