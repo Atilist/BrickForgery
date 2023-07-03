@@ -4,7 +4,7 @@
   "version": "1.0",
 
   "name": "Brick Forgery",
-  "description": "Successor mod to Beta Extras, with a very complex progression system mainly focused around bricks.",
+  "description": "Successor mod to Beta Extras, with a very complex progression system mainly focused around bricks. Special thanks to paulevs and KydZombie for providing useful code and assets.",
   "authors": [
     "Atilist"
   ],
@@ -24,6 +24,7 @@
       "net.alternateadventure.brickforgery.events.init.ItemListener",
       "net.alternateadventure.brickforgery.events.init.PlayerHandlerListener",
       "net.alternateadventure.brickforgery.events.init.RecipeListener",
+      "net.alternateadventure.brickforgery.events.init.TabListener",
       "net.alternateadventure.brickforgery.events.init.ChunkListener",
       "net.alternateadventure.brickforgery.events.init.TileEntityListener"
     ],

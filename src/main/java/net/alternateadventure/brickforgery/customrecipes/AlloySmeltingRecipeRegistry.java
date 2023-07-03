@@ -31,4 +31,9 @@ public class AlloySmeltingRecipeRegistry {
     {
         inputsList.add(new ItemInstance[] {input1, input2, input3, output});
     }
+
+    public ArrayList<ItemInstance[]> getRecipes()
+    {
+        return inputsList;
+    }
 }

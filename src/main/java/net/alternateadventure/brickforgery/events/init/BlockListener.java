@@ -2,6 +2,9 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.blocks.*;
 import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
+import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
+import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
+import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.block.material.Material;
@@ -62,12 +65,8 @@ public class BlockListener {
 
             primitiveMachineFrame,
             primitiveBrickFrameCrafter,
-            primitiveSlicer,
-            primitiveMetalworkingStation,
 
             brickSteelMachineFrame,
-            slicer,
-            metalworkingStation,
 
             largeStoneBricks,
             fastBricks,
@@ -85,6 +84,12 @@ public class BlockListener {
             itemSlide;
 
     public static LazySimpleMachine
+            primitiveSlicer,
+            primitiveMetalworkingStation,
+
+            slicer,
+            metalworkingStation,
+
             itemChute,
             itemElevator;
 
@@ -116,12 +121,12 @@ public class BlockListener {
 
         primitiveMachineFrame = new MachineFrame(Identifier.of(MOD_ID, "primitive_machine_frame"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
         primitiveBrickFrameCrafter = new PrimitiveBrickFrameCrafter(Identifier.of(MOD_ID, "primitive_brick_frame_crafter"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
-        primitiveSlicer = new PrimitiveSlicer(Identifier.of(MOD_ID, "primitive_slicer"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
-        primitiveMetalworkingStation = new PrimitiveMetalworkingStation(Identifier.of(MOD_ID, "primitive_metalworking_station"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
+        primitiveSlicer = new SlicerBase(Identifier.of(MOD_ID, "primitive_slicer"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS, 0);
+        primitiveMetalworkingStation = new MetalworkingStationBase(Identifier.of(MOD_ID, "primitive_metalworking_station"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS, 0);
 
         brickSteelMachineFrame = new MachineFrame(Identifier.of(MOD_ID, "brick_steel_machine_frame"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS);
-        slicer = new Slicer(Identifier.of(MOD_ID, "slicer"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS);
-        metalworkingStation = new MetalworkingStation(Identifier.of(MOD_ID, "metalworking_station"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS);
+        slicer = new SlicerBase(Identifier.of(MOD_ID, "slicer"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS, 1);
+        metalworkingStation = new MetalworkingStationBase(Identifier.of(MOD_ID, "metalworking_station"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS, 1);
         alloySmelter = new AlloySmelter(Identifier.of(MOD_ID, "alloy_smelter"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS, false);
         alloySmelterActive = new AlloySmelter(Identifier.of(MOD_ID, "alloy_smelter_active"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS, true);
         brickFrameCrafterDusted = new BrickFrameCrafterDusted(Identifier.of(MOD_ID, "brick_frame_crafter_dusted"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_frame_crafter_dusted");
@@ -164,5 +169,12 @@ public class BlockListener {
 
         AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.leather), new ItemInstance(ItemListener.nightWheat), new ItemInstance(ItemListener.exoticFruit), new ItemInstance(ItemListener.durableLeather, 1));
         AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemListener.brickFrame), new ItemInstance(ItemListener.bricksidianIngot), new ItemInstance(ItemListener.brickSteelIngot), new ItemInstance(ItemListener.hardenedBrickFrame, 1));
+
+        SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemBase.leather.id, new TieredMachineRecipeData(0, new ItemInstance(ItemListener.leatherStrap)));
+        SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(1, new ItemInstance(ItemListener.durableLeatherStrap)));
+
+        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemBase.goldIngot.id, new TieredMachineRecipeData(0, new ItemInstance(ItemListener.goldenScrew)));
+        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.bricksidianIngot.id, new TieredMachineRecipeData(1, new ItemInstance(ItemListener.bricksidianScrew)));
+        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.brickSteelIngot.id, new TieredMachineRecipeData(1, new ItemInstance(ItemListener.brickSteelPlate)));
     }
 }

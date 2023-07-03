@@ -194,7 +194,6 @@ public class TileEntityAlloySmelter extends TileEntityBase implements InventoryB
             } else if (this.inventory[2].itemId == var1.itemId) {
                 ++this.inventory[2].count;
             }
-
             --this.inventory[0].count;
             if (this.inventory[0].count <= 0) {
                 this.inventory[0] = null;
