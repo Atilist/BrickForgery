@@ -157,6 +157,17 @@ public class TextureListener {
         ItemElevatorTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemElevatorTop")).index;
         ItemElevatorSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemElevatorSide")).index;
         ItemElevatorBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemElevatorBottom")).index;
+        ItemChuteChainTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemChuteChainTop")).index;
+        ItemChuteChainSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemChuteChainSide")).index;
+        ItemChuteChainBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemChuteChainBottom")).index;
+        ItemSlideChainTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideChainTop")).index;
+        ItemSlideChainSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideChainSide")).index;
+        ItemSlideChainBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideChainBottom")).index;
+        ItemSlideChainFront = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideChainFront")).index;
+        ItemSlideChainBack = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemSlideChainBack")).index;
+        ItemElevatorChainTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemElevatorChainTop")).index;
+        ItemElevatorChainSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemElevatorChainSide")).index;
+        ItemElevatorChainBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ItemElevatorChainBottom")).index;
 
         BrickLauncherTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickLauncherTop")).index;
         BrickLauncherSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickLauncherSide")).index;
@@ -217,6 +228,9 @@ public class TextureListener {
         BlockListener.itemChute.specifyTextures(ItemChuteTop, ItemChuteSide, ItemChuteBottom);
         BlockListener.itemSlide.specifyTextures(ItemSlideTop, ItemSlideSide, ItemSlideBottom, ItemSlideFront, ItemSlideBack);
         BlockListener.itemElevator.specifyTextures(ItemElevatorTop, ItemElevatorSide, ItemElevatorBottom);
+        BlockListener.itemChuteChain.specifyTextures(ItemChuteChainTop, ItemChuteChainSide, ItemChuteChainBottom);
+        BlockListener.itemSlideChain.specifyTextures(ItemSlideChainTop, ItemSlideChainSide, ItemSlideChainBottom, ItemSlideChainFront, ItemSlideChainBack);
+        BlockListener.itemElevatorChain.specifyTextures(ItemElevatorChainTop, ItemElevatorChainSide, ItemElevatorChainBottom);
 
         BlockListener.largeStoneBricks.specifyTextures(LargeStoneBricks);
         BlockListener.fastBricks.specifyTextures(FastBricks);
@@ -317,6 +331,18 @@ public class TextureListener {
             ItemElevatorTop,
             ItemElevatorSide,
             ItemElevatorBottom,
+            ItemChuteChainTop,
+            ItemChuteChainSide,
+            ItemChuteChainBottom,
+            ItemSlideChainTop,
+            ItemSlideChainSide,
+            ItemSlideChainBottom,
+            ItemSlideChainFront,
+            ItemSlideChainBack,
+            ItemElevatorChainTop,
+            ItemElevatorChainSide,
+            ItemElevatorChainBottom,
+
 
             BrickLauncherTop,
             BrickLauncherSide,

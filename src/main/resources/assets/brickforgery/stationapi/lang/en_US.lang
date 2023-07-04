@@ -35,6 +35,9 @@ tile.brick_frame_crafter.name=Brick Frame Crafter
 tile.item_chute.name=Item Chute
 tile.item_slide.name=Item Slide
 tile.item_elevator.name=Item Elevator
+tile.item_chute_chain.name=Item Chute Chain
+tile.item_slide_chain.name=Item Slide Chain
+tile.item_elevator_chain.name=Item Elevator Chain
 
 tile.brick_launcher.name=Brick Launcher
 

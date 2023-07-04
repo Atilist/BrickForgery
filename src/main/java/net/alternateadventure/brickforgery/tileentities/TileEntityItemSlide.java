@@ -1,5 +1,6 @@
 package net.alternateadventure.brickforgery.tileentities;
 
+import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
 import net.alternateadventure.brickforgery.utils.ValueConverter;
@@ -29,7 +30,13 @@ public class TileEntityItemSlide extends TileEntityBase {
         int[] coordinateOffsets = ValueConverter.rotationToCoordinateOffset(level.getTileMeta(x, y, z));
 
         TileEntityBase inputMachine = level.getTileEntity(x - coordinateOffsets[0], y, z - coordinateOffsets[1]);
-        TileEntityBase outputMachine = level.getTileEntity(x + coordinateOffsets[0], y, z + coordinateOffsets[1]);
+
+        int range = 1;
+        for (; range <= 4; range++) {
+            if (level.getTileId(x + range * coordinateOffsets[0], y, z + range * coordinateOffsets[1]) != BlockListener.itemElevatorChain.id && level.getTileMeta(x + range * coordinateOffsets[0], y, z + range * coordinateOffsets[1]) != level.getTileMeta(x, y, z)) break;
+        }
+
+        TileEntityBase outputMachine = level.getTileEntity(x + range * coordinateOffsets[0], y, z + range * coordinateOffsets[1]);
 
         if (inputMachine == null) return;
         if (outputMachine == null) return;

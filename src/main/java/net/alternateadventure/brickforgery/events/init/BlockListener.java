@@ -68,6 +68,10 @@ public class BlockListener {
 
             brickSteelMachineFrame,
 
+            itemChuteChain,
+            itemSlideChain,
+            itemElevatorChain,
+
             largeStoneBricks,
             fastBricks,
 
@@ -136,6 +140,9 @@ public class BlockListener {
         itemChute = new ItemChute(Identifier.of(MOD_ID, "item_chute"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);
         itemSlide = new ItemSlide(Identifier.of(MOD_ID, "item_slide"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);
         itemElevator = new ItemElevator(Identifier.of(MOD_ID, "item_elevator"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);
+        itemChuteChain = new LazyBlockTemplate(Identifier.of(MOD_ID, "item_chute_chain"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);
+        itemSlideChain = new LazyBlockTemplate(Identifier.of(MOD_ID, "item_slide_chain"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);
+        itemElevatorChain = new LazyBlockTemplate(Identifier.of(MOD_ID, "item_elevator_chain"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);
 
         clayPile = new ResourcePile(Identifier.of(MOD_ID, "clay_pile"), Material.DIRT).setHardness(0.5F).setSounds(BlockBase.GRAVEL_SOUNDS).setTranslationKey(MOD_ID, "clay_pile");
         planksPile = new ResourcePile(Identifier.of(MOD_ID, "planks_pile"), Material.WOOD).setHardness(1.5F).setSounds(BlockBase.WOOD_SOUNDS).setTranslationKey(MOD_ID, "planks_pile");

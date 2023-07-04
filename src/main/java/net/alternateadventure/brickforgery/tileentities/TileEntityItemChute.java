@@ -1,5 +1,6 @@
 package net.alternateadventure.brickforgery.tileentities;
 
+import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
 import net.minecraft.item.ItemInstance;
@@ -26,7 +27,13 @@ public class TileEntityItemChute extends TileEntityBase {
     public void moveItems()
     {
         TileEntityBase inputMachine = level.getTileEntity(x, y + 1, z);
-        TileEntityBase outputMachine = level.getTileEntity(x, y - 1, z);
+
+        int range = 1;
+        for (; range <= 4; range++) {
+            if (level.getTileId(x, y - range, z) != BlockListener.itemChuteChain.id) break;
+        }
+
+        TileEntityBase outputMachine = level.getTileEntity(x, y - range, z);
 
         if (inputMachine == null) return;
         if (outputMachine == null) return;
