@@ -168,20 +168,5 @@ public class BlockListener {
         redstoneOreBricks = new RedstoneOreBricks(Identifier.of(MOD_ID, "redstone_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
         diamondOreBricks = new DiamondOreBricks(Identifier.of(MOD_ID, "diamond_ore_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
 
-
-
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(BlockBase.STONE), new ItemInstance(ItemListener.brickFrame), new ItemInstance(ItemListener.stoneBrick, 1));
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(ItemBase.ironIngot), new ItemInstance(BlockBase.LOG), new ItemInstance(ItemListener.brickSteelIngot, 1));
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(ItemBase.goldIngot), new ItemInstance(BlockBase.OBSIDIAN), new ItemInstance(ItemListener.bricksidianIngot, 1));
-
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.leather), new ItemInstance(ItemListener.nightWheat), new ItemInstance(ItemListener.exoticFruit), new ItemInstance(ItemListener.durableLeather, 1));
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemListener.brickFrame), new ItemInstance(ItemListener.bricksidianIngot), new ItemInstance(ItemListener.brickSteelIngot), new ItemInstance(ItemListener.hardenedBrickFrame, 1));
-
-        SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemBase.leather.id, new TieredMachineRecipeData(0, new ItemInstance(ItemListener.leatherStrap)));
-        SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(1, new ItemInstance(ItemListener.durableLeatherStrap)));
-
-        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemBase.goldIngot.id, new TieredMachineRecipeData(0, new ItemInstance(ItemListener.goldenScrew)));
-        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.bricksidianIngot.id, new TieredMachineRecipeData(1, new ItemInstance(ItemListener.bricksidianScrew)));
-        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.brickSteelIngot.id, new TieredMachineRecipeData(1, new ItemInstance(ItemListener.brickSteelPlate)));
     }
 }

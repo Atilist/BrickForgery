@@ -6,6 +6,7 @@ import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.events.init.TileEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityMetalworkingStation;
 import net.alternateadventure.brickforgery.tileentities.TileEntitySlicer;
+import net.kozibrodka.wolves.events.mod_FCBetterThanWolves;
 import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Item;
@@ -69,5 +70,34 @@ public class MetalworkingStationBase extends LazySimpleMachine {
         }
 
         super.onBlockRemoved(arg, i, j, k);
+    }
+
+    @Override
+    public void onBlockPlaced(Level level, int x, int y, int z) {
+        super.onBlockPlaced(level, x, y, z);
+        if (level.getTileId(x, y - 1, z) == mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileMeta(x, y - 1, z) == 3) level.setTileMeta(x, y, z, 1);
+    }
+
+    @Override
+    public void onAdjacentBlockUpdate(Level level, int x, int y, int z, int l) {
+        if (level.getTileId(x, y - 1, z) != mod_FCBetterThanWolves.fcAxleBlock.id) return;
+        if (level.getTileMeta(x, y - 1, z) == 3) level.setTileMeta(x, y, z, 1);
+        else level.setTileMeta(x, y, z, 0);
+    }
+
+    @Override
+    public void randomDisplayTick(Level level, int x, int y, int z, Random random) {
+        if (level.getTileMeta(x, y, z) != 1) return;
+        for(int counter = 0; counter < 5; counter++)
+        {
+            float smokeX = (float)x + random.nextFloat();
+            float smokeY = (float)y + random.nextFloat() * 0.5F + 1.0F;
+            float smokeZ = (float)z + random.nextFloat();
+            level.addParticle("smoke", smokeX, smokeY, smokeZ, 0.0D, 0.0D, 0.0D);
+        }
+        if(random.nextInt(5) == 0)
+        {
+            level.playSound((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "random.explode", 0.1F + random.nextFloat() * 0.1F, 1.25F + random.nextFloat() * 0.1F);
+        }
     }
 }

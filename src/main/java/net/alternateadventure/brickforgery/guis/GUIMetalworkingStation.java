@@ -7,8 +7,8 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.container.ContainerBase;
 import net.minecraft.entity.player.PlayerInventory;
 import org.lwjgl.opengl.GL11;
-@
-        Environment(EnvType.CLIENT)
+
+@Environment(EnvType.CLIENT)
 public class GUIMetalworkingStation extends ContainerBase {
     private TileEntityMetalworkingStation metalworkingStation;
 

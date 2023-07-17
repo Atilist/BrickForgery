@@ -25,12 +25,12 @@ public class TileEntityListener {
     @EventListener
     private static void registerTileEntities(TileEntityRegisterEvent event)
     {
-        event.register(TileEntityAlloySmelter.class, Identifier.of(MOD_ID, "tile_entity_alloy_smelter").toString());
-        event.register(TileEntitySlicer.class, Identifier.of(MOD_ID, "tile_entity_slicer").toString());
-        event.register(TileEntityMetalworkingStation.class, Identifier.of(MOD_ID, "tile_entity_metalworking_station").toString());
-        event.register(TileEntityItemChute.class, Identifier.of(MOD_ID, "tile_entity_item_chute").toString());
-        event.register(TileEntityItemSlide.class, Identifier.of(MOD_ID, "tile_entity_item_slide").toString());
-        event.register(TileEntityItemElevator.class, Identifier.of(MOD_ID, "tile_entity_item_elevator").toString());
+        event.register(TileEntityAlloySmelter.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_alloy_smelter")));
+        event.register(TileEntitySlicer.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_slicer")));
+        event.register(TileEntityMetalworkingStation.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_metalworking_station")));
+        event.register(TileEntityItemChute.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_item_chute")));
+        event.register(TileEntityItemSlide.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_item_slide")));
+        event.register(TileEntityItemElevator.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_item_elevator")));
     }
 
     @EventListener

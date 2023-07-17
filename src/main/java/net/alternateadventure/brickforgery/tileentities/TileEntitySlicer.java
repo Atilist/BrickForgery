@@ -112,6 +112,7 @@ public class TileEntitySlicer extends TileEntityBase implements InventoryBase, B
 
     public void tick() {
         if (!tierChecked) checkTier();
+        if (level.getTileMeta(x, y, z) != 1) return;
 
         boolean var2 = false;
 

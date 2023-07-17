@@ -112,6 +112,7 @@ public class TileEntityMetalworkingStation extends TileEntityBase implements Inv
 
     public void tick() {
         if (!tierChecked) checkTier();
+        if (level.getTileMeta(x, y, z) != 1) return;
 
         boolean var2 = false;
 
