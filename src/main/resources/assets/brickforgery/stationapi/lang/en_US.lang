@@ -13,6 +13,10 @@ tile.bountiful_snow.name=Bountiful Snow
 tile.factory_rubble.name=Factory Rubble
 
 tile.common_pot.name=Common Pot
+tile.forest_vault_keyhole.name=Forest Vault Keyhole
+tile.forest_vault_walls.name=Forest Vault Walls
+tile.forest_ornament.name=Forest Ornament
+
 tile.desert_pot.name=Desert Pot
 tile.desert_pot_sealed.name=Sealed Desert Pot
 tile.frozen_pot.name=Frozen Pot
@@ -69,6 +73,13 @@ item.exotic_fruit.name=Exotic Fruit
 item.night_seeds.name=Night Seeds
 item.night_wheat.name=Night Wheat
 item.fern_item.name=Fern
+
+item.dense_night_wood.name=Dense Night Wood
+
+item.fortune_powder.name=Fortune Powder
+item.concentrated_fortune.name=Concentrated Fortune
+
+item.exotic_key.name=Exotic Key
 
 item.desert_pot_item.name=Sealed Desert Pot
 item.frozen_pot_item.name=Sealed Frozen Pot

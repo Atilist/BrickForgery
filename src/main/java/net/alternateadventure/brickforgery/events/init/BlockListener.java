@@ -54,6 +54,11 @@ public class BlockListener {
 
     public static LazyBlockTemplate
             commonPot,
+
+            forestVaultKeyhole,
+            forestVaultWalls,
+            forestOrnament,
+
             desertPotSealed,
 
             potPedestal,
@@ -117,6 +122,10 @@ public class BlockListener {
         factoryRubble = new LazyBlockTemplate(Identifier.of(MOD_ID,  "factory_rubble"), Material.DIRT, 1.5F, BlockBase.GRAVEL_SOUNDS);
 
         commonPot = new CommonPot(Identifier.of(MOD_ID, "common_pot"), Material.STONE, 1.5F, BlockBase.GLASS_SOUNDS);
+        forestVaultKeyhole = new IndestructibleBlock(Identifier.of(MOD_ID, "forest_vault_keyhole"), Material.STONE, -1.0F, BlockBase.STONE_SOUNDS, 6000000.0F);
+        forestVaultWalls = new IndestructibleBlock(Identifier.of(MOD_ID, "forest_vault_walls"), Material.STONE, -1.0F, BlockBase.STONE_SOUNDS, 6000000.0F);
+        forestOrnament = new LazyBlockTemplate(Identifier.of(MOD_ID,  "forest_ornament"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+
         desertPotSealed = new DesertPotSealed(Identifier.of(MOD_ID, "desert_pot_sealed"), Material.STONE, 1.0F, BlockBase.GLASS_SOUNDS);
         desertPot = new DesertPot(Identifier.of(MOD_ID, "desert_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "desert_pot");
         frozenPotSealed = new FrozenPotSealed(Identifier.of(MOD_ID, "frozen_pot_sealed"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot_sealed");

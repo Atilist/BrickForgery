@@ -20,6 +20,13 @@ public class TextureListener {
         ItemListener.nightWheat.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheat"));
         ItemListener.fernItem.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/FernItem"));
 
+        ItemListener.denseNightWood.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DenseNightWood"));
+
+        ItemListener.fortunePowder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/FortunePowder"));
+        ItemListener.concentratedFortune.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ConcentratedFortune"));
+
+        ItemListener.exoticKey.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Keys/ExoticKey"));
+
         ItemListener.desertPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/DesertPotItem"));
         ItemListener.frozenPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/FrozenPotItem"));
 
@@ -110,6 +117,10 @@ public class TextureListener {
         DesertPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotSide")).index;
         DesertPotBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotBottom")).index;
         DesertPotTopSealed = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/DesertPotTopSealed")).index;
+
+        ForestVaultKeyhole = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/ForestVaultKeyhole")).index;
+        ForestVaultTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/ForestVaultTop")).index;
+        ForestVaultSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/ForestVaultSide")).index;
 
         FrozenPotTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotTop")).index;
         FrozenPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotSide")).index;
@@ -212,6 +223,10 @@ public class TextureListener {
         BlockListener.factoryRubble.specifyTextures(FactoryRubble);
 
         BlockListener.commonPot.specifyTextures(CommonPotTop, CommonPotSide, CommonPotBottom);
+        BlockListener.forestVaultKeyhole.specifyTextures(ForestVaultKeyhole, ForestVaultSide, ForestVaultKeyhole);
+        BlockListener.forestVaultWalls.specifyTextures(ForestVaultTop, ForestVaultSide, ForestVaultTop);
+        BlockListener.forestOrnament.specifyTextures(ForestVaultTop, ForestVaultSide, ForestVaultTop);
+
         BlockListener.desertPotSealed.specifyTextures(DesertPotTopSealed, DesertPotSide, DesertPotBottom);
 
         BlockListener.primitiveMachineFrame.specifyTextures(PrimitiveMachineFrame);
@@ -284,6 +299,10 @@ public class TextureListener {
             DesertPotSide,
             DesertPotBottom,
             DesertPotTopSealed,
+
+            ForestVaultKeyhole,
+            ForestVaultTop,
+            ForestVaultSide,
 
             FrozenPotTop,
             FrozenPotSide,

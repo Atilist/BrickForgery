@@ -44,6 +44,13 @@ public class ItemListener {
             brickHammer;
 
     public static LazyItemTemplate
+            denseNightWood,
+
+            fortunePowder,
+            concentratedFortune,
+
+            exoticKey,
+
             desertPotItem,
             frozenPotItem,
 
@@ -82,6 +89,13 @@ public class ItemListener {
         nightSeeds = new NightSeeds(Identifier.of(MOD_ID, "night_seeds")).setTranslationKey(MOD_ID, "night_seeds");
         nightWheat = new TemplateItemBase(Identifier.of(MOD_ID, "night_wheat")).setTranslationKey(MOD_ID, "night_wheat");
         fernItem = new FernItem(Identifier.of(MOD_ID, "fern_item"));
+
+        denseNightWood = new LazyItemTemplate(Identifier.of(MOD_ID, "dense_night_wood"));
+
+        fortunePowder = new LazyItemTemplate(Identifier.of(MOD_ID, "fortune_powder"));
+        concentratedFortune = new LazyItemTemplate(Identifier.of(MOD_ID, "concentrated_fortune"));
+
+        exoticKey = new ExoticKey(Identifier.of(MOD_ID, "exotic_key"));
 
         desertPotItem = new DesertPotItem(Identifier.of(MOD_ID, "desert_pot_item"));
         frozenPotItem = new FrozenPotItem(Identifier.of(MOD_ID, "frozen_pot_item"));

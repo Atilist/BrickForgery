@@ -16,6 +16,8 @@
     "brickforgery:brick_frame_crafter_dusted",
     "brickforgery:brick_frame_crafter",
     "brickforgery:alloy_smelter",
-    "brickforgery:alloy_smelter_active"
+    "brickforgery:alloy_smelter_active",
+    "brickforgery:forest_ornament",
+    "brickforgery:common_pot"
   ]
 }
