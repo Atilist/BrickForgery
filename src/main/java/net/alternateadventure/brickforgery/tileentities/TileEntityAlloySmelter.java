@@ -1,22 +1,23 @@
 package net.alternateadventure.brickforgery.tileentities;
 
+import com.github.gtgolden.gtgoldencore.machines.api.items.HasItemIO;
+import com.github.gtgolden.gtgoldencore.machines.api.items.SlotType;
 import net.alternateadventure.brickforgery.blocks.AlloySmelter;
 import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
+import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockBase;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.inventory.InventoryBase;
-import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.tileentity.TileEntityBase;
 import net.minecraft.util.io.CompoundTag;
 import net.minecraft.util.io.ListTag;
+import net.modificationstation.stationapi.api.util.math.Direction;
 
-public class TileEntityAlloySmelter extends TileEntityBase implements InventoryBase, BlockWithOutput, BlockWithInput {
+public class TileEntityAlloySmelter extends TileEntityBase implements InventoryBase, BlockWithOutput, BlockWithInput, HasItemIO {
     private ItemInstance[] inventory = new ItemInstance[5];
     public int burnTime = 0;
     public int fuelTime = 0;
@@ -80,7 +81,7 @@ public class TileEntityAlloySmelter extends TileEntityBase implements InventoryB
 
         this.burnTime = arg.getShort("BurnTime");
         this.cookTime = arg.getShort("CookTime");
-        this.fuelTime = this.getFuelTime(this.inventory[1]);
+        this.fuelTime = this.getFuelTime();
     }
 
     public void writeIdentifyingData(CompoundTag arg) {
@@ -132,7 +133,7 @@ public class TileEntityAlloySmelter extends TileEntityBase implements InventoryB
 
         if (!this.level.isServerSide) {
             if (this.burnTime == 0 && this.canAcceptRecipeOutput()) {
-                this.fuelTime = this.burnTime = this.getFuelTime(this.inventory[1]);
+                this.fuelTime = this.burnTime = this.getFuelTime();
                 if (this.burnTime > 0) {
                     var2 = true;
                     if (this.inventory[1] != null) {
@@ -209,23 +210,10 @@ public class TileEntityAlloySmelter extends TileEntityBase implements InventoryB
         }
     }
 
-    private int getFuelTime(ItemInstance arg) {
-        if (arg == null) {
-            return 0;
-        } else {
-            int var2 = arg.getType().id;
-            if (var2 < 256 && BlockBase.BY_ID[var2].material == Material.WOOD) {
-                return 300;
-            } else if (var2 == ItemBase.stick.id) {
-                return 100;
-            } else if (var2 == ItemBase.coal.id) {
-                return 1600;
-            } else if (var2 == ItemBase.lavaBucket.id) {
-                return 20000;
-            } else {
-                return var2 == BlockBase.SAPLING.id ? 100 : 0;
-            }
-        }
+    private int getFuelTime() {
+        if (level == null) return 0;
+        if (level.getTileId(x, y - 1, z) == BlockListener.heatPillarStoked.id) return 100;
+        return 0;
     }
 
     public boolean canPlayerUse(PlayerBase arg) {
@@ -291,5 +279,82 @@ public class TileEntityAlloySmelter extends TileEntityBase implements InventoryB
         if (slot == 0) inventory[0].count = count;
         else if (slot == 1) inventory[3].count = count;
         else if (slot == 2) inventory[4].count = count;
+    }
+
+
+
+    @Override
+    public SlotType[] getAcceptedTypes(Direction side) {
+        return switch (side) {
+            case DOWN:
+            case UP:
+                yield new SlotType[] {SlotType.INPUT};
+            case EAST:
+            case WEST:
+            case NORTH:
+            case SOUTH:
+                yield new SlotType[] {SlotType.OUTPUT};
+        };
+    }
+
+    @Override
+    public SlotType[] getAcceptedTypes() {
+        return new SlotType[] {SlotType.INPUT, SlotType.OUTPUT};
+    }
+
+    @Override
+    public int getInventorySize(SlotType type) {
+        if (type == SlotType.INPUT) return 3;
+        if (type == SlotType.OUTPUT) return 1;
+        return 0;
+    }
+
+    @Override
+    public ItemInstance getInventoryItem(SlotType type, int slot) {
+        if (isInvalidType(type)) return null;
+        if (type == SlotType.OUTPUT && slot != 0) return null;
+        if (type == SlotType.INPUT && slot > 2) return null;
+        return getInventoryItem(getTranslatedSlot(type, slot));
+    }
+
+    @Override
+    public ItemInstance takeInventoryItem(SlotType type, int slot, int count) {
+        if (isInvalidType(type)) return null;
+        if (type == SlotType.OUTPUT && slot != 0) return null;
+        if (type == SlotType.INPUT && slot > 2) return null;
+        return takeInventoryItem(getTranslatedSlot(type, slot), count);
+    }
+
+    @Override
+    public void setInventoryItem(SlotType type, int slot, ItemInstance itemInstance) {
+        if (isInvalidType(type)) return;
+        if (type == SlotType.OUTPUT && slot != 0) return;
+        if (type == SlotType.INPUT && slot > 2) return;
+        setInventoryItem(getTranslatedSlot(type, slot), itemInstance);
+    }
+
+    private static boolean isInvalidType(SlotType type) {
+        return type != SlotType.INPUT && type != SlotType.OUTPUT;
+    }
+
+    private static int getTranslatedSlot(SlotType type, int slot) {
+        switch (slot) {
+            case 0:
+                break;
+            case 1:
+                slot = 3;
+                break;
+            case 2:
+                slot = 4;
+                break;
+        }
+        return switch (type) {
+            case INPUT:
+                yield slot;
+            case OUTPUT:
+                yield 2;
+            default:
+                yield -1;
+        };
     }
 }

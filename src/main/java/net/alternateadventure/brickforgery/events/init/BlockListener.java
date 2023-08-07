@@ -71,6 +71,10 @@ public class BlockListener {
             primitiveMachineFrame,
             primitiveBrickFrameCrafter,
 
+            heatPillar,
+            heatPillarIgnited,
+            heatPillarStoked,
+
             brickSteelMachineFrame,
 
             itemChuteChain,
@@ -136,6 +140,10 @@ public class BlockListener {
         primitiveBrickFrameCrafter = new PrimitiveBrickFrameCrafter(Identifier.of(MOD_ID, "primitive_brick_frame_crafter"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
         primitiveSlicer = new SlicerBase(Identifier.of(MOD_ID, "primitive_slicer"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS, 0);
         primitiveMetalworkingStation = new MetalworkingStationBase(Identifier.of(MOD_ID, "primitive_metalworking_station"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS, 0);
+
+        heatPillar = new HeatPillar(Identifier.of(MOD_ID, "heat_pillar"), Material.GLASS, 1.5F, BlockBase.GLASS_SOUNDS);
+        heatPillarIgnited = new HeatPillarIgnited(Identifier.of(MOD_ID, "heat_pillar_ignited"), Material.GLASS, 1.5F, BlockBase.GLASS_SOUNDS);
+        heatPillarStoked = new HeatPillarStoked(Identifier.of(MOD_ID, "heat_pillar_stoked"), Material.GLASS, 1.5F, BlockBase.GLASS_SOUNDS);
 
         brickSteelMachineFrame = new MachineFrame(Identifier.of(MOD_ID, "brick_steel_machine_frame"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS);
         slicer = new SlicerBase(Identifier.of(MOD_ID, "slicer"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS, 1);

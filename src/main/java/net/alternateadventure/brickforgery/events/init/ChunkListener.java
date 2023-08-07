@@ -33,6 +33,14 @@ public class ChunkListener {
                 new DesertPotArea().generate(event.level, event.random, x, y, z);
             }
         }
+        if (event.biome == Biome.DESERT) {
+            for (int attempts = 0; attempts < 4; attempts++) {
+                x = event.x + event.random.nextInt(16);
+                y = event.random.nextInt(48) + 64;
+                z = event.z + event.random.nextInt(16);
+                new DesertWell().generate(event.level, event.random, x, y, z);
+            }
+        }
         if (event.biome == Biome.TUNDRA) {
             for (int attempts = 0; attempts < 8; attempts++) {
                 x = event.x + event.random.nextInt(16);
@@ -63,5 +71,13 @@ public class ChunkListener {
             z = event.z + event.random.nextInt(16);
             new ForestVault().generate(event.level, event.random, x, y, z);
         }
+        /* I sometimes use this workspace to test structures for Aether Expansion. This code will be removed once the structure is finished.
+        if (event.random.nextInt(8) == 0) {
+            x = event.x + event.random.nextInt(16);
+            y = 96;
+            z = event.z + event.random.nextInt(16);
+            new AetherArena().generate(event.level, event.random, x, y, z);
+        }
+         */
     }
 }

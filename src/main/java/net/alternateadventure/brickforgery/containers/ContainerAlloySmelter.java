@@ -23,7 +23,6 @@ public class ContainerAlloySmelter extends ContainerBase {
         this.addSlot(new Slot(arg2, 0, 38, 17));
         this.addSlot(new Slot(arg2, 3, 56, 17));
         this.addSlot(new Slot(arg2, 4, 74, 17));
-        this.addSlot(new Slot(arg2, 1, 56, 53));
         this.addSlot(new FurnaceOutput(arg.player, arg2, 2, 116, 35));
 
         int var3;

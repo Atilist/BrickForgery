@@ -50,6 +50,7 @@ public class ItemListener {
             concentratedFortune,
 
             exoticKey,
+            desertKey,
 
             desertPotItem,
             frozenPotItem,
@@ -57,6 +58,13 @@ public class ItemListener {
             primitiveBrush,
             primitiveChisel,
             primitiveGrabber,
+
+            groundSandstone,
+            illuminantCrystal,
+
+            thermalPowder,
+            concentratedThermal,
+            thermalGlass,
 
             durableLeather,
             brickSteelIngot,
@@ -96,6 +104,7 @@ public class ItemListener {
         concentratedFortune = new LazyItemTemplate(Identifier.of(MOD_ID, "concentrated_fortune"));
 
         exoticKey = new ExoticKey(Identifier.of(MOD_ID, "exotic_key"));
+        desertKey = new DesertKey(Identifier.of(MOD_ID, "desert_key"));
 
         desertPotItem = new DesertPotItem(Identifier.of(MOD_ID, "desert_pot_item"));
         frozenPotItem = new FrozenPotItem(Identifier.of(MOD_ID, "frozen_pot_item"));
@@ -103,6 +112,13 @@ public class ItemListener {
         primitiveBrush = new PrimitiveBrush(Identifier.of(MOD_ID, "primitive_brush"));
         primitiveChisel = new PrimitiveChisel(Identifier.of(MOD_ID, "primitive_chisel"));
         primitiveGrabber = new PrimitiveGrabber(Identifier.of(MOD_ID, "primitive_grabber"));
+
+        groundSandstone = new LazyItemTemplate(Identifier.of(MOD_ID, "ground_sandstone"));
+        illuminantCrystal = new LazyItemTemplate(Identifier.of(MOD_ID, "illuminant_crystal"));
+
+        thermalPowder = new LazyItemTemplate(Identifier.of(MOD_ID, "thermal_powder"));
+        concentratedThermal = new LazyItemTemplate(Identifier.of(MOD_ID, "concentrated_thermal"));
+        thermalGlass = new LazyItemTemplate(Identifier.of(MOD_ID, "thermal_glass"));
 
         durableLeather = new LazyItemTemplate(Identifier.of(MOD_ID, "durable_leather"));
         brickSteelIngot = new LazyItemTemplate(Identifier.of(MOD_ID, "brick_steel_ingot"));

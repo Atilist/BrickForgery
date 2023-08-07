@@ -1,5 +1,7 @@
 package net.alternateadventure.brickforgery.tileentities;
 
+import com.github.gtgolden.gtgoldencore.machines.api.items.HasItemIO;
+import com.github.gtgolden.gtgoldencore.machines.api.items.SlotType;
 import net.alternateadventure.brickforgery.blocks.MetalworkingStationBase;
 import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
@@ -14,8 +16,9 @@ import net.minecraft.item.ItemInstance;
 import net.minecraft.tileentity.TileEntityBase;
 import net.minecraft.util.io.CompoundTag;
 import net.minecraft.util.io.ListTag;
+import net.modificationstation.stationapi.api.util.math.Direction;
 
-public class TileEntityMetalworkingStation extends TileEntityBase implements InventoryBase, BlockWithOutput, BlockWithInput {
+public class TileEntityMetalworkingStation extends TileEntityBase implements InventoryBase, BlockWithOutput, BlockWithInput, HasItemIO {
     private ItemInstance[] inventory = new ItemInstance[2];
     public int metalworkingTime = 0;
     public int tier = 0;
@@ -239,5 +242,65 @@ public class TileEntityMetalworkingStation extends TileEntityBase implements Inv
     @Override
     public void setInputItemCount(int slot, int count) {
         inventory[0].count = count;
+    }
+
+
+
+    @Override
+    public SlotType[] getAcceptedTypes(Direction side) {
+        return switch (side) {
+            case DOWN:
+            case UP:
+                yield new SlotType[] {SlotType.INPUT};
+            case EAST:
+            case WEST:
+            case NORTH:
+            case SOUTH:
+                yield new SlotType[] {SlotType.OUTPUT};
+        };
+    }
+
+    @Override
+    public SlotType[] getAcceptedTypes() {
+        return new SlotType[] {SlotType.INPUT, SlotType.OUTPUT};
+    }
+
+    @Override
+    public int getInventorySize(SlotType type) {
+        if (isValidType(type)) return 1;
+        return 0;
+    }
+
+    @Override
+    public ItemInstance getInventoryItem(SlotType type, int slot) {
+        if (!isValidType(type) || slot != 0) return null;
+        return getInventoryItem(getTranslatedSlot(type));
+    }
+
+    @Override
+    public ItemInstance takeInventoryItem(SlotType type, int slot, int count) {
+        if (!isValidType(type) || slot != 0) return null;
+        return takeInventoryItem(getTranslatedSlot(type), count);
+    }
+
+    @Override
+    public void setInventoryItem(SlotType type, int slot, ItemInstance itemInstance) {
+        if (!isValidType(type) || slot != 0) return;
+        setInventoryItem(getTranslatedSlot(type), itemInstance);
+    }
+
+    private static boolean isValidType(SlotType type) {
+        return type == SlotType.INPUT || type == SlotType.OUTPUT;
+    }
+
+    private static int getTranslatedSlot(SlotType type) {
+        return switch (type) {
+            case INPUT:
+                yield 0;
+            case OUTPUT:
+                yield 1;
+            default:
+                yield -1;
+        };
     }
 }

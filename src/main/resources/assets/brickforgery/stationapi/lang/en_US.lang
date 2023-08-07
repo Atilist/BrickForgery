@@ -28,6 +28,10 @@ tile.primitive_brick_frame_crafter.name=Primitive Brick Frame Crafter
 tile.primitive_slicer.name=Primitive Slicer
 tile.primitive_metalworking_station.name=Primitive Metalworking Station
 
+tile.heat_pillar.name=Heat Pillar
+tile.heat_pillar_ignited.name=Ignited Heat Pillar
+tile.heat_pillar_stoked.name=Stoked Heat Pillar
+
 tile.brick_steel_machine_frame.name=Brick Steel Machine Frame
 tile.slicer.name=Slicer
 tile.metalworking_station.name=Metalworking Station
@@ -80,6 +84,7 @@ item.fortune_powder.name=Fortune Powder
 item.concentrated_fortune.name=Concentrated Fortune
 
 item.exotic_key.name=Exotic Key
+item.desert_key.name=Desert Key
 
 item.desert_pot_item.name=Sealed Desert Pot
 item.frozen_pot_item.name=Sealed Frozen Pot
@@ -87,6 +92,13 @@ item.frozen_pot_item.name=Sealed Frozen Pot
 item.primitive_brush.name=Primitive Brush
 item.primitive_chisel.name=Primitive Chisel
 item.primitive_grabber.name=Primitive Grabber
+
+item.ground_sandstone.name=Ground Sandstone
+item.illuminant_crystal.name=Illuminant Crystal
+
+item.thermal_powder.name=Thermal Powder
+item.concentrated_thermal.name=Concentrated Thermal
+item.thermal_glass.name=Thermal Glass
 
 item.durable_leather.name=Durable Leather
 item.brick_steel_ingot.name=Brick Steel Ingot

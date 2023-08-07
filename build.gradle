@@ -77,6 +77,10 @@ dependencies {
 		transitive false
 	}
 
+	modImplementation("com.github.GT-Golden:GT-Golden-Core:${project.gt_golden_core_version}") {
+		transitive false
+	}
+
 	// Optional, but convenient mods for mod creators and users alike.
 	modImplementation("com.github.calmilamsy:ModMenu:${project.modmenu_version}") {
 		transitive false

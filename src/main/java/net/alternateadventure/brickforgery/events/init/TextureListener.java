@@ -26,6 +26,7 @@ public class TextureListener {
         ItemListener.concentratedFortune.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ConcentratedFortune"));
 
         ItemListener.exoticKey.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Keys/ExoticKey"));
+        ItemListener.desertKey.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Keys/DesertKey"));
 
         ItemListener.desertPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/DesertPotItem"));
         ItemListener.frozenPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/FrozenPotItem"));
@@ -33,6 +34,13 @@ public class TextureListener {
         ItemListener.primitiveBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveBrush"));
         ItemListener.primitiveChisel.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveChisel"));
         ItemListener.primitiveGrabber.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveGrabber"));
+
+        ItemListener.groundSandstone.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/GroundSandstone"));
+        ItemListener.illuminantCrystal.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/IlluminantCrystal"));
+
+        ItemListener.thermalPowder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/ThermalPowder"));
+        ItemListener.concentratedThermal.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ConcentratedThermal"));
+        ItemListener.thermalGlass.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ThermalGlass"));
 
         ItemListener.durableLeather.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DurableLeather"));
         ItemListener.brickSteelIngot.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSteelIngot"));
@@ -138,6 +146,10 @@ public class TextureListener {
         PrimitiveMetalworkingStationSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveMetalworkingStationSide")).index;
         PrimitiveMetalworkingStationBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveMetalworkingStationBottom")).index;
 
+        HeatPillar = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/HeatPillar")).index;
+        HeatPillarIgnited = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/HeatPillarIgnited")).index;
+        HeatPillarStoked = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/HeatPillarStoked")).index;
+
         BrickSteelMachineFrame = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/BrickSteelMachineFrame")).index;
         SlicerTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/SlicerTop")).index;
         SlicerSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/SlicerSide")).index;
@@ -234,6 +246,10 @@ public class TextureListener {
         BlockListener.primitiveSlicer.specifyTextures(PrimitiveSlicerTop, PrimitiveSlicerSide, PrimitiveSlicerBottom);
         BlockListener.primitiveMetalworkingStation.specifyTextures(PrimitiveMetalworkingStationTop, PrimitiveMetalworkingStationSide, PrimitiveMetalworkingStationBottom);
 
+        BlockListener.heatPillar.specifyTextures(HeatPillar);
+        BlockListener.heatPillarIgnited.specifyTextures(HeatPillarIgnited);
+        BlockListener.heatPillarStoked.specifyTextures(HeatPillarStoked);
+
         BlockListener.brickSteelMachineFrame.specifyTextures(BrickSteelMachineFrame);
         BlockListener.slicer.specifyTextures(SlicerTop, SlicerSide, SlicerBottom);
         BlockListener.metalworkingStation.specifyTextures(MetalworkingStationTop, MetalworkingStationSide, MetalworkingStationBottom);
@@ -255,6 +271,10 @@ public class TextureListener {
         BlockListener.goldOreBricks.specifyTextures(GoldOreBricks);
         BlockListener.redstoneOreBricks.specifyTextures(RedstoneOreBricks);
         BlockListener.diamondOreBricks.specifyTextures(DiamondOreBricks);
+
+        BlockListener.heatPillar.asItem().setTexturePosition(HeatPillar);
+        BlockListener.heatPillarIgnited.asItem().setTexturePosition(HeatPillarIgnited);
+        BlockListener.heatPillarStoked.asItem().setTexturePosition(HeatPillarStoked);
 
         BlockListener.spikeMount.asItem().setTexturePosition(SpikeMount);
         BlockListener.exoticShrub.asItem().setTexturePosition(ExoticShrub);
@@ -320,6 +340,10 @@ public class TextureListener {
             PrimitiveMetalworkingStationSide,
             PrimitiveMetalworkingStationBottom,
 
+            HeatPillar,
+            HeatPillarIgnited,
+            HeatPillarStoked,
+
             BrickSteelMachineFrame,
             SlicerTop,
             SlicerSide,
@@ -361,7 +385,6 @@ public class TextureListener {
             ItemElevatorChainTop,
             ItemElevatorChainSide,
             ItemElevatorChainBottom,
-
 
             BrickLauncherTop,
             BrickLauncherSide,
