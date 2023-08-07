@@ -78,7 +78,10 @@ public class ItemListener {
 
             nightWoodBeam,
             brickSteelBeam,
+
+            woodenFrame,
             hardenedBrickFrame,
+            reinforcedBrickFrame,
 
             toolRepairKit,
 
@@ -132,7 +135,10 @@ public class ItemListener {
 
         nightWoodBeam = new LazyItemTemplate(Identifier.of(MOD_ID, "night_wood_beam"));
         brickSteelBeam = new LazyItemTemplate(Identifier.of(MOD_ID, "brick_steel_beam"));
+
+        woodenFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "wooden_frame"));
         hardenedBrickFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "hardened_brick_frame"));
+        reinforcedBrickFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "reinforced_brick_frame"));
 
         toolRepairKit = new LazyItemTemplate(Identifier.of(MOD_ID, "tool_repair_kit"));
 

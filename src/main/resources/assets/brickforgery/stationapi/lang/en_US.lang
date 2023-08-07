@@ -112,7 +112,12 @@ item.brick_steel_plate.name=Brick Steel Plate
 
 item.night_wood_beam.name=Night Wood Beam
 item.brick_steel_beam.name=Brick Steel Beam
+
+item.wooden_frame.name=Wooden Frame
+item.brick_frame.name=Brick Frame
+item.dry_brick_frame.name=Dry Brick Frame
 item.hardened_brick_frame.name=Hardened Brick Frame
+item.reinforced_brick_frame.name=Reinforced Brick Frame
 
 item.tool_repair_kit.name=Tool Repair Kit
 
@@ -123,9 +128,6 @@ item.archeology_ice_knife.name=Archeology Ice Knife
 item.archeology_tool_base.name=Archeology Tool Handle
 item.ice_blade.name=Ice Blade
 item.broken_spike_holder.name=Broken Spike Holder
-
-item.brick_frame.name=Brick Frame
-item.dry_brick_frame.name=Dry Brick Frame
 
 item.wooden_brick.name=Wooden Brick
 item.brick_ash.name=Brick Ash

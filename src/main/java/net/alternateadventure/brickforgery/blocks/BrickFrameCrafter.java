@@ -29,12 +29,16 @@ public class BrickFrameCrafter extends TemplateBlockBase {
 
     @Override
     public boolean canUse(Level arg, int i, int j, int k, PlayerBase arg2) {
-        craftFrame(arg, i, j, k);
+        craftFrame(arg, i, j, k, arg2);
         return true;
     }
 
-    public void craftFrame(Level level, int x, int y, int z) {
+    public void craftFrame(Level level, int x, int y, int z, PlayerBase player) {
         if (level.getTileId(x, y + 1, z) != 0) return;
+        ItemInstance item = player.getHeldItem();
+        if (item == null) return;
+        if (item.itemId != ItemListener.woodenFrame.id) return;
+
         boolean hasClay = false;
         boolean hasPlanks = false;
 
@@ -50,6 +54,7 @@ public class BrickFrameCrafter extends TemplateBlockBase {
 
         if (!(hasClay && hasPlanks)) return;
 
+        item.count--;
         level.spawnEntity(new Item(level, x + 0.5, y + 1, z + 0.5, new ItemInstance(ItemListener.brickFrame)));
 
         boolean clayDecreased;

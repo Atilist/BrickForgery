@@ -54,7 +54,6 @@ public class TextureListener {
 
         ItemListener.nightWoodBeam.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/NightWoodBeam"));
         ItemListener.brickSteelBeam.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSteelBeam"));
-        ItemListener.hardenedBrickFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/HardenedBrickFrame"));
 
         ItemListener.toolRepairKit.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ToolRepairKit"));
 
@@ -66,8 +65,11 @@ public class TextureListener {
         ItemListener.iceBlade.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/IceBlade"));
         ItemListener.brokenSpikeHolder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/BrokenSpikeHolder"));
 
+        ItemListener.woodenFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/WoodenFrame"));
         ItemListener.brickFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickFrame"));
         ItemListener.dryBrickFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DryBrickFrame"));
+        ItemListener.hardenedBrickFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/HardenedBrickFrame"));
+        ItemListener.reinforcedBrickFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ReinforcedBrickFrame"));
 
         ItemListener.woodenBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/WoodenBrick"));
         ItemListener.brickAsh.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickAsh"));
