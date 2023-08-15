@@ -61,6 +61,12 @@ public class BlockListener {
 
             desertPotSealed,
 
+            desertWellBricks,
+            desertWellFloor,
+            desertWellKeyhole,
+            ancientSandstoneBricks,
+            ancientSandstoneTile,
+
             potPedestal,
             bountifulSand,
             bountifulSnow,
@@ -132,6 +138,12 @@ public class BlockListener {
 
         desertPotSealed = new DesertPotSealed(Identifier.of(MOD_ID, "desert_pot_sealed"), Material.STONE, 1.0F, BlockBase.GLASS_SOUNDS);
         desertPot = new DesertPot(Identifier.of(MOD_ID, "desert_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "desert_pot");
+        desertWellBricks = new IndestructibleBlock(Identifier.of(MOD_ID, "desert_well_bricks"), Material.STONE, -1.0F, BlockBase.STONE_SOUNDS, 6000000.0F);
+        desertWellFloor = new IndestructibleBlock(Identifier.of(MOD_ID, "desert_well_floor"), Material.STONE, -1.0F, BlockBase.STONE_SOUNDS, 6000000.0F);
+        desertWellKeyhole = new IndestructibleBlock(Identifier.of(MOD_ID, "desert_well_keyhole"), Material.STONE, -1.0F, BlockBase.STONE_SOUNDS, 6000000.0F);
+        ancientSandstoneBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "ancient_sandstone_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+        ancientSandstoneTile = new LazyBlockTemplate(Identifier.of(MOD_ID,  "ancient_sandstone_tile"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+
         frozenPotSealed = new FrozenPotSealed(Identifier.of(MOD_ID, "frozen_pot_sealed"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot_sealed");
         frozenPot = new FrozenPot(Identifier.of(MOD_ID, "frozen_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot");
         mossyPot = new MossyPot(Identifier.of(MOD_ID, "mossy_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "mossy_pot");

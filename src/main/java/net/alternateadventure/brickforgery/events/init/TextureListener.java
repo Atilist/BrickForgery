@@ -1,5 +1,7 @@
 package net.alternateadventure.brickforgery.events.init;
 
+import net.alternateadventure.brickforgery.blocks.HeatPillar;
+import net.alternateadventure.brickforgery.blocks.HeatPillarIgnited;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
@@ -21,6 +23,7 @@ public class TextureListener {
         ItemListener.fernItem.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/FernItem"));
 
         ItemListener.denseNightWood.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DenseNightWood"));
+        ItemListener.glueMixture.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/GlueMixture"));
 
         ItemListener.fortunePowder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/FortunePowder"));
         ItemListener.concentratedFortune.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ConcentratedFortune"));
@@ -37,6 +40,11 @@ public class TextureListener {
 
         ItemListener.groundSandstone.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/GroundSandstone"));
         ItemListener.illuminantCrystal.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/IlluminantCrystal"));
+
+        ItemListener.ironOreCrushed.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/IronOreCrushed"));
+        ItemListener.ironOreWashed.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/IronOreWashed"));
+        ItemListener.ironOrePowdered.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/IronOrePowdered"));
+        ItemListener.ironOrePurified.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/IronOrePurified"));
 
         ItemListener.thermalPowder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/ThermalPowder"));
         ItemListener.concentratedThermal.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ConcentratedThermal"));
@@ -131,6 +139,9 @@ public class TextureListener {
         ForestVaultKeyhole = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/ForestVaultKeyhole")).index;
         ForestVaultTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/ForestVaultTop")).index;
         ForestVaultSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/ForestVaultSide")).index;
+        DesertWellBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/DesertWellBricks")).index;
+        DesertWellFloor = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/DesertWellFloor")).index;
+        DesertWellKeyhole = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/WorldGeneration/DesertWellKeyhole")).index;
 
         FrozenPotTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotTop")).index;
         FrozenPotSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotSide")).index;
@@ -242,6 +253,11 @@ public class TextureListener {
         BlockListener.forestOrnament.specifyTextures(ForestVaultTop, ForestVaultSide, ForestVaultTop);
 
         BlockListener.desertPotSealed.specifyTextures(DesertPotTopSealed, DesertPotSide, DesertPotBottom);
+        BlockListener.desertWellBricks.specifyTextures(DesertWellBricks);
+        BlockListener.desertWellFloor.specifyTextures(DesertWellFloor);
+        BlockListener.desertWellKeyhole.specifyTextures(DesertWellKeyhole);
+        BlockListener.ancientSandstoneBricks.specifyTextures(DesertWellBricks);
+        BlockListener.ancientSandstoneTile.specifyTextures(DesertWellFloor);
 
         BlockListener.primitiveMachineFrame.specifyTextures(PrimitiveMachineFrame);
         BlockListener.primitiveBrickFrameCrafter.specifyTextures(PrimitiveBrickFrameCrafterTop, PrimitiveBrickFrameCrafterSide, PrimitiveBrickFrameCrafterBottom);
@@ -325,6 +341,9 @@ public class TextureListener {
             ForestVaultKeyhole,
             ForestVaultTop,
             ForestVaultSide,
+            DesertWellBricks,
+            DesertWellFloor,
+            DesertWellKeyhole,
 
             FrozenPotTop,
             FrozenPotSide,

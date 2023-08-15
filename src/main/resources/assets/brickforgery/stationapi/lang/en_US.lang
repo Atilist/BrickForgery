@@ -16,6 +16,12 @@ tile.common_pot.name=Common Pot
 tile.forest_vault_keyhole.name=Forest Vault Keyhole
 tile.forest_vault_walls.name=Forest Vault Walls
 tile.forest_ornament.name=Forest Ornament
+tile.desert_well_bricks.name=Desert Well Bricks
+tile.desert_well_floor.name=Desert Well Floor
+tile.desert_well_keyhole.name=Desert Well Keyhole
+
+tile.ancient_sandstone_bricks.name=Ancient Sandstone Bricks
+tile.ancient_sandstone_tile.name=Ancient Sandstone Tile
 
 tile.desert_pot.name=Desert Pot
 tile.desert_pot_sealed.name=Sealed Desert Pot
@@ -79,6 +85,7 @@ item.night_wheat.name=Night Wheat
 item.fern_item.name=Fern
 
 item.dense_night_wood.name=Dense Night Wood
+item.glue_mixture.name=Glue Mixture
 
 item.fortune_powder.name=Fortune Powder
 item.concentrated_fortune.name=Concentrated Fortune
@@ -95,6 +102,11 @@ item.primitive_grabber.name=Primitive Grabber
 
 item.ground_sandstone.name=Ground Sandstone
 item.illuminant_crystal.name=Illuminant Crystal
+
+item.iron_ore_crushed.name=Crushed Iron Ore
+item.iron_ore_washed.name=Washed Iron Ore
+item.iron_ore_powdered.name=Powdered Iron Ore
+item.iron_ore_purified.name=Purified Iron Ore
 
 item.thermal_powder.name=Thermal Powder
 item.concentrated_thermal.name=Concentrated Thermal

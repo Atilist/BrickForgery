@@ -1,5 +1,6 @@
 package net.alternateadventure.brickforgery.structures;
 
+import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.level.Level;
 
@@ -51,5 +52,30 @@ public class DesertWell {
         }
 
         level.setTile(x, y + 4, z, BlockBase.SANDSTONE.id);
+
+        for (int height = -1; height >= -8; height--) {
+            level.setTile(x, y + height, z, BlockBase.STILL_WATER.id);
+            level.setTile(x + 1, y + height, z, BlockBase.SANDSTONE.id);
+            level.setTile(x - 1, y + height, z, BlockBase.SANDSTONE.id);
+            level.setTile(x, y + height, z + 1, BlockBase.SANDSTONE.id);
+            level.setTile(x, y + height, z - 1, BlockBase.SANDSTONE.id);
+        }
+
+        for (int xOffset = -5; xOffset <= 5; xOffset++) {
+            for (int zOffset = -5; zOffset <= 5; zOffset++) {
+                for (int yOffset = -9; yOffset >= -14; yOffset--) {
+                    if (xOffset < 5 && xOffset > -5 && zOffset < 5 && zOffset > -5 && yOffset < -9 && yOffset > -14)
+                    {
+                        if (yOffset == -13 && rand.nextInt(4) == 0) level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockListener.desertPot.id);
+                        else level.setTile(x + xOffset, y + yOffset, z + zOffset, 0);
+                        continue;
+                    }
+                    if (yOffset > -14) level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockListener.desertWellBricks.id);
+                    else level.setTile(x + xOffset, y + yOffset, z + zOffset, BlockListener.desertWellFloor.id);
+                }
+            }
+        }
+
+        level.setTile(x, y - 9, z, BlockListener.desertWellKeyhole.id);
     }
 }

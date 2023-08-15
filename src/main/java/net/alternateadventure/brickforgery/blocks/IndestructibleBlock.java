@@ -20,7 +20,10 @@ public class IndestructibleBlock extends LazyBlockTemplate {
 
     public void convertToRegularBlock(Level level, int x, int y, int z)
     {
-        level.setTile(x, y, z, BlockListener.forestOrnament.id);
+        if (level.getTileId(x, y, z) == BlockListener.forestVaultWalls.id) level.setTile(x, y, z, BlockListener.forestOrnament.id);
+        else if (level.getTileId(x, y, z) == BlockListener.desertWellBricks.id) level.setTile(x, y, z, BlockListener.ancientSandstoneBricks.id);
+        else if (level.getTileId(x, y, z) == BlockListener.desertWellFloor.id) level.setTile(x, y, z, BlockListener.ancientSandstoneTile.id);
+        else level.setTile(x, y, z, 0);
         convertSurroundingBlock(level, x, y + 1, z);
         convertSurroundingBlock(level, x, y - 1, z);
         convertSurroundingBlock(level, x + 1, y, z);

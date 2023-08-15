@@ -45,6 +45,7 @@ public class ItemListener {
 
     public static LazyItemTemplate
             denseNightWood,
+            glueMixture,
 
             fortunePowder,
             concentratedFortune,
@@ -61,6 +62,11 @@ public class ItemListener {
 
             groundSandstone,
             illuminantCrystal,
+
+            ironOreCrushed,
+            ironOreWashed,
+            ironOrePowdered,
+            ironOrePurified,
 
             thermalPowder,
             concentratedThermal,
@@ -102,6 +108,7 @@ public class ItemListener {
         fernItem = new FernItem(Identifier.of(MOD_ID, "fern_item"));
 
         denseNightWood = new LazyItemTemplate(Identifier.of(MOD_ID, "dense_night_wood"));
+        glueMixture = new LazyItemTemplate(Identifier.of(MOD_ID, "glue_mixture"));
 
         fortunePowder = new LazyItemTemplate(Identifier.of(MOD_ID, "fortune_powder"));
         concentratedFortune = new LazyItemTemplate(Identifier.of(MOD_ID, "concentrated_fortune"));
@@ -118,6 +125,11 @@ public class ItemListener {
 
         groundSandstone = new LazyItemTemplate(Identifier.of(MOD_ID, "ground_sandstone"));
         illuminantCrystal = new LazyItemTemplate(Identifier.of(MOD_ID, "illuminant_crystal"));
+
+        ironOreCrushed = new LazyItemTemplate(Identifier.of(MOD_ID, "iron_ore_crushed"));
+        ironOreWashed = new LazyItemTemplate(Identifier.of(MOD_ID, "iron_ore_washed"));
+        ironOrePowdered = new LazyItemTemplate(Identifier.of(MOD_ID, "iron_ore_powdered"));
+        ironOrePurified = new LazyItemTemplate(Identifier.of(MOD_ID, "iron_ore_purified"));
 
         thermalPowder = new LazyItemTemplate(Identifier.of(MOD_ID, "thermal_powder"));
         concentratedThermal = new LazyItemTemplate(Identifier.of(MOD_ID, "concentrated_thermal"));

@@ -30,14 +30,6 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(48) + 64;
                 z = event.z + event.random.nextInt(16);
-                new DesertPotArea().generate(event.level, event.random, x, y, z);
-            }
-        }
-        if (event.biome == Biome.DESERT) {
-            for (int attempts = 0; attempts < 4; attempts++) {
-                x = event.x + event.random.nextInt(16);
-                y = event.random.nextInt(48) + 64;
-                z = event.z + event.random.nextInt(16);
                 new DesertWell().generate(event.level, event.random, x, y, z);
             }
         }
@@ -78,6 +70,6 @@ public class ChunkListener {
             z = event.z + event.random.nextInt(16);
             new AetherArena().generate(event.level, event.random, x, y, z);
         }
-         */
+        */
     }
 }

@@ -23,12 +23,13 @@ public class DesertPot extends TemplateBlockBase {
 
     @Override
     public int getDropCount(Random random) {
+        if (random.nextInt(4) == 0) return 1 + random.nextInt(4);
         return 0;
     }
 
     @Override
     public int getDropId(int i, Random random) {
-        return 0;
+        return ItemListener.thermalPowder.id;
     }
 
     @Override

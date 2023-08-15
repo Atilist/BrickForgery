@@ -6,10 +6,7 @@ import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.kozibrodka.wolves.events.mod_FCBetterThanWolves;
 import net.kozibrodka.wolves.modsupport.HibachiIgnitionRegistry;
-import net.kozibrodka.wolves.recipe.CraftingManagerCrucible;
-import net.kozibrodka.wolves.recipe.FCCraftingManagerAnvil;
-import net.kozibrodka.wolves.recipe.FCCraftingManagerCauldron;
-import net.kozibrodka.wolves.recipe.MillingRecipeRegistry;
+import net.kozibrodka.wolves.recipe.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.item.ItemBase;
@@ -32,9 +29,7 @@ public class RecipeListener {
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.potPedestal), "XXX", "YZY", "YZY", 'X', new ItemInstance(ItemBase.feather), 'Y', new ItemInstance(BlockListener.nightLog), 'Z', new ItemInstance(BlockListener.nightPlanks));
 
-            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.nightWoodBeam, 2), "YXY", " Z ", "YXY", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemListener.leatherStrap), 'Z', new ItemInstance(ItemListener.denseNightWood));
-
-            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.nightWoodBeam, 2), "YXY", " Z ", "YXY", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemListener.leatherStrap), 'Z', new ItemInstance(ItemListener.denseNightWood));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.nightWoodBeam, 2), "XY ", "YZY", " YX", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemListener.leatherStrap), 'Z', new ItemInstance(ItemListener.denseNightWood));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.exoticKey), "YYX", "ZZ ", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemListener.denseNightWood), 'Z', new ItemInstance(ItemListener.exoticFruit));
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.desertKey), "YYX", "ZZ ", 'X', new ItemInstance(BlockBase.SANDSTONE), 'Y', new ItemInstance(ItemListener.illuminantCrystal), 'Z', new ItemInstance(ItemListener.fortunePowder));
@@ -102,6 +97,7 @@ public class RecipeListener {
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.archeologyChisel), new ItemInstance(ItemListener.archeologyChisel, 1, -1), new ItemInstance(ItemListener.toolRepairKit));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.archeologyIceKnife), new ItemInstance(ItemListener.archeologyIceKnife, 1, -1), new ItemInstance(ItemListener.toolRepairKit));
 
+            CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.glueMixture), new ItemInstance(ItemListener.nightWheat), new ItemInstance(mod_FCBetterThanWolves.fcFlour), new ItemInstance(BlockBase.CACTUS));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.dryBrickFrame), new ItemInstance(ItemListener.brickFrame), new ItemInstance(ItemListener.brickAsh));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemBase.clay), new ItemInstance(ItemListener.clayPowder), new ItemInstance(ItemListener.snowBrick));
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.nightSeeds), new ItemInstance(ItemListener.exoticFruit), new ItemInstance(ItemBase.seeds));
@@ -115,13 +111,23 @@ public class RecipeListener {
             SmeltingRegistry.addSmeltingRecipe(BlockListener.nightLog.id, new ItemInstance(ItemBase.coal, 1, 1));
             SmeltingRegistry.addSmeltingRecipe(BlockListener.nightPlanks.id, new ItemInstance(BlockBase.WOOD));
 
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.glueMixture.id, new ItemInstance(mod_FCBetterThanWolves.fcGlue));
             SmeltingRegistry.addSmeltingRecipe(BlockListener.woodenBricks.id, new ItemInstance(ItemListener.brickAsh));
 
             SmeltingRegistry.addSmeltingRecipe(ItemListener.coalOreBrick.id, new ItemInstance(ItemBase.coal));
+
             SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreBrick.id, new ItemInstance(ItemBase.ironIngot));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreCrushed.id, new ItemInstance(ItemBase.ironIngot));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreWashed.id, new ItemInstance(ItemBase.ironIngot));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOrePowdered.id, new ItemInstance(ItemBase.ironIngot));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOrePurified.id, new ItemInstance(ItemBase.ironIngot));
+
             SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOreBrick.id, new ItemInstance(ItemBase.goldIngot));
+
             SmeltingRegistry.addSmeltingRecipe(ItemListener.redstoneOreBrick.id, new ItemInstance(ItemBase.redstoneDust, 4));
+
             SmeltingRegistry.addSmeltingRecipe(ItemListener.diamondOreBrick.id, new ItemInstance(ItemBase.diamond));
+
         }
 
         AddAnvilRecipe(new ItemInstance(BlockListener.brickSteelMachineFrame, 1), new Object[] {"XYYYX", "Y###Y", "Y#Z#Y", "Y###Y", "XYYYX", 'X', new ItemInstance(ItemListener.bricksidianScrew), 'Y', new ItemInstance(ItemListener.brickSteelBeam), 'Z', new ItemInstance(BlockListener.primitiveMachineFrame), '#', new ItemInstance(ItemListener.hardenedBrickFrame)});
@@ -135,9 +141,9 @@ public class RecipeListener {
         AddCauldronRecipe(new ItemInstance(ItemListener.concentratedFortune), new ItemInstance[] {new ItemInstance(ItemListener.fortunePowder, 8), new ItemInstance(ItemBase.dyePowder, 1, 4)});
         AddCauldronRecipe(new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance[] {new ItemInstance(ItemListener.groundSandstone), new ItemInstance(ItemBase.glowstoneDust)});
         AddCauldronRecipe(new ItemInstance(ItemListener.concentratedThermal), new ItemInstance[] {new ItemInstance(ItemListener.thermalPowder, 8), new ItemInstance(ItemListener.illuminantCrystal)});
-        AddCauldronRecipe(new ItemInstance(ItemListener.thermalGlass), new ItemInstance[] {new ItemInstance(ItemListener.concentratedThermal), new ItemInstance(BlockBase.GLASS, 8)});
 
         MillingRecipeRegistry.getInstance().addMillingRecipe(BlockBase.SANDSTONE.id, new ItemInstance(ItemListener.groundSandstone));
+        MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.ironOreWashed.id, new ItemInstance(ItemListener.ironOrePowdered, 2));
 
         AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(BlockBase.STONE), new ItemInstance(ItemListener.brickFrame), new ItemInstance(ItemListener.stoneBrick, 1));
         AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(mod_FCBetterThanWolves.fcSteel), new ItemInstance(mod_FCBetterThanWolves.fcNethercoal), new ItemInstance(ItemListener.brickSteelIngot, 1));
@@ -155,7 +161,12 @@ public class RecipeListener {
 
         HibachiIgnitionRegistry.getInstance().addBlockIgnition(BlockListener.heatPillar.id, BlockListener.heatPillarIgnited.id);
 
-        AddCrucibleRecipe(new ItemInstance(ItemListener.hardenedBrickFrame), new ItemInstance[] { new ItemInstance(ItemListener.dryBrickFrame), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(mod_FCBetterThanWolves.fcCoalDust) });
+        AddCrucibleRecipe(new ItemInstance(ItemListener.hardenedBrickFrame), new ItemInstance[] {new ItemInstance(ItemListener.dryBrickFrame), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(mod_FCBetterThanWolves.fcCoalDust)});
+        AddCrucibleRecipe(new ItemInstance(ItemListener.thermalGlass), new ItemInstance[] {new ItemInstance(BlockBase.GLASS, 8), new ItemInstance(ItemListener.concentratedThermal), new ItemInstance(mod_FCBetterThanWolves.fcHellfireDust)});
+        AddCrucibleRecipe(new ItemInstance(ItemListener.illuminantCrystal, 8), new ItemInstance[] {new ItemInstance(ItemListener.groundSandstone, 8), new ItemInstance(ItemBase.glowstoneDust), new ItemInstance(ItemBase.flint)});
+        AddCrucibleRecipe(new ItemInstance(ItemListener.ironOrePurified, 4), new ItemInstance[] {new ItemInstance(ItemListener.ironOrePowdered, 3), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(mod_FCBetterThanWolves.fcHellfireDust)});
+
+        AddStokedCauldronRecipe(new ItemInstance(mod_FCBetterThanWolves.fcGlue, 4), new ItemInstance[] { new ItemInstance(ItemListener.glueMixture)});
     }
 
     private static void AddAnvilRecipe(ItemInstance output, Object[] inputs)
@@ -171,5 +182,10 @@ public class RecipeListener {
     public static void AddCrucibleRecipe(ItemInstance itemstack, ItemInstance aitemstack[])
     {
         CraftingManagerCrucible.getInstance().AddRecipe(itemstack, aitemstack);
+    }
+
+    public static void AddStokedCauldronRecipe(ItemInstance itemstack, ItemInstance aitemstack[])
+    {
+        FCCraftingManagerCauldronStoked.getInstance().AddRecipe(itemstack, aitemstack);
     }
 }
