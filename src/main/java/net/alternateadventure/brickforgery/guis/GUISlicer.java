@@ -1,8 +1,6 @@
 package net.alternateadventure.brickforgery.guis;
 
-import net.alternateadventure.brickforgery.containers.ContainerAlloySmelter;
 import net.alternateadventure.brickforgery.containers.ContainerSlicer;
-import net.alternateadventure.brickforgery.tileentities.TileEntityAlloySmelter;
 import net.alternateadventure.brickforgery.tileentities.TileEntitySlicer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -25,7 +23,7 @@ public class GUISlicer extends ContainerBase {
     }
 
     protected void renderContainerBackground(float f) {
-        int var2 = this.minecraft.textureManager.getTextureId("/assets/brickforgery/stationapi/textures/guitextures/slicer.png");
+        int var2 = this.minecraft.textureManager.getTextureId("/assets/brickforgery/stationapi/gui/slicer.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.minecraft.textureManager.bindTexture(var2);
         int var3 = (this.width - this.containerWidth) / 2;

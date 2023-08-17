@@ -1,7 +1,6 @@
 package net.alternateadventure.brickforgery.tabs;
 
 import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
-import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.guis.GUIAlloySmelter;
 import net.glasslauncher.hmifabric.tabs.TabWithTexture;
@@ -28,7 +27,7 @@ public class MetalworkingTab extends TabWithTexture {
     }
 
     public MetalworkingTab(ModID tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
-        this(tabCreator, 2, recipesReady, tabBlock, "/assets/brickforgery/stationapi/textures/guitextures/metalworkingstation.png", 118, 56, 28, 15);
+        this(tabCreator, 2, recipesReady, tabBlock, "/assets/brickforgery/stationapi/gui/metalworkingstation.png", 118, 56, 28, 15);
     }
 
     public MetalworkingTab(ModID tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {

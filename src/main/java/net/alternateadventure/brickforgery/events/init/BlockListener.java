@@ -103,6 +103,8 @@ public class BlockListener {
             itemSlide;
 
     public static LazySimpleMachine
+            improvedMillstone,
+
             primitiveSlicer,
             primitiveMetalworkingStation,
 
@@ -147,6 +149,8 @@ public class BlockListener {
         frozenPotSealed = new FrozenPotSealed(Identifier.of(MOD_ID, "frozen_pot_sealed"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot_sealed");
         frozenPot = new FrozenPot(Identifier.of(MOD_ID, "frozen_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot");
         mossyPot = new MossyPot(Identifier.of(MOD_ID, "mossy_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "mossy_pot");
+
+        improvedMillstone = new ImprovedMillstone(Identifier.of(MOD_ID, "improved_millstone"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
 
         primitiveMachineFrame = new MachineFrame(Identifier.of(MOD_ID, "primitive_machine_frame"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
         primitiveBrickFrameCrafter = new PrimitiveBrickFrameCrafter(Identifier.of(MOD_ID, "primitive_brick_frame_crafter"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);

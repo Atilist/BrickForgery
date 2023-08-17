@@ -8,7 +8,6 @@ import net.glasslauncher.hmifabric.tabs.TabWithTexture;
 import net.minecraft.block.BlockBase;
 import net.minecraft.client.gui.screen.container.ContainerBase;
 import net.minecraft.item.ItemInstance;
-import net.minecraft.recipe.RecipeRegistry;
 import net.modificationstation.stationapi.api.recipe.FuelRegistry;
 import net.modificationstation.stationapi.api.registry.ModID;
 
@@ -30,7 +29,7 @@ public class AlloySmeltingTab extends TabWithTexture {
     }
 
     public AlloySmeltingTab(ModID tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
-        this(tabCreator, 5, recipesReady, tabBlock, "/assets/brickforgery/stationapi/textures/guitextures/alloysmelter.png", 118, 56, 28, 15);
+        this(tabCreator, 5, recipesReady, tabBlock, "/assets/brickforgery/stationapi/gui/alloysmelter.png", 118, 56, 28, 15);
     }
 
     public AlloySmeltingTab(ModID tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {

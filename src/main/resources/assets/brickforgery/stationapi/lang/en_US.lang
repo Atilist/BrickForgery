@@ -29,6 +29,8 @@ tile.frozen_pot.name=Frozen Pot
 tile.frozen_pot_sealed.name=Sealed Frozen Pot
 tile.mossy_pot.name=Mossy Pot
 
+tile.improved_millstone.name=Improved Millstone
+
 tile.primitive_machine_frame.name=Primitive Machine Frame
 tile.primitive_brick_frame_crafter.name=Primitive Brick Frame Crafter
 tile.primitive_slicer.name=Primitive Slicer

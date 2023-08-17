@@ -1,6 +1,7 @@
 package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.guis.GUIAlloySmelter;
+import net.alternateadventure.brickforgery.guis.GUIImprovedMillstone;
 import net.alternateadventure.brickforgery.guis.GUIMetalworkingStation;
 import net.alternateadventure.brickforgery.guis.GUISlicer;
 import net.alternateadventure.brickforgery.tileentities.*;
@@ -31,6 +32,7 @@ public class TileEntityListener {
         event.register(TileEntityItemChute.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_item_chute")));
         event.register(TileEntityItemSlide.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_item_slide")));
         event.register(TileEntityItemElevator.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_item_elevator")));
+        event.register(TileEntityImprovedMillstone.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_improved_millstone")));
     }
 
     @EventListener
@@ -41,6 +43,7 @@ public class TileEntityListener {
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_alloy_smelter"), BiTuple.of(this::openAlloySmelter, TileEntityAlloySmelter::new));
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_slicer"), BiTuple.of(this::openSlicer, TileEntitySlicer::new));
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_metalworking_station"), BiTuple.of(this::openMetalworkingStation, TileEntityMetalworkingStation::new));
+        registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_improved_millstone"), BiTuple.of(this::openImprovedMillstone, TileEntityImprovedMillstone::new));
     }
 
     public ScreenBase openAlloySmelter(PlayerBase playerBase, InventoryBase inventoryBase)
@@ -56,5 +59,10 @@ public class TileEntityListener {
     public ScreenBase openMetalworkingStation(PlayerBase playerBase, InventoryBase inventoryBase)
     {
         return new GUIMetalworkingStation(playerBase.inventory, (TileEntityMetalworkingStation) inventoryBase);
+    }
+
+    public ScreenBase openImprovedMillstone(PlayerBase playerBase, InventoryBase inventoryBase)
+    {
+        return new GUIImprovedMillstone(playerBase.inventory, (TileEntityImprovedMillstone) inventoryBase);
     }
 }

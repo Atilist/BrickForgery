@@ -1,6 +1,5 @@
 package net.alternateadventure.brickforgery.tabs;
 
-import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
 import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.guis.GUIAlloySmelter;
@@ -8,7 +7,6 @@ import net.glasslauncher.hmifabric.tabs.TabWithTexture;
 import net.minecraft.block.BlockBase;
 import net.minecraft.client.gui.screen.container.ContainerBase;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.recipe.FuelRegistry;
 import net.modificationstation.stationapi.api.registry.ModID;
 
 import java.util.ArrayList;
@@ -29,7 +27,7 @@ public class SlicingTab extends TabWithTexture {
     }
 
     public SlicingTab(ModID tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
-        this(tabCreator, 2, recipesReady, tabBlock, "/assets/brickforgery/stationapi/textures/guitextures/slicer.png", 118, 56, 28, 15);
+        this(tabCreator, 2, recipesReady, tabBlock, "/assets/brickforgery/stationapi/gui/slicer.png", 118, 56, 28, 15);
     }
 
     public SlicingTab(ModID tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {

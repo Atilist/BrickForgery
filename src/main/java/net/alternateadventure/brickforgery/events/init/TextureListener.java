@@ -148,6 +148,10 @@ public class TextureListener {
         FrozenPotBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotBottom")).index;
         FrozenPotTopSealed = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Pots/FrozenPotTopSealed")).index;
 
+        ImprovedMillstoneTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ImprovedMillstoneTop")).index;
+        ImprovedMillstoneSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ImprovedMillstoneSide")).index;
+        ImprovedMillstoneBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/ImprovedMillstoneBottom")).index;
+
         PrimitiveMachineFrame = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveMachineFrame")).index;
         PrimitiveBrickFrameCrafterTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveBrickFrameCrafterTop")).index;
         PrimitiveBrickFrameCrafterSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveBrickFrameCrafterSide")).index;
@@ -259,6 +263,8 @@ public class TextureListener {
         BlockListener.ancientSandstoneBricks.specifyTextures(DesertWellBricks);
         BlockListener.ancientSandstoneTile.specifyTextures(DesertWellFloor);
 
+        BlockListener.improvedMillstone.specifyTextures(ImprovedMillstoneTop, ImprovedMillstoneSide, ImprovedMillstoneBottom);
+
         BlockListener.primitiveMachineFrame.specifyTextures(PrimitiveMachineFrame);
         BlockListener.primitiveBrickFrameCrafter.specifyTextures(PrimitiveBrickFrameCrafterTop, PrimitiveBrickFrameCrafterSide, PrimitiveBrickFrameCrafterBottom);
         BlockListener.primitiveSlicer.specifyTextures(PrimitiveSlicerTop, PrimitiveSlicerSide, PrimitiveSlicerBottom);
@@ -349,6 +355,10 @@ public class TextureListener {
             FrozenPotSide,
             FrozenPotBottom,
             FrozenPotTopSealed,
+
+            ImprovedMillstoneTop,
+            ImprovedMillstoneSide,
+            ImprovedMillstoneBottom,
 
             PrimitiveMachineFrame,
             PrimitiveBrickFrameCrafterTop,

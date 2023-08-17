@@ -23,7 +23,7 @@ public class GUIMetalworkingStation extends ContainerBase {
     }
 
     protected void renderContainerBackground(float f) {
-        int var2 = this.minecraft.textureManager.getTextureId("/assets/brickforgery/stationapi/textures/guitextures/metalworkingstation.png");
+        int var2 = this.minecraft.textureManager.getTextureId("/assets/brickforgery/stationapi/gui/metalworkingstation.png");
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         this.minecraft.textureManager.bindTexture(var2);
         int var3 = (this.width - this.containerWidth) / 2;
