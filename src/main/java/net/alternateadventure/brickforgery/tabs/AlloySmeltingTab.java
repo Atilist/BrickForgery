@@ -29,7 +29,7 @@ public class AlloySmeltingTab extends TabWithTexture {
     }
 
     public AlloySmeltingTab(ModID tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
-        this(tabCreator, 5, recipesReady, tabBlock, "/assets/brickforgery/stationapi/gui/alloysmelter.png", 118, 56, 28, 15);
+        this(tabCreator, 4, recipesReady, tabBlock, "/assets/brickforgery/stationapi/gui/alloysmelter.png", 136, 56, 10, 15);
     }
 
     public AlloySmeltingTab(ModID tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {
@@ -41,11 +41,10 @@ public class AlloySmeltingTab extends TabWithTexture {
         int xOffset = -28;
         int yOffset = -12;
 
-        slots[0] = new Integer[] {38 + xOffset, 17 + yOffset};
-        slots[3] = new Integer[] {56 + xOffset, 17 + yOffset};
-        slots[4] = new Integer[] {74 + xOffset, 17 + yOffset};
-        slots[1] = new Integer[] {56 + xOffset, 53 + yOffset};
-        slots[2] = new Integer[] {116 + xOffset, 35 + yOffset};
+        slots[0] = new Integer[] {38 + xOffset, 34 + yOffset};
+        slots[2] = new Integer[] {56 + xOffset, 34 + yOffset};
+        slots[3] = new Integer[] {74 + xOffset, 34 + yOffset};
+        slots[1] = new Integer[] {134 + xOffset, 34 + yOffset};
     }
 
     @Override
@@ -57,11 +56,9 @@ public class AlloySmeltingTab extends TabWithTexture {
             if (k < recipes.size()) try {
                 ItemInstance[] recipe = recipes.get(k);
                 items[j][0] = recipe[0];
-                items[j][3] = recipe[1];
-                items[j][4] = recipe[2];
-                items[j][2] = recipe[3];
-                ItemInstance[] fuels = FuelRegistry.getFuelsView().keySet().toArray(ItemInstance[]::new);
-                items[j][1] = fuels[RANDOM.nextInt(fuels.length)];
+                items[j][2] = recipe[1];
+                items[j][3] = recipe[2];
+                items[j][1] = recipe[3];
             } catch (Throwable throwable) {
                 throwable.printStackTrace();
             }

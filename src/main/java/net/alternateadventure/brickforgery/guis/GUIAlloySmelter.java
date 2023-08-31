@@ -32,7 +32,7 @@ public class GUIAlloySmelter extends ContainerBase {
         int var5;
         if (this.alloySmelter.isBurning()) {
             var5 = this.alloySmelter.getFuelTimeDelta(12);
-            this.blit(var3 + 56, var4 + 36 + 12 - var5, 176, 12 - var5, 14, var5 + 2);
+            this.blit(var3 + 38, var4 + 66 - var5, 176, 12 - var5, 14, var5 + 2);
         }
         var5 = this.alloySmelter.getCookTimeDelta(24);
         this.blit(var3 + 79, var4 + 34, 176, 14, var5 + 1, 16);

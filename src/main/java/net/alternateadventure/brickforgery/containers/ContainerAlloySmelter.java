@@ -20,10 +20,10 @@ public class ContainerAlloySmelter extends ContainerBase {
 
     public ContainerAlloySmelter(PlayerInventory arg, TileEntityAlloySmelter arg2) {
         this.alloySmelter = arg2;
-        this.addSlot(new Slot(arg2, 0, 38, 17));
-        this.addSlot(new Slot(arg2, 3, 56, 17));
-        this.addSlot(new Slot(arg2, 4, 74, 17));
-        this.addSlot(new FurnaceOutput(arg.player, arg2, 2, 116, 35));
+        this.addSlot(new Slot(arg2, 0, 20, 34));
+        this.addSlot(new Slot(arg2, 3, 38, 34));
+        this.addSlot(new Slot(arg2, 4, 56, 34));
+        this.addSlot(new FurnaceOutput(arg.player, arg2, 2, 116, 34));
 
         int var3;
         for(var3 = 0; var3 < 3; ++var3) {

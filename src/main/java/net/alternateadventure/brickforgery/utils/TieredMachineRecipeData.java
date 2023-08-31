@@ -2,7 +2,8 @@ package net.alternateadventure.brickforgery.utils;
 
 import net.minecraft.item.ItemInstance;
 
-public class TieredMachineRecipeData {
+public class TieredMachineRecipeData
+{
 
     public int tierRequirement;
     public ItemInstance output;

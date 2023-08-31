@@ -2,6 +2,7 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.blocks.HeatPillar;
 import net.alternateadventure.brickforgery.blocks.HeatPillarIgnited;
+import net.alternateadventure.brickforgery.blocks.HeatPillarStoked;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.client.event.texture.TextureRegisterEvent;
 import net.modificationstation.stationapi.api.client.texture.atlas.Atlases;
@@ -162,6 +163,9 @@ public class TextureListener {
         PrimitiveMetalworkingStationTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveMetalworkingStationTop")).index;
         PrimitiveMetalworkingStationSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveMetalworkingStationSide")).index;
         PrimitiveMetalworkingStationBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveMetalworkingStationBottom")).index;
+        PrimitiveCrusherTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveCrusherTop")).index;
+        PrimitiveCrusherSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveCrusherSide")).index;
+        PrimitiveCrusherBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveCrusherBottom")).index;
 
         HeatPillar = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/HeatPillar")).index;
         HeatPillarIgnited = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/HeatPillarIgnited")).index;
@@ -269,6 +273,7 @@ public class TextureListener {
         BlockListener.primitiveBrickFrameCrafter.specifyTextures(PrimitiveBrickFrameCrafterTop, PrimitiveBrickFrameCrafterSide, PrimitiveBrickFrameCrafterBottom);
         BlockListener.primitiveSlicer.specifyTextures(PrimitiveSlicerTop, PrimitiveSlicerSide, PrimitiveSlicerBottom);
         BlockListener.primitiveMetalworkingStation.specifyTextures(PrimitiveMetalworkingStationTop, PrimitiveMetalworkingStationSide, PrimitiveMetalworkingStationBottom);
+        BlockListener.primitiveCrusher.specifyTextures(PrimitiveCrusherTop, PrimitiveCrusherSide, PrimitiveCrusherBottom);
 
         BlockListener.heatPillar.specifyTextures(HeatPillar);
         BlockListener.heatPillarIgnited.specifyTextures(HeatPillarIgnited);
@@ -370,6 +375,9 @@ public class TextureListener {
             PrimitiveMetalworkingStationTop,
             PrimitiveMetalworkingStationSide,
             PrimitiveMetalworkingStationBottom,
+            PrimitiveCrusherTop,
+            PrimitiveCrusherSide,
+            PrimitiveCrusherBottom,
 
             HeatPillar,
             HeatPillarIgnited,

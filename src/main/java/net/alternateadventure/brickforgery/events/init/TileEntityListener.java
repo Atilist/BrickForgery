@@ -33,6 +33,7 @@ public class TileEntityListener {
         event.register(TileEntityItemSlide.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_item_slide")));
         event.register(TileEntityItemElevator.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_item_elevator")));
         event.register(TileEntityImprovedMillstone.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_improved_millstone")));
+        event.register(TileEntityCrusher.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_crusher")));
     }
 
     @EventListener
@@ -44,6 +45,7 @@ public class TileEntityListener {
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_slicer"), BiTuple.of(this::openSlicer, TileEntitySlicer::new));
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_metalworking_station"), BiTuple.of(this::openMetalworkingStation, TileEntityMetalworkingStation::new));
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_improved_millstone"), BiTuple.of(this::openImprovedMillstone, TileEntityImprovedMillstone::new));
+        // TODO: Add GUI for Crusher
     }
 
     public ScreenBase openAlloySmelter(PlayerBase playerBase, InventoryBase inventoryBase)
