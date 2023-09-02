@@ -1,8 +1,10 @@
 package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
+import net.alternateadventure.brickforgery.customrecipes.CrushingRecipeRegistry;
 import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
 import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
+import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.kozibrodka.wolves.events.mod_FCBetterThanWolves;
 import net.kozibrodka.wolves.modsupport.HibachiIgnitionRegistry;
@@ -169,6 +171,8 @@ public class RecipeListener {
         AddCrucibleRecipe(new ItemInstance(ItemListener.ironOrePurified, 4), new ItemInstance[] {new ItemInstance(ItemListener.ironOrePowdered, 3), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(mod_FCBetterThanWolves.fcHellfireDust)});
 
         AddStokedCauldronRecipe(new ItemInstance(mod_FCBetterThanWolves.fcGlue, 4), new ItemInstance[] { new ItemInstance(ItemListener.glueMixture)});
+
+        CrushingRecipeRegistry.getInstance().addCrushingRecipe(BlockBase.IRON_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemInstance(ItemListener.ironOreCrushed)), new ItemInstance(ItemListener.ironOrePowdered), 0.5));
     }
 
     private static void AddAnvilRecipe(ItemInstance output, Object[] inputs)

@@ -1,0 +1,97 @@
+package net.alternateadventure.brickforgery.containers;
+
+import net.alternateadventure.brickforgery.tileentities.TileEntityCrusher;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.container.ContainerBase;
+import net.minecraft.container.ContainerListener;
+import net.minecraft.container.slot.FurnaceOutput;
+import net.minecraft.container.slot.Slot;
+import net.minecraft.entity.player.PlayerBase;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemInstance;
+
+public class ContainerCrusher extends ContainerBase {
+    private TileEntityCrusher crusher;
+    private int sliceTime = 0;
+
+    public ContainerCrusher(PlayerInventory arg, TileEntityCrusher arg2) {
+        this.crusher = arg2;
+
+        this.addSlot(new Slot(arg2, 0, 56, 35));
+        this.addSlot(new FurnaceOutput(arg.player, arg2, 1, 116, 35));
+        this.addSlot(new FurnaceOutput(arg.player, arg2, 2, 116, 61));
+
+        int var3;
+        for(var3 = 0; var3 < 3; ++var3) {
+            for(int var4 = 0; var4 < 9; ++var4) {
+                this.addSlot(new Slot(arg, var4 + var3 * 9 + 9, 8 + var4 * 18, 84 + var3 * 18));
+            }
+        }
+
+        for(var3 = 0; var3 < 9; ++var3) {
+            this.addSlot(new Slot(arg, var3, 8 + var3 * 18, 142));
+        }
+
+    }
+
+    @Environment(EnvType.SERVER)
+    public void addListener(ContainerListener arg) {
+        super.addListener(arg);
+        arg.updateProperty(this, 0, this.crusher.crushingTime);
+    }
+
+    public void tick() {
+        super.tick();
+
+        for(int var1 = 0; var1 < this.listeners.size(); ++var1) {
+            ContainerListener var2 = (ContainerListener)this.listeners.get(var1);
+            if (this.sliceTime != this.crusher.crushingTime) {
+                var2.updateProperty(this, 0, this.crusher.crushingTime);
+            }
+        }
+
+        this.sliceTime = this.crusher.crushingTime;
+    }
+
+    @Environment(EnvType.CLIENT)
+    public void setProperty(int i, int j) {
+        if (i == 0) {
+            this.crusher.crushingTime = j;
+        }
+    }
+
+    public boolean canUse(PlayerBase arg) {
+        return this.crusher.canPlayerUse(arg);
+    }
+
+    public ItemInstance transferSlot(int i) {
+        ItemInstance var2 = null;
+        Slot var3 = (Slot)this.slots.get(i);
+        if (var3 != null && var3.hasItem()) {
+            ItemInstance var4 = var3.getItem();
+            var2 = var4.copy();
+            if (i == 2) {
+                this.insertItem(var4, 3, 38, true);
+            } else if (i >= 3 && i < 30) {
+                this.insertItem(var4, 30, 38, false);
+            } else if (i >= 30 && i < 39) {
+                this.insertItem(var4, 3, 30, false);
+            } else {
+                this.insertItem(var4, 3, 38, false);
+            }
+
+            if (var4.count == 0) {
+                var3.setStack((ItemInstance)null);
+            } else {
+                var3.markDirty();
+            }
+
+            if (var4.count == var2.count) {
+                return null;
+            }
+            var3.onCrafted(var4);
+        }
+        return var2;
+    }
+}

@@ -1,9 +1,6 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.guis.GUIAlloySmelter;
-import net.alternateadventure.brickforgery.guis.GUIImprovedMillstone;
-import net.alternateadventure.brickforgery.guis.GUIMetalworkingStation;
-import net.alternateadventure.brickforgery.guis.GUISlicer;
+import net.alternateadventure.brickforgery.guis.*;
 import net.alternateadventure.brickforgery.tileentities.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.client.gui.screen.ScreenBase;
@@ -45,7 +42,7 @@ public class TileEntityListener {
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_slicer"), BiTuple.of(this::openSlicer, TileEntitySlicer::new));
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_metalworking_station"), BiTuple.of(this::openMetalworkingStation, TileEntityMetalworkingStation::new));
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_improved_millstone"), BiTuple.of(this::openImprovedMillstone, TileEntityImprovedMillstone::new));
-        // TODO: Add GUI for Crusher
+        registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_crusher"), BiTuple.of(this::openCrusher, TileEntityCrusher::new));
     }
 
     public ScreenBase openAlloySmelter(PlayerBase playerBase, InventoryBase inventoryBase)
@@ -66,5 +63,10 @@ public class TileEntityListener {
     public ScreenBase openImprovedMillstone(PlayerBase playerBase, InventoryBase inventoryBase)
     {
         return new GUIImprovedMillstone(playerBase.inventory, (TileEntityImprovedMillstone) inventoryBase);
+    }
+
+    public ScreenBase openCrusher(PlayerBase playerBase, InventoryBase inventoryBase)
+    {
+        return new GUICrusher(playerBase.inventory, (TileEntityCrusher) inventoryBase);
     }
 }

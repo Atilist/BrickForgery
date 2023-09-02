@@ -1,5 +1,8 @@
 package net.alternateadventure.brickforgery.blocks;
 
+import net.alternateadventure.brickforgery.containers.ContainerCrusher;
+import net.alternateadventure.brickforgery.containers.ContainerSlicer;
+import net.alternateadventure.brickforgery.events.init.TileEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityCrusher;
 import net.alternateadventure.brickforgery.tileentities.TileEntitySlicer;
 import net.kozibrodka.wolves.events.mod_FCBetterThanWolves;
@@ -25,11 +28,9 @@ public class CrusherBase extends LazySimpleMachine {
 
     @Override
     public boolean canUse(Level world, int x, int y, int z, PlayerBase player) {
-        /*
         TileEntityBase tileEntity = world.getTileEntity(x, y, z);
-        if (tileEntity instanceof TileEntitySlicer tileEntitySlicer)
-            GuiHelper.openGUI(player, Identifier.of(TileEntityListener.MOD_ID, "gui_slicer"), tileEntitySlicer, new ContainerSlicer(player.inventory, tileEntitySlicer));
-        */
+        if (tileEntity instanceof TileEntityCrusher tileEntityCrusher)
+            GuiHelper.openGUI(player, Identifier.of(TileEntityListener.MOD_ID, "gui_crusher"), tileEntityCrusher, new ContainerCrusher(player.inventory, tileEntityCrusher));
         return true;
     }
 
@@ -73,14 +74,13 @@ public class CrusherBase extends LazySimpleMachine {
     @Override
     public void onBlockPlaced(Level level, int x, int y, int z) {
         super.onBlockPlaced(level, x, y, z);
-        if (level.getTileId(x, y - 1, z) == mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileMeta(x, y - 1, z) == 3) level.setTileMeta(x, y, z, 1);
+        if (level.getTileId(x, y - 1, z) == mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileMeta(x, y - 1, z) == 3 || level.getTileId(x, y + 1, z) == mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileMeta(x, y + 1, z) == 3) level.setTileMeta(x, y, z, 1);
     }
 
     @Override
     public void onAdjacentBlockUpdate(Level level, int x, int y, int z, int l) {
-        if (level.getTileId(x, y - 1, z) != mod_FCBetterThanWolves.fcAxleBlock.id) return;
-        if (level.getTileMeta(x, y - 1, z) == 3) level.setTileMeta(x, y, z, 1);
-        else level.setTileMeta(x, y, z, 0);
+        if (level.getTileId(x, y - 1, z) != mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileId(x, y + 1, z) != mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileMeta(x, y, z) == 1) level.setTileMeta(x, y, z, 0);
+        else if (level.getTileMeta(x, y - 1, z) == 3 || level.getTileMeta(x, y + 1, z) == 3 && level.getTileMeta(x, y, z) == 0) level.setTileMeta(x, y, z, 1);
     }
 
     @Override
