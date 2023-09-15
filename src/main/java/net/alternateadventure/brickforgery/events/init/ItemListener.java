@@ -68,6 +68,11 @@ public class ItemListener {
             ironOrePowdered,
             ironOrePurified,
 
+            goldOreCrushed,
+            goldOreWashed,
+            goldOrePowdered,
+            goldOrePurified,
+
             thermalPowder,
             concentratedThermal,
             thermalGlass,
@@ -98,7 +103,10 @@ public class ItemListener {
             ironOreBrick,
             goldOreBrick,
             redstoneOreBrick,
-            diamondOreBrick;
+            diamondOreBrick,
+
+            largeBrickRaw,
+            largeBrick;
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
@@ -130,6 +138,11 @@ public class ItemListener {
         ironOreWashed = new LazyItemTemplate(Identifier.of(MOD_ID, "iron_ore_washed"));
         ironOrePowdered = new LazyItemTemplate(Identifier.of(MOD_ID, "iron_ore_powdered"));
         ironOrePurified = new LazyItemTemplate(Identifier.of(MOD_ID, "iron_ore_purified"));
+
+        goldOreCrushed = new LazyItemTemplate(Identifier.of(MOD_ID, "gold_ore_crushed"));
+        goldOreWashed = new LazyItemTemplate(Identifier.of(MOD_ID, "gold_ore_washed"));
+        goldOrePowdered = new LazyItemTemplate(Identifier.of(MOD_ID, "gold_ore_powdered"));
+        goldOrePurified = new LazyItemTemplate(Identifier.of(MOD_ID, "gold_ore_purified"));
 
         thermalPowder = new LazyItemTemplate(Identifier.of(MOD_ID, "thermal_powder"));
         concentratedThermal = new LazyItemTemplate(Identifier.of(MOD_ID, "concentrated_thermal"));
@@ -184,5 +197,7 @@ public class ItemListener {
         redstoneOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "redstone_ore_brick"));
         diamondOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "diamond_ore_brick"));
 
+        largeBrickRaw = new LazyItemTemplate(Identifier.of(MOD_ID, "large_brick_raw"));
+        largeBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "large_brick"));
     }
 }

@@ -47,6 +47,11 @@ public class TextureListener {
         ItemListener.ironOrePowdered.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/IronOrePowdered"));
         ItemListener.ironOrePurified.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/IronOrePurified"));
 
+        ItemListener.goldOreCrushed.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/GoldOreCrushed"));
+        ItemListener.goldOreWashed.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/GoldOreWashed"));
+        ItemListener.goldOrePowdered.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/GoldOrePowdered"));
+        ItemListener.goldOrePurified.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/GoldOrePurified"));
+
         ItemListener.thermalPowder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/ThermalPowder"));
         ItemListener.concentratedThermal.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ConcentratedThermal"));
         ItemListener.thermalGlass.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ThermalGlass"));
@@ -98,6 +103,9 @@ public class TextureListener {
         ItemListener.goldOreBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/GoldOreBrick"));
         ItemListener.redstoneOreBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/RedstoneOreBrick"));
         ItemListener.diamondOreBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/DiamondOreBrick"));
+
+        ItemListener.largeBrickRaw.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/LargeBrickRaw"));
+        ItemListener.largeBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/LargeBrick"));
 
         ExoticShrub = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrub")).index;
         ExoticShrubMature = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrubMature")).index;
@@ -166,6 +174,9 @@ public class TextureListener {
         PrimitiveCrusherTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveCrusherTop")).index;
         PrimitiveCrusherSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveCrusherSide")).index;
         PrimitiveCrusherBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveCrusherBottom")).index;
+        PrimitiveWasherTop = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveWasherTop")).index;
+        PrimitiveWasherSide = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveWasherSide")).index;
+        PrimitiveWasherBottom = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/PrimitiveWasherBottom")).index;
 
         HeatPillar = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/HeatPillar")).index;
         HeatPillarIgnited = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Machines/HeatPillarIgnited")).index;
@@ -274,6 +285,7 @@ public class TextureListener {
         BlockListener.primitiveSlicer.specifyTextures(PrimitiveSlicerTop, PrimitiveSlicerSide, PrimitiveSlicerBottom);
         BlockListener.primitiveMetalworkingStation.specifyTextures(PrimitiveMetalworkingStationTop, PrimitiveMetalworkingStationSide, PrimitiveMetalworkingStationBottom);
         BlockListener.primitiveCrusher.specifyTextures(PrimitiveCrusherTop, PrimitiveCrusherSide, PrimitiveCrusherBottom);
+        BlockListener.primitiveWasher.specifyTextures(PrimitiveWasherTop, PrimitiveWasherSide, PrimitiveWasherBottom);
 
         BlockListener.heatPillar.specifyTextures(HeatPillar);
         BlockListener.heatPillarIgnited.specifyTextures(HeatPillarIgnited);
@@ -378,6 +390,9 @@ public class TextureListener {
             PrimitiveCrusherTop,
             PrimitiveCrusherSide,
             PrimitiveCrusherBottom,
+            PrimitiveWasherTop,
+            PrimitiveWasherSide,
+            PrimitiveWasherBottom,
 
             HeatPillar,
             HeatPillarIgnited,

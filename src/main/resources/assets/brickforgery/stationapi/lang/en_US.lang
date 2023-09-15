@@ -35,6 +35,8 @@ tile.primitive_machine_frame.name=Primitive Machine Frame
 tile.primitive_brick_frame_crafter.name=Primitive Brick Frame Crafter
 tile.primitive_slicer.name=Primitive Slicer
 tile.primitive_metalworking_station.name=Primitive Metalworking Station
+tile.primitive_crusher.name=Primitive Crusher
+tile.primitive_washer.name=Primitive Washer
 
 tile.heat_pillar.name=Heat Pillar
 tile.heat_pillar_ignited.name=Ignited Heat Pillar
@@ -110,6 +112,11 @@ item.iron_ore_washed.name=Washed Iron Ore
 item.iron_ore_powdered.name=Powdered Iron Ore
 item.iron_ore_purified.name=Purified Iron Ore
 
+item.gold_ore_crushed.name=Crushed Gold Ore
+item.gold_ore_washed.name=Washed Gold Ore
+item.gold_ore_powdered.name=Powdered Gold Ore
+item.gold_ore_purified.name=Purified Gold Ore
+
 item.thermal_powder.name=Thermal Powder
 item.concentrated_thermal.name=Concentrated Thermal
 item.thermal_glass.name=Thermal Glass
@@ -161,3 +168,6 @@ item.iron_ore_brick.name=Iron Ore Brick
 item.gold_ore_brick.name=Gold Ore Brick
 item.redstone_ore_brick.name=Redstone Ore Brick
 item.diamond_ore_brick.name=Diamond Ore Brick
+
+item.large_brick_raw.name=Raw Large Brick
+item.large_brick.name=Large Brick

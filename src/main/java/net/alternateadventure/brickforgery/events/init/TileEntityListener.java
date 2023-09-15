@@ -31,6 +31,7 @@ public class TileEntityListener {
         event.register(TileEntityItemElevator.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_item_elevator")));
         event.register(TileEntityImprovedMillstone.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_improved_millstone")));
         event.register(TileEntityCrusher.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_crusher")));
+        event.register(TileEntityWasher.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_washer")));
     }
 
     @EventListener
@@ -43,6 +44,7 @@ public class TileEntityListener {
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_metalworking_station"), BiTuple.of(this::openMetalworkingStation, TileEntityMetalworkingStation::new));
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_improved_millstone"), BiTuple.of(this::openImprovedMillstone, TileEntityImprovedMillstone::new));
         registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_crusher"), BiTuple.of(this::openCrusher, TileEntityCrusher::new));
+        registry.registerValueNoMessage(Identifier.of(MOD_ID, "gui_washer"), BiTuple.of(this::openWasher, TileEntityWasher::new));
     }
 
     public ScreenBase openAlloySmelter(PlayerBase playerBase, InventoryBase inventoryBase)
@@ -68,5 +70,10 @@ public class TileEntityListener {
     public ScreenBase openCrusher(PlayerBase playerBase, InventoryBase inventoryBase)
     {
         return new GUICrusher(playerBase.inventory, (TileEntityCrusher) inventoryBase);
+    }
+
+    public ScreenBase openWasher(PlayerBase playerBase, InventoryBase inventoryBase)
+    {
+        return new GUIWasher(playerBase.inventory, (TileEntityWasher) inventoryBase);
     }
 }

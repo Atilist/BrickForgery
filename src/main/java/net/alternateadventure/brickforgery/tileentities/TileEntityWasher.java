@@ -2,6 +2,7 @@ package net.alternateadventure.brickforgery.tileentities;
 
 import net.alternateadventure.brickforgery.blocks.CrusherBase;
 import net.alternateadventure.brickforgery.customrecipes.CrushingRecipeRegistry;
+import net.alternateadventure.brickforgery.customrecipes.WashingRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -15,14 +16,14 @@ import net.minecraft.util.io.ListTag;
 
 import java.util.Random;
 
-public class TileEntityCrusher extends TileEntityBase implements InventoryBase {
+public class TileEntityWasher extends TileEntityBase implements InventoryBase {
     private Random random = new Random();
     private ItemInstance[] inventory = new ItemInstance[3];
-    public int crushingTime = 0;
+    public int processingTime = 0;
     public int tier = 0;
     public boolean tierChecked = false;
 
-    public TileEntityCrusher() {
+    public TileEntityWasher() {
     }
 
     public int getInventorySize() {
@@ -62,7 +63,7 @@ public class TileEntityCrusher extends TileEntityBase implements InventoryBase {
     }
 
     public String getContainerName() {
-        return "Crusher";
+        return "Washer";
     }
 
     public void readIdentifyingData(CompoundTag arg) {
@@ -78,14 +79,14 @@ public class TileEntityCrusher extends TileEntityBase implements InventoryBase {
             }
         }
 
-        this.crushingTime = arg.getShort("CrushingTime");
+        this.processingTime = arg.getShort("ProcessingTime");
         this.tierChecked = arg.getBoolean("TierChecked");
         this.tier = arg.getInt("Tier");
     }
 
     public void writeIdentifyingData(CompoundTag arg) {
         super.writeIdentifyingData(arg);
-        arg.put("CrushingTime", (short)this.crushingTime);
+        arg.put("ProcessingTime", (short)this.processingTime);
         arg.put("TierChecked", tierChecked);
         arg.put("Tier", tier);
         ListTag var2 = new ListTag();
@@ -107,27 +108,29 @@ public class TileEntityCrusher extends TileEntityBase implements InventoryBase {
     }
 
     @Environment(EnvType.CLIENT)
-    public int getCrushingTimeDelta(int i) {
-        return this.crushingTime * i / 200;
+    public int getProcessingTimeDelta(int i) {
+        return this.processingTime * i / 200;
     }
 
+    @Override
     public void tick() {
         if (!tierChecked) checkTier();
         if (level.getTileMeta(x, y, z) != 1) return;
+        if (level.getTileId(x, y + 1, z) != BlockBase.STILL_WATER.id && level.getTileId(x, y + 1, z) != BlockBase.FLOWING_WATER.id) return;
 
         boolean var2 = false;
 
         if (!this.level.isServerSide) {
 
             if (this.canAcceptRecipeOutput()) {
-                ++this.crushingTime;
-                if (this.crushingTime == 200) {
-                    this.crushingTime = 0;
+                ++this.processingTime;
+                if (this.processingTime == 200) {
+                    this.processingTime = 0;
                     this.craftRecipe();
                     var2 = true;
                 }
             } else {
-                this.crushingTime = 0;
+                this.processingTime = 0;
             }
         }
 
@@ -151,20 +154,20 @@ public class TileEntityCrusher extends TileEntityBase implements InventoryBase {
 
     private boolean canAcceptRecipeOutput() {
         if (this.inventory[0] == null) return false;
-        TierAndByproductOutput crushingOutput = CrushingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
-        if (crushingOutput == null) {
+        TierAndByproductOutput washingOutput = WashingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
+        if (washingOutput == null) {
             return false;
-        } else if (crushingOutput.tieredMachineRecipeData.tierRequirement > tier) {
+        } else if (washingOutput.tieredMachineRecipeData.tierRequirement > tier) {
             return false;
         }
-        if (!canAcceptByproduct(crushingOutput.byproduct.copy())) return false;
-        ItemInstance crushedItem = crushingOutput.tieredMachineRecipeData.output.copy();
+        if (!canAcceptByproduct(washingOutput.byproduct.copy())) return false;
+        ItemInstance washedItem = washingOutput.tieredMachineRecipeData.output.copy();
         if (this.inventory[1] == null) {
             return true;
-        } else if (!this.inventory[1].isDamageAndIDIdentical(crushedItem)) {
+        } else if (!this.inventory[1].isDamageAndIDIdentical(washedItem)) {
             return false;
         } else {
-            return this.inventory[1].count + crushedItem.count < crushedItem.getMaxStackSize();
+            return this.inventory[1].count + washedItem.count < washedItem.getMaxStackSize();
         }
 
     }
@@ -180,19 +183,19 @@ public class TileEntityCrusher extends TileEntityBase implements InventoryBase {
 
     public void craftRecipe() {
         if (this.canAcceptRecipeOutput()) {
-            TierAndByproductOutput crushingOutput = CrushingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
-            ItemInstance crushedItem = crushingOutput.tieredMachineRecipeData.output.copy();
+            TierAndByproductOutput washingOutput = WashingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
+            ItemInstance washedItem = washingOutput.tieredMachineRecipeData.output.copy();
             if (this.inventory[1] == null) {
-                this.inventory[1] = crushedItem;
-            } else if (this.inventory[1].itemId == crushedItem.itemId) {
-                this.inventory[1].count += crushedItem.count;
+                this.inventory[1] = washedItem;
+            } else if (this.inventory[1].itemId == washedItem.itemId) {
+                this.inventory[1].count += washedItem.count;
             }
             --this.inventory[0].count;
             if (this.inventory[0].count <= 0) {
                 this.inventory[0] = null;
             }
-            if (random.nextDouble(1.0) > crushingOutput.byproductChance) return;
-            ItemInstance byproduct = crushingOutput.byproduct.copy();
+            if (random.nextDouble(1.0) > washingOutput.byproductChance) return;
+            ItemInstance byproduct = washingOutput.byproduct.copy();
             if (this.inventory[2] == null)
             {
                 this.inventory[2] = byproduct;

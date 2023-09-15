@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CrushingRecipeRegistry {
-    private static final CrushingRecipeRegistry INSTANCE = new CrushingRecipeRegistry();
+public class WashingRecipeRegistry {
+    private static final WashingRecipeRegistry INSTANCE = new WashingRecipeRegistry();
     private Map recipes = new HashMap();
 
-    public static final CrushingRecipeRegistry getInstance() {
+    public static final WashingRecipeRegistry getInstance() {
         return INSTANCE;
     }
 
-    public void addCrushingRecipe(int i, TierAndByproductOutput arg) {
+    public void addWashingRecipe(int i, TierAndByproductOutput arg) {
         this.recipes.put(i, arg);
     }
 
@@ -43,3 +43,4 @@ public class CrushingRecipeRegistry {
         return itemInstances;
     }
 }
+
