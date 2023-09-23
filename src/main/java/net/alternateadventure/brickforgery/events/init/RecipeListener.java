@@ -26,8 +26,6 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.primitiveChisel), "-X-", "#Y#", "+Z+", 'X', new ItemInstance(ItemBase.goldIngot), 'Y', new ItemInstance(ItemBase.flint), 'Z', new ItemInstance(ItemListener.denseNightWood), '#', new ItemInstance(ItemBase.paper), '+', new ItemInstance(ItemListener.leatherStrap), '-', new ItemInstance(ItemListener.concentratedFortune));
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.primitiveGrabber), "-X-", "#Y#", "+Z+", 'X', new ItemInstance(ItemBase.diamond), 'Y', new ItemInstance(ItemBase.paper), 'Z', new ItemInstance(ItemListener.denseNightWood), '#', new ItemInstance(ItemBase.ironIngot), '+', new ItemInstance(mod_FCBetterThanWolves.fcHempCloth), '-', new ItemInstance(ItemListener.concentratedFortune));
 
-            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.potPedestal), "XXX", "YZY", "YZY", 'X', new ItemInstance(ItemBase.feather), 'Y', new ItemInstance(BlockListener.nightLog), 'Z', new ItemInstance(BlockListener.nightPlanks));
-
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.nightWoodBeam, 2), "XY ", "YZY", " YX", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemListener.leatherStrap), 'Z', new ItemInstance(ItemListener.denseNightWood));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.exoticKey), "YYX", "ZZ ", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemListener.denseNightWood), 'Z', new ItemInstance(ItemListener.exoticFruit));
@@ -40,6 +38,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.primitiveSlicer), "#-#", "YZY", "X+X", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(BlockBase.OBSIDIAN), 'Z', new ItemInstance(BlockListener.primitiveMachineFrame), '#', new ItemInstance(ItemBase.shears), '+', new ItemInstance(mod_FCBetterThanWolves.fcGearBox), '-', new ItemInstance(ItemListener.dryBrickFrame));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.primitiveMetalworkingStation), "#-#", "YZY", "X+X", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(BlockBase.STONE_SLAB), 'Z', new ItemInstance(BlockListener.primitiveMachineFrame), '#', new ItemInstance(ItemBase.ironIngot), '+', new ItemInstance(mod_FCBetterThanWolves.fcGearBox), '-', new ItemInstance(ItemListener.dryBrickFrame));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.primitiveCrusher), "+X+", "ZYZ", "Z#Z", 'X', new ItemInstance(BlockListener.improvedMillstone), 'Y', new ItemInstance(BlockListener.primitiveMachineFrame), 'Z', new ItemInstance(BlockBase.BRICKS), '#', new ItemInstance(mod_FCBetterThanWolves.fcGearBox), '+', new ItemInstance(ItemBase.diamondPickaxe));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.primitiveWasher), "-X-", "+Y+", "Z#Z", 'X', new ItemInstance(mod_FCBetterThanWolves.fcTurntable), 'Y', new ItemInstance(BlockListener.primitiveMachineFrame), 'Z', new ItemInstance(BlockBase.BRICKS), '#', new ItemInstance(mod_FCBetterThanWolves.fcGearBox), '+', new ItemInstance(ItemListener.primitiveBrush), '-', new ItemInstance(ItemListener.concentratedFortune));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.heatPillar), "XYX", "XZX", "XYX", 'X', new ItemInstance(ItemListener.thermalGlass), 'Y', new ItemInstance(ItemListener.concentratedThermal), 'Z', new ItemInstance(ItemListener.hardenedBrickFrame));
 
@@ -65,8 +64,6 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.largeStoneBricks, 4), "XY", "YX", 'X', new ItemInstance(ItemListener.stoneBrick), 'Y', new ItemInstance(BlockBase.STONE));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.largeStoneBricks, 4), "YX", "XY", 'X', new ItemInstance(ItemListener.stoneBrick), 'Y', new ItemInstance(BlockBase.STONE));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.fastBricks), "XXX", "YZY", 'X', new ItemInstance(ItemListener.exoticFruit), 'Y', new ItemInstance(ItemListener.brickFrame), 'Z', new ItemInstance(BlockBase.BRICKS));
-
-            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.brickHammer), "XYX", " Z ", " Z ", 'X', new ItemInstance(ItemBase.brick), 'Y', new ItemInstance(ItemListener.brickFrame), 'Z', new ItemInstance(ItemListener.woodenBrick));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.brickLauncher), "XYX", "XZX", "XYX", 'X', new ItemInstance(BlockListener.stoneBricks), 'Y', new ItemInstance(BlockBase.PISTON), 'Z', new ItemInstance(BlockBase.DISPENSER));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.spikeMount), " X ", "XYX", "ZZZ", 'X', new ItemInstance(ItemBase.ironIngot), 'Y', new ItemInstance(ItemListener.brokenSpikeHolder), 'Z', new ItemInstance(ItemListener.dryBrickFrame));

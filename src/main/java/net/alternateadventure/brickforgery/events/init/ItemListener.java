@@ -39,9 +39,7 @@ public class ItemListener {
 
             brickSeedlings,
             brickCatalyst,
-            clayPowder,
-
-            brickHammer;
+            clayPowder;
 
     public static LazyItemTemplate
             denseNightWood,
@@ -188,7 +186,6 @@ public class ItemListener {
         brickCatalyst = new BrickCatalyst(Identifier.of(MOD_ID, "brick_catalyst")).setTranslationKey(MOD_ID, "brick_catalyst");
         clayPowder = new TemplateItemBase(Identifier.of(MOD_ID, "clay_powder")).setTranslationKey(MOD_ID, "clay_powder");
 
-        brickHammer = new BrickHammer(Identifier.of(MOD_ID, "brick_hammer")).setTranslationKey(MOD_ID, "brick_hammer");
         exoticCatalyst = new ExoticCatalyst(Identifier.of(MOD_ID, "exotic_catalyst"));
 
         coalOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "coal_ore_brick"));

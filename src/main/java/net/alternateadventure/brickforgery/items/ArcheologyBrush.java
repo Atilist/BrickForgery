@@ -45,34 +45,6 @@ public class ArcheologyBrush extends TemplateItemBase {
             level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.durableLeatherStrap)));
             return true;
         }
-        else if (level.getTileId(x, y, z) == BlockListener.brickFrameCrafterDusted.id)
-        {
-            level.setTile(x, y, z, BlockListener.brickFrameCrafter.id);
-            tool.applyDamage(1, player);
-            return true;
-        }
-        else if (level.getTileId(x, y, z) == BlockListener.dust.id)
-        {
-            level.setTile(x, y, z, 0);
-            tool.applyDamage(1, player);
-            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.brickSeedlings)));
-            return true;
-        }
-        else if (level.getTileId(x, y, z) == BlockBase.GRAVEL.id)
-        {
-            level.setTile(x, y, z, 0);
-            tool.applyDamage(1, player);
-            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemBase.flint, 2)));
-            return true;
-        }
-        else if (level.getTileId(x, y, z) == BlockListener.brickCrop.id && level.getTileMeta(x, y, z) == 3)
-        {
-            level.setTile(x, y, z, 0);
-            tool.applyDamage(1, player);
-            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.brickSeedlings)));
-            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.brickCatalyst)));
-            return true;
-        }
         return false;
     }
 }

@@ -15,7 +15,7 @@ public class PrimitiveGrabber extends LazyItemTemplate {
     public PrimitiveGrabber(Identifier identifier) {
         super(identifier);
         this.maxStackSize = 1;
-        this.setDurability(31);
+        this.setDurability(127);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class PrimitiveGrabber extends LazyItemTemplate {
         {
             level.setTile(x, y, z, 0);
             tool.applyDamage(1, player);
-            if (rand.nextBoolean()) level.spawnEntity(new Item(level, x, y, z, DesertPotLootPool.getLoot(reliability, luck, new Random())));
+            level.spawnEntity(new Item(level, x, y, z, DesertPotLootPool.getLoot(reliability, luck, new Random())));
             return true;
         }
         else if (level.getTileId(x, y, z) == BlockListener.frozenPot.id) // Currently, the same loot pool as desert pot. Will be changed later.

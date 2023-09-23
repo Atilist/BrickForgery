@@ -33,13 +33,6 @@ public class ArcheologyChisel extends TemplateItemBase {
             tool.applyDamage(1, player);
             return true;
         }
-        else if (level.getTileId(x, y, z) == BlockBase.WOOD.id)
-        {
-            level.setTile(x, y, z, 0);
-            tool.applyDamage(1, player);
-            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.woodenBrick, 4)));
-            return true;
-        }
         return false;
     }
 }

@@ -11,7 +11,7 @@ public class PrimitiveChisel extends LazyItemTemplate {
     public PrimitiveChisel(Identifier identifier) {
         super(identifier);
         this.maxStackSize = 1;
-        this.setDurability(31);
+        this.setDurability(127);
     }
 
     @Override

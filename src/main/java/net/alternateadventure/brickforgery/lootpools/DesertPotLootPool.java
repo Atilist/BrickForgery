@@ -13,7 +13,7 @@ public class DesertPotLootPool {
     public static ItemInstance getLoot(int reliability, int luck, Random random)
     {
         luck = random.nextInt(luck);
-        reliability = random.nextInt(reliability);
+        reliability = random.nextInt(reliability) + 1;
         if (luck == 0)
         {
             return new ItemInstance(BlockBase.SAND);

@@ -6,8 +6,6 @@ tile.night_log.name=Night Log
 tile.night_leaves.name=Night Leaves
 tile.night_planks.name=Night Planks
 
-tile.pot_pedestal.name=Pot Pedestal
-
 tile.bountiful_sand.name=Bountiful Sand
 tile.bountiful_snow.name=Bountiful Snow
 tile.factory_rubble.name=Factory Rubble
@@ -47,7 +45,6 @@ tile.slicer.name=Slicer
 tile.metalworking_station.name=Metalworking Station
 tile.alloy_smelter.name=Alloy Smelter
 tile.alloy_smelter_active.name=Lit Alloy Smelter
-tile.brick_frame_crafter_dusted.name=Dusted Brick Frame Crafter
 tile.brick_frame_crafter.name=Brick Frame Crafter
 
 tile.item_chute.name=Item Chute
@@ -68,7 +65,6 @@ tile.large_stone_bricks.name=Large Stone Bricks
 tile.fast_bricks.name=Fast Bricks
 
 tile.dust.name=Block of Dust
-tile.stone_brick_ore.name=Stone Brick Ore
 
 tile.brick_crop.name=Brick Crop
 
@@ -160,7 +156,6 @@ item.brick_seedlings.name=Brick Seedlings
 item.brick_catalyst.name=Brick Catalyst
 item.clay_powder.name=Clay Powder
 
-item.brick_hammer.name=Brick Hammer
 item.exotic_catalyst.name=Exotic Catalyst
 
 item.coal_ore_brick.name=Coal Ore Brick

@@ -95,7 +95,6 @@ public class TextureListener {
         ItemListener.brickCatalyst.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickCatalyst"));
         ItemListener.clayPowder.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ClayPowder"));
 
-        ItemListener.brickHammer.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Tools/BrickHammer"));
         ItemListener.exoticCatalyst.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ExoticCatalyst"));
 
         ItemListener.coalOreBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/CoalOreBrick"));
@@ -259,8 +258,6 @@ public class TextureListener {
         GoldOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/GoldOreBricks")).index;
         RedstoneOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/RedstoneOreBricks")).index;
         DiamondOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/DiamondOreBricks")).index;
-
-        BlockListener.potPedestal.specifyTextures(PotPedestalTop, PotPedestalSide, PotPedestalBottom);
 
         BlockListener.bountifulSand.specifyTextures(BountifulSand);
         BlockListener.bountifulSnow.specifyTextures(BountifulSnow);

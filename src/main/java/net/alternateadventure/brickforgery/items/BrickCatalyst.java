@@ -18,13 +18,6 @@ public class BrickCatalyst extends TemplateItemBase {
 
     @Override
     public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int facing) {
-        ItemInstance tool = player.getHeldItem();
-        if (level.getTileId(x, y, z) == BlockBase.STONE.id)
-        {
-            level.setTile(x, y, z, BlockListener.stoneBrickOre.id);
-            tool.count--;
-            return true;
-        }
         return false;
     }
 }
