@@ -9,10 +9,10 @@ import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
+import net.modificationstation.stationapi.api.util.Identifier;
 
-public class BrickFrameCrafter extends TemplateBlockBase {
+public class BrickFrameCrafter extends TemplateBlock {
     public BrickFrameCrafter(Identifier identifier, Material material) {
         super(identifier, material);
     }

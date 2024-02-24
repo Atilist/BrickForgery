@@ -8,8 +8,7 @@ import net.glasslauncher.hmifabric.tabs.TabWithTexture;
 import net.minecraft.block.BlockBase;
 import net.minecraft.client.gui.screen.container.ContainerBase;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.recipe.FuelRegistry;
-import net.modificationstation.stationapi.api.registry.ModID;
+import net.modificationstation.stationapi.api.util.Namespace;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,15 +23,15 @@ public class AlloySmeltingTab extends TabWithTexture {
     private final BlockBase tabBlock;
     private final List<ItemInstance[]> recipesReady;
 
-    public AlloySmeltingTab(ModID tabCreator) {
+    public AlloySmeltingTab(Namespace tabCreator) {
         this(tabCreator, new ArrayList<ItemInstance[]>(AlloySmeltingRecipeRegistry.getInstance().getRecipes()), BlockListener.alloySmelter);
     }
 
-    public AlloySmeltingTab(ModID tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
+    public AlloySmeltingTab(Namespace tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
         this(tabCreator, 4, recipesReady, tabBlock, "/assets/brickforgery/stationapi/gui/alloysmelter.png", 136, 56, 10, 15);
     }
 
-    public AlloySmeltingTab(ModID tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {
+    public AlloySmeltingTab(Namespace tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {
         super(tabCreator, slotsPerRecipe, texturePath, width, height, 3, 4, textureX, textureY);
         this.recipesReady = recipesReady;
         this.tabBlock = tabBlock;

@@ -1,7 +1,5 @@
 package net.alternateadventure.brickforgery.tileentities;
 
-import com.github.gtgolden.gtgoldencore.machines.api.items.HasItemIO;
-import com.github.gtgolden.gtgoldencore.machines.api.items.SlotType;
 import net.alternateadventure.brickforgery.blocks.SlicerBase;
 import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
@@ -18,7 +16,7 @@ import net.minecraft.util.io.CompoundTag;
 import net.minecraft.util.io.ListTag;
 import net.modificationstation.stationapi.api.util.math.Direction;
 
-public class TileEntitySlicer extends TileEntityBase implements InventoryBase, BlockWithOutput, BlockWithInput, HasItemIO {
+public class TileEntitySlicer extends TileEntityBase implements InventoryBase, BlockWithOutput, BlockWithInput {
     private ItemInstance[] inventory = new ItemInstance[2];
     public int sliceTime = 0;
     public int tier = 0;
@@ -245,6 +243,7 @@ public class TileEntitySlicer extends TileEntityBase implements InventoryBase, B
     }
 
 
+/* TODO: Update and restore GregTech functionality
 
     @Override
     public SlotType[] getAcceptedTypes(Direction side) {
@@ -303,4 +302,6 @@ public class TileEntitySlicer extends TileEntityBase implements InventoryBase, B
                 yield -1;
         };
     }
+
+ */
 }

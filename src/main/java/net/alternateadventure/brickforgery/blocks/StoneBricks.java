@@ -5,10 +5,10 @@ import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.alternateadventure.brickforgery.interfaces.SpikeCrushable;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
+import net.modificationstation.stationapi.api.util.Identifier;
 
-public class StoneBricks extends TemplateBlockBase implements SpikeCrushable {
+public class StoneBricks extends TemplateBlock implements SpikeCrushable {
 
     public StoneBricks(Identifier identifier, Material material) {
         super(identifier, material);

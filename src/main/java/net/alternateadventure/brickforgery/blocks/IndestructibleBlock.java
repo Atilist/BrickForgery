@@ -5,7 +5,7 @@ import net.minecraft.block.BlockBase;
 import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 public class IndestructibleBlock extends LazyBlockTemplate {
     public IndestructibleBlock(Identifier identifier, Material material, float hardness, BlockSounds blockSounds, float blastResistance) {

@@ -4,7 +4,7 @@ import net.alternateadventure.brickforgery.tileentities.TileEntityItemElevator;
 import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.tileentity.TileEntityBase;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 public class ItemElevator extends LazySimpleMachine {
     public ItemElevator(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {

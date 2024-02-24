@@ -3,13 +3,13 @@ package net.alternateadventure.brickforgery.blocks;
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.minecraft.block.material.Material;
-import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
 // TODO: Add custom pot models
-public class DesertPot extends TemplateBlockBase {
+public class DesertPot extends TemplateBlock {
 
     public DesertPot(Identifier identifier, Material material) {
         super(identifier, material);

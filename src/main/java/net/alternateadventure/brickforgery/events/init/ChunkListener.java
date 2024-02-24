@@ -4,16 +4,16 @@ import net.alternateadventure.brickforgery.structures.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.level.biome.Biome;
 import net.minecraft.level.dimension.Overworld;
-import net.modificationstation.stationapi.api.event.level.gen.LevelGenEvent;
+import net.modificationstation.stationapi.api.event.world.gen.WorldGenEvent;
 
 public class ChunkListener {
 
     @EventListener
-    public void populate(LevelGenEvent.ChunkDecoration event) {
-        if (event.level.dimension instanceof Overworld) populateOverworld(event);
+    public void populate(WorldGenEvent.ChunkDecoration event) {
+        if (event.world.dimension instanceof Overworld) populateOverworld(event);
     }
 
-    public void populateOverworld (LevelGenEvent.ChunkDecoration event) {
+    public void populateOverworld (WorldGenEvent.ChunkDecoration event) {
         int x;
         int y;
         int z;
@@ -22,7 +22,7 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(36) + 12;
                 z = event.z + event.random.nextInt(16);
-                new FactoryRuins().generate(event.level, event.random, x, y, z);
+                new FactoryRuins().generate(event.world, event.random, x, y, z);
             }
         }
         if (event.biome == Biome.DESERT) {
@@ -30,7 +30,7 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(48) + 64;
                 z = event.z + event.random.nextInt(16);
-                new DesertWell().generate(event.level, event.random, x, y, z);
+                new DesertWell().generate(event.world, event.random, x, y, z);
             }
         }
         if (event.biome == Biome.TUNDRA) {
@@ -38,7 +38,7 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(48) + 64;
                 z = event.z + event.random.nextInt(16);
-                new FrozenPotArea().generate(event.level, event.random, x, y, z);
+                new FrozenPotArea().generate(event.world, event.random, x, y, z);
             }
         }
         if (event.biome == Biome.RAINFOREST) {
@@ -46,7 +46,7 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(96) + 32;
                 z = event.z + event.random.nextInt(16);
-                new MossyPotArea().generate(event.level, event.random, x, y, z);
+                new MossyPotArea().generate(event.world, event.random, x, y, z);
             }
         }
         if (event.biome == Biome.PLAINS || event.biome == Biome.SHRUBLAND || event.biome == Biome.SAVANNA || event.biome == Biome.SWAMPLAND || event.biome == Biome.TUNDRA) {
@@ -54,14 +54,14 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(48) + 64;
                 z = event.z + event.random.nextInt(16);
-                new ExoticShrubArea().generate(event.level, event.random, x, y, z);
+                new ExoticShrubArea().generate(event.world, event.random, x, y, z);
             }
         }
         if ((event.biome == Biome.FOREST || event.biome == Biome.SEASONAL_FOREST || event.biome == Biome.RAINFOREST || event.biome == Biome.TAIGA) && event.random.nextInt(4) == 0) {
             x = event.x + event.random.nextInt(16);
             y = event.random.nextInt(16) + 64;
             z = event.z + event.random.nextInt(16);
-            new ForestVault().generate(event.level, event.random, x, y, z);
+            new ForestVault().generate(event.world, event.random, x, y, z);
         }
         /* I sometimes use this workspace to test structures for Aether Expansion. This code will be removed once the structure is finished.
         if (event.random.nextInt(8) == 0) {

@@ -4,7 +4,7 @@ import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 public class PrimitiveChisel extends LazyItemTemplate {
 

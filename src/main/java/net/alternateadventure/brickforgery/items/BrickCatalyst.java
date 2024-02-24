@@ -1,16 +1,12 @@
 package net.alternateadventure.brickforgery.items;
 
-import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.alternateadventure.brickforgery.events.init.ItemListener;
-import net.minecraft.block.BlockBase;
-import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.template.item.TemplateItemBase;
+import net.modificationstation.stationapi.api.template.item.TemplateItem;
+import net.modificationstation.stationapi.api.util.Identifier;
 
-public class BrickCatalyst extends TemplateItemBase {
+public class BrickCatalyst extends TemplateItem {
 
     public BrickCatalyst(Identifier identifier) {
         super(identifier);

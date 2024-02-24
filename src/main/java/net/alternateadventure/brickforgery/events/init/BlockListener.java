@@ -1,19 +1,13 @@
 package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.blocks.*;
-import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
-import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
-import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
-import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.BlockBase;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemBase;
-import net.minecraft.item.ItemInstance;
 import net.modificationstation.stationapi.api.event.registry.BlockRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
-import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.registry.ModID;
+import net.modificationstation.stationapi.api.util.Identifier;
+import net.modificationstation.stationapi.api.util.Namespace;
 import net.modificationstation.stationapi.api.util.Null;
 
 public class BlockListener {
@@ -113,8 +107,8 @@ public class BlockListener {
             itemChute,
             itemElevator;
 
-    @Entrypoint.ModID
-    public static final ModID MOD_ID = Null.get();
+    @Entrypoint.Namespace
+    public static final Namespace MOD_ID = Null.get();
 
     @EventListener
     public void registerBlocks(BlockRegistryEvent event) {

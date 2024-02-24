@@ -6,8 +6,8 @@ import net.minecraft.entity.Living;
 import net.minecraft.level.Level;
 import net.minecraft.tileentity.TileEntityBase;
 import net.minecraft.util.maths.MathHelper;
-import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockWithEntity;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 public class DirectionalMachineTemplate extends TemplateBlockWithEntity {
 
@@ -19,7 +19,7 @@ public class DirectionalMachineTemplate extends TemplateBlockWithEntity {
 
     public DirectionalMachineTemplate(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
         super(identifier, material);
-        setTranslationKey(identifier.modID, identifier.id);
+        setTranslationKey(identifier.namespace, identifier.path);
         setHardness(hardness);
         setSounds(blockSounds);
     }

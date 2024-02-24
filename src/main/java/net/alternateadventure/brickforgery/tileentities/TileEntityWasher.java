@@ -196,12 +196,9 @@ public class TileEntityWasher extends TileEntityBase implements InventoryBase {
             }
             if (random.nextDouble(1.0) > washingOutput.byproductChance) return;
             ItemInstance byproduct = washingOutput.byproduct.copy();
-            if (this.inventory[2] == null)
-            {
+            if (this.inventory[2] == null) {
                 this.inventory[2] = byproduct;
-            }
-            else
-            {
+            } else {
                 this.inventory[2].count += byproduct.count;
             }
         }

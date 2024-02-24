@@ -11,12 +11,12 @@ import net.minecraft.entity.Item;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.util.maths.Box;
-import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
-public class BrickCrop extends TemplateBlockBase {
+public class BrickCrop extends TemplateBlock {
 
     public BrickCrop(Identifier identifier, Material material) {
         super(identifier, material);

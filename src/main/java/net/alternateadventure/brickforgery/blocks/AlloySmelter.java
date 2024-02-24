@@ -1,25 +1,20 @@
 package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.containers.ContainerAlloySmelter;
-import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.alternateadventure.brickforgery.events.init.ItemListener;
-import net.alternateadventure.brickforgery.events.init.TileEntityListener;
+import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityAlloySmelter;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockBase;
 import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.tileentity.TileEntityBase;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.modificationstation.stationapi.api.gui.screen.container.GuiHelper;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
@@ -44,7 +39,7 @@ public class AlloySmelter extends DirectionalMachineTemplate {
     public boolean canUse(Level world, int x, int y, int z, PlayerBase player) {
         TileEntityBase tileEntity = world.getTileEntity(x, y, z);
         if (tileEntity instanceof TileEntityAlloySmelter tileEntityAlloySmelter)
-            GuiHelper.openGUI(player, Identifier.of(TileEntityListener.MOD_ID, "gui_alloy_smelter"), tileEntityAlloySmelter, new ContainerAlloySmelter(player.inventory, tileEntityAlloySmelter));
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_alloy_smelter"), tileEntityAlloySmelter, new ContainerAlloySmelter(player.inventory, tileEntityAlloySmelter));
         return true;
     }
 

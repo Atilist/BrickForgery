@@ -1,15 +1,13 @@
 package net.alternateadventure.brickforgery.tabs;
 
 import net.alternateadventure.brickforgery.customrecipes.CrushingRecipeRegistry;
-import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.alternateadventure.brickforgery.guis.GUIAlloySmelter;
 import net.alternateadventure.brickforgery.guis.GUICrusher;
 import net.glasslauncher.hmifabric.tabs.TabWithTexture;
 import net.minecraft.block.BlockBase;
 import net.minecraft.client.gui.screen.container.ContainerBase;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.registry.ModID;
+import net.modificationstation.stationapi.api.util.Namespace;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,15 +22,15 @@ public class CrushingTab extends TabWithTexture {
     private final BlockBase tabBlock;
     private final List<ItemInstance[]> recipesReady;
 
-    public CrushingTab(ModID tabCreator) {
+    public CrushingTab(Namespace tabCreator) {
         this(tabCreator, new ArrayList<ItemInstance[]>(CrushingRecipeRegistry.getInstance().getRecipes()), BlockListener.primitiveCrusher);
     }
 
-    public CrushingTab(ModID tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
+    public CrushingTab(Namespace tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
         this(tabCreator, 3, recipesReady, tabBlock, "/assets/brickforgery/stationapi/gui/crusher.png", 118, 56, 28, 24);
     }
 
-    public CrushingTab(ModID tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {
+    public CrushingTab(Namespace tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {
         super(tabCreator, slotsPerRecipe, texturePath, width, height, 3, 4, textureX, textureY);
         this.recipesReady = recipesReady;
         this.tabBlock = tabBlock;

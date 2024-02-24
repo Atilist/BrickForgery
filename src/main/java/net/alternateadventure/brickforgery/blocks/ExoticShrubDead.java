@@ -9,13 +9,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.level.Level;
 import net.minecraft.util.maths.Box;
 import net.modificationstation.stationapi.api.block.BlockState;
-import net.modificationstation.stationapi.api.registry.Identifier;
 import net.modificationstation.stationapi.api.state.StateManager;
-import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
-public class ExoticShrubDead extends TemplateBlockBase {
+public class ExoticShrubDead extends TemplateBlock {
 
     public ExoticShrubDead(Identifier identifier, Material material) {
         super(identifier, material);

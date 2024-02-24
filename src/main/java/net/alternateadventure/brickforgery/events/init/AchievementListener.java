@@ -4,10 +4,10 @@ import net.alternateadventure.brickforgery.custom.ExampleAchievementPage;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.achievement.Achievement;
 import net.minecraft.item.ItemBase;
-import net.modificationstation.stationapi.api.client.gui.screen.menu.AchievementPage;
+import net.modificationstation.stationapi.api.client.gui.screen.achievement.AchievementPage;
 import net.modificationstation.stationapi.api.event.achievement.AchievementRegisterEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
-import net.modificationstation.stationapi.api.registry.ModID;
+import net.modificationstation.stationapi.api.util.Namespace;
 
 import java.util.*;
 
@@ -16,8 +16,8 @@ public class AchievementListener {
     public static Achievement achievement;
     public static Achievement achievement2;
 
-    @Entrypoint.ModID
-    private ModID modID;
+    @Entrypoint.Namespace
+    private Namespace modID;
 
     @EventListener
     public void registerAchievements(AchievementRegisterEvent event) {

@@ -5,7 +5,7 @@ import net.alternateadventure.brickforgery.interfaces.SpikeCrushable;
 import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 public class GoldOreBricks extends LazyBlockTemplate implements SpikeCrushable {
     public GoldOreBricks(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {

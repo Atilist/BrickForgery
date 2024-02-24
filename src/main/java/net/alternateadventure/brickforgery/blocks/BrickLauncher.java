@@ -1,21 +1,17 @@
 package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.alternateadventure.brickforgery.interfaces.SpikeCrushable;
 import net.minecraft.block.BlockBase;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
+import net.modificationstation.stationapi.api.util.Identifier;
 
-import java.util.Random;
-
-public class BrickLauncher extends TemplateBlockBase {
+public class BrickLauncher extends TemplateBlock {
 
     public BrickLauncher(Identifier identifier, Material material) {
         super(identifier, material);

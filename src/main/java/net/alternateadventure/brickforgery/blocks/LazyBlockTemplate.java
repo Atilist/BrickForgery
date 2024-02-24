@@ -5,10 +5,10 @@ import net.minecraft.block.material.Material;
 import net.minecraft.entity.Living;
 import net.minecraft.level.Level;
 import net.minecraft.util.maths.MathHelper;
-import net.modificationstation.stationapi.api.registry.Identifier;
-import net.modificationstation.stationapi.api.template.block.TemplateBlockBase;
+import net.modificationstation.stationapi.api.template.block.TemplateBlock;
+import net.modificationstation.stationapi.api.util.Identifier;
 
-public class LazyBlockTemplate extends TemplateBlockBase {
+public class LazyBlockTemplate extends TemplateBlock {
 
     int topTextureInternal;
     int sideTextureInternal;
@@ -19,7 +19,7 @@ public class LazyBlockTemplate extends TemplateBlockBase {
 
     public LazyBlockTemplate(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
         super(identifier, material);
-        setTranslationKey(identifier.modID, identifier.id);
+        setTranslationKey(identifier.namespace, identifier.path);
         setHardness(hardness);
         setSounds(blockSounds);
     }

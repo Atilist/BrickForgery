@@ -7,7 +7,7 @@ import net.glasslauncher.hmifabric.tabs.TabWithTexture;
 import net.minecraft.block.BlockBase;
 import net.minecraft.client.gui.screen.container.ContainerBase;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.registry.ModID;
+import net.modificationstation.stationapi.api.util.Namespace;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,15 +22,15 @@ public class SlicingTab extends TabWithTexture {
     private final BlockBase tabBlock;
     private final List<ItemInstance[]> recipesReady;
 
-    public SlicingTab(ModID tabCreator) {
+    public SlicingTab(Namespace tabCreator) {
         this(tabCreator, new ArrayList<ItemInstance[]>(SlicingRecipeRegistry.getInstance().getRecipes()), BlockListener.slicer);
     }
 
-    public SlicingTab(ModID tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
+    public SlicingTab(Namespace tabCreator, List<ItemInstance[]> recipesReady, BlockBase tabBlock) {
         this(tabCreator, 2, recipesReady, tabBlock, "/assets/brickforgery/stationapi/gui/slicer.png", 118, 56, 28, 15);
     }
 
-    public SlicingTab(ModID tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {
+    public SlicingTab(Namespace tabCreator, int slotsPerRecipe, List<ItemInstance[]> recipesReady, BlockBase tabBlock, String texturePath, int width, int height, int textureX, int textureY) {
         super(tabCreator, slotsPerRecipe, texturePath, width, height, 3, 4, textureX, textureY);
         this.recipesReady = recipesReady;
         this.tabBlock = tabBlock;

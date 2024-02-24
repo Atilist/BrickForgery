@@ -4,7 +4,7 @@ import net.alternateadventure.brickforgery.tabs.*;
 import net.glasslauncher.hmifabric.event.HMITabRegistryEvent;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.item.ItemInstance;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 public class TabListener {
 

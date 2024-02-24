@@ -1,7 +1,5 @@
 package net.alternateadventure.brickforgery.tileentities;
 
-import com.github.gtgolden.gtgoldencore.machines.api.items.HasItemIO;
-import com.github.gtgolden.gtgoldencore.machines.api.items.SlotType;
 import net.alternateadventure.brickforgery.blocks.MetalworkingStationBase;
 import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
@@ -18,7 +16,7 @@ import net.minecraft.util.io.CompoundTag;
 import net.minecraft.util.io.ListTag;
 import net.modificationstation.stationapi.api.util.math.Direction;
 
-public class TileEntityMetalworkingStation extends TileEntityBase implements InventoryBase, BlockWithOutput, BlockWithInput, HasItemIO {
+public class TileEntityMetalworkingStation extends TileEntityBase implements InventoryBase, BlockWithOutput, BlockWithInput {
     private ItemInstance[] inventory = new ItemInstance[2];
     public int metalworkingTime = 0;
     public int tier = 0;
@@ -244,7 +242,7 @@ public class TileEntityMetalworkingStation extends TileEntityBase implements Inv
         inventory[0].count = count;
     }
 
-
+/* TODO: Update and restore GregTech functionality
 
     @Override
     public SlotType[] getAcceptedTypes(Direction side) {
@@ -303,4 +301,6 @@ public class TileEntityMetalworkingStation extends TileEntityBase implements Inv
                 yield -1;
         };
     }
+
+     */
 }

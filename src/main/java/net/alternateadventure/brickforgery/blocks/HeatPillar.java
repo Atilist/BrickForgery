@@ -4,7 +4,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 public class HeatPillar extends LazyBlockTemplate {
     public HeatPillar(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {

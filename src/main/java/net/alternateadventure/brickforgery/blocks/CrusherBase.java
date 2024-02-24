@@ -1,11 +1,9 @@
 package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.containers.ContainerCrusher;
-import net.alternateadventure.brickforgery.containers.ContainerSlicer;
-import net.alternateadventure.brickforgery.events.init.TileEntityListener;
+import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityCrusher;
-import net.alternateadventure.brickforgery.tileentities.TileEntitySlicer;
-import net.kozibrodka.wolves.events.mod_FCBetterThanWolves;
+import net.kozibrodka.wolves.events.BlockListener;
 import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Item;
@@ -14,7 +12,7 @@ import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.tileentity.TileEntityBase;
 import net.modificationstation.stationapi.api.gui.screen.container.GuiHelper;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
@@ -30,7 +28,7 @@ public class CrusherBase extends LazySimpleMachine {
     public boolean canUse(Level world, int x, int y, int z, PlayerBase player) {
         TileEntityBase tileEntity = world.getTileEntity(x, y, z);
         if (tileEntity instanceof TileEntityCrusher tileEntityCrusher)
-            GuiHelper.openGUI(player, Identifier.of(TileEntityListener.MOD_ID, "gui_crusher"), tileEntityCrusher, new ContainerCrusher(player.inventory, tileEntityCrusher));
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_crusher"), tileEntityCrusher, new ContainerCrusher(player.inventory, tileEntityCrusher));
         return true;
     }
 
@@ -74,12 +72,12 @@ public class CrusherBase extends LazySimpleMachine {
     @Override
     public void onBlockPlaced(Level level, int x, int y, int z) {
         super.onBlockPlaced(level, x, y, z);
-        if (level.getTileId(x, y - 1, z) == mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileMeta(x, y - 1, z) == 3 || level.getTileId(x, y + 1, z) == mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileMeta(x, y + 1, z) == 3) level.setTileMeta(x, y, z, 1);
+        if (level.getTileId(x, y - 1, z) == BlockListener.axleBlock.id && level.getTileMeta(x, y - 1, z) == 3 || level.getTileId(x, y + 1, z) == BlockListener.axleBlock.id && level.getTileMeta(x, y + 1, z) == 3) level.setTileMeta(x, y, z, 1);
     }
 
     @Override
     public void onAdjacentBlockUpdate(Level level, int x, int y, int z, int l) {
-        if (level.getTileId(x, y - 1, z) != mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileId(x, y + 1, z) != mod_FCBetterThanWolves.fcAxleBlock.id && level.getTileMeta(x, y, z) == 1) level.setTileMeta(x, y, z, 0);
+        if (level.getTileId(x, y - 1, z) != BlockListener.axleBlock.id && level.getTileId(x, y + 1, z) != BlockListener.axleBlock.id && level.getTileMeta(x, y, z) == 1) level.setTileMeta(x, y, z, 0);
         else if (level.getTileMeta(x, y - 1, z) == 3 || level.getTileMeta(x, y + 1, z) == 3 && level.getTileMeta(x, y, z) == 0) level.setTileMeta(x, y, z, 1);
     }
 

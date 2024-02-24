@@ -3,13 +3,12 @@ package net.alternateadventure.brickforgery.blocks;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.kozibrodka.wolves.events.mod_FCBetterThanWolves;
 import net.kozibrodka.wolves.modsupport.AffectedByBellows;
-import net.kozibrodka.wolves.utils.FCBlockPos;
+import net.kozibrodka.wolves.utils.BlockPosition;
 import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.Level;
-import net.modificationstation.stationapi.api.registry.Identifier;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
@@ -39,12 +38,12 @@ public class HeatPillarIgnited extends LazyBlockTemplate implements AffectedByBe
 
     @Override
     public void onAdjacentBlockUpdate(Level level, int x, int y, int z, int l) {
-        if (level.getTileId(x, y - 1, z) != mod_FCBetterThanWolves.fcBBQ.id) level.setTile(x, y, z, BlockListener.heatPillar.id);
+        if (level.getTileId(x, y - 1, z) != net.kozibrodka.wolves.events.BlockListener.hibachi.id) level.setTile(x, y, z, BlockListener.heatPillar.id);
         else if (level.getTileMeta(x, y - 1, z) < 4) level.setTile(x, y, z, BlockListener.heatPillar.id);
     }
 
     @Override
-    public void affectBlock(Level world, int i, int j, int k, FCBlockPos tempTargetPos, int facing) {
+    public void affectBlock(Level world, int i, int j, int k, BlockPosition tempTargetPos, int facing) {
         world.setTile(i, j, k, BlockListener.heatPillarStoked.id);
     }
 }
