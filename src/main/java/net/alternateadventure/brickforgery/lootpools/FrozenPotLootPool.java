@@ -2,19 +2,18 @@ package net.alternateadventure.brickforgery.lootpools;
 
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.minecraft.block.BlockBase;
-import net.minecraft.item.ItemBase;
 import net.minecraft.item.ItemInstance;
 
 import java.util.Random;
 
-public class DesertPotLootPool {
+public class FrozenPotLootPool {
 
     public static ItemInstance getLoot(int reliability, int luck, Random random) {
         luck = random.nextInt(luck);
         reliability = random.nextInt(reliability) + 1;
         if (luck == 0)
         {
-            return new ItemInstance(BlockBase.SAND);
+            return new ItemInstance(BlockBase.SNOW_BLOCK);
         }
         else if (luck < 4)
         {
@@ -24,7 +23,7 @@ public class DesertPotLootPool {
         {
             if (reliability > 0) return new ItemInstance(ItemListener.goldenScrew, reliability);
         }
-        return new ItemInstance(BlockBase.SAND);
+        return new ItemInstance(BlockBase.SNOW_BLOCK);
     }
 
 }

@@ -13,12 +13,13 @@
     "brickforgery:brick_steel_machine_frame",
     "brickforgery:slicer",
     "brickforgery:metalworking_station",
-    "brickforgery:brick_frame_crafter_dusted",
     "brickforgery:brick_frame_crafter",
     "brickforgery:alloy_smelter",
     "brickforgery:alloy_smelter_active",
     "brickforgery:forest_ornament",
     "brickforgery:common_pot",
-    "brickforgery:desert_pot"
+    "brickforgery:desert_pot",
+    "brickforgery:frozen_pot",
+    "brickforgery:cryogenic_hibachi"
   ]
 }

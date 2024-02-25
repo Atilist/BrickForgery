@@ -14,12 +14,18 @@ tile.common_pot.name=Common Pot
 tile.forest_vault_keyhole.name=Forest Vault Keyhole
 tile.forest_vault_walls.name=Forest Vault Walls
 tile.forest_ornament.name=Forest Ornament
+
 tile.desert_well_bricks.name=Desert Well Bricks
 tile.desert_well_floor.name=Desert Well Floor
 tile.desert_well_keyhole.name=Desert Well Keyhole
-
 tile.ancient_sandstone_bricks.name=Ancient Sandstone Bricks
 tile.ancient_sandstone_tile.name=Ancient Sandstone Tile
+
+tile.frost_vault_bricks.name=Frost Vault Bricks
+tile.frost_vault_tiling.name=Frost Vault Tiling
+tile.frost_vault_keyhole.name=Frost Vault Keyhole
+tile.ancient_ice_bricks.name=Ancient Ice Bricks
+tile.ancient_ice_tiling.name=Ancient Ice Tiling
 
 tile.desert_pot.name=Desert Pot
 tile.desert_pot_sealed.name=Sealed Desert Pot
@@ -39,6 +45,9 @@ tile.primitive_washer.name=Primitive Washer
 tile.heat_pillar.name=Heat Pillar
 tile.heat_pillar_ignited.name=Ignited Heat Pillar
 tile.heat_pillar_stoked.name=Stoked Heat Pillar
+
+tile.cryogenic_hibachi.name=Cryogenic Hibachi
+tile.frostburn.name=Frostburn
 
 tile.brick_steel_machine_frame.name=Brick Steel Machine Frame
 tile.slicer.name=Slicer
@@ -92,6 +101,7 @@ item.concentrated_fortune.name=Concentrated Fortune
 
 item.exotic_key.name=Exotic Key
 item.desert_key.name=Desert Key
+item.ice_key.name=Ice Key
 
 item.desert_pot_item.name=Sealed Desert Pot
 item.frozen_pot_item.name=Sealed Frozen Pot
@@ -116,6 +126,9 @@ item.gold_ore_purified.name=Purified Gold Ore
 item.thermal_powder.name=Thermal Powder
 item.concentrated_thermal.name=Concentrated Thermal
 item.thermal_glass.name=Thermal Glass
+
+item.cryogenic_powder.name=Cryogenic Powder
+item.concentrated_cryogenic.name=Concentrated Cryogenic
 
 item.durable_leather.name=Durable Leather
 item.brick_steel_ingot.name=Brick Steel Ingot

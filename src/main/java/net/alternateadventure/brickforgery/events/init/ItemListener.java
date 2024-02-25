@@ -50,6 +50,7 @@ public class ItemListener {
 
             exoticKey,
             desertKey,
+            iceKey,
 
             desertPotItem,
             frozenPotItem,
@@ -74,6 +75,9 @@ public class ItemListener {
             thermalPowder,
             concentratedThermal,
             thermalGlass,
+
+            cryogenicPowder,
+            concentratedCryogenic,
 
             durableLeather,
             brickSteelIngot,
@@ -121,6 +125,7 @@ public class ItemListener {
 
         exoticKey = new ExoticKey(Identifier.of(MOD_ID, "exotic_key"));
         desertKey = new DesertKey(Identifier.of(MOD_ID, "desert_key"));
+        iceKey = new IceKey(Identifier.of(MOD_ID, "ice_key"));
 
         desertPotItem = new DesertPotItem(Identifier.of(MOD_ID, "desert_pot_item"));
         frozenPotItem = new FrozenPotItem(Identifier.of(MOD_ID, "frozen_pot_item"));
@@ -145,6 +150,9 @@ public class ItemListener {
         thermalPowder = new LazyItemTemplate(Identifier.of(MOD_ID, "thermal_powder"));
         concentratedThermal = new LazyItemTemplate(Identifier.of(MOD_ID, "concentrated_thermal"));
         thermalGlass = new LazyItemTemplate(Identifier.of(MOD_ID, "thermal_glass"));
+
+        cryogenicPowder = new LazyItemTemplate(Identifier.of(MOD_ID, "cryogenic_powder"));
+        concentratedCryogenic = new LazyItemTemplate(Identifier.of(MOD_ID, "concentrated_cryogenic"));
 
         durableLeather = new LazyItemTemplate(Identifier.of(MOD_ID, "durable_leather"));
         brickSteelIngot = new LazyItemTemplate(Identifier.of(MOD_ID, "brick_steel_ingot"));

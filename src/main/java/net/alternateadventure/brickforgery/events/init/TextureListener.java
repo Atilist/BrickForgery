@@ -15,6 +15,9 @@ public class TextureListener {
 
     @EventListener
     public void registerTextures(TextureRegisterEvent event) {
+        String worldGenerationPath = "ExplorationFeatures/WorldGeneration/";
+        String machinePath = "MaterialProcessing/Machines/";
+
         ItemListener.exoticFruit.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticFruit"));
         ItemListener.nightSeeds.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightSeeds"));
         ItemListener.nightWheat.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightWheat"));
@@ -28,6 +31,7 @@ public class TextureListener {
 
         ItemListener.exoticKey.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Keys/ExoticKey"));
         ItemListener.desertKey.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Keys/DesertKey"));
+        ItemListener.iceKey.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Keys/IceKey"));
 
         ItemListener.desertPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/DesertPotItem"));
         ItemListener.frozenPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/FrozenPotItem"));
@@ -52,6 +56,9 @@ public class TextureListener {
         ItemListener.thermalPowder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/ThermalPowder"));
         ItemListener.concentratedThermal.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ConcentratedThermal"));
         ItemListener.thermalGlass.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ThermalGlass"));
+
+        ItemListener.cryogenicPowder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/CryogenicPowder"));
+        ItemListener.concentratedCryogenic.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ConcentratedCryogenic"));
 
         ItemListener.durableLeather.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DurableLeather"));
         ItemListener.brickSteelIngot.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickSteelIngot"));
@@ -272,6 +279,13 @@ public class TextureListener {
         BlockListener.ancientSandstoneBricks.specifyTextures(DesertWellBricks);
         BlockListener.ancientSandstoneTile.specifyTextures(DesertWellFloor);
 
+        BlockListener.frozenPot.specifyTextures(FrozenPotTop, FrozenPotSide, FrozenPotBottom);
+        BlockListener.frostVaultBricks.specifyTextures(getIndexForPath(worldGenerationPath + "FrostVaultBricks"));
+        BlockListener.frostVaultTiling.specifyTextures(getIndexForPath(worldGenerationPath + "FrostVaultTiling"));
+        BlockListener.frostVaultKeyhole.specifyTextures(getIndexForPath(worldGenerationPath + "FrostVaultKeyhole"));
+        BlockListener.ancientIceBricks.specifyTextures(getIndexForPath(worldGenerationPath + "FrostVaultBricks"));
+        BlockListener.ancientIceTiling.specifyTextures(getIndexForPath(worldGenerationPath + "FrostVaultTiling"));
+
         BlockListener.improvedMillstone.specifyTextures(ImprovedMillstoneTop, ImprovedMillstoneSide, ImprovedMillstoneBottom);
 
         BlockListener.primitiveMachineFrame.specifyTextures(PrimitiveMachineFrame);
@@ -284,6 +298,11 @@ public class TextureListener {
         BlockListener.heatPillar.specifyTextures(HeatPillar);
         BlockListener.heatPillarIgnited.specifyTextures(HeatPillarIgnited);
         BlockListener.heatPillarStoked.specifyTextures(HeatPillarStoked);
+
+        BlockListener.cryogenicHibachi.specifyTextures(getIndexForPath(machinePath + "CryogenicHibachiTop"),
+                getIndexForPath(machinePath + "CryogenicHibachiSide"),
+                getIndexForPath(machinePath + "CryogenicHibachiBottom"));
+        BlockListener.frostburn.specifyTextures(getIndexForPath(machinePath + "Frostburn"));
 
         BlockListener.brickSteelMachineFrame.specifyTextures(BrickSteelMachineFrame);
         BlockListener.slicer.specifyTextures(SlicerTop, SlicerSide, SlicerBottom);
@@ -314,6 +333,10 @@ public class TextureListener {
         BlockListener.spikeMount.asItem().setTexturePosition(SpikeMount);
         BlockListener.exoticShrub.asItem().setTexturePosition(ExoticShrub);
         BlockListener.nightSapling.asItem().setTexturePosition(NightSapling);
+    }
+
+    public static int getIndexForPath(String path) {
+        return Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, path)).index;
     }
 
     public static int

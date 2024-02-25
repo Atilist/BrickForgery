@@ -25,8 +25,7 @@ public class ExoticKey extends LazyItemTemplate {
         return true;
     }
 
-    private void convertAdjacentBlock(Level level, int x, int y, int z)
-    {
+    private void convertAdjacentBlock(Level level, int x, int y, int z) {
         BlockBase block = BlockBase.BY_ID[level.getTileId(x, y, z)];
         if (block == null) return;
         if (!(block instanceof IndestructibleBlock)) return;

@@ -29,6 +29,7 @@ public class RecipeListener {
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.exoticKey), "YYX", "ZZ ", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemListener.denseNightWood), 'Z', new ItemInstance(ItemListener.exoticFruit));
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.desertKey), "YYX", "ZZ ", 'X', new ItemInstance(BlockBase.SANDSTONE), 'Y', new ItemInstance(ItemListener.illuminantCrystal), 'Z', new ItemInstance(ItemListener.fortunePowder));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.iceKey), "YYX", "ZZ ", 'X', new ItemInstance(BlockBase.SNOW_BLOCK), 'Y', new ItemInstance(ItemListener.denseNightWood), 'Z', new ItemInstance(ItemListener.fortunePowder));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.improvedMillstone), "Z+Z", "X#X", "XYX", 'X', new ItemInstance(ItemListener.denseNightWood), 'Y', new ItemInstance(ItemListener.woodenFrame), 'Z', new ItemInstance(BlockBase.CHEST), '#', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.millStone), '+', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.hopper));
 
@@ -40,6 +41,8 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.primitiveWasher), "-X-", "+Y+", "Z#Z", 'X', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.turntable), 'Y', new ItemInstance(BlockListener.primitiveMachineFrame), 'Z', new ItemInstance(BlockBase.BRICKS), '#', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.gearBox), '+', new ItemInstance(ItemListener.primitiveBrush), '-', new ItemInstance(ItemListener.concentratedFortune));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.heatPillar), "XYX", "XZX", "XYX", 'X', new ItemInstance(ItemListener.thermalGlass), 'Y', new ItemInstance(ItemListener.concentratedThermal), 'Z', new ItemInstance(ItemListener.hardenedBrickFrame));
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.cryogenicHibachi), "XXX", " Y ", 'X', new ItemInstance(ItemListener.concentratedCryogenic), 'Y', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.hibachi));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.itemChute), "X X", "Y#Y", "Z Z", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.largeStoneBricks), '#', new ItemInstance(BlockListener.primitiveMachineFrame));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.itemSlide), "XYX", " # ", "ZZZ", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.largeStoneBricks), '#', new ItemInstance(BlockListener.primitiveMachineFrame));
@@ -132,18 +135,19 @@ public class RecipeListener {
 
         }
 
-        AddAnvilRecipe(new ItemInstance(BlockListener.brickSteelMachineFrame, 1), new Object[] {"XYYYX", "Y###Y", "Y#Z#Y", "Y###Y", "XYYYX", 'X', new ItemInstance(ItemListener.bricksidianScrew), 'Y', new ItemInstance(ItemListener.brickSteelBeam), 'Z', new ItemInstance(BlockListener.primitiveMachineFrame), '#', new ItemInstance(ItemListener.hardenedBrickFrame)});
-        AddAnvilRecipe(new ItemInstance(BlockListener.slicer, 1), new Object[] {"XWWWX", "U-#-U", "VYZYV", "V+Y+V", "X+++X", 'U', new ItemInstance(ItemBase.diamond), 'V', new ItemInstance(ItemListener.nightWoodBeam), 'W', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.refinedSword, 1, -1), 'X', new ItemInstance(ItemListener.reinforcedBrickFrame), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.brickSteelMachineFrame), '#', new ItemInstance(BlockListener.primitiveSlicer), '+', new ItemInstance(BlockListener.stoneBricks), '-', new ItemInstance(ItemListener.bricksidianIngot)});
-        AddAnvilRecipe(new ItemInstance(BlockListener.metalworkingStation, 1), new Object[] {"XWWWX","U-#-U", "VYZYV", "V+Y+V", "X+++X", 'U', new ItemInstance(ItemBase.diamond), 'V', new ItemInstance(ItemListener.goldenScrew), 'W', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.refinedAxe, 1, -1), 'X', new ItemInstance(ItemListener.reinforcedBrickFrame), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.brickSteelMachineFrame), '#', new ItemInstance(BlockListener.primitiveMetalworkingStation), '+', new ItemInstance(BlockListener.largeStoneBricks), '-', new ItemInstance(ItemListener.brickSteelIngot)});
-        AddAnvilRecipe(new ItemInstance(BlockListener.brickFrameCrafter, 1), new Object[] {"X---X", "UY#YU", "VYZYV", "WYYYW", "X+++X", 'U', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.saw), 'V', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.grate), 'W', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.turntable), 'X', new ItemInstance(ItemListener.reinforcedBrickFrame), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.brickSteelMachineFrame), '#', new ItemInstance(BlockListener.primitiveBrickFrameCrafter), '+', new ItemInstance(ItemListener.bricksidianIngot), '-', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.rollersItem)});
-        AddAnvilRecipe(new ItemInstance(BlockListener.alloySmelter, 1), new Object[] {"Y+++Y", "Y###Y", "XWZWX", "XWWWX", "X---X", 'W', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.concentratedHellfire), 'X', new ItemInstance(BlockBase.BRICKS), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.brickSteelMachineFrame), '#', new ItemInstance(BlockBase.FURNACE), '+', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.crucible), '-', new ItemInstance(ItemListener.thermalGlass)});
-        AddAnvilRecipe(new ItemInstance(ItemListener.brickSteelBeam, 4), new Object[] {"XY   ", "YX   ", "  X  ", "   XY", "   YX", 'X', new ItemInstance(ItemListener.brickSteelIngot), 'Y', new ItemInstance(ItemListener.durableLeatherStrap)});
-        AddAnvilRecipe(new ItemInstance(ItemListener.largeBrickRaw), new Object[] {"XX+XX", "XZYZX", "+Y#Y+", "XZYZX", "XX+XX", 'X', new ItemInstance(ItemBase.clay), 'Y', new ItemInstance(ItemListener.brickSteelIngot), 'Z', new ItemInstance(ItemListener.brickSteelPlate), '#', new ItemInstance(BlockBase.BRICKS), '+', new ItemInstance(ItemListener.stoneBrick)});
+        addAnvilRecipe(new ItemInstance(BlockListener.brickSteelMachineFrame, 1), new Object[] {"XYYYX", "Y###Y", "Y#Z#Y", "Y###Y", "XYYYX", 'X', new ItemInstance(ItemListener.bricksidianScrew), 'Y', new ItemInstance(ItemListener.brickSteelBeam), 'Z', new ItemInstance(BlockListener.primitiveMachineFrame), '#', new ItemInstance(ItemListener.hardenedBrickFrame)});
+        addAnvilRecipe(new ItemInstance(BlockListener.slicer, 1), new Object[] {"XWWWX", "U-#-U", "VYZYV", "V+Y+V", "X+++X", 'U', new ItemInstance(ItemBase.diamond), 'V', new ItemInstance(ItemListener.nightWoodBeam), 'W', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.refinedSword, 1, -1), 'X', new ItemInstance(ItemListener.reinforcedBrickFrame), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.brickSteelMachineFrame), '#', new ItemInstance(BlockListener.primitiveSlicer), '+', new ItemInstance(BlockListener.stoneBricks), '-', new ItemInstance(ItemListener.bricksidianIngot)});
+        addAnvilRecipe(new ItemInstance(BlockListener.metalworkingStation, 1), new Object[] {"XWWWX","U-#-U", "VYZYV", "V+Y+V", "X+++X", 'U', new ItemInstance(ItemBase.diamond), 'V', new ItemInstance(ItemListener.goldenScrew), 'W', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.refinedAxe, 1, -1), 'X', new ItemInstance(ItemListener.reinforcedBrickFrame), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.brickSteelMachineFrame), '#', new ItemInstance(BlockListener.primitiveMetalworkingStation), '+', new ItemInstance(BlockListener.largeStoneBricks), '-', new ItemInstance(ItemListener.brickSteelIngot)});
+        addAnvilRecipe(new ItemInstance(BlockListener.brickFrameCrafter, 1), new Object[] {"X---X", "UY#YU", "VYZYV", "WYYYW", "X+++X", 'U', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.saw), 'V', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.grate), 'W', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.turntable), 'X', new ItemInstance(ItemListener.reinforcedBrickFrame), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.brickSteelMachineFrame), '#', new ItemInstance(BlockListener.primitiveBrickFrameCrafter), '+', new ItemInstance(ItemListener.bricksidianIngot), '-', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.rollersItem)});
+        addAnvilRecipe(new ItemInstance(BlockListener.alloySmelter, 1), new Object[] {"Y+++Y", "Y###Y", "XWZWX", "XWWWX", "X---X", 'W', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.concentratedHellfire), 'X', new ItemInstance(BlockBase.BRICKS), 'Y', new ItemInstance(ItemListener.brickSteelPlate), 'Z', new ItemInstance(BlockListener.brickSteelMachineFrame), '#', new ItemInstance(BlockBase.FURNACE), '+', new ItemInstance(net.kozibrodka.wolves.events.BlockListener.crucible), '-', new ItemInstance(ItemListener.thermalGlass)});
+        addAnvilRecipe(new ItemInstance(ItemListener.brickSteelBeam, 4), new Object[] {"XY   ", "YX   ", "  X  ", "   XY", "   YX", 'X', new ItemInstance(ItemListener.brickSteelIngot), 'Y', new ItemInstance(ItemListener.durableLeatherStrap)});
+        addAnvilRecipe(new ItemInstance(ItemListener.largeBrickRaw), new Object[] {"XX+XX", "XZYZX", "+Y#Y+", "XZYZX", "XX+XX", 'X', new ItemInstance(ItemBase.clay), 'Y', new ItemInstance(ItemListener.brickSteelIngot), 'Z', new ItemInstance(ItemListener.brickSteelPlate), '#', new ItemInstance(BlockBase.BRICKS), '+', new ItemInstance(ItemListener.stoneBrick)});
 
-        AddCauldronRecipe(new ItemInstance(ItemListener.denseNightWood), new ItemInstance[] {new ItemInstance(BlockListener.nightLog), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.wicker)});
-        AddCauldronRecipe(new ItemInstance(ItemListener.concentratedFortune), new ItemInstance[] {new ItemInstance(ItemListener.fortunePowder, 8), new ItemInstance(ItemBase.dyePowder, 1, 4)});
-        AddCauldronRecipe(new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance[] {new ItemInstance(ItemListener.groundSandstone), new ItemInstance(ItemBase.glowstoneDust)});
-        AddCauldronRecipe(new ItemInstance(ItemListener.concentratedThermal), new ItemInstance[] {new ItemInstance(ItemListener.thermalPowder, 8), new ItemInstance(ItemListener.illuminantCrystal)});
+        addCauldronRecipe(new ItemInstance(ItemListener.denseNightWood), new ItemInstance[] {new ItemInstance(BlockListener.nightLog), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.wicker)});
+        addCauldronRecipe(new ItemInstance(ItemListener.concentratedFortune), new ItemInstance[] {new ItemInstance(ItemListener.fortunePowder, 8), new ItemInstance(ItemBase.dyePowder, 1, 4)});
+        addCauldronRecipe(new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance[] {new ItemInstance(ItemListener.groundSandstone), new ItemInstance(ItemBase.glowstoneDust)});
+        addCauldronRecipe(new ItemInstance(ItemListener.concentratedThermal), new ItemInstance[] {new ItemInstance(ItemListener.thermalPowder, 8), new ItemInstance(ItemListener.illuminantCrystal)});
+        addCauldronRecipe(new ItemInstance(ItemListener.concentratedCryogenic), new ItemInstance[] {new ItemInstance(ItemListener.cryogenicPowder, 8), new ItemInstance(BlockBase.SNOW_BLOCK)});
 
         MillingRecipeRegistry.getInstance().addMillingRecipe(BlockBase.SANDSTONE.id, new ItemInstance(ItemListener.groundSandstone));
 
@@ -151,7 +155,7 @@ public class RecipeListener {
         MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.goldOreWashed.id, new ItemInstance(ItemListener.goldOrePowdered, 2));
 
         AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(BlockBase.STONE), new ItemInstance(ItemListener.brickFrame), new ItemInstance(ItemListener.stoneBrick, 1));
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.steel), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.netherCoal), new ItemInstance(ItemListener.brickSteelIngot, 1));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemListener.frozenBrick), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.steel), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.netherCoal), new ItemInstance(ItemListener.brickSteelIngot, 1));
         AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemBase.brick), new ItemInstance(ItemBase.goldIngot), new ItemInstance(BlockBase.OBSIDIAN), new ItemInstance(ItemListener.bricksidianIngot, 1));
 
         AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemInstance(net.kozibrodka.wolves.events.ItemListener.tannedLeather), new ItemInstance(ItemListener.nightWheat), new ItemInstance(ItemListener.exoticFruit), new ItemInstance(ItemListener.durableLeather, 1));
@@ -168,14 +172,14 @@ public class RecipeListener {
 
         HibachiIgnitionRegistry.getInstance().addBlockIgnition(BlockListener.heatPillar.id, BlockListener.heatPillarIgnited.id);
 
-        AddCrucibleRecipe(new ItemInstance(ItemListener.hardenedBrickFrame), new ItemInstance[] {new ItemInstance(ItemListener.dryBrickFrame), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.coalDust)});
-        AddCrucibleRecipe(new ItemInstance(ItemListener.thermalGlass), new ItemInstance[] {new ItemInstance(BlockBase.GLASS, 8), new ItemInstance(ItemListener.concentratedThermal), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
-        AddCrucibleRecipe(new ItemInstance(ItemListener.illuminantCrystal, 8), new ItemInstance[] {new ItemInstance(ItemListener.groundSandstone, 8), new ItemInstance(ItemBase.glowstoneDust), new ItemInstance(ItemBase.flint)});
+        addCrucibleRecipe(new ItemInstance(ItemListener.hardenedBrickFrame), new ItemInstance[] {new ItemInstance(ItemListener.dryBrickFrame), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.coalDust)});
+        addCrucibleRecipe(new ItemInstance(ItemListener.thermalGlass), new ItemInstance[] {new ItemInstance(BlockBase.GLASS, 8), new ItemInstance(ItemListener.concentratedThermal), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
+        addCrucibleRecipe(new ItemInstance(ItemListener.illuminantCrystal, 8), new ItemInstance[] {new ItemInstance(ItemListener.groundSandstone, 8), new ItemInstance(ItemBase.glowstoneDust), new ItemInstance(ItemBase.flint)});
 
-        AddCrucibleRecipe(new ItemInstance(ItemListener.ironOrePurified, 4), new ItemInstance[] {new ItemInstance(ItemListener.ironOrePowdered, 3), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
-        AddCrucibleRecipe(new ItemInstance(ItemListener.goldOrePurified, 4), new ItemInstance[] {new ItemInstance(ItemListener.goldOrePowdered, 3), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
+        addCrucibleRecipe(new ItemInstance(ItemListener.ironOrePurified, 4), new ItemInstance[] {new ItemInstance(ItemListener.ironOrePowdered, 3), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
+        addCrucibleRecipe(new ItemInstance(ItemListener.goldOrePurified, 4), new ItemInstance[] {new ItemInstance(ItemListener.goldOrePowdered, 3), new ItemInstance(ItemListener.illuminantCrystal), new ItemInstance(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
 
-        AddStokedCauldronRecipe(new ItemInstance(net.kozibrodka.wolves.events.ItemListener.glue, 4), new ItemInstance[] { new ItemInstance(ItemListener.glueMixture)});
+        addStokedCauldronRecipe(new ItemInstance(net.kozibrodka.wolves.events.ItemListener.glue, 4), new ItemInstance[] { new ItemInstance(ItemListener.glueMixture)});
 
         CrushingRecipeRegistry.getInstance().addCrushingRecipe(BlockBase.SAND.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemInstance(BlockListener.dust)), new ItemInstance(ItemListener.goldOrePowdered), 0.1));
         CrushingRecipeRegistry.getInstance().addCrushingRecipe(BlockBase.IRON_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemInstance(ItemListener.ironOreCrushed)), new ItemInstance(ItemListener.ironOrePowdered), 0.5));
@@ -188,23 +192,19 @@ public class RecipeListener {
 
     }
 
-    private static void AddAnvilRecipe(ItemInstance output, Object[] inputs)
-    {
+    private static void addAnvilRecipe(ItemInstance output, Object[] inputs) {
         AnvilCraftingManager.getInstance().addRecipe(output, inputs);
     }
 
-    public static void AddCauldronRecipe(ItemInstance output, ItemInstance[] inputs)
-    {
+    public static void addCauldronRecipe(ItemInstance output, ItemInstance[] inputs) {
         CauldronCraftingManager.getInstance().AddRecipe(output, inputs);
     }
 
-    public static void AddCrucibleRecipe(ItemInstance itemstack, ItemInstance aitemstack[])
-    {
-        CrucibleCraftingManager.getInstance().AddRecipe(itemstack, aitemstack);
+    public static void addCrucibleRecipe(ItemInstance output, ItemInstance[] inputs) {
+        CrucibleCraftingManager.getInstance().AddRecipe(output, inputs);
     }
 
-    public static void AddStokedCauldronRecipe(ItemInstance itemstack, ItemInstance aitemstack[])
-    {
-        CauldronStokedCraftingManager.getInstance().AddRecipe(itemstack, aitemstack);
+    public static void addStokedCauldronRecipe(ItemInstance item, ItemInstance[] inputs) {
+        CauldronStokedCraftingManager.getInstance().AddRecipe(item, inputs);
     }
 }

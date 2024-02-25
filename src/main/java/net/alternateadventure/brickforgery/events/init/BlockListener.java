@@ -23,7 +23,6 @@ public class BlockListener {
 
             desertPot,
             frozenPotSealed,
-            frozenPot,
             mossyPot,
 
             brickFrameCrafter,
@@ -59,6 +58,14 @@ public class BlockListener {
             ancientSandstoneBricks,
             ancientSandstoneTile,
 
+            frozenPot,
+
+            frostVaultBricks,
+            frostVaultTiling,
+            frostVaultKeyhole,
+            ancientIceBricks,
+            ancientIceTiling,
+
             bountifulSand,
             bountifulSnow,
             factoryRubble,
@@ -71,6 +78,9 @@ public class BlockListener {
             heatPillar,
             heatPillarIgnited,
             heatPillarStoked,
+
+            cryogenicHibachi,
+            frostburn,
 
             brickSteelMachineFrame,
 
@@ -139,7 +149,13 @@ public class BlockListener {
         ancientSandstoneTile = new LazyBlockTemplate(Identifier.of(MOD_ID,  "ancient_sandstone_tile"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
 
         frozenPotSealed = new FrozenPotSealed(Identifier.of(MOD_ID, "frozen_pot_sealed"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot_sealed");
-        frozenPot = new FrozenPot(Identifier.of(MOD_ID, "frozen_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "frozen_pot");
+        frozenPot = new FrozenPot(Identifier.of(MOD_ID, "frozen_pot"), Material.STONE, 1.0F, BlockBase.GLASS_SOUNDS);
+        frostVaultBricks = new IndestructibleBlock(Identifier.of(MOD_ID, "frost_vault_bricks"), Material.STONE, -1.0F, BlockBase.STONE_SOUNDS, 6000000.0F);
+        frostVaultTiling = new IndestructibleBlock(Identifier.of(MOD_ID, "frost_vault_tiling"), Material.STONE, -1.0F, BlockBase.STONE_SOUNDS, 6000000.0F);
+        frostVaultKeyhole = new IndestructibleBlock(Identifier.of(MOD_ID, "frost_vault_keyhole"), Material.STONE, -1.0F, BlockBase.STONE_SOUNDS, 6000000.0F);
+        ancientIceBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "ancient_ice_bricks"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+        ancientIceTiling = new LazyBlockTemplate(Identifier.of(MOD_ID,  "ancient_ice_tiling"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+
         mossyPot = new MossyPot(Identifier.of(MOD_ID, "mossy_pot"), Material.STONE).setHardness(1.0F).setTranslationKey(MOD_ID, "mossy_pot");
 
         improvedMillstone = new ImprovedMillstone(Identifier.of(MOD_ID, "improved_millstone"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
@@ -154,6 +170,9 @@ public class BlockListener {
         heatPillar = new HeatPillar(Identifier.of(MOD_ID, "heat_pillar"), Material.GLASS, 1.5F, BlockBase.GLASS_SOUNDS);
         heatPillarIgnited = new HeatPillarIgnited(Identifier.of(MOD_ID, "heat_pillar_ignited"), Material.GLASS, 1.5F, BlockBase.GLASS_SOUNDS);
         heatPillarStoked = new HeatPillarStoked(Identifier.of(MOD_ID, "heat_pillar_stoked"), Material.GLASS, 1.5F, BlockBase.GLASS_SOUNDS);
+
+        cryogenicHibachi = new CryogenicHibachi(Identifier.of(MOD_ID, "cryogenic_hibachi"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
+        frostburn = new Frostburn(Identifier.of(MOD_ID, "frostburn"), Material.SNOW, 1.5F, BlockBase.GLASS_SOUNDS);
 
         brickSteelMachineFrame = new MachineFrame(Identifier.of(MOD_ID, "brick_steel_machine_frame"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS);
         slicer = new SlicerBase(Identifier.of(MOD_ID, "slicer"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS, 1);

@@ -8,14 +8,14 @@ import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class DesertKey extends LazyItemTemplate {
-    public DesertKey(Identifier identifier) {
+public class IceKey extends LazyItemTemplate {
+    public IceKey(Identifier identifier) {
         super(identifier);
     }
 
     @Override
     public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int l) {
-        if (level.getTileId(x, y, z) != BlockListener.desertWellKeyhole.id) return false;
+        if (level.getTileId(x, y, z) != BlockListener.frostVaultKeyhole.id) return false;
         level.setTile(x, y, z, 0);
         convertAdjacentBlock(level, x + 1, y, z);
         convertAdjacentBlock(level, x - 1, y, z);

@@ -8,6 +8,8 @@ import net.modificationstation.stationapi.api.util.Identifier;
 import java.util.Random;
 
 public class CommonPot extends LazyBlockTemplate {
+
+    // TODO: Add custom pot models
     public CommonPot(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
         super(identifier, material, hardness, blockSounds);
     }

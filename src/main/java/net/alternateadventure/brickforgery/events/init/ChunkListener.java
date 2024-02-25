@@ -38,7 +38,7 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(48) + 64;
                 z = event.z + event.random.nextInt(16);
-                new FrozenPotArea().generate(event.world, event.random, x, y, z);
+                new FrostVault().generate(event.world, event.random, x, y, z);
             }
         }
         if (event.biome == Biome.RAINFOREST) {

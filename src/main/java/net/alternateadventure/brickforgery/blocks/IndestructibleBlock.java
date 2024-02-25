@@ -23,6 +23,8 @@ public class IndestructibleBlock extends LazyBlockTemplate {
         if (level.getTileId(x, y, z) == BlockListener.forestVaultWalls.id) level.setTile(x, y, z, BlockListener.forestOrnament.id);
         else if (level.getTileId(x, y, z) == BlockListener.desertWellBricks.id) level.setTile(x, y, z, BlockListener.ancientSandstoneBricks.id);
         else if (level.getTileId(x, y, z) == BlockListener.desertWellFloor.id) level.setTile(x, y, z, BlockListener.ancientSandstoneTile.id);
+        else if (level.getTileId(x, y, z) == BlockListener.frostVaultBricks.id) level.setTile(x, y, z, BlockListener.ancientIceBricks.id);
+        else if (level.getTileId(x, y, z) == BlockListener.frostVaultTiling.id) level.setTile(x, y, z, BlockListener.ancientIceTiling.id);
         else level.setTile(x, y, z, 0);
         convertSurroundingBlock(level, x, y + 1, z);
         convertSurroundingBlock(level, x, y - 1, z);

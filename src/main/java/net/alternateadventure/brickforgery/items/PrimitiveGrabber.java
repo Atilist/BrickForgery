@@ -3,6 +3,7 @@ package net.alternateadventure.brickforgery.items;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.lootpools.DesertPotLootPool;
+import net.alternateadventure.brickforgery.lootpools.FrozenPotLootPool;
 import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
@@ -23,25 +24,22 @@ public class PrimitiveGrabber extends LazyItemTemplate {
         ItemInstance tool = player.getHeldItem();
         final int reliability = 3;
         final int luck = 5;
-        if (level.getTileId(x, y, z) == BlockListener.commonPot.id)
-        {
+        if (level.getTileId(x, y, z) == BlockListener.commonPot.id) {
             level.setTile(x, y, z, 0);
             tool.applyDamage(1, player);
             if (rand.nextBoolean()) level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.leatherStrap)));
             return true;
         }
-        if (level.getTileId(x, y, z) == BlockListener.desertPot.id)
-        {
+        if (level.getTileId(x, y, z) == BlockListener.desertPot.id) {
             level.setTile(x, y, z, 0);
             tool.applyDamage(1, player);
             level.spawnEntity(new Item(level, x, y, z, DesertPotLootPool.getLoot(reliability, luck, new Random())));
             return true;
         }
-        else if (level.getTileId(x, y, z) == BlockListener.frozenPot.id) // Currently, the same loot pool as desert pot. Will be changed later.
-        {
+        else if (level.getTileId(x, y, z) == BlockListener.frozenPot.id) {
             level.setTile(x, y, z, 0);
             tool.applyDamage(1, player);
-            if (rand.nextBoolean()) level.spawnEntity(new Item(level, x, y, z, DesertPotLootPool.getLoot(reliability, luck, new Random())));
+            if (rand.nextBoolean()) level.spawnEntity(new Item(level, x, y, z, FrozenPotLootPool.getLoot(reliability, luck, new Random())));
             return true;
         }
         return false;
