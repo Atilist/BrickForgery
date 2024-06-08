@@ -13,8 +13,7 @@ public class AlloySmeltingRecipeRegistry {
         return INSTANCE;
     }
 
-    public ItemInstance getResult(ItemInstance input1, ItemInstance input2, ItemInstance input3)
-    {
+    public ItemInstance getResult(ItemInstance input1, ItemInstance input2, ItemInstance input3) {
         for (ItemInstance[] referenceInputs : inputsList) {
             if (referenceInputs == null) continue;
             if (input1 == null) continue;
@@ -27,13 +26,11 @@ public class AlloySmeltingRecipeRegistry {
         return null;
     }
 
-    public void addRecipe(ItemInstance input1, ItemInstance input2, ItemInstance input3, ItemInstance output)
-    {
+    public void addRecipe(ItemInstance input1, ItemInstance input2, ItemInstance input3, ItemInstance output) {
         inputsList.add(new ItemInstance[] {input1, input2, input3, output});
     }
 
-    public ArrayList<ItemInstance[]> getRecipes()
-    {
+    public ArrayList<ItemInstance[]> getRecipes() {
         return inputsList;
     }
 }

@@ -1,9 +1,12 @@
 package net.alternateadventure.brickforgery.blocks;
 
+import net.alternateadventure.brickforgery.customrecipes.BrickFramingRecipeRegistry;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
+import net.alternateadventure.brickforgery.interfaces.BrickFrameIngredient;
 import net.minecraft.block.BlockBase;
+import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Item;
 import net.minecraft.entity.player.PlayerBase;
@@ -12,19 +15,20 @@ import net.minecraft.level.Level;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class BrickFrameCrafter extends TemplateBlock {
-    public BrickFrameCrafter(Identifier identifier, Material material) {
-        super(identifier, material);
+import java.util.Random;
+
+public class BrickFrameCrafter extends LazyBlockTemplate {
+    public int tier;
+    private final Random random = new Random();
+
+    public BrickFrameCrafter(Identifier identifier, Material material, float hardness, BlockSounds blockSounds, int tier) {
+        super(identifier, material, hardness, blockSounds);
+        this.tier = tier;
     }
 
     @Override
     public BrickFrameCrafter setHardness(float Hardness) {
         return (BrickFrameCrafter) super.setHardness(Hardness);
-    }
-
-    @Override
-    public int getTextureForSide(int i) {
-        return i == 0 ? TextureListener.BrickFrameCrafterBottom : i == 1 ? TextureListener.BrickFrameCrafterTop : TextureListener.BrickFrameCrafterSide;
     }
 
     @Override
@@ -37,73 +41,29 @@ public class BrickFrameCrafter extends TemplateBlock {
         if (level.getTileId(x, y + 1, z) != 0) return;
         ItemInstance item = player.getHeldItem();
         if (item == null) return;
-        if (item.itemId != ItemListener.woodenFrame.id) return;
-
-        boolean hasClay = false;
-        boolean hasPlanks = false;
-
-        if (level.getTileId(x + 1, y, z) == BlockBase.CLAY.id || level.getTileId(x + 1, y, z) == BlockListener.clayPile.id) hasClay = true;
-        if (level.getTileId(x - 1, y, z) == BlockBase.CLAY.id || level.getTileId(x - 1, y, z) == BlockListener.clayPile.id) hasClay = true;
-        if (level.getTileId(x, y, z + 1) == BlockBase.CLAY.id || level.getTileId(x, y, z + 1) == BlockListener.clayPile.id) hasClay = true;
-        if (level.getTileId(x, y, z - 1) == BlockBase.CLAY.id || level.getTileId(x, y, z - 1) == BlockListener.clayPile.id) hasClay = true;
-
-        if (level.getTileId(x + 1, y, z) == BlockListener.nightPlanks.id || level.getTileId(x + 1, y, z) == BlockListener.planksPile.id) hasPlanks = true;
-        if (level.getTileId(x - 1, y, z) == BlockListener.nightPlanks.id || level.getTileId(x - 1, y, z) == BlockListener.planksPile.id) hasPlanks = true;
-        if (level.getTileId(x, y, z + 1) == BlockListener.nightPlanks.id || level.getTileId(x, y, z + 1) == BlockListener.planksPile.id) hasPlanks = true;
-        if (level.getTileId(x, y, z - 1) == BlockListener.nightPlanks.id || level.getTileId(x, y, z - 1) == BlockListener.planksPile.id) hasPlanks = true;
-
-        if (!(hasClay && hasPlanks)) return;
-
+        int[] blocks = new int[4];
+        blocks[0] = level.getTileId(x + 1, y, z);
+        blocks[1] = level.getTileId(x - 1, y, z);
+        blocks[2] = level.getTileId(x, y, z + 1);
+        blocks[3] = level.getTileId(x, y, z - 1);
+        ItemInstance output = BrickFramingRecipeRegistry.getInstance().getResult(item, blocks);
+        if (output == null) return;
+        output = output.copy();
         item.count--;
-        level.spawnEntity(new Item(level, x + 0.5, y + 1, z + 0.5, new ItemInstance(ItemListener.brickFrame)));
-
-        boolean clayDecreased;
-        boolean planksDecreased;
-
-        clayDecreased = decreaseClay(level, x + 1, y, z);
-        if (!clayDecreased) clayDecreased = decreaseClay(level, x - 1, y, z);
-        if (!clayDecreased) clayDecreased = decreaseClay(level, x, y, z + 1);
-        if (!clayDecreased) decreaseClay(level, x, y, z - 1);
-
-        planksDecreased = decreasePlanks(level, x + 1, y, z);
-        if (!planksDecreased) planksDecreased = decreasePlanks(level, x - 1, y, z);
-        if (!planksDecreased) planksDecreased = decreasePlanks(level, x, y, z + 1);
-        if (!planksDecreased) decreasePlanks(level, x, y, z - 1);
+        if (output.count < 1) output.count = 1;
+        transformBlock(level, x + 1, y, z);
+        transformBlock(level, x - 1, y, z);
+        transformBlock(level, x, y, z + 1);
+        transformBlock(level, x, y, z - 1);
+        if (tier < 1 && random.nextBoolean()) return; // 50% chance of failure if tier is below 1
+        level.spawnEntity(new Item(level, x + 0.5, y + 1, z + 0.5, output));
     }
 
-    public boolean decreaseClay (Level level, int x, int y, int z)
-    {
-        if (level.getTileId(x, y, z) == BlockBase.CLAY.id)
-        {
-            level.setTile(x, y, z, BlockListener.clayPile.id);
-            level.setBlockStateWithNotify(x, y, z, BlockListener.clayPile.getDefaultState().with(ResourcePile.USES, 15));
-            return true;
+    private void transformBlock(Level world, int x, int y, int z) {
+        BlockBase blockBase = BlockBase.BY_ID[world.getTileId(x, y, z)];
+        if (blockBase == null) return;
+        if (blockBase instanceof BrickFrameIngredient ingredient) {
+            ingredient.transformBlock(world, x, y, z, new Random());
         }
-        else if (level.getTileId(x, y, z) == BlockListener.clayPile.id)
-        {
-            int blockState = level.getBlockState(x, y, z).get(ResourcePile.USES);
-            if (blockState == 1) level.setTile(x, y, z, 0);
-            else level.setBlockStateWithNotify(x, y, z, BlockListener.clayPile.getDefaultState().with(ResourcePile.USES, blockState - 1));
-            return true;
-        }
-        return false;
-    }
-
-    public boolean decreasePlanks (Level level, int x, int y, int z)
-    {
-        if (level.getTileId(x, y, z) == BlockListener.nightPlanks.id)
-        {
-            level.setTile(x, y, z, BlockListener.planksPile.id);
-            level.setBlockStateWithNotify(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePile.USES, 15));
-            return true;
-        }
-        else if (level.getTileId(x, y, z) == BlockListener.planksPile.id)
-        {
-            int blockState = level.getBlockState(x, y, z).get(ResourcePile.USES);
-            if (blockState == 1) level.setTile(x, y, z, 0);
-            else level.setBlockStateWithNotify(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePile.USES, blockState - 1));
-            return true;
-        }
-        return false;
     }
 }

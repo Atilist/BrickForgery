@@ -25,7 +25,6 @@ public class BlockListener {
             frozenPotSealed,
             mossyPot,
 
-            brickFrameCrafter,
             brickLauncher,
 
             clayPile,
@@ -82,6 +81,7 @@ public class BlockListener {
             cryogenicHibachi,
             frostburn,
 
+            brickFrameCrafter,
             brickSteelMachineFrame,
 
             itemChuteChain,
@@ -161,7 +161,7 @@ public class BlockListener {
         improvedMillstone = new ImprovedMillstone(Identifier.of(MOD_ID, "improved_millstone"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS);
 
         primitiveMachineFrame = new MachineFrame(Identifier.of(MOD_ID, "primitive_machine_frame"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
-        primitiveBrickFrameCrafter = new PrimitiveBrickFrameCrafter(Identifier.of(MOD_ID, "primitive_brick_frame_crafter"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
+        primitiveBrickFrameCrafter = new BrickFrameCrafter(Identifier.of(MOD_ID, "primitive_brick_frame_crafter"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS, 0);
         primitiveSlicer = new SlicerBase(Identifier.of(MOD_ID, "primitive_slicer"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS, 0);
         primitiveMetalworkingStation = new MetalworkingStationBase(Identifier.of(MOD_ID, "primitive_metalworking_station"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS, 0);
         primitiveCrusher = new CrusherBase(Identifier.of(MOD_ID, "primitive_crusher"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS, 0);
@@ -179,7 +179,7 @@ public class BlockListener {
         metalworkingStation = new MetalworkingStationBase(Identifier.of(MOD_ID, "metalworking_station"), Material.METAL, 1.5F, BlockBase.METAL_SOUNDS, 1);
         alloySmelter = new AlloySmelter(Identifier.of(MOD_ID, "alloy_smelter"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS, false);
         alloySmelterActive = new AlloySmelter(Identifier.of(MOD_ID, "alloy_smelter_active"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS, true);
-        brickFrameCrafter = new BrickFrameCrafter(Identifier.of(MOD_ID, "brick_frame_crafter"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_frame_crafter");
+        brickFrameCrafter = new BrickFrameCrafter(Identifier.of(MOD_ID, "brick_frame_crafter"), Material.STONE, 1.5F, BlockBase.STONE_SOUNDS, 1);
         brickLauncher = new BrickLauncher(Identifier.of(MOD_ID, "brick_launcher"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_launcher");
 
         itemChute = new ItemChute(Identifier.of(MOD_ID, "item_chute"), Material.GLASS, 1.5F, BlockBase.METAL_SOUNDS);

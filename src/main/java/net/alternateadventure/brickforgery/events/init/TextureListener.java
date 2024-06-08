@@ -304,6 +304,7 @@ public class TextureListener {
                 getIndexForPath(machinePath + "CryogenicHibachiBottom"));
         BlockListener.frostburn.specifyTextures(getIndexForPath(machinePath + "Frostburn"));
 
+        BlockListener.brickFrameCrafter.specifyTextures(BrickFrameCrafterTop, BrickFrameCrafterSide, BrickFrameCrafterBottom);
         BlockListener.brickSteelMachineFrame.specifyTextures(BrickSteelMachineFrame);
         BlockListener.slicer.specifyTextures(SlicerTop, SlicerSide, SlicerBottom);
         BlockListener.metalworkingStation.specifyTextures(MetalworkingStationTop, MetalworkingStationSide, MetalworkingStationBottom);

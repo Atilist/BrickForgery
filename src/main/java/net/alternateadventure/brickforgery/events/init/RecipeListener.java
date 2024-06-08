@@ -190,6 +190,9 @@ public class RecipeListener {
         WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.ironOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemInstance(ItemListener.ironOreWashed)), new ItemInstance(ItemListener.ironOrePowdered), 0.5));
         WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.goldOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemInstance(ItemListener.goldOreWashed)), new ItemInstance(ItemListener.goldOrePowdered), 0.5));
 
+        BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemListener.woodenFrame), new ItemInstance(BlockListener.nightPlanks), new ItemInstance(BlockListener.nightPlanks), new ItemInstance(BlockBase.CLAY), new ItemInstance(BlockBase.CLAY), new ItemInstance(ItemListener.brickFrame));
+        BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemInstance(ItemListener.woodenFrame), new ItemInstance(BlockListener.planksPile), new ItemInstance(BlockListener.planksPile), new ItemInstance(BlockListener.clayPile), new ItemInstance(BlockListener.clayPile), new ItemInstance(ItemListener.brickFrame));
+
     }
 
     private static void addAnvilRecipe(ItemInstance output, Object[] inputs) {

@@ -15,5 +15,6 @@ public class TabListener {
         event.registry.register(Identifier.of(BlockListener.MOD_ID, "metalworking"), new MetalworkingTab(BlockListener.MOD_ID), new ItemInstance(BlockListener.metalworkingStation));
         event.registry.register(Identifier.of(BlockListener.MOD_ID, "crushing"), new CrushingTab(BlockListener.MOD_ID), new ItemInstance(BlockListener.primitiveCrusher));
         event.registry.register(Identifier.of(BlockListener.MOD_ID, "washing"), new WashingTab(BlockListener.MOD_ID), new ItemInstance(BlockListener.primitiveWasher));
+        event.registry.register(Identifier.of(BlockListener.MOD_ID, "brickframing"), new BrickFramingTab(BlockListener.MOD_ID), new ItemInstance(BlockListener.brickFrameCrafter));
     }
 }
