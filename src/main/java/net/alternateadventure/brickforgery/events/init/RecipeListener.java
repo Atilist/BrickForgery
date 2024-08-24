@@ -1,6 +1,7 @@
 package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.customrecipes.*;
+import net.alternateadventure.brickforgery.utils.RecipeRemover;
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.kozibrodka.wolves.modsupport.HibachiIgnitionRegistry;
@@ -21,6 +22,27 @@ public class RecipeListener {
         Identifier type = event.recipeId;
         // Output <- Input
         if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type()) {
+            RecipeRemover.removeRecipe(BlockBase.WORKBENCH);
+            RecipeRemover.removeRecipe(BlockBase.FURNACE);
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.sugarCaneStick), "X", "X", 'X', new ItemInstance(ItemBase.sugarCanes));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.sugarCaneFrame), "XX", "XX", 'X', new ItemInstance(ItemListener.sugarCaneStick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.sugarCaneBox), "XX", "YY", 'X', new ItemInstance(ItemBase.sugarCanes), 'Y', new ItemInstance(ItemListener.sugarCaneFrame));
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.cactusFrame), "XX", "YY", 'X', new ItemInstance(BlockBase.CACTUS), 'Y', new ItemInstance(ItemListener.sugarCaneFrame));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.cactusBox), "XZ", "ZY", 'X', new ItemInstance(BlockListener.sandBricks), 'Y', new ItemInstance(ItemListener.cactusFrame), 'Z', new ItemInstance(BlockListener.sugarCaneBox));
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.WORKBENCH), "XX", "YY", 'X', new ItemInstance(BlockBase.WOOD), 'Y', new ItemInstance(BlockListener.cactusBox));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.WORKBENCH), "XX", "YY", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(BlockListener.cactusBox));
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemInstance(ItemListener.dirtBrick));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.sandBricks), "XX", "XX", 'X', new ItemInstance(ItemListener.sandBrick));
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.flintFrame), " X ", "XYX", " X ", 'X', new ItemInstance(ItemBase.flint), 'Y', new ItemInstance(ItemListener.cactusFrame));
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.flintBox), "XYX", "YZY", "XYX", 'X', new ItemInstance(ItemListener.flintFrame), 'Y', new ItemInstance(BlockBase.GRAVEL), 'Z', new ItemInstance(BlockListener.cactusBox));
+
+            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.FURNACE), "XYX", "Y Y", "XYX", 'X', new ItemInstance(BlockBase.COBBLESTONE), 'Y', new ItemInstance(BlockListener.flintBox));
+
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.primitiveBrush), "-X-", "+Y+", "#Z#", 'X', new ItemInstance(ItemListener.nightWheat), 'Y', new ItemInstance(ItemBase.paper), 'Z', new ItemInstance(ItemListener.denseNightWood), '#', new ItemInstance(ItemListener.leatherStrap), '+', new ItemInstance(ItemListener.goldenScrew), '-', new ItemInstance(ItemListener.concentratedFortune));
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.primitiveChisel), "-X-", "#Y#", "+Z+", 'X', new ItemInstance(ItemBase.goldIngot), 'Y', new ItemInstance(ItemBase.flint), 'Z', new ItemInstance(ItemListener.denseNightWood), '#', new ItemInstance(ItemBase.paper), '+', new ItemInstance(ItemListener.leatherStrap), '-', new ItemInstance(ItemListener.concentratedFortune));
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemListener.primitiveGrabber), "-X-", "#Y#", "+Z+", 'X', new ItemInstance(ItemBase.diamond), 'Y', new ItemInstance(ItemBase.paper), 'Z', new ItemInstance(ItemListener.denseNightWood), '#', new ItemInstance(ItemBase.ironIngot), '+', new ItemInstance(net.kozibrodka.wolves.events.ItemListener.hempCloth), '-', new ItemInstance(ItemListener.concentratedFortune));
@@ -71,7 +93,6 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockListener.spikeMount), " X ", "XYX", "ZZZ", 'X', new ItemInstance(ItemBase.ironIngot), 'Y', new ItemInstance(ItemListener.brokenSpikeHolder), 'Z', new ItemInstance(ItemListener.dryBrickFrame));
 
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.stick, 4), "X", "X", 'X', new ItemInstance(BlockListener.nightPlanks));
-            CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.WORKBENCH), "XX", "XX", 'X', new ItemInstance(BlockListener.nightPlanks));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.STONE_PRESSURE_PLATE), "XX", 'X', new ItemInstance(BlockListener.nightPlanks));
             CraftingRegistry.addShapedRecipe(new ItemInstance(BlockBase.CHEST), "XXX", "X X", "XXX", 'X', new ItemInstance(BlockListener.nightPlanks));
             CraftingRegistry.addShapedRecipe(new ItemInstance(ItemBase.sign), "XXX", "XXX", " Y ", 'X', new ItemInstance(BlockListener.nightPlanks), 'Y', new ItemInstance(ItemBase.stick));
@@ -88,6 +109,9 @@ public class RecipeListener {
         }
         // Output <- Input
         else if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type()) {
+            CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.dirtBrick), new ItemInstance(ItemListener.sugarCaneFrame), new ItemInstance(BlockBase.DIRT));
+            CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.dirtBrickSand), new ItemInstance(ItemListener.cactusFrame), new ItemInstance(ItemListener.dirtBrick), new ItemInstance(BlockBase.SAND));
+
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.toolRepairKit, 8), new ItemInstance(ItemListener.nightWoodBeam), new ItemInstance(ItemListener.goldenScrew), new ItemInstance(ItemBase.paper));
 
             CraftingRegistry.addShapelessRecipe(new ItemInstance(ItemListener.primitiveBrush), new ItemInstance(ItemListener.primitiveBrush, 1, -1), new ItemInstance(ItemListener.toolRepairKit));

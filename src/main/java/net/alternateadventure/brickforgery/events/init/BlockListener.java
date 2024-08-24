@@ -43,6 +43,12 @@ public class BlockListener {
             spikeMount;
 
     public static LazyBlockTemplate
+            dirtBricks,
+            sugarCaneBox,
+            cactusBox,
+            sandBricks,
+            flintBox,
+
             commonPot,
 
             forestVaultKeyhole,
@@ -122,6 +128,12 @@ public class BlockListener {
 
     @EventListener
     public void registerBlocks(BlockRegistryEvent event) {
+        dirtBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "dirt_bricks"), Material.DIRT, 1.5F, BlockBase.GRAVEL_SOUNDS);
+        sugarCaneBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "sugar_cane_box"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
+        cactusBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "cactus_box"), Material.WOOD, 1.5F, BlockBase.WOOD_SOUNDS);
+        sandBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "sand_bricks"), Material.SAND, 1.5F, BlockBase.SAND_SOUNDS);
+        flintBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "flint_box"), Material.DIRT, 1.5F, BlockBase.GRAVEL_SOUNDS);
+
         exoticShrub = new ExoticShrub(Identifier.of(MOD_ID, "exotic_shrub"), Material.PLANT).setHardness(0.0F).setSounds(BlockBase.GRASS_SOUNDS).setTranslationKey(MOD_ID, "exotic_shrub");
         exoticShrubDead = new ExoticShrubDead(Identifier.of(MOD_ID, "exotic_shrub_dead"), Material.PLANT).setHardness(0.0F).setSounds(BlockBase.GRASS_SOUNDS).setTranslationKey(MOD_ID, "exotic_shrub_dead");
         nightWheatCrop = new NightWheatCrop(Identifier.of(MOD_ID, "night_wheat_crop"), Material.PLANT).setHardness(0.0F).setSounds(BlockBase.GRASS_SOUNDS).setTranslationKey(MOD_ID, "night_wheat_crop");

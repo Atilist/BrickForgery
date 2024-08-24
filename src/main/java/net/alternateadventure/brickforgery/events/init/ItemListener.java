@@ -42,6 +42,12 @@ public class ItemListener {
             clayPowder;
 
     public static LazyItemTemplate
+            dirtBrick,
+            sugarCaneStick,
+
+            dirtBrickSand,
+            sandBrick,
+
             denseNightWood,
             glueMixture,
 
@@ -92,6 +98,9 @@ public class ItemListener {
             nightWoodBeam,
             brickSteelBeam,
 
+            sugarCaneFrame,
+            cactusFrame,
+            flintFrame,
             woodenFrame,
             hardenedBrickFrame,
             reinforcedBrickFrame,
@@ -112,6 +121,12 @@ public class ItemListener {
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
+        dirtBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "dirt_brick"));
+        sugarCaneStick = new LazyItemTemplate(Identifier.of(MOD_ID, "sugar_cane_stick"));
+
+        dirtBrickSand = new DirtBrickSand(Identifier.of(MOD_ID, "dirt_brick_sand"));
+        sandBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "sand_brick"));
+
         exoticFruit = new TemplateItem(Identifier.of(MOD_ID, "exotic_fruit")).setTranslationKey(MOD_ID, "exotic_fruit");
         nightSeeds = new NightSeeds(Identifier.of(MOD_ID, "night_seeds")).setTranslationKey(MOD_ID, "night_seeds");
         nightWheat = new TemplateItem(Identifier.of(MOD_ID, "night_wheat")).setTranslationKey(MOD_ID, "night_wheat");
@@ -167,6 +182,9 @@ public class ItemListener {
         nightWoodBeam = new LazyItemTemplate(Identifier.of(MOD_ID, "night_wood_beam"));
         brickSteelBeam = new LazyItemTemplate(Identifier.of(MOD_ID, "brick_steel_beam"));
 
+        sugarCaneFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "sugar_cane_frame"));
+        cactusFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "cactus_frame"));
+        flintFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "flint_frame"));
         woodenFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "wooden_frame"));
         hardenedBrickFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "hardened_brick_frame"));
         reinforcedBrickFrame = new LazyItemTemplate(Identifier.of(MOD_ID, "reinforced_brick_frame"));

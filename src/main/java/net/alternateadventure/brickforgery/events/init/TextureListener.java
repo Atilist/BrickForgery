@@ -17,6 +17,13 @@ public class TextureListener {
     public void registerTextures(TextureRegisterEvent event) {
         String worldGenerationPath = "ExplorationFeatures/WorldGeneration/";
         String machinePath = "MaterialProcessing/Machines/";
+        String materialPath = "MaterialProcessing/Materials/";
+
+        ItemListener.dirtBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DirtBrick"));
+        ItemListener.sugarCaneStick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SugarCaneStick"));
+
+        ItemListener.dirtBrickSand.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DirtBrickSand"));
+        ItemListener.sandBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SandBrick"));
 
         ItemListener.exoticFruit.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticFruit"));
         ItemListener.nightSeeds.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightSeeds"));
@@ -83,6 +90,9 @@ public class TextureListener {
         ItemListener.iceBlade.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/IceBlade"));
         ItemListener.brokenSpikeHolder.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/BrokenSpikeHolder"));
 
+        ItemListener.sugarCaneFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SugarCaneFrame"));
+        ItemListener.cactusFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/CactusFrame"));
+        ItemListener.flintFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/FlintFrame"));
         ItemListener.woodenFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/WoodenFrame"));
         ItemListener.brickFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/BrickFrame"));
         ItemListener.dryBrickFrame.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DryBrickFrame"));
@@ -262,6 +272,12 @@ public class TextureListener {
         GoldOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/GoldOreBricks")).index;
         RedstoneOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/RedstoneOreBricks")).index;
         DiamondOreBricks = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "MaterialProcessing/Ores/DiamondOreBricks")).index;
+
+        BlockListener.dirtBricks.specifyTextures(getIndexForPath(materialPath + "DirtBricks"));
+        BlockListener.sugarCaneBox.specifyTextures(getIndexForPath(materialPath + "SugarCaneBox"));
+        BlockListener.cactusBox.specifyTextures(getIndexForPath(materialPath + "CactusBox"));
+        BlockListener.sandBricks.specifyTextures(getIndexForPath(materialPath + "SandBricks"));
+        BlockListener.flintBox.specifyTextures(getIndexForPath(materialPath + "FlintBox"));
 
         BlockListener.bountifulSand.specifyTextures(BountifulSand);
         BlockListener.bountifulSnow.specifyTextures(BountifulSnow);

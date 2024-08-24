@@ -1,3 +1,9 @@
+tile.dirt_bricks.name=Dirt Bricks
+tile.sugar_cane_box.name=Sugar Cane Box
+tile.cactus_box.name=Cactus Box
+tile.sand_bricks.name=Sand Bricks
+tile.flint_box.name=Flint Box
+
 tile.exotic_shrub.name=Exotic Shrub
 tile.exotic_shrub_dead.name=Dead Exotic Shrub
 tile.night_wheat_crop.name=Night Wheat Crop
@@ -88,6 +94,15 @@ tile.gold_ore_bricks.name=Gold Ore Bricks
 tile.redstone_ore_bricks.name=Redstone Ore Bricks
 tile.diamond_ore_bricks.name=Diamond Ore Bricks
 
+
+
+
+item.dirt_brick.name=Dirt Brick
+item.sugar_cane_stick.name=Sugar Cane Stick
+
+item.dirt_brick_sand.name=Dirt Brick Sand
+item.sand_brick.name=Sand Brick
+
 item.exotic_fruit.name=Exotic Fruit
 item.night_seeds.name=Night Seeds
 item.night_wheat.name=Night Wheat
@@ -143,6 +158,9 @@ item.brick_steel_plate.name=Brick Steel Plate
 item.night_wood_beam.name=Night Wood Beam
 item.brick_steel_beam.name=Brick Steel Beam
 
+item.sugar_cane_frame.name=Sugar Cane Frame
+item.cactus_frame.name=Cactus Frame
+item.flint_frame.name=Flint Frame
 item.wooden_frame.name=Wooden Frame
 item.brick_frame.name=Brick Frame
 item.dry_brick_frame.name=Dry Brick Frame
