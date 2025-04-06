@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.interfaces;
 
-import net.minecraft.item.ItemInstance;
+import net.minecraft.item.ItemStack;
 
 public interface BlockWithInput {
 
@@ -8,9 +8,9 @@ public interface BlockWithInput {
 
     int getInputSlotCount();
 
-    ItemInstance getItemFromInputSlot(int slot);
+    ItemStack getItemFromInputSlot(int slot);
 
-    void setInputItem(int slot, ItemInstance itemInstance);
+    void setInputItem(int slot, ItemStack ItemStack);
 
     void setInputItemCount(int slot, int count);
 

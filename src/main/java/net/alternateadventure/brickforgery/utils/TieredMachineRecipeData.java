@@ -1,14 +1,14 @@
 package net.alternateadventure.brickforgery.utils;
 
-import net.minecraft.item.ItemInstance;
+import net.minecraft.item.ItemStack;
 
 public class TieredMachineRecipeData
 {
 
     public int tierRequirement;
-    public ItemInstance output;
+    public ItemStack output;
 
-    public TieredMachineRecipeData(int tierRequirement, ItemInstance output)
+    public TieredMachineRecipeData(int tierRequirement, ItemStack output)
     {
         this.tierRequirement = tierRequirement;
         this.output = output;

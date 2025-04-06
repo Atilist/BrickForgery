@@ -63,13 +63,5 @@ public class ChunkListener {
             z = event.z + event.random.nextInt(16);
             new ForestVault().generate(event.world, event.random, x, y, z);
         }
-        /* I sometimes use this workspace to test structures for Aether Expansion. This code will be removed once the structure is finished.
-        if (event.random.nextInt(8) == 0) {
-            x = event.x + event.random.nextInt(16);
-            y = 96;
-            z = event.z + event.random.nextInt(16);
-            new AetherArena().generate(event.level, event.random, x, y, z);
-        }
-        */
     }
 }

@@ -6,16 +6,14 @@ import net.modificationstation.stationapi.api.event.block.entity.BlockEntityRegi
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.util.Namespace;
-import net.modificationstation.stationapi.api.util.Null;
 
 public class BlockEntityListener {
 
     @Entrypoint.Namespace
-    public static final Namespace MOD_ID = Null.get();
+    public static Namespace MOD_ID;
 
     @EventListener
-    private static void registerBlockEntities(BlockEntityRegisterEvent event)
-    {
+    public static void registerBlockEntities(BlockEntityRegisterEvent event) {
         event.register(TileEntityAlloySmelter.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_alloy_smelter")));
         event.register(TileEntitySlicer.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_slicer")));
         event.register(TileEntityMetalworkingStation.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_metalworking_station")));

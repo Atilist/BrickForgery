@@ -3,23 +3,23 @@ package net.alternateadventure.brickforgery.containers;
 import net.alternateadventure.brickforgery.tileentities.TileEntityMetalworkingStation;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.container.ContainerBase;
-import net.minecraft.container.ContainerListener;
-import net.minecraft.container.slot.FurnaceOutput;
-import net.minecraft.container.slot.Slot;
-import net.minecraft.entity.player.PlayerBase;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemInstance;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerListener;
+import net.minecraft.screen.slot.FurnaceOutputSlot;
+import net.minecraft.screen.slot.Slot;
 
-public class ContainerMetalworkingStation extends ContainerBase {
-    private TileEntityMetalworkingStation metalworkingStation;
+public class ContainerMetalworkingStation extends ScreenHandler {
+    private final TileEntityMetalworkingStation metalworkingStation;
     private int sliceTime = 0;
 
     public ContainerMetalworkingStation(PlayerInventory arg, TileEntityMetalworkingStation arg2) {
         this.metalworkingStation = arg2;
 
         this.addSlot(new Slot(arg2, 0, 56, 35));
-        this.addSlot(new FurnaceOutput(arg.player, arg2, 1, 116, 35));
+        this.addSlot(new FurnaceOutputSlot(arg.player, arg2, 1, 116, 35));
 
         int var3;
         for(var3 = 0; var3 < 3; ++var3) {
@@ -35,18 +35,18 @@ public class ContainerMetalworkingStation extends ContainerBase {
     }
 
     @Environment(EnvType.SERVER)
-    public void addListener(ContainerListener arg) {
+    public void addListener(ScreenHandlerListener arg) {
         super.addListener(arg);
-        arg.updateProperty(this, 0, this.metalworkingStation.metalworkingTime);
+        arg.onPropertyUpdate(this, 0, this.metalworkingStation.metalworkingTime);
     }
 
-    public void tick() {
-        super.tick();
+    public void sendContentUpdates() {
+        super.sendContentUpdates();
 
-        for(int var1 = 0; var1 < this.listeners.size(); ++var1) {
-            ContainerListener var2 = (ContainerListener)this.listeners.get(var1);
+        for (Object listener : this.listeners) {
+            ScreenHandlerListener var2 = (ScreenHandlerListener) listener;
             if (this.sliceTime != this.metalworkingStation.metalworkingTime) {
-                var2.updateProperty(this, 0, this.metalworkingStation.metalworkingTime);
+                var2.onPropertyUpdate(this, 0, this.metalworkingStation.metalworkingTime);
             }
         }
 
@@ -60,15 +60,15 @@ public class ContainerMetalworkingStation extends ContainerBase {
         }
     }
 
-    public boolean canUse(PlayerBase arg) {
+    public boolean canUse(PlayerEntity arg) {
         return this.metalworkingStation.canPlayerUse(arg);
     }
 
-    public ItemInstance transferSlot(int i) {
-        ItemInstance var2 = null;
+    public ItemStack quickMove(int i) {
+        ItemStack var2 = null;
         Slot var3 = (Slot)this.slots.get(i);
-        if (var3 != null && var3.hasItem()) {
-            ItemInstance var4 = var3.getItem();
+        if (var3 != null && var3.hasStack()) {
+            ItemStack var4 = var3.getStack();
             var2 = var4.copy();
             if (i == 2) {
                 this.insertItem(var4, 3, 38, true);
@@ -81,7 +81,7 @@ public class ContainerMetalworkingStation extends ContainerBase {
             }
 
             if (var4.count == 0) {
-                var3.setStack((ItemInstance)null);
+                var3.setStack(null);
             } else {
                 var3.markDirty();
             }
@@ -89,7 +89,7 @@ public class ContainerMetalworkingStation extends ContainerBase {
             if (var4.count == var2.count) {
                 return null;
             }
-            var3.onCrafted(var4);
+            var3.onTakeItem(var4);
         }
         return var2;
     }

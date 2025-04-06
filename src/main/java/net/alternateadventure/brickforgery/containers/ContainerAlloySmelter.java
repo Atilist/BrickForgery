@@ -3,17 +3,16 @@ package net.alternateadventure.brickforgery.containers;
 import net.alternateadventure.brickforgery.tileentities.TileEntityAlloySmelter;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.container.ContainerBase;
-import net.minecraft.container.ContainerListener;
-import net.minecraft.container.slot.FurnaceOutput;
-import net.minecraft.container.slot.Slot;
-import net.minecraft.entity.player.PlayerBase;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerListener;
+import net.minecraft.screen.slot.FurnaceOutputSlot;
+import net.minecraft.screen.slot.Slot;
 
-public class ContainerAlloySmelter extends ContainerBase {
-    private TileEntityAlloySmelter alloySmelter;
+public class ContainerAlloySmelter extends ScreenHandler {
+    private final TileEntityAlloySmelter alloySmelter;
     private int cookTime = 0;
     private int burnTime = 0;
     private int fuelTime = 0;
@@ -23,7 +22,7 @@ public class ContainerAlloySmelter extends ContainerBase {
         this.addSlot(new Slot(arg2, 0, 20, 34));
         this.addSlot(new Slot(arg2, 3, 38, 34));
         this.addSlot(new Slot(arg2, 4, 56, 34));
-        this.addSlot(new FurnaceOutput(arg.player, arg2, 2, 116, 34));
+        this.addSlot(new FurnaceOutputSlot(arg.player, arg2, 2, 116, 34));
 
         int var3;
         for(var3 = 0; var3 < 3; ++var3) {
@@ -38,29 +37,31 @@ public class ContainerAlloySmelter extends ContainerBase {
 
     }
 
+    @Override
     @Environment(EnvType.SERVER)
-    public void addListener(ContainerListener arg) {
-        super.addListener(arg);
-        arg.updateProperty(this, 0, this.alloySmelter.cookTime);
-        arg.updateProperty(this, 1, this.alloySmelter.burnTime);
-        arg.updateProperty(this, 2, this.alloySmelter.fuelTime);
+    public void addListener(ScreenHandlerListener listener) {
+        super.addListener(listener);
+        listener.onPropertyUpdate(this, 0, this.alloySmelter.cookTime);
+        listener.onPropertyUpdate(this, 1, this.alloySmelter.burnTime);
+        listener.onPropertyUpdate(this, 2, this.alloySmelter.fuelTime);
     }
 
-    public void tick() {
-        super.tick();
+    @Override
+    public void sendContentUpdates() {
+        super.sendContentUpdates();
 
-        for(int var1 = 0; var1 < this.listeners.size(); ++var1) {
-            ContainerListener var2 = (ContainerListener)this.listeners.get(var1);
+        for (Object listener : this.listeners) {
+            ScreenHandlerListener var2 = (ScreenHandlerListener) listener;
             if (this.cookTime != this.alloySmelter.cookTime) {
-                var2.updateProperty(this, 0, this.alloySmelter.cookTime);
+                var2.onPropertyUpdate(this, 0, this.alloySmelter.cookTime);
             }
 
             if (this.burnTime != this.alloySmelter.burnTime) {
-                var2.updateProperty(this, 1, this.alloySmelter.burnTime);
+                var2.onPropertyUpdate(this, 1, this.alloySmelter.burnTime);
             }
 
             if (this.fuelTime != this.alloySmelter.fuelTime) {
-                var2.updateProperty(this, 2, this.alloySmelter.fuelTime);
+                var2.onPropertyUpdate(this, 2, this.alloySmelter.fuelTime);
             }
         }
 
@@ -69,6 +70,7 @@ public class ContainerAlloySmelter extends ContainerBase {
         this.fuelTime = this.alloySmelter.fuelTime;
     }
 
+    @Override
     @Environment(EnvType.CLIENT)
     public void setProperty(int i, int j) {
         if (i == 0) {
@@ -85,15 +87,17 @@ public class ContainerAlloySmelter extends ContainerBase {
 
     }
 
-    public boolean canUse(PlayerBase arg) {
+    @Override
+    public boolean canUse(PlayerEntity arg) {
         return this.alloySmelter.canPlayerUse(arg);
     }
 
-    public ItemInstance transferSlot(int i) {
-        ItemInstance var2 = null;
+    @Override
+    public ItemStack quickMove(int i) {
+        ItemStack var2 = null;
         Slot var3 = (Slot)this.slots.get(i);
-        if (var3 != null && var3.hasItem()) {
-            ItemInstance var4 = var3.getItem();
+        if (var3 != null && var3.hasStack()) {
+            ItemStack var4 = var3.getStack();
             var2 = var4.copy();
             if (i == 2) {
                 this.insertItem(var4, 3, 39, true);
@@ -106,7 +110,7 @@ public class ContainerAlloySmelter extends ContainerBase {
             }
 
             if (var4.count == 0) {
-                var3.setStack((ItemInstance)null);
+                var3.setStack(null);
             } else {
                 var3.markDirty();
             }
@@ -115,7 +119,7 @@ public class ContainerAlloySmelter extends ContainerBase {
                 return null;
             }
 
-            var3.onCrafted(var4);
+            var3.onTakeItem(var4);
         }
 
         return var2;

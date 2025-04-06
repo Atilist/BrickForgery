@@ -13,6 +13,7 @@ import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.item.ItemInstance;
 import net.minecraft.level.Level;
 import net.minecraft.tileentity.TileEntityBase;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.gui.screen.container.GuiHelper;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -73,7 +74,7 @@ public class AlloySmelter extends DirectionalMachineTemplate {
         }
     }
 
-    public static void updateAlloySmelterState(boolean bl, Level arg, int i, int j, int k) {
+    public static void updateAlloySmelterState(boolean bl, World arg, int i, int j, int k) {
         int var5 = arg.getTileMeta(i, j, k);
         TileEntityBase var6 = arg.getTileEntity(i, j, k);
         SETTING_TILE = true;

@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.interfaces;
 
-import net.minecraft.item.ItemInstance;
+import net.minecraft.item.ItemStack;
 
 public interface BlockWithOutput {
 
@@ -8,7 +8,7 @@ public interface BlockWithOutput {
 
     int getOutputSlotCount();
 
-    ItemInstance getItemFromOutputSlot(int slot);
+    ItemStack getItemFromOutputSlot(int slot);
 
     void clearOutput(int slot);
 

@@ -19,23 +19,17 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
-      "net.alternateadventure.brickforgery.events.init.AchievementListener",
       "net.alternateadventure.brickforgery.events.init.BlockListener",
       "net.alternateadventure.brickforgery.events.init.ItemListener",
-      "net.alternateadventure.brickforgery.events.init.PlayerHandlerListener",
       "net.alternateadventure.brickforgery.events.init.RecipeListener",
-      "net.alternateadventure.brickforgery.events.init.TabListener",
       "net.alternateadventure.brickforgery.events.init.ChunkListener",
       "net.alternateadventure.brickforgery.events.init.BlockEntityListener"
     ],
     "stationapi:event_bus_client": [
-      "net.alternateadventure.brickforgery.events.init.KeyBindingListener",
       "net.alternateadventure.brickforgery.events.init.TextureListener",
-      "net.alternateadventure.brickforgery.events.ingame.KeyPressedListener",
       "net.alternateadventure.brickforgery.events.init.GuiListener"
     ],
     "stationapi:event_bus_server": [
-      "net.alternateadventure.brickforgery.events.init.ServerInitListener"
     ]
   },
   "mixins": [
