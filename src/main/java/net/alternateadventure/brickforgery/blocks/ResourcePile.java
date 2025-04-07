@@ -4,9 +4,9 @@ import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.interfaces.BrickFrameIngredient;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockBase;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.level.Level;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.state.StateManager;
 import net.modificationstation.stationapi.api.state.property.IntProperty;
@@ -24,13 +24,13 @@ public class ResourcePile extends TemplateBlock implements BrickFrameIngredient 
     }
 
     @Override
-    public void appendProperties(StateManager.Builder<BlockBase, BlockState> builder) {
+    public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
         builder.add(USES);
     }
 
     @Override
-    public int getDropCount(Random random) {
+    public int getDroppedItemCount(Random random) {
         return 0;
     }
 
@@ -41,15 +41,15 @@ public class ResourcePile extends TemplateBlock implements BrickFrameIngredient 
     }
 
     @Override
-    public boolean isFullOpaque() {
+    public boolean isOpaque() {
         return false;
     }
 
     @Override
-    public void transformBlock(Level world, int x, int y, int z, Random random) {
+    public void transformBlock(World world, int x, int y, int z, Random random) {
         int blockState = world.getBlockState(x, y, z).get(ResourcePile.USES);
-        if (blockState == 1) world.setTile(x, y, z, 0);
-        else if (world.getTileId(x, y, z) == BlockListener.clayPile.id) world.setBlockStateWithNotify(x, y, z, BlockListener.clayPile.getDefaultState().with(ResourcePile.USES, blockState - 1));
-        else if (world.getTileId(x, y, z) == BlockListener.planksPile.id) world.setBlockStateWithNotify(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePile.USES, blockState - 1));
+        if (blockState == 1) world.setBlock(x, y, z, 0);
+        else if (world.getBlockId(x, y, z) == BlockListener.clayPile.id) world.setBlockStateWithNotify(x, y, z, BlockListener.clayPile.getDefaultState().with(ResourcePile.USES, blockState - 1));
+        else if (world.getBlockId(x, y, z) == BlockListener.planksPile.id) world.setBlockStateWithNotify(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePile.USES, blockState - 1));
     }
 }

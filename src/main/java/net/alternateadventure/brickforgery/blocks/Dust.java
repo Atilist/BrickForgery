@@ -17,7 +17,7 @@ public class Dust extends TemplateBlock {
     }
 
     @Override
-    public int getTextureForSide(int i) {
+    public int getTexture(int i) {
         return TextureListener.Dust;
     }
 }

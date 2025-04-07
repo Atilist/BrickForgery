@@ -4,43 +4,44 @@ import net.alternateadventure.brickforgery.containers.ContainerImprovedMillstone
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityImprovedMillstone;
 import net.kozibrodka.wolves.events.BlockListener;
-import net.minecraft.block.BlockSounds;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Item;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
-import net.minecraft.tileentity.TileEntityBase;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.gui.screen.container.GuiHelper;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
 public class ImprovedMillstone extends LazySimpleMachine {
-    private Random rand = new Random();
-    public ImprovedMillstone(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
+    private final Random rand = new Random();
+    public ImprovedMillstone(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds) {
         super(identifier, material, hardness, blockSounds);
     }
 
     @Override
-    public boolean canUse(Level world, int x, int y, int z, PlayerBase player) {
-        TileEntityBase tileEntity = world.getTileEntity(x, y, z);
+    public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
+        BlockEntity tileEntity = world.getBlockEntity(x, y, z);
         if (tileEntity instanceof TileEntityImprovedMillstone tileEntityImprovedMillstone)
             GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_improved_millstone"), tileEntityImprovedMillstone, new ContainerImprovedMillstone(player.inventory, tileEntityImprovedMillstone));
         return true;
     }
 
     @Override
-    protected TileEntityBase createTileEntity() {
+    protected BlockEntity createBlockEntity() {
         return new TileEntityImprovedMillstone();
     }
 
-    public void onBlockRemoved(Level arg, int i, int j, int k) {
+    @Override
+    public void onBreak(World arg, int i, int j, int k) {
 
-        TileEntityImprovedMillstone improvedMillstone = (TileEntityImprovedMillstone) arg.getTileEntity(i, j, k);
+        TileEntityImprovedMillstone improvedMillstone = (TileEntityImprovedMillstone) arg.getBlockEntity(i, j, k);
 
-        for(int var6 = 0; var6 < improvedMillstone.getInventorySize(); ++var6) {
-            ItemInstance var7 = improvedMillstone.getInventoryItem(var6);
+        for(int var6 = 0; var6 < improvedMillstone.size(); ++var6) {
+            ItemStack var7 = improvedMillstone.getStack(var6);
             if (var7 != null) {
                 float var8 = this.rand.nextFloat() * 0.8F + 0.1F;
                 float var9 = this.rand.nextFloat() * 0.8F + 0.1F;
@@ -53,34 +54,34 @@ public class ImprovedMillstone extends LazySimpleMachine {
                     }
 
                     var7.count -= var11;
-                    Item var12 = new Item(arg, (double)((float)i + var8), (double)((float)j + var9), (double)((float)k + var10), new ItemInstance(var7.itemId, var11, var7.getDamage()));
+                    ItemEntity var12 = new ItemEntity(arg, (float)i + var8, (float)j + var9, (float)k + var10, new ItemStack(var7.itemId, var11, var7.getDamage()));
                     float var13 = 0.05F;
-                    var12.velocityX = (double)((float)this.rand.nextGaussian() * var13);
-                    var12.velocityY = (double)((float)this.rand.nextGaussian() * var13 + 0.2F);
-                    var12.velocityZ = (double)((float)this.rand.nextGaussian() * var13);
+                    var12.velocityX = (float)this.rand.nextGaussian() * var13;
+                    var12.velocityY = (float)this.rand.nextGaussian() * var13 + 0.2F;
+                    var12.velocityZ = (float)this.rand.nextGaussian() * var13;
                     arg.spawnEntity(var12);
                 }
             }
         }
 
-        super.onBlockRemoved(arg, i, j, k);
+        super.onBreak(arg, i, j, k);
     }
 
     @Override
-    public void onBlockPlaced(Level level, int x, int y, int z) {
-        super.onBlockPlaced(level, x, y, z);
-        if (level.getTileId(x, y - 1, z) == BlockListener.axleBlock.id && level.getTileMeta(x, y - 1, z) == 3 || level.getTileId(x, y + 1, z) == BlockListener.axleBlock.id && level.getTileMeta(x, y + 1, z) == 3) level.setTileMeta(x, y, z, 1);
+    public void onPlaced(World level, int x, int y, int z) {
+        super.onPlaced(level, x, y, z);
+        if (level.getBlockId(x, y - 1, z) == BlockListener.axleBlock.id && level.getBlockMeta(x, y - 1, z) == 3 || level.getBlockId(x, y + 1, z) == BlockListener.axleBlock.id && level.getBlockMeta(x, y + 1, z) == 3) level.setBlockMeta(x, y, z, 1);
     }
 
     @Override
-    public void onAdjacentBlockUpdate(Level level, int x, int y, int z, int l) {
-        if (level.getTileId(x, y - 1, z) != BlockListener.axleBlock.id && level.getTileId(x, y + 1, z) != BlockListener.axleBlock.id && level.getTileMeta(x, y, z) == 1) level.setTileMeta(x, y, z, 0);
-        else if (level.getTileMeta(x, y - 1, z) == 3 || level.getTileMeta(x, y + 1, z) == 3 && level.getTileMeta(x, y, z) == 0) level.setTileMeta(x, y, z, 1);
+    public void neighborUpdate(World level, int x, int y, int z, int l) {
+        if (level.getBlockId(x, y - 1, z) != BlockListener.axleBlock.id && level.getBlockId(x, y + 1, z) != BlockListener.axleBlock.id && level.getBlockMeta(x, y, z) == 1) level.setBlockMeta(x, y, z, 0);
+        else if (level.getBlockMeta(x, y - 1, z) == 3 || level.getBlockMeta(x, y + 1, z) == 3 && level.getBlockMeta(x, y, z) == 0) level.setBlockMeta(x, y, z, 1);
     }
 
     @Override
-    public void randomDisplayTick(Level level, int x, int y, int z, Random random) {
-        if (level.getTileMeta(x, y, z) != 1) return;
+    public void randomDisplayTick(World level, int x, int y, int z, Random random) {
+        if (level.getBlockMeta(x, y, z) != 1) return;
         for(int counter = 0; counter < 5; counter++)
         {
             float smokeX = (float)x + random.nextFloat();

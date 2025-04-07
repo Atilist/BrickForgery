@@ -17,7 +17,7 @@ public class NightLog extends TemplateBlock {
     }
 
     @Override
-    public int getTextureForSide(int i) {
+    public int getTexture(int i) {
         return i < 2 ? TextureListener.NightLogTop : TextureListener.NightLogSide;
     }
 }

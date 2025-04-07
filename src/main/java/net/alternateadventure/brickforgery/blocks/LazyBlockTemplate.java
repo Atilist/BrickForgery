@@ -1,10 +1,10 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Living;
-import net.minecraft.level.Level;
-import net.minecraft.util.maths.MathHelper;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -17,11 +17,11 @@ public class LazyBlockTemplate extends TemplateBlock {
     int backTextureInternal;
     boolean directional = false;
 
-    public LazyBlockTemplate(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
+    public LazyBlockTemplate(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds) {
         super(identifier, material);
         setTranslationKey(identifier.namespace, identifier.path);
         setHardness(hardness);
-        setSounds(blockSounds);
+        setSoundGroup(blockSounds);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class LazyBlockTemplate extends TemplateBlock {
     }
 
     @Override
-    public int getTextureForSide(int i, int j) {
+    public int getTexture(int i, int j) {
         if (i == 0) return bottomTextureInternal;
         if (i == 1) return topTextureInternal;
         if (i == 2 && j % 4 == 0) return frontTextureInternal;
@@ -82,10 +82,11 @@ public class LazyBlockTemplate extends TemplateBlock {
         return sideTextureInternal;
     }
 
-    public void afterPlaced(Level level, int x, int y, int z, Living living) {
+    @Override
+    public void onPlaced(World level, int x, int y, int z, LivingEntity living) {
         if (!directional) return;
         int facing = MathHelper.floor((double)(living.yaw * 4.0F / 360.0F) + 0.5D) & 3;
-        level.setTileMeta(x, y, z, facing);
+        level.setBlockMeta(x, y, z, facing);
     }
 
 }

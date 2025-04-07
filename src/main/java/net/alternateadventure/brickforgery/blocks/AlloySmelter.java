@@ -6,13 +6,12 @@ import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityAlloySmelter;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockSounds;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Item;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
-import net.minecraft.tileentity.TileEntityBase;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.gui.screen.container.GuiHelper;
 import net.modificationstation.stationapi.api.util.Identifier;
@@ -21,33 +20,34 @@ import java.util.Random;
 
 public class AlloySmelter extends DirectionalMachineTemplate {
 
-    private Random rand = new Random();
+    private final Random rand = new Random();
     private final boolean lit;
     private static boolean SETTING_TILE = false;
 
-    public AlloySmelter(Identifier identifier, Material material, float hardness, BlockSounds blockSounds, boolean isLit) {
+    public AlloySmelter(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds, boolean isLit) {
         super(identifier, material, hardness, blockSounds);
         lit = isLit;
-        if (isLit) setLightEmittance(1.0F);
+        if (isLit) setLuminance(1.0F);
     }
 
+
     @Override
-    public int getDropId(int i, Random random) {
+    public int getDroppedItemId(int blockMeta, Random random) {
         return BlockListener.alloySmelter.id;
     }
 
     @Override
-    public boolean canUse(Level world, int x, int y, int z, PlayerBase player) {
-        TileEntityBase tileEntity = world.getTileEntity(x, y, z);
+    public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
+        BlockEntity tileEntity = world.getBlockEntity(x, y, z);
         if (tileEntity instanceof TileEntityAlloySmelter tileEntityAlloySmelter)
             GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_alloy_smelter"), tileEntityAlloySmelter, new ContainerAlloySmelter(player.inventory, tileEntityAlloySmelter));
         return true;
     }
 
     @Environment(EnvType.CLIENT)
-    public void randomDisplayTick(Level level, int x, int y, int z, Random random) {
+    public void randomDisplayTick(World level, int x, int y, int z, Random random) {
         if (this.lit) {
-            int var6 = level.getTileMeta(x, y, z);
+            int var6 = level.getBlockMeta(x, y, z);
             float centeredX = (float)x + 0.5F;
             float randomY = (float)y + 0.0F + random.nextFloat() * 6.0F / 16.0F;
             float centeredZ = (float)z + 0.5F;
@@ -74,28 +74,29 @@ public class AlloySmelter extends DirectionalMachineTemplate {
         }
     }
 
-    public static void updateAlloySmelterState(boolean bl, World arg, int i, int j, int k) {
-        int var5 = arg.getTileMeta(i, j, k);
-        TileEntityBase var6 = arg.getTileEntity(i, j, k);
+    public static void updateAlloySmelterState(boolean bl, World world, int i, int j, int k) {
+        int var5 = world.getBlockMeta(i, j, k);
+        BlockEntity var6 = world.getBlockEntity(i, j, k);
         SETTING_TILE = true;
         if (bl) {
-            arg.setTile(i, j, k, BlockListener.alloySmelterActive.id);
+            world.setBlock(i, j, k, BlockListener.alloySmelterActive.id);
         } else {
-            arg.setTile(i, j, k, BlockListener.alloySmelter.id);
+            world.setBlock(i, j, k, BlockListener.alloySmelter.id);
         }
 
         SETTING_TILE = false;
-        arg.setTileMeta(i, j, k, var5);
-        var6.validate();
-        arg.setTileEntity(i, j, k, var6);
+        world.setBlock(i, j, k, var5);
+        var6.cancelRemoval();
+        world.setBlockEntity(i, j, k, var6);
     }
 
-    public void onBlockRemoved(Level arg, int i, int j, int k) {
+    @Override
+    public void onBreak(World arg, int i, int j, int k) {
         if (!SETTING_TILE) {
-            TileEntityAlloySmelter alloySmelter = (TileEntityAlloySmelter)arg.getTileEntity(i, j, k);
+            TileEntityAlloySmelter alloySmelter = (TileEntityAlloySmelter)arg.getBlockEntity(i, j, k);
 
-            for(int var6 = 0; var6 < alloySmelter.getInventorySize(); ++var6) {
-                ItemInstance var7 = alloySmelter.getInventoryItem(var6);
+            for(int var6 = 0; var6 < alloySmelter.size(); ++var6) {
+                ItemStack var7 = alloySmelter.getStack(var6);
                 if (var7 != null) {
                     float var8 = this.rand.nextFloat() * 0.8F + 0.1F;
                     float var9 = this.rand.nextFloat() * 0.8F + 0.1F;
@@ -108,7 +109,7 @@ public class AlloySmelter extends DirectionalMachineTemplate {
                         }
 
                         var7.count -= var11;
-                        Item var12 = new Item(arg, (double)((float)i + var8), (double)((float)j + var9), (double)((float)k + var10), new ItemInstance(var7.itemId, var11, var7.getDamage()));
+                        ItemEntity var12 = new ItemEntity(arg, (double)((float)i + var8), (double)((float)j + var9), (double)((float)k + var10), new ItemStack(var7.itemId, var11, var7.getDamage()));
                         float var13 = 0.05F;
                         var12.velocityX = (double)((float)this.rand.nextGaussian() * var13);
                         var12.velocityY = (double)((float)this.rand.nextGaussian() * var13 + 0.2F);
@@ -119,11 +120,11 @@ public class AlloySmelter extends DirectionalMachineTemplate {
             }
         }
 
-        super.onBlockRemoved(arg, i, j, k);
+        super.onBreak(arg, i, j, k);
     }
 
     @Override
-    protected TileEntityBase createTileEntity() {
+    protected BlockEntity createBlockEntity() {
         return new TileEntityAlloySmelter();
     }
 }

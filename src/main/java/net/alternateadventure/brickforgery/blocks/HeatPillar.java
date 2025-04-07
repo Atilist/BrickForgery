@@ -2,12 +2,12 @@ package net.alternateadventure.brickforgery.blocks;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
+import net.minecraft.sound.BlockSoundGroup;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 public class HeatPillar extends LazyBlockTemplate {
-    public HeatPillar(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
+    public HeatPillar(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds) {
         super(identifier, material, hardness, blockSounds);
     }
 

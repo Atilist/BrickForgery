@@ -4,7 +4,7 @@ import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.alternateadventure.brickforgery.interfaces.BrickFrameIngredient;
 import net.minecraft.block.material.Material;
-import net.minecraft.level.Level;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -22,13 +22,13 @@ public class NightPlanks extends TemplateBlock implements BrickFrameIngredient {
     }
 
     @Override
-    public int getTextureForSide(int i) {
+    public int getTexture(int i) {
         return TextureListener.NightPlanks;
     }
 
     @Override
-    public void transformBlock(Level world, int x, int y, int z, Random random) {
-        world.setTile(x, y, z, BlockListener.planksPile.id);
+    public void transformBlock(World world, int x, int y, int z, Random random) {
+        world.setBlock(x, y, z, BlockListener.planksPile.id);
         world.setBlockStateWithNotify(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePile.USES, 15));
     }
 }

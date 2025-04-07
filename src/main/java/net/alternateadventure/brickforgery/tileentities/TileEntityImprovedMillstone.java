@@ -4,16 +4,11 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.kozibrodka.wolves.recipe.MillingRecipeRegistry;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.player.PlayerBase;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.InventoryBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
-import net.minecraft.tileentity.TileEntityBase;
-import net.minecraft.util.io.CompoundTag;
-import net.minecraft.util.io.ListTag;
 
 public class TileEntityImprovedMillstone extends BlockEntity implements Inventory {
     private ItemStack[] inventory = new ItemStack[6];

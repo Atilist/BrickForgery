@@ -17,7 +17,7 @@ public class ArcheologyChisel extends TemplateItem {
 
     @Override
     public boolean useOnBlock(ItemStack item, PlayerEntity player, World level, int x, int y, int z, int facing) {
-        ItemStack tool = player.getHeldItem();
+        ItemStack tool = player.getHand();
         if (level.getBlockId(x, y, z) == BlockListener.frozenPotSealed.id) {
             level.setBlock(x, y, z, BlockListener.frozenPot.id);
             tool.damage(1, player);

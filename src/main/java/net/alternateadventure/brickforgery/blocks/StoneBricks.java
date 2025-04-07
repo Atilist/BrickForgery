@@ -4,7 +4,7 @@ import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.alternateadventure.brickforgery.interfaces.SpikeCrushable;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemInstance;
+import net.minecraft.item.ItemStack;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -20,13 +20,13 @@ public class StoneBricks extends TemplateBlock implements SpikeCrushable {
     }
 
     @Override
-    public int getTextureForSide(int i) {
+    public int getTexture(int i) {
         return TextureListener.StoneBricks;
     }
 
     @Override
-    public ItemInstance crushingOutput() {
-        return new ItemInstance(ItemListener.clayPowder, 4);
+    public ItemStack crushingOutput() {
+        return new ItemStack(ItemListener.clayPowder, 4);
     }
 
     @Override

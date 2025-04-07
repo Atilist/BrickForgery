@@ -1,199 +1,197 @@
-tile.dirt_bricks.name=Dirt Bricks
-tile.sugar_cane_box.name=Sugar Cane Box
-tile.cactus_box.name=Cactus Box
-tile.sand_bricks.name=Sand Bricks
-tile.flint_box.name=Flint Box
+tile.@.dirt_bricks.name=Dirt Bricks
+tile.@.sugar_cane_box.name=Sugar Cane Box
+tile.@.cactus_box.name=Cactus Box
+tile.@.sand_bricks.name=Sand Bricks
+tile.@.flint_box.name=Flint Box
 
-tile.exotic_shrub.name=Exotic Shrub
-tile.exotic_shrub_dead.name=Dead Exotic Shrub
-tile.night_wheat_crop.name=Night Wheat Crop
-tile.night_sapling.name=Night Sapling
-tile.night_log.name=Night Log
-tile.night_leaves.name=Night Leaves
-tile.night_planks.name=Night Planks
+tile.@.exotic_shrub.name=Exotic Shrub
+tile.@.exotic_shrub_dead.name=Dead Exotic Shrub
+tile.@.night_wheat_crop.name=Night Wheat Crop
+tile.@.night_sapling.name=Night Sapling
+tile.@.night_log.name=Night Log
+tile.@.night_leaves.name=Night Leaves
+tile.@.night_planks.name=Night Planks
 
-tile.bountiful_sand.name=Bountiful Sand
-tile.bountiful_snow.name=Bountiful Snow
-tile.factory_rubble.name=Factory Rubble
+tile.@.bountiful_sand.name=Bountiful Sand
+tile.@.bountiful_snow.name=Bountiful Snow
+tile.@.factory_rubble.name=Factory Rubble
 
-tile.common_pot.name=Common Pot
-tile.forest_vault_keyhole.name=Forest Vault Keyhole
-tile.forest_vault_walls.name=Forest Vault Walls
-tile.forest_ornament.name=Forest Ornament
+tile.@.common_pot.name=Common Pot
+tile.@.forest_vault_keyhole.name=Forest Vault Keyhole
+tile.@.forest_vault_walls.name=Forest Vault Walls
+tile.@.forest_ornament.name=Forest Ornament
 
-tile.desert_well_bricks.name=Desert Well Bricks
-tile.desert_well_floor.name=Desert Well Floor
-tile.desert_well_keyhole.name=Desert Well Keyhole
-tile.ancient_sandstone_bricks.name=Ancient Sandstone Bricks
-tile.ancient_sandstone_tile.name=Ancient Sandstone Tile
+tile.@.desert_well_bricks.name=Desert Well Bricks
+tile.@.desert_well_floor.name=Desert Well Floor
+tile.@.desert_well_keyhole.name=Desert Well Keyhole
+tile.@.ancient_sandstone_bricks.name=Ancient Sandstone Bricks
+tile.@.ancient_sandstone_tile.@.name=Ancient Sandstone Tile
 
-tile.frost_vault_bricks.name=Frost Vault Bricks
-tile.frost_vault_tiling.name=Frost Vault Tiling
-tile.frost_vault_keyhole.name=Frost Vault Keyhole
-tile.ancient_ice_bricks.name=Ancient Ice Bricks
-tile.ancient_ice_tiling.name=Ancient Ice Tiling
+tile.@.frost_vault_bricks.name=Frost Vault Bricks
+tile.@.frost_vault_tiling.name=Frost Vault Tiling
+tile.@.frost_vault_keyhole.name=Frost Vault Keyhole
+tile.@.ancient_ice_bricks.name=Ancient Ice Bricks
+tile.@.ancient_ice_tiling.name=Ancient Ice Tiling
 
-tile.desert_pot.name=Desert Pot
-tile.desert_pot_sealed.name=Sealed Desert Pot
-tile.frozen_pot.name=Frozen Pot
-tile.frozen_pot_sealed.name=Sealed Frozen Pot
-tile.mossy_pot.name=Mossy Pot
+tile.@.desert_pot.name=Desert Pot
+tile.@.desert_pot_sealed.name=Sealed Desert Pot
+tile.@.frozen_pot.name=Frozen Pot
+tile.@.frozen_pot_sealed.name=Sealed Frozen Pot
+tile.@.mossy_pot.name=Mossy Pot
 
-tile.improved_millstone.name=Improved Millstone
+tile.@.improved_millstone.name=Improved Millstone
 
-tile.primitive_machine_frame.name=Primitive Machine Frame
-tile.primitive_brick_frame_crafter.name=Primitive Brick Frame Crafter
-tile.primitive_slicer.name=Primitive Slicer
-tile.primitive_metalworking_station.name=Primitive Metalworking Station
-tile.primitive_crusher.name=Primitive Crusher
-tile.primitive_washer.name=Primitive Washer
+tile.@.primitive_machine_frame.name=Primitive Machine Frame
+tile.@.primitive_brick_frame_crafter.name=Primitive Brick Frame Crafter
+tile.@.primitive_slicer.name=Primitive Slicer
+tile.@.primitive_metalworking_station.name=Primitive Metalworking Station
+tile.@.primitive_crusher.name=Primitive Crusher
+tile.@.primitive_washer.name=Primitive Washer
 
-tile.heat_pillar.name=Heat Pillar
-tile.heat_pillar_ignited.name=Ignited Heat Pillar
-tile.heat_pillar_stoked.name=Stoked Heat Pillar
+tile.@.heat_pillar.name=Heat Pillar
+tile.@.heat_pillar_ignited.name=Ignited Heat Pillar
+tile.@.heat_pillar_stoked.name=Stoked Heat Pillar
 
-tile.cryogenic_hibachi.name=Cryogenic Hibachi
-tile.frostburn.name=Frostburn
+tile.@.cryogenic_hibachi.name=Cryogenic Hibachi
+tile.@.frostburn.name=Frostburn
 
-tile.brick_steel_machine_frame.name=Brick Steel Machine Frame
-tile.slicer.name=Slicer
-tile.metalworking_station.name=Metalworking Station
-tile.alloy_smelter.name=Alloy Smelter
-tile.alloy_smelter_active.name=Lit Alloy Smelter
-tile.brick_frame_crafter.name=Brick Frame Crafter
+tile.@.brick_steel_machine_frame.name=Brick Steel Machine Frame
+tile.@.slicer.name=Slicer
+tile.@.metalworking_station.name=Metalworking Station
+tile.@.alloy_smelter.name=Alloy Smelter
+tile.@.alloy_smelter_active.name=Lit Alloy Smelter
+tile.@.brick_frame_crafter.name=Brick Frame Crafter
 
-tile.item_chute.name=Item Chute
-tile.item_slide.name=Item Slide
-tile.item_elevator.name=Item Elevator
-tile.item_chute_chain.name=Item Chute Chain
-tile.item_slide_chain.name=Item Slide Chain
-tile.item_elevator_chain.name=Item Elevator Chain
+tile.@.item_chute.name=Item Chute
+tile.@.item_slide.name=Item Slide
+tile.@.item_elevator.name=Item Elevator
+tile.@.item_chute_chain.name=Item Chute Chain
+tile.@.item_slide_chain.name=Item Slide Chain
+tile.@.item_elevator_chain.name=Item Elevator Chain
 
-tile.brick_launcher.name=Brick Launcher
+tile.@.brick_launcher.name=Brick Launcher
 
-tile.clay_pile.name=Clay Pile
-tile.planks_pile.name=Wooden Planks Pile
+tile.@.clay_pile.name=Clay Pile
+tile.@.planks_pile.name=Wooden Planks Pile
 
-tile.wooden_bricks.name=Wooden Bricks
-tile.stone_bricks.name=Stone Bricks
-tile.large_stone_bricks.name=Large Stone Bricks
-tile.fast_bricks.name=Fast Bricks
+tile.@.wooden_bricks.name=Wooden Bricks
+tile.@.stone_bricks.name=Stone Bricks
+tile.@.large_stone_bricks.name=Large Stone Bricks
+tile.@.fast_bricks.name=Fast Bricks
 
-tile.dust.name=Block of Dust
+tile.@.dust.name=Block of Dust
 
-tile.brick_crop.name=Brick Crop
+tile.@.brick_crop.name=Brick Crop
 
-tile.brick_soil.name=Brick Soil
-tile.brick_soil_depleted.name=Depleted Brick Soil
+tile.@.brick_soil.name=Brick Soil
+tile.@.brick_soil_depleted.name=Depleted Brick Soil
 
-tile.spike_mount.name=Spike Mount
+tile.@.spike_mount.name=Spike Mount
 
-tile.coal_ore_bricks.name=Coal Ore Bricks
-tile.iron_ore_bricks.name=Iron Ore Bricks
-tile.gold_ore_bricks.name=Gold Ore Bricks
-tile.redstone_ore_bricks.name=Redstone Ore Bricks
-tile.diamond_ore_bricks.name=Diamond Ore Bricks
-
-
+tile.@.coal_ore_bricks.name=Coal Ore Bricks
+tile.@.iron_ore_bricks.name=Iron Ore Bricks
+tile.@.gold_ore_bricks.name=Gold Ore Bricks
+tile.@.redstone_ore_bricks.name=Redstone Ore Bricks
+tile.@.diamond_ore_bricks.name=Diamond Ore Bricks
 
 
-item.dirt_brick.name=Dirt Brick
-item.sugar_cane_stick.name=Sugar Cane Stick
+item.@.dirt_brick.name=Dirt Brick
+item.@.sugar_cane_stick.name=Sugar Cane Stick
 
-item.dirt_brick_sand.name=Dirt Brick Sand
-item.sand_brick.name=Sand Brick
+item.@.dirt_brick_sand.name=Dirt Brick Sand
+item.@.sand_brick.name=Sand Brick
 
-item.exotic_fruit.name=Exotic Fruit
-item.night_seeds.name=Night Seeds
-item.night_wheat.name=Night Wheat
-item.fern_item.name=Fern
+item.@.exotic_fruit.name=Exotic Fruit
+item.@.night_seeds.name=Night Seeds
+item.@.night_wheat.name=Night Wheat
+item.@.fern_item.name=Fern
 
-item.dense_night_wood.name=Dense Night Wood
-item.glue_mixture.name=Glue Mixture
+item.@.dense_night_wood.name=Dense Night Wood
+item.@.glue_mixture.name=Glue Mixture
 
-item.fortune_powder.name=Fortune Powder
-item.concentrated_fortune.name=Concentrated Fortune
+item.@.fortune_powder.name=Fortune Powder
+item.@.concentrated_fortune.name=Concentrated Fortune
 
-item.exotic_key.name=Exotic Key
-item.desert_key.name=Desert Key
-item.ice_key.name=Ice Key
+item.@.exotic_key.name=Exotic Key
+item.@.desert_key.name=Desert Key
+item.@.ice_key.name=Ice Key
 
-item.desert_pot_item.name=Sealed Desert Pot
-item.frozen_pot_item.name=Sealed Frozen Pot
+item.@.desert_pot_item.name=Sealed Desert Pot
+item.@.frozen_pot_item.name=Sealed Frozen Pot
 
-item.primitive_brush.name=Primitive Brush
-item.primitive_chisel.name=Primitive Chisel
-item.primitive_grabber.name=Primitive Grabber
+item.@.primitive_brush.name=Primitive Brush
+item.@.primitive_chisel.name=Primitive Chisel
+item.@.primitive_grabber.name=Primitive Grabber
 
-item.ground_sandstone.name=Ground Sandstone
-item.illuminant_crystal.name=Illuminant Crystal
+item.@.ground_sandstone.name=Ground Sandstone
+item.@.illuminant_crystal.name=Illuminant Crystal
 
-item.iron_ore_crushed.name=Crushed Iron Ore
-item.iron_ore_washed.name=Washed Iron Ore
-item.iron_ore_powdered.name=Powdered Iron Ore
-item.iron_ore_purified.name=Purified Iron Ore
+item.@.iron_ore_crushed.name=Crushed Iron Ore
+item.@.iron_ore_washed.name=Washed Iron Ore
+item.@.iron_ore_powdered.name=Powdered Iron Ore
+item.@.iron_ore_purified.name=Purified Iron Ore
 
-item.gold_ore_crushed.name=Crushed Gold Ore
-item.gold_ore_washed.name=Washed Gold Ore
-item.gold_ore_powdered.name=Powdered Gold Ore
-item.gold_ore_purified.name=Purified Gold Ore
+item.@.gold_ore_crushed.name=Crushed Gold Ore
+item.@.gold_ore_washed.name=Washed Gold Ore
+item.@.gold_ore_powdered.name=Powdered Gold Ore
+item.@.gold_ore_purified.name=Purified Gold Ore
 
-item.thermal_powder.name=Thermal Powder
-item.concentrated_thermal.name=Concentrated Thermal
-item.thermal_glass.name=Thermal Glass
+item.@.thermal_powder.name=Thermal Powder
+item.@.concentrated_thermal.name=Concentrated Thermal
+item.@.thermal_glass.name=Thermal Glass
 
-item.cryogenic_powder.name=Cryogenic Powder
-item.concentrated_cryogenic.name=Concentrated Cryogenic
+item.@.cryogenic_powder.name=Cryogenic Powder
+item.@.concentrated_cryogenic.name=Concentrated Cryogenic
 
-item.durable_leather.name=Durable Leather
-item.brick_steel_ingot.name=Brick Steel Ingot
-item.bricksidian_ingot.name=Bricksidian Ingot
+item.@.durable_leather.name=Durable Leather
+item.@.brick_steel_ingot.name=Brick Steel Ingot
+item.@.bricksidian_ingot.name=Bricksidian Ingot
 
-item.leather_strap.name=Leather Strap
-item.golden_screw.name=Golden Screw
-item.durable_leather_strap.name=Durable Leather Strap
-item.bricksidian_screw.name=Bricksidian Screw
-item.brick_steel_plate.name=Brick Steel Plate
+item.@.leather_strap.name=Leather Strap
+item.@.golden_screw.name=Golden Screw
+item.@.durable_leather_strap.name=Durable Leather Strap
+item.@.bricksidian_screw.name=Bricksidian Screw
+item.@.brick_steel_plate.name=Brick Steel Plate
 
-item.night_wood_beam.name=Night Wood Beam
-item.brick_steel_beam.name=Brick Steel Beam
+item.@.night_wood_beam.name=Night Wood Beam
+item.@.brick_steel_beam.name=Brick Steel Beam
 
-item.sugar_cane_frame.name=Sugar Cane Frame
-item.cactus_frame.name=Cactus Frame
-item.flint_frame.name=Flint Frame
-item.wooden_frame.name=Wooden Frame
-item.brick_frame.name=Brick Frame
-item.dry_brick_frame.name=Dry Brick Frame
-item.hardened_brick_frame.name=Hardened Brick Frame
-item.reinforced_brick_frame.name=Reinforced Brick Frame
+item.@.sugar_cane_frame.name=Sugar Cane Frame
+item.@.cactus_frame.name=Cactus Frame
+item.@.flint_frame.name=Flint Frame
+item.@.wooden_frame.name=Wooden Frame
+item.@.brick_frame.name=Brick Frame
+item.@.dry_brick_frame.name=Dry Brick Frame
+item.@.hardened_brick_frame.name=Hardened Brick Frame
+item.@.reinforced_brick_frame.name=Reinforced Brick Frame
 
-item.tool_repair_kit.name=Tool Repair Kit
+item.@.tool_repair_kit.name=Tool Repair Kit
 
-item.archeology_brush.name=Archeology Brush
-item.archeology_chisel.name=Archeology Chisel
-item.archeology_ice_knife.name=Archeology Ice Knife
+item.@.archeology_brush.name=Archeology Brush
+item.@.archeology_chisel.name=Archeology Chisel
+item.@.archeology_ice_knife.name=Archeology Ice Knife
 
-item.archeology_tool_base.name=Archeology Tool Handle
-item.ice_blade.name=Ice Blade
-item.broken_spike_holder.name=Broken Spike Holder
+item.@.archeology_tool_base.name=Archeology Tool Handle
+item.@.ice_blade.name=Ice Blade
+item.@.broken_spike_holder.name=Broken Spike Holder
 
-item.wooden_brick.name=Wooden Brick
-item.brick_ash.name=Brick Ash
-item.stone_brick.name=Stone Brick
-item.snow_brick.name=Snow Brick
-item.frozen_brick.name=Frozen Brick
+item.@.wooden_brick.name=Wooden Brick
+item.@.brick_ash.name=Brick Ash
+item.@.stone_brick.name=Stone Brick
+item.@.snow_brick.name=Snow Brick
+item.@.frozen_brick.name=Frozen Brick
 
-item.brick_seedlings.name=Brick Seedlings
-item.brick_catalyst.name=Brick Catalyst
-item.clay_powder.name=Clay Powder
+item.@.brick_seedlings.name=Brick Seedlings
+item.@.brick_catalyst.name=Brick Catalyst
+item.@.clay_powder.name=Clay Powder
 
-item.exotic_catalyst.name=Exotic Catalyst
+item.@.exotic_catalyst.name=Exotic Catalyst
 
-item.coal_ore_brick.name=Coal Ore Brick
-item.iron_ore_brick.name=Iron Ore Brick
-item.gold_ore_brick.name=Gold Ore Brick
-item.redstone_ore_brick.name=Redstone Ore Brick
-item.diamond_ore_brick.name=Diamond Ore Brick
+item.@.coal_ore_brick.name=Coal Ore Brick
+item.@.iron_ore_brick.name=Iron Ore Brick
+item.@.gold_ore_brick.name=Gold Ore Brick
+item.@.redstone_ore_brick.name=Redstone Ore Brick
+item.@.diamond_ore_brick.name=Diamond Ore Brick
 
-item.large_brick_raw.name=Raw Large Brick
-item.large_brick.name=Large Brick
+item.@.large_brick_raw.name=Raw Large Brick
+item.@.large_brick.name=Large Brick

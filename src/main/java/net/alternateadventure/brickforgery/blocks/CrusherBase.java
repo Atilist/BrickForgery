@@ -4,29 +4,29 @@ import net.alternateadventure.brickforgery.containers.ContainerCrusher;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityCrusher;
 import net.kozibrodka.wolves.events.BlockListener;
-import net.minecraft.block.BlockSounds;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Item;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
-import net.minecraft.tileentity.TileEntityBase;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.gui.screen.container.GuiHelper;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
 public class CrusherBase extends LazySimpleMachine {
-    private Random rand = new Random();
+    private final Random rand = new Random();
     public int tier;
-    public CrusherBase(Identifier identifier, Material material, float hardness, BlockSounds blockSounds, int tier) {
+    public CrusherBase(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds, int tier) {
         super(identifier, material, hardness, blockSounds);
         this.tier = tier;
     }
 
     @Override
-    public boolean canUse(Level world, int x, int y, int z, PlayerBase player) {
-        TileEntityBase tileEntity = world.getTileEntity(x, y, z);
+    public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
+        BlockEntity tileEntity = world.getBlockEntity(x, y, z);
         if (tileEntity instanceof TileEntityCrusher tileEntityCrusher)
             GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_crusher"), tileEntityCrusher, new ContainerCrusher(player.inventory, tileEntityCrusher));
         return true;
@@ -34,16 +34,17 @@ public class CrusherBase extends LazySimpleMachine {
 
 
     @Override
-    protected TileEntityBase createTileEntity() {
+    protected BlockEntity createBlockEntity() {
         return new TileEntityCrusher();
     }
 
-    public void onBlockRemoved(Level arg, int i, int j, int k) {
+    @Override
+    public void onBreak(World arg, int i, int j, int k) {
 
-        TileEntityCrusher crusher = (TileEntityCrusher) arg.getTileEntity(i, j, k);
+        TileEntityCrusher crusher = (TileEntityCrusher) arg.getBlockEntity(i, j, k);
 
-        for(int var6 = 0; var6 < crusher.getInventorySize(); ++var6) {
-            ItemInstance var7 = crusher.getInventoryItem(var6);
+        for(int var6 = 0; var6 < crusher.size(); ++var6) {
+            ItemStack var7 = crusher.getStack(var6);
             if (var7 != null) {
                 float var8 = this.rand.nextFloat() * 0.8F + 0.1F;
                 float var9 = this.rand.nextFloat() * 0.8F + 0.1F;
@@ -56,7 +57,7 @@ public class CrusherBase extends LazySimpleMachine {
                     }
 
                     var7.count -= var11;
-                    Item var12 = new Item(arg, (double)((float)i + var8), (double)((float)j + var9), (double)((float)k + var10), new ItemInstance(var7.itemId, var11, var7.getDamage()));
+                    ItemEntity var12 = new ItemEntity(arg, (double)((float)i + var8), (double)((float)j + var9), (double)((float)k + var10), new ItemStack(var7.itemId, var11, var7.getDamage()));
                     float var13 = 0.05F;
                     var12.velocityX = (double)((float)this.rand.nextGaussian() * var13);
                     var12.velocityY = (double)((float)this.rand.nextGaussian() * var13 + 0.2F);
@@ -66,33 +67,31 @@ public class CrusherBase extends LazySimpleMachine {
             }
         }
 
-        super.onBlockRemoved(arg, i, j, k);
+        super.onBreak(arg, i, j, k);
     }
 
     @Override
-    public void onBlockPlaced(Level level, int x, int y, int z) {
-        super.onBlockPlaced(level, x, y, z);
-        if (level.getTileId(x, y - 1, z) == BlockListener.axleBlock.id && level.getTileMeta(x, y - 1, z) == 3 || level.getTileId(x, y + 1, z) == BlockListener.axleBlock.id && level.getTileMeta(x, y + 1, z) == 3) level.setTileMeta(x, y, z, 1);
+    public void onPlaced(World level, int x, int y, int z) {
+        super.onPlaced(level, x, y, z);
+        if (level.getBlockId(x, y - 1, z) == BlockListener.axleBlock.id && level.getBlockMeta(x, y - 1, z) == 3 || level.getBlockId(x, y + 1, z) == BlockListener.axleBlock.id && level.getBlockMeta(x, y + 1, z) == 3) level.setBlockMeta(x, y, z, 1);
     }
 
     @Override
-    public void onAdjacentBlockUpdate(Level level, int x, int y, int z, int l) {
-        if (level.getTileId(x, y - 1, z) != BlockListener.axleBlock.id && level.getTileId(x, y + 1, z) != BlockListener.axleBlock.id && level.getTileMeta(x, y, z) == 1) level.setTileMeta(x, y, z, 0);
-        else if (level.getTileMeta(x, y - 1, z) == 3 || level.getTileMeta(x, y + 1, z) == 3 && level.getTileMeta(x, y, z) == 0) level.setTileMeta(x, y, z, 1);
+    public void neighborUpdate(World level, int x, int y, int z, int l) {
+        if (level.getBlockId(x, y - 1, z) != BlockListener.axleBlock.id && level.getBlockId(x, y + 1, z) != BlockListener.axleBlock.id && level.getBlockMeta(x, y, z) == 1) level.setBlockMeta(x, y, z, 0);
+        else if (level.getBlockMeta(x, y - 1, z) == 3 || level.getBlockMeta(x, y + 1, z) == 3 && level.getBlockMeta(x, y, z) == 0) level.setBlockMeta(x, y, z, 1);
     }
 
     @Override
-    public void randomDisplayTick(Level level, int x, int y, int z, Random random) {
-        if (level.getTileMeta(x, y, z) != 1) return;
-        for(int counter = 0; counter < 5; counter++)
-        {
+    public void randomDisplayTick(World level, int x, int y, int z, Random random) {
+        if (level.getBlockMeta(x, y, z) != 1) return;
+        for(int counter = 0; counter < 5; counter++) {
             float smokeX = (float)x + random.nextFloat();
             float smokeY = (float)y + random.nextFloat() * 0.5F + 1.0F;
             float smokeZ = (float)z + random.nextFloat();
             level.addParticle("smoke", smokeX, smokeY, smokeZ, 0.0D, 0.0D, 0.0D);
         }
-        if(random.nextInt(5) == 0)
-        {
+        if(random.nextInt(5) == 0) {
             level.playSound((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "random.explode", 0.1F + random.nextFloat() * 0.1F, 1.25F + random.nextFloat() * 0.1F);
         }
     }

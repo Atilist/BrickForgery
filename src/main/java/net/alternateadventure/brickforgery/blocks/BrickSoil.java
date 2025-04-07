@@ -17,7 +17,7 @@ public class BrickSoil extends TemplateBlock {
     }
 
     @Override
-    public int getTextureForSide(int i) {
+    public int getTexture(int i) {
         return i == 0 ? TextureListener.BrickSoilBottom : i == 1 ? TextureListener.BrickSoilTop : TextureListener.BrickSoilSide;
     }
 }

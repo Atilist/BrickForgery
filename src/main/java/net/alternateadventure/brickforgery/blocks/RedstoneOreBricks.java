@@ -2,19 +2,19 @@ package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.interfaces.SpikeCrushable;
-import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.ItemInstance;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.BlockSoundGroup;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 public class RedstoneOreBricks extends LazyBlockTemplate implements SpikeCrushable {
-    public RedstoneOreBricks(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
+    public RedstoneOreBricks(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds) {
         super(identifier, material, hardness, blockSounds);
     }
 
     @Override
-    public ItemInstance crushingOutput() {
-        return new ItemInstance(ItemListener.redstoneOreBrick, 2);
+    public ItemStack crushingOutput() {
+        return new ItemStack(ItemListener.redstoneOreBrick, 2);
     }
 
     @Override

@@ -5,10 +5,10 @@ import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -24,16 +24,16 @@ public class SpikeMount extends TemplateBlock {
     }
 
     @Override
-    public int getTextureForSide(int i, int j) {
+    public int getTexture(int i, int j) {
         return j == 0 ? TextureListener.SpikeMount : TextureListener.SpikeMountLoaded;
     }
 
     @Override
-    protected int droppedMeta(int i) {
+    protected int getDroppedItemMeta(int i) {
         return 0;
     }
 
-    public boolean isFullOpaque() {
+    public boolean isOpaque() {
         return false;
     }
 
@@ -47,12 +47,12 @@ public class SpikeMount extends TemplateBlock {
     }
 
     @Override
-    public boolean canUse(Level level, int x, int y, int z, PlayerBase arg2) {
-        if (level.getTileMeta(x, y, z) == 1) return false;
-        ItemInstance playerItem = arg2.getHeldItem();
+    public boolean onUse(World level, int x, int y, int z, PlayerEntity arg2) {
+        if (level.getBlockMeta(x, y, z) == 1) return false;
+        ItemStack playerItem = arg2.getHeldItem();
         if (playerItem == null) return false;
-        if (playerItem.itemId != ItemBase.flint.id) return false;
-        level.placeBlockWithMetaData(x, y, z, BlockListener.spikeMount.id, 1);
+        if (playerItem.itemId != Item.FLINT.id) return false;
+        level.setBlock(x, y, z, BlockListener.spikeMount.id, 1);
         playerItem.count--;
         return true;
     }

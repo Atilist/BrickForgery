@@ -1,11 +1,11 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.minecraft.block.BlockSounds;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Living;
-import net.minecraft.level.Level;
-import net.minecraft.tileentity.TileEntityBase;
-import net.minecraft.util.maths.MathHelper;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.block.TemplateBlockWithEntity;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -17,11 +17,11 @@ public class DirectionalMachineTemplate extends TemplateBlockWithEntity {
     int frontTextureInternal;
     int backTextureInternal;
 
-    public DirectionalMachineTemplate(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
+    public DirectionalMachineTemplate(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds) {
         super(identifier, material);
         setTranslationKey(identifier.namespace, identifier.path);
         setHardness(hardness);
-        setSounds(blockSounds);
+        setSoundGroup(blockSounds);
     }
 
     public void specifyTextures(int topTexture, int sideTexture, int bottomTexture, int frontTexture, int backTexture)
@@ -43,7 +43,7 @@ public class DirectionalMachineTemplate extends TemplateBlockWithEntity {
     }
 
     @Override
-    public int getTextureForSide(int i, int j) {
+    public int getTexture(int i, int j) {
         if (i == 0) return bottomTextureInternal;
         if (i == 1) return topTextureInternal;
         if (i == 2 && j % 4 == 0) return frontTextureInternal;
@@ -57,13 +57,13 @@ public class DirectionalMachineTemplate extends TemplateBlockWithEntity {
         return sideTextureInternal;
     }
 
-    public void afterPlaced(Level level, int x, int y, int z, Living living) {
+    public void afterPlaced(World level, int x, int y, int z, LivingEntity living) {
         int facing = MathHelper.floor((double)(living.yaw * 4.0F / 360.0F) + 0.5D) & 3;
-        level.setTileMeta(x, y, z, facing);
+        level.setBlockMeta(x, y, z, facing);
     }
 
     @Override
-    protected TileEntityBase createTileEntity() {
+    protected BlockEntity createBlockEntity() {
         return null;
     }
 }

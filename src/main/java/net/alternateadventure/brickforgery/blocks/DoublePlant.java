@@ -3,31 +3,30 @@ package net.alternateadventure.brickforgery.blocks;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockBase;
-import net.minecraft.block.BlockSounds;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Item;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
-import net.minecraft.util.maths.Box;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.math.Box;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
 public class DoublePlant extends LazyBlockTemplate {
-    public DoublePlant(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
+    public DoublePlant(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds) {
         super(identifier, material, hardness, blockSounds);
     }
 
     @Override
-    public int getTextureForSide(int i, int j)
-    {
+    public int getTexture(int i, int j) {
         return j == 0 ? TextureListener.DoubleRose : TextureListener.DoubleDandelion;
     }
 
-    public boolean isFullOpaque() {
+    public boolean isOpaque() {
         return false;
     }
 
@@ -41,32 +40,29 @@ public class DoublePlant extends LazyBlockTemplate {
     }
 
     @Override
-    public boolean canUse(Level level, int x, int y, int z, PlayerBase arg2) {
-        ItemInstance playerItem = arg2.getHeldItem();
+    public boolean onUse(World level, int x, int y, int z, PlayerEntity arg2) {
+        ItemStack playerItem = arg2.getHeldItem();
         if (playerItem == null) return false;
-        if (playerItem.itemId != ItemBase.shears.id) return false;
-        if (level.getTileMeta(x, y, z) == 0)
-        {
-            level.placeBlockWithMetaData(x, y, z, BlockBase.ROSE.id, 1);
-            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(BlockBase.ROSE)));
+        if (playerItem.itemId != Item.SHEARS.id) return false;
+        if (level.getBlockMeta(x, y, z) == 0) {
+            level.setBlock(x, y, z, Block.ROSE.id, 1);
+            level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(Block.ROSE)));
+        } else if (level.getBlockMeta(x, y, z) == 1) {
+            level.setBlock(x, y, z, Block.DANDELION.id, 1);
+            level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(Block.DANDELION)));
         }
-        else if (level.getTileMeta(x, y, z) == 1)
-        {
-            level.placeBlockWithMetaData(x, y, z, BlockBase.DANDELION.id, 1);
-            level.spawnEntity(new Item(level, x, y, z, new ItemInstance(BlockBase.DANDELION)));
-        }
-        playerItem.applyDamage(1, arg2);
+        playerItem.damage(1, arg2);
         return true;
     }
 
     @Override
-    public int getDropId(int i, Random random) {
-        if (i == 0) return BlockBase.ROSE.id;
-        return BlockBase.DANDELION.id;
+    public int getDroppedItemId(int i, Random random) {
+        if (i == 0) return Block.ROSE.id;
+        return Block.DANDELION.id;
     }
 
     @Override
-    public Box getCollisionShape(Level arg, int i, int j, int k) {
+    public Box getCollisionShape(World arg, int i, int j, int k) {
         return null;
     }
 }

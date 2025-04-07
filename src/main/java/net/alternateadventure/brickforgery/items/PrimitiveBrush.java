@@ -4,7 +4,6 @@ import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.util.Identifier;
@@ -18,7 +17,7 @@ public class PrimitiveBrush extends LazyItemTemplate {
 
     @Override
     public boolean useOnBlock(ItemStack itemInstance, PlayerEntity player, World level, int x, int y, int z, int facing) {
-        ItemStack tool = player.getHeldItem();
+        ItemStack tool = player.getHand();
         if (level.getBlockId(x, y, z) == BlockListener.bountifulSand.id) {
             level.setBlock(x, y, z, 0);
             tool.damage(1, player);

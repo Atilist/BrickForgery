@@ -4,13 +4,13 @@ import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockBase;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
-import net.minecraft.util.maths.Box;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.Box;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -20,7 +20,7 @@ public class NightSapling extends TemplateBlock {
 
     public NightSapling(Identifier identifier, Material material) {
         super(identifier, material);
-        setTicksRandomly(true);
+        setTickRandomly(true);
     }
 
     @Override
@@ -29,22 +29,22 @@ public class NightSapling extends TemplateBlock {
     }
 
     @Override
-    public int getTextureForSide(int i, int j) {
+    public int getTexture(int i, int j) {
         return TextureListener.NightSapling;
     }
 
     @Override
-    protected int droppedMeta(int i) {
+    protected int getDroppedItemMeta(int i) {
         return 0;
     }
 
     @Override
-    public Box getCollisionShape(Level arg, int i, int j, int k) {
+    public Box getCollisionShape(World arg, int i, int j, int k) {
         return null;
     }
 
     @Override
-    public boolean isFullOpaque() {
+    public boolean isOpaque() {
         return false;
     }
 
@@ -53,55 +53,51 @@ public class NightSapling extends TemplateBlock {
         return false;
     }
 
+    @Override
     @Environment(EnvType.CLIENT)
     public int getRenderType() {
         return 1;
     }
 
     @Override
-    public boolean canPlaceAt(Level level, int x, int y, int z) {
-        return level.getTileId(x, y, z) == 0 && (level.getTileId(x, y - 1, z) == BlockBase.GRASS.id || level.getTileId(x, y - 1, z) == BlockBase.DIRT.id);
+    public boolean canPlaceAt(World level, int x, int y, int z) {
+        return level.getBlockId(x, y, z) == 0 && (level.getBlockId(x, y - 1, z) == Block.GRASS.id || level.getBlockId(x, y - 1, z) == Block.DIRT.id);
     }
 
     @Override
-    public void onScheduledTick(Level level, int x, int y, int z, Random random) {
-        if (level.isDaylight()) return;
-        if (level.getTileMeta(x, y, z) == 15 && random.nextInt(4) == 0)
+    public void onTick(World level, int x, int y, int z, Random random) {
+        if (level.getTime() % 24000 < 12000) return;
+        if (level.getBlockMeta(x, y, z) == 15 && random.nextInt(4) == 0)
         {
             growTree(level, x, y, z, random);
             return;
         }
-        if (level.getTileMeta(x, y, z) < 15) level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
+        if (level.getBlockMeta(x, y, z) < 15) level.setBlockMeta(x, y, z, level.getBlockMeta(x, y, z) + 1);
     }
 
     @Override
-    public boolean canUse(Level level, int x, int y, int z, PlayerBase player) {
-        if (level.isDaylight()) return false;
-        ItemInstance item = player.getHeldItem();
+    public boolean onUse(World level, int x, int y, int z, PlayerEntity player) {
+        if (level.getTime() % 24000 < 12000) return false;
+        ItemStack item = player.getHeldItem();
         if (item == null) return false;
-        if (item.itemId != ItemBase.dyePowder.id && item.getDamage() != 15) return false;
+        if (item.itemId != Item.DYE.id && item.getDamage() != 15) return false;
         item.count--;
         growTree(level, x, y, z, new Random());
         return true;
     }
 
-    private void growTree(Level level, int x, int y, int z, Random random)
-    {
+    private void growTree(World level, int x, int y, int z, Random random) {
         int randomHeight = random.nextInt(5) + 4;
-        level.setTile(x, y - 1, z, BlockBase.DIRT.id);
-        for (int height = 0; height < randomHeight; height++)
-        {
-            level.setTile(x, y + height, z, BlockListener.nightLog.id);
+        level.setBlock(x, y - 1, z, Block.DIRT.id);
+        for (int height = 0; height < randomHeight; height++) {
+            level.setBlock(x, y + height, z, BlockListener.nightLog.id);
         }
-        for (int xOffset = -2; xOffset <= 2; xOffset++)
-        {
-            for (int yOffset = randomHeight - 3; yOffset < randomHeight + 1; yOffset++)
-            {
-                for (int zOffset = -2; zOffset <= 2; zOffset++)
-                {
-                    if (level.getTileId(x + xOffset, y + yOffset, z + zOffset) != 0) continue;
+        for (int xOffset = -2; xOffset <= 2; xOffset++) {
+            for (int yOffset = randomHeight - 3; yOffset < randomHeight + 1; yOffset++) {
+                for (int zOffset = -2; zOffset <= 2; zOffset++) {
+                    if (level.getBlockId(x + xOffset, y + yOffset, z + zOffset) != 0) continue;
                     if (yOffset > randomHeight - 1 && (xOffset == -2 || xOffset == 2) && (zOffset == -2 || zOffset == 2)) continue;
-                    level.setTileWithMetadata(x + xOffset, y + yOffset, z + zOffset, BlockListener.nightLeaves.id, 8);
+                    level.setBlock(x + xOffset, y + yOffset, z + zOffset, BlockListener.nightLeaves.id, 8);
                 }
             }
         }

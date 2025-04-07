@@ -19,7 +19,7 @@ public class ArchaeologyIceKnife extends TemplateItem {
 
     @Override
     public boolean useOnBlock(ItemStack item, PlayerEntity player, World level, int x, int y, int z, int facing) {
-        ItemStack tool = player.getHeldItem();
+        ItemStack tool = player.getHand();
         if (level.getBlockId(x, y, z) == Block.SNOW_BLOCK.id) {
             level.setBlock(x, y, z, 0);
             level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.snowBrick, 4)));

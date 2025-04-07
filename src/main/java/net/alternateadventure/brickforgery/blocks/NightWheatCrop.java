@@ -5,14 +5,14 @@ import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockBase;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Item;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
-import net.minecraft.util.maths.Box;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.Box;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -22,7 +22,7 @@ public class NightWheatCrop extends TemplateBlock {
 
     public NightWheatCrop(Identifier identifier, Material material) {
         super(identifier, material);
-        setTicksRandomly(true);
+        setTickRandomly(true);
         this.setBoundingBox(0.0F, 0.0F, 0.0F, 1.0F, 0.25F, 1.0F);
     }
 
@@ -32,7 +32,7 @@ public class NightWheatCrop extends TemplateBlock {
     }
 
     @Override
-    public int getTextureForSide(int i, int j) {
+    public int getTexture(int i, int j) {
         return switch (j) {
             case 0 -> TextureListener.NightWheatCropBud;
             case 1 -> TextureListener.NightWheatCropSmall;
@@ -47,20 +47,20 @@ public class NightWheatCrop extends TemplateBlock {
     }
 
     @Override
-    protected int droppedMeta(int i) {
+    protected int getDroppedItemMeta(int i) {
         return 0;
     }
 
     @Override
-    public int getDropId(int i, Random random) {
+    public int getDroppedItemId(int i, Random randomom) {
         return i == 7 ? ItemListener.nightWheat.id : -1;
     }
 
-    public Box getCollisionShape(Level arg, int i, int j, int k) {
+    public Box getCollisionShape(World arg, int i, int j, int k) {
         return null;
     }
 
-    public boolean isFullOpaque() {
+    public boolean isOpaque() {
         return false;
     }
 
@@ -74,48 +74,45 @@ public class NightWheatCrop extends TemplateBlock {
     }
 
     @Override
-    public boolean canPlaceAt(Level level, int x, int y, int z) {
-        return level.getTileId(x, y, z) == 0 && level.getTileId(x, y - 1, z) == BlockBase.FARMLAND.id;
+    public boolean canPlaceAt(World level, int x, int y, int z) {
+        return level.getBlockId(x, y, z) == 0 && level.getBlockId(x, y - 1, z) == Block.FARMLAND.id;
     }
 
     @Override
-    public boolean canUse(Level level, int x, int y, int z, PlayerBase player) {
-        if (level.isDaylight()) return false;
-        if (level.getTileMeta(x, y, z) == 7) return false;
-        ItemInstance item = player.getHeldItem();
+    public boolean onUse(World level, int x, int y, int z, PlayerEntity player) {
+        if (level.getTime() % 24000 < 12000) return false;
+        if (level.getBlockMeta(x, y, z) == 7) return false;
+        ItemStack item = player.getHeldItem();
         if (item == null) return false;
-        if (item.itemId != ItemBase.dyePowder.id && item.getDamage() != 15) return false;
+        if (item.itemId != Item.DYE.id && item.getDamage() != 15) return false;
         item.count--;
-        level.placeBlockWithMetaData(x, y, z, BlockListener.nightWheatCrop.id, 7);
+        level.setBlock(x, y, z, BlockListener.nightWheatCrop.id, 7);
         return true;
     }
 
     @Override
-    public void onScheduledTick(Level level, int x, int y, int z, Random random) {
-        if (level.isDaylight()) return;
-        if (level.getTileMeta(x, y, z) == 7)
-        {
-            if (random.nextInt(16) != 0) return;
-            if (level.getTileId(x + 1, y, z) == BlockBase.TALLGRASS.id && level.getTileMeta(x + 1, y, z) == 2) level.setTile(x + 1, y, z, BlockListener.exoticShrub.id);
-            if (level.getTileId(x - 1, y, z) == BlockBase.TALLGRASS.id && level.getTileMeta(x - 1, y, z) == 2) level.setTile(x - 1, y, z, BlockListener.exoticShrub.id);
-            if (level.getTileId(x, y, z + 1) == BlockBase.TALLGRASS.id && level.getTileMeta(x, y, z + 1) == 2) level.setTile(x, y, z + 1, BlockListener.exoticShrub.id);
-            if (level.getTileId(x, y, z - 1) == BlockBase.TALLGRASS.id && level.getTileMeta(x, y, z - 1) == 2) level.setTile(x, y, z - 1, BlockListener.exoticShrub.id);
+    public void onTick(World level, int x, int y, int z, Random randomom) {
+        if (level.getTime() % 24000 < 12000) return;
+        if (level.getBlockMeta(x, y, z) == 7) {
+            if (randomom.nextInt(16) != 0) return;
+            if (level.getBlockId(x + 1, y, z) == Block.GRASS.id && level.getBlockMeta(x + 1, y, z) == 2) level.setBlock(x + 1, y, z, BlockListener.exoticShrub.id);
+            if (level.getBlockId(x - 1, y, z) == Block.GRASS.id && level.getBlockMeta(x - 1, y, z) == 2) level.setBlock(x - 1, y, z, BlockListener.exoticShrub.id);
+            if (level.getBlockId(x, y, z + 1) == Block.GRASS.id && level.getBlockMeta(x, y, z + 1) == 2) level.setBlock(x, y, z + 1, BlockListener.exoticShrub.id);
+            if (level.getBlockId(x, y, z - 1) == Block.GRASS.id && level.getBlockMeta(x, y, z - 1) == 2) level.setBlock(x, y, z - 1, BlockListener.exoticShrub.id);
         }
-        else if (random.nextInt(4) == 0) level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
+        else if (randomom.nextInt(4) == 0) level.setBlock(x, y, z, level.getBlockMeta(x, y, z) + 1);
     }
-
+    
     @Override
-    public void beforeDestroyedByExplosion(Level level, int x, int y, int z, int iHaveNoIdea, float whatEvenIsThis)
-    {
-        super.beforeDestroyedByExplosion(level, x, y, z, iHaveNoIdea, whatEvenIsThis);
-        for(int attempts = 0; attempts < 3; ++attempts)
-        {
-            if (!(level.rand.nextInt(15) <= iHaveNoIdea)) continue;
+    public void dropStacks(World level, int x, int y, int z, int meta, float luck) {
+        super.dropStacks(level, x, y, z, meta, luck);
+        for(int attempts = 0; attempts < 3; ++attempts) {
+            if (!(level.random.nextInt(15) <= meta)) continue;
             float askNotchWhyThisVariableExists = 0.7F;
-            float randomX = level.rand.nextFloat() * askNotchWhyThisVariableExists + (1.0F - askNotchWhyThisVariableExists) * 0.5F;
-            float randomY = level.rand.nextFloat() * askNotchWhyThisVariableExists + (1.0F - askNotchWhyThisVariableExists) * 0.5F;
-            float randomZ = level.rand.nextFloat() * askNotchWhyThisVariableExists + (1.0F - askNotchWhyThisVariableExists) * 0.5F;
-            Item item = new Item(level, (float) x + randomX, (float) y + randomY, (float) z + randomZ, new ItemInstance(ItemListener.nightSeeds));
+            float randomomX = level.random.nextFloat() * askNotchWhyThisVariableExists + (1.0F - askNotchWhyThisVariableExists) * 0.5F;
+            float randomomY = level.random.nextFloat() * askNotchWhyThisVariableExists + (1.0F - askNotchWhyThisVariableExists) * 0.5F;
+            float randomomZ = level.random.nextFloat() * askNotchWhyThisVariableExists + (1.0F - askNotchWhyThisVariableExists) * 0.5F;
+            ItemEntity item = new ItemEntity(level, (float) x + randomomX, (float) y + randomomY, (float) z + randomomZ, new ItemStack(ItemListener.nightSeeds));
             item.pickupDelay = 10;
             level.spawnEntity(item);
         }

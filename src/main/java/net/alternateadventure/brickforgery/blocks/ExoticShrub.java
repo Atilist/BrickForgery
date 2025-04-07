@@ -5,13 +5,13 @@ import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.events.init.TextureListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockBase;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.Item;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
-import net.minecraft.util.maths.Box;
+import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.Box;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.block.TemplateBlock;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -21,7 +21,7 @@ public class ExoticShrub extends TemplateBlock {
 
     public ExoticShrub(Identifier identifier, Material material) {
         super(identifier, material);
-        setTicksRandomly(true);
+        setTickRandomly(true);
     }
 
     @Override
@@ -30,22 +30,22 @@ public class ExoticShrub extends TemplateBlock {
     }
 
     @Override
-    public int getTextureForSide(int i, int j) {
+    public int getTexture(int i, int j) {
         return j < 15 ? TextureListener.ExoticShrub : TextureListener.ExoticShrubMature;
     }
 
     @Override
-    protected int droppedMeta(int i) {
+    protected int getDroppedItemMeta(int i) {
         return 0;
     }
 
     @Override
-    public Box getCollisionShape(Level arg, int i, int j, int k) {
+    public Box getCollisionShape(World arg, int i, int j, int k) {
         return null;
     }
 
     @Override
-    public boolean isFullOpaque() {
+    public boolean isOpaque() {
         return false;
     }
 
@@ -55,10 +55,10 @@ public class ExoticShrub extends TemplateBlock {
     }
 
     @Override
-    public boolean canUse(Level level, int x, int y, int z, PlayerBase playerBase) {
-        if (level.getTileMeta(x, y, z) != 15) return false;
-        level.placeBlockWithMetaData(x, y, z, BlockListener.exoticShrub.id, 0);
-        level.spawnEntity(new Item(level, x, y, z, new ItemInstance(ItemListener.exoticFruit)));
+    public boolean onUse(World level, int x, int y, int z, PlayerEntity playerBase) {
+        if (level.getBlockMeta(x, y, z) != 15) return false;
+        level.setBlock(x, y, z, BlockListener.exoticShrub.id, 0);
+        level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.exoticFruit)));
         return true;
     }
 
@@ -68,53 +68,47 @@ public class ExoticShrub extends TemplateBlock {
     }
 
     @Override
-    public boolean canPlaceAt(Level level, int x, int y, int z) {
-        return level.getTileId(x, y, z) == 0 && (level.getTileId(x, y - 1, z) == BlockBase.GRASS.id || level.getTileId(x, y - 1, z) == BlockBase.DIRT.id || level.getTileId(x, y - 1, z) == BlockBase.FARMLAND.id);
+    public boolean canPlaceAt(World level, int x, int y, int z) {
+        return level.getBlockId(x, y, z) == 0 && (level.getBlockId(x, y - 1, z) == Block.GRASS.id || level.getBlockId(x, y - 1, z) == Block.DIRT.id || level.getBlockId(x, y - 1, z) == Block.FARMLAND.id);
     }
 
     @Override
-    public void onScheduledTick(Level level, int x, int y, int z, Random random) {
-        if (!getsSkylight(level, x, y, z))
-        {
-            level.placeBlockWithMetaData(x, y, z, BlockListener.exoticShrubDead.id, level.getTileMeta(x, y, z));
+    public void onTick(World level, int x, int y, int z, Random random) {
+        if (!getsSkylight(level, x, y, z)) {
+            level.setBlock(x, y, z, BlockListener.exoticShrubDead.id, level.getBlockMeta(x, y, z));
             return;
         }
-        if (level.isDaylight()) return;
-        if (level.getTileMeta(x, y, z) == 15)
-        {
+        if (level.getTime() % 24000 < 12000) return;
+        if (level.getBlockMeta(x, y, z) == 15) {
             boolean fertilizedFlowers = false;
             if (random.nextInt(2) != 0) return;
 
-            if (checkForFlowerAndGrow(level, x + 1, y, z, BlockBase.ROSE.id, 0))  fertilizedFlowers = true;
-            if (checkForFlowerAndGrow(level, x - 1, y, z, BlockBase.ROSE.id, 0))  fertilizedFlowers = true;
-            if (checkForFlowerAndGrow(level, x, y, z + 1, BlockBase.ROSE.id, 0))  fertilizedFlowers = true;
-            if (checkForFlowerAndGrow(level, x, y, z - 1, BlockBase.ROSE.id, 0))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x + 1, y, z, Block.ROSE.id, 0))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x - 1, y, z, Block.ROSE.id, 0))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x, y, z + 1, Block.ROSE.id, 0))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x, y, z - 1, Block.ROSE.id, 0))  fertilizedFlowers = true;
 
-            if (checkForFlowerAndGrow(level, x + 1, y, z, BlockBase.DANDELION.id, 1))  fertilizedFlowers = true;
-            if (checkForFlowerAndGrow(level, x - 1, y, z, BlockBase.DANDELION.id, 1))  fertilizedFlowers = true;
-            if (checkForFlowerAndGrow(level, x, y, z + 1, BlockBase.DANDELION.id, 1))  fertilizedFlowers = true;
-            if (checkForFlowerAndGrow(level, x, y, z - 1, BlockBase.DANDELION.id, 1))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x + 1, y, z, Block.DANDELION.id, 1))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x - 1, y, z, Block.DANDELION.id, 1))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x, y, z + 1, Block.DANDELION.id, 1))  fertilizedFlowers = true;
+            if (checkForFlowerAndGrow(level, x, y, z - 1, Block.DANDELION.id, 1))  fertilizedFlowers = true;
 
-            if (fertilizedFlowers) level.setTileMeta(x, y, z, 0);
-        }
-        else level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
+            if (fertilizedFlowers) level.setBlockMeta(x, y, z, 0);
+        } else level.setBlockMeta(x, y, z, level.getBlockMeta(x, y, z) + 1);
     }
 
-    public boolean checkForFlowerAndGrow(Level level, int x, int y, int z, int inputBlockID, int outputBlockMeta)
-    {
-        if (level.getTileId(x, y, z) == inputBlockID)
-        {
-            level.placeBlockWithMetaData(x, y, z, BlockListener.doublePlant.id, outputBlockMeta);
+    public boolean checkForFlowerAndGrow(World level, int x, int y, int z, int inputBlockID, int outputBlockMeta) {
+        if (level.getBlockId(x, y, z) == inputBlockID) {
+            level.setBlock(x, y, z, BlockListener.doublePlant.id, outputBlockMeta);
             return true;
         }
         return false;
     }
 
-    public boolean getsSkylight(Level level, int x, int y, int z)
-    {
-        for (int height = y + 1; height <= level.getHeight(x, z); height++) {
-            if (level.getTileId(x, height, z) == 0) continue;
-            if (level.isFullOpaque(x, height, z)) return false;
+    public boolean getsSkylight(World level, int x, int y, int z) {
+        for (int height = y + 1; height <= level.getTopSolidBlockY(x, z); height++) {
+            if (level.getBlockId(x, height, z) == 0) continue;
+            if (level.method_1783(x, height, z)) return false;
         }
         return true;
     }

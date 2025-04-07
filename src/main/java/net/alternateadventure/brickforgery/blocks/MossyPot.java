@@ -3,7 +3,7 @@ package net.alternateadventure.brickforgery.blocks;
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.block.BlockBase;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.modificationstation.stationapi.api.block.BlockState;
 import net.modificationstation.stationapi.api.state.StateManager;
@@ -22,13 +22,13 @@ public class MossyPot extends TemplateBlock {
     }
 
     @Override
-    public void appendProperties(StateManager.Builder<BlockBase, BlockState> builder) {
+    public void appendProperties(StateManager.Builder<Block, BlockState> builder) {
         super.appendProperties(builder);
         builder.add(TYPES);
     }
 
     @Override
-    public int getDropId(int i, Random random) {
+    public int getDroppedItemId(int i, Random random) {
         return ItemListener.brokenSpikeHolder.id;
     }
 
@@ -39,7 +39,7 @@ public class MossyPot extends TemplateBlock {
     }
 
     @Override
-    public boolean isFullOpaque() {
+    public boolean isOpaque() {
         return false;
     }
 }

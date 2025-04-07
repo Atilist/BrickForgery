@@ -3,24 +3,24 @@ package net.alternateadventure.brickforgery.blocks;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.kozibrodka.wolves.modsupport.AffectedByBellows;
+import net.kozibrodka.wolves.api.AffectedByBellows;
 import net.kozibrodka.wolves.utils.BlockPosition;
-import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
-import net.minecraft.level.Level;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
 public class HeatPillarStoked extends LazyBlockTemplate implements AffectedByBellows {
-    public HeatPillarStoked(Identifier identifier, Material material, float hardness, BlockSounds blockSounds) {
+    public HeatPillarStoked(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds) {
         super(identifier, material, hardness, blockSounds);
-        setLightEmittance(1.0F);
-        setTicksRandomly(true);
+        setLuminance(1.0F);
+        setTickRandomly(true);
     }
 
     @Override
-    public boolean isFullOpaque() {
+    public boolean isOpaque() {
         return false;
     }
 
@@ -35,24 +35,24 @@ public class HeatPillarStoked extends LazyBlockTemplate implements AffectedByBel
     }
 
     @Override
-    public int getDropId(int i, Random random) {
+    public int getDroppedItemId(int i, Random random) {
         return BlockListener.heatPillar.id;
     }
 
     @Override
-    public void onScheduledTick(Level level, int x, int y, int z, Random random) {
-        if (level.getTileMeta(x, y, z) < 4) level.setTileMeta(x, y, z, level.getTileMeta(x, y, z) + 1);
-        else level.placeBlockWithMetaData(x, y, z, BlockListener.heatPillarIgnited.id, 0);
+    public void onTick(World level, int x, int y, int z, Random random) {
+        if (level.getBlockMeta(x, y, z) < 4) level.setBlockMeta(x, y, z, level.getBlockMeta(x, y, z) + 1);
+        else level.setBlock(x, y, z, BlockListener.heatPillarIgnited.id, 0);
     }
 
     @Override
-    public void onAdjacentBlockUpdate(Level level, int x, int y, int z, int l) {
-        if (level.getTileId(x, y - 1, z) != net.kozibrodka.wolves.events.BlockListener.hibachi.id) level.setTile(x, y, z, BlockListener.heatPillar.id);
-        else if (level.getTileMeta(x, y - 1, z) < 4) level.setTile(x, y, z, BlockListener.heatPillar.id);
+    public void neighborUpdate(World level, int x, int y, int z, int l) {
+        if (level.getBlockId(x, y - 1, z) != net.kozibrodka.wolves.events.BlockListener.hibachi.id) level.setBlock(x, y, z, BlockListener.heatPillar.id);
+        else if (level.getBlockMeta(x, y - 1, z) < 4) level.setBlock(x, y, z, BlockListener.heatPillar.id);
     }
 
     @Override
-    public void affectBlock(Level world, int i, int j, int k, BlockPosition tempTargetPos, int facing) {
-        world.setTileMeta(i, j, k, 0);
+    public void affectBlock(World world, int i, int j, int k, BlockPosition tempTargetPos, int facing) {
+        world.setBlockMeta(i, j, k, 0);
     }
 }
