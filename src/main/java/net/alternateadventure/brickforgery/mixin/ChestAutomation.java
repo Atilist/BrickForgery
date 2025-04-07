@@ -2,17 +2,17 @@ package net.alternateadventure.brickforgery.mixin;
 
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.block.entity.ChestBlockEntity;
+import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
-@Mixin(TileEntityChest.class)
+@Mixin(ChestBlockEntity.class)
 @Unique
 public class ChestAutomation implements BlockWithInput, BlockWithOutput {
 
-    @Shadow private ItemInstance[] contents;
+    @Shadow private ItemStack[] inventory;
 
     @Override
     public boolean isValidInputSide(int side) {
@@ -25,18 +25,18 @@ public class ChestAutomation implements BlockWithInput, BlockWithOutput {
     }
 
     @Override
-    public ItemInstance getItemFromInputSlot(int slot) {
-        return contents[slot];
+    public ItemStack getItemFromInputSlot(int slot) {
+        return inventory[slot];
     }
 
     @Override
-    public void setInputItem(int slot, ItemInstance itemInstance) {
-        contents[slot] = itemInstance;
+    public void setInputItem(int slot, ItemStack itemInstance) {
+        inventory[slot] = itemInstance;
     }
 
     @Override
     public void setInputItemCount(int slot, int count) {
-        contents[slot].count = count;
+        inventory[slot].count = count;
     }
 
     @Override
@@ -50,17 +50,17 @@ public class ChestAutomation implements BlockWithInput, BlockWithOutput {
     }
 
     @Override
-    public ItemInstance getItemFromOutputSlot(int slot) {
-        return contents[slot];
+    public ItemStack getItemFromOutputSlot(int slot) {
+        return inventory[slot];
     }
 
     @Override
     public void clearOutput(int slot) {
-        contents[slot] = null;
+        inventory[slot] = null;
     }
 
     @Override
     public void setOutputItemCount(int slot, int count) {
-        contents[slot].count = count;
+        inventory[slot].count = count;
     }
 }

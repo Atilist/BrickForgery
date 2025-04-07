@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class AlloySmeltingRecipeRegistry {
     private static final AlloySmeltingRecipeRegistry INSTANCE = new AlloySmeltingRecipeRegistry();
-    private ArrayList<ItemStack[]> inputsList = new ArrayList();
+    private final ArrayList<ItemStack[]> inputsList = new ArrayList<>();
 
     // TODO: Cycling through a list is very inefficient, so this will be replaced later
     public static AlloySmeltingRecipeRegistry getInstance() {

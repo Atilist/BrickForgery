@@ -1,5 +1,7 @@
 package net.alternateadventure.brickforgery.structures;
 
+/*
+import java.util.Random;
 import net.minecraft.block.BlockBase;
 import net.minecraft.level.Level;
 
@@ -65,6 +67,7 @@ public class AetherArena {
      * Generates a staircase into a specific direction.
      * @param rotation This parameter can be set to have a value ranging between 0 and 3. The value determines the direction the staircase generates into. 0 is positive x. 1 is negative x. 2 is positive z. 3 is negative z.
      */
+    /*
     private void buildStaircase(Level level, Random random, int x, int y, int z, int rotation, int width, int length)
     {
         int xLength = 0;
@@ -118,4 +121,6 @@ public class AetherArena {
         if (random.nextInt(16) == 0) return BlockBase.WOOD_STAIRS.id;
         return BlockBase.COBBLESTONE_STAIRS.id;
     }
+
 }
+     */

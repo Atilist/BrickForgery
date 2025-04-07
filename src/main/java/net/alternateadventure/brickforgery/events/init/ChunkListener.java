@@ -2,15 +2,15 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.structures.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
-import net.minecraft.level.biome.Biome;
-import net.minecraft.level.dimension.Overworld;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.dimension.OverworldDimension;
 import net.modificationstation.stationapi.api.event.world.gen.WorldGenEvent;
 
 public class ChunkListener {
 
     @EventListener
     public void populate(WorldGenEvent.ChunkDecoration event) {
-        if (event.world.dimension instanceof Overworld) populateOverworld(event);
+        if (event.world.dimension instanceof OverworldDimension) populateOverworld(event);
     }
 
     public void populateOverworld (WorldGenEvent.ChunkDecoration event) {

@@ -1,10 +1,10 @@
 package net.alternateadventure.brickforgery.items;
 
 import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.minecraft.block.BlockBase;
-import net.minecraft.entity.player.PlayerBase;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.level.Level;
+import net.minecraft.block.Block;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import net.modificationstation.stationapi.api.util.Identifier;
 
@@ -15,11 +15,10 @@ public class NightSeeds extends TemplateItem {
     }
 
     @Override
-    public boolean useOnTile(ItemInstance item, PlayerBase player, Level level, int x, int y, int z, int facing) {
-        if (level.getTileId(x, y, z) == BlockBase.FARMLAND.id && level.getTileId(x, y + 1, z) == 0)
-        {
-            level.setTile(x, y + 1, z, BlockListener.nightWheatCrop.id);
-            item.count--;
+    public boolean useOnBlock(ItemStack itemInstance, PlayerEntity playerBase, World level, int x, int y, int z, int facing) {
+        if (level.getBlockId(x, y, z) == Block.FARMLAND.id && level.getBlockId(x, y + 1, z) == 0) {
+            level.setBlock(x, y + 1, z, BlockListener.nightWheatCrop.id);
+            itemInstance.count--;
             return true;
         }
         return false;

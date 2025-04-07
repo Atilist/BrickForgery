@@ -2,18 +2,18 @@ package net.alternateadventure.brickforgery.mixin;
 
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.block.entity.FurnaceBlockEntity;
+import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
-@Mixin(TileEntityFurnace.class)
+@Mixin(FurnaceBlockEntity.class)
 @Unique
 public class FurnaceAutomation implements BlockWithInput, BlockWithOutput {
 
     @Shadow
-    private ItemInstance[] inventory;
+    private ItemStack[] inventory;
 
     @Override
     public boolean isValidInputSide(int side) {
@@ -26,12 +26,12 @@ public class FurnaceAutomation implements BlockWithInput, BlockWithOutput {
     }
 
     @Override
-    public ItemInstance getItemFromInputSlot(int slot) {
+    public ItemStack getItemFromInputSlot(int slot) {
         return inventory[0];
     }
 
     @Override
-    public void setInputItem(int slot, ItemInstance itemInstance) {
+    public void setInputItem(int slot, ItemStack itemInstance) {
         inventory[0] = itemInstance;
     }
 
@@ -51,7 +51,7 @@ public class FurnaceAutomation implements BlockWithInput, BlockWithOutput {
     }
 
     @Override
-    public ItemInstance getItemFromOutputSlot(int slot) {
+    public ItemStack getItemFromOutputSlot(int slot) {
         return inventory[2];
     }
 

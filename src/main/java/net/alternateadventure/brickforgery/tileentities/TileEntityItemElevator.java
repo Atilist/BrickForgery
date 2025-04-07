@@ -3,11 +3,11 @@ package net.alternateadventure.brickforgery.tileentities;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
-import net.minecraft.item.ItemInstance;
-import net.minecraft.tileentity.TileEntityBase;
-import net.minecraft.util.io.CompoundTag;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 
-public class TileEntityItemElevator extends TileEntityBase {
+public class TileEntityItemElevator extends BlockEntity {
 
     public int inputCycle;
     public int outputCycle;
@@ -24,16 +24,15 @@ public class TileEntityItemElevator extends TileEntityBase {
         }
     }
 
-    public void moveItems()
-    {
-        TileEntityBase inputMachine = level.getTileEntity(x, y - 1, z);
+    public void moveItems() {
+        BlockEntity inputMachine = world.getBlockEntity(x, y - 1, z);
 
         int range = 1;
         for (; range <= 4; range++) {
-            if (level.getTileId(x, y + range, z) != BlockListener.itemElevatorChain.id) break;
+            if (world.getBlockId(x, y + range, z) != BlockListener.itemElevatorChain.id) break;
         }
 
-        TileEntityBase outputMachine = level.getTileEntity(x, y + range, z);
+        BlockEntity outputMachine = world.getBlockEntity(x, y + range, z);
 
         if (inputMachine == null) return;
         if (outputMachine == null) return;
@@ -44,8 +43,8 @@ public class TileEntityItemElevator extends TileEntityBase {
         if (!(inputCycle < ((BlockWithOutput) inputMachine).getOutputSlotCount())) inputCycle = 0;
         if (!(outputCycle < ((BlockWithInput) outputMachine).getInputSlotCount())) outputCycle = 0;
 
-        ItemInstance transferItem = ((BlockWithOutput) inputMachine).getItemFromOutputSlot(inputCycle);
-        ItemInstance destinationItem = ((BlockWithInput) outputMachine).getItemFromInputSlot(outputCycle);
+        ItemStack transferItem = ((BlockWithOutput) inputMachine).getItemFromOutputSlot(inputCycle);
+        ItemStack destinationItem = ((BlockWithInput) outputMachine).getItemFromInputSlot(outputCycle);
 
         if (transferItem == null) return;
         if (destinationItem == null)
@@ -53,7 +52,7 @@ public class TileEntityItemElevator extends TileEntityBase {
             insertIntoEmptyMachine(transferItem, inputMachine, outputMachine);
             return;
         }
-        else if (destinationItem.isDamageAndIDIdentical(transferItem) && destinationItem.count < destinationItem.getMaxStackSize())
+        else if (destinationItem.isItemEqual(transferItem) && destinationItem.count < destinationItem.getMaxCount())
         {
             insertIntoPartiallyFilledMachine(transferItem, destinationItem, inputMachine, outputMachine);
             return;
@@ -61,38 +60,40 @@ public class TileEntityItemElevator extends TileEntityBase {
         outputCycle++;
     }
 
-    public void insertIntoEmptyMachine(ItemInstance transferItem, TileEntityBase inputMachine, TileEntityBase outputMachine)
+    public void insertIntoEmptyMachine(ItemStack transferItem, BlockEntity inputMachine, BlockEntity outputMachine)
     {
         ((BlockWithInput) outputMachine).setInputItem(outputCycle, transferItem);
         ((BlockWithOutput) inputMachine).clearOutput(inputCycle);
     }
 
-    public void insertIntoPartiallyFilledMachine(ItemInstance transferItem, ItemInstance destinationItem, TileEntityBase inputMachine, TileEntityBase outputMachine)
+    public void insertIntoPartiallyFilledMachine(ItemStack transferItem, ItemStack destinationItem, BlockEntity inputMachine, BlockEntity outputMachine)
     {
         int totalItems = transferItem.count + destinationItem.count;
-        if (totalItems <= destinationItem.getMaxStackSize())
+        if (totalItems <= destinationItem.getMaxCount())
         {
             ((BlockWithInput) outputMachine).setInputItemCount(outputCycle, totalItems);
             ((BlockWithOutput) inputMachine).clearOutput(inputCycle);
         }
         else
         {
-            ((BlockWithInput) outputMachine).setInputItemCount(outputCycle, destinationItem.getMaxStackSize());
-            ((BlockWithOutput) inputMachine).setOutputItemCount(inputCycle, totalItems - destinationItem.getMaxStackSize());
+            ((BlockWithInput) outputMachine).setInputItemCount(outputCycle, destinationItem.getMaxCount());
+            ((BlockWithOutput) inputMachine).setOutputItemCount(inputCycle, totalItems - destinationItem.getMaxCount());
         }
     }
 
-    public void readIdentifyingData(CompoundTag compoundTag) {
-        super.readIdentifyingData(compoundTag);
+    @Override
+    public void readNbt(NbtCompound compoundTag) {
+        super.readNbt(compoundTag);
         inputCycle = compoundTag.getInt("InputCycle");
         outputCycle = compoundTag.getInt("OutputCycle");
         timer = compoundTag.getInt("Timer");
     }
 
-    public void writeIdentifyingData(CompoundTag compoundTag) {
-        super.writeIdentifyingData(compoundTag);
-        compoundTag.put("InputCycle", inputCycle);
-        compoundTag.put("OutputCycle", outputCycle);
-        compoundTag.put("Timer", timer);
+    @Override
+    public void writeNbt(NbtCompound compoundTag) {
+        super.writeNbt(compoundTag);
+        compoundTag.putInt("InputCycle", inputCycle);
+        compoundTag.putInt("OutputCycle", outputCycle);
+        compoundTag.putInt("Timer", timer);
     }
 }

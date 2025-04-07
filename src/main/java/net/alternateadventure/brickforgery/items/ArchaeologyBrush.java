@@ -7,35 +7,37 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class PrimitiveBrush extends LazyItemTemplate {
-    public PrimitiveBrush(Identifier identifier) {
+public class ArchaeologyBrush extends TemplateItem {
+
+    public ArchaeologyBrush(Identifier identifier) {
         super(identifier);
         this.maxCount = 1;
-        this.setMaxDamage(127);
+        this.setMaxDamage(256);
     }
 
     @Override
-    public boolean useOnBlock(ItemStack itemInstance, PlayerEntity player, World level, int x, int y, int z, int facing) {
+    public boolean useOnBlock(ItemStack item, PlayerEntity player, World level, int x, int y, int z, int facing) {
         ItemStack tool = player.getHeldItem();
         if (level.getBlockId(x, y, z) == BlockListener.bountifulSand.id) {
             level.setBlock(x, y, z, 0);
             tool.damage(1, player);
-            if (random.nextBoolean()) level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.desertPotItem)));
+            level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.desertPotItem)));
             return true;
         } else if (level.getBlockId(x, y, z) == BlockListener.bountifulSnow.id) {
             level.setBlock(x, y, z, 0);
             tool.damage(1, player);
-            if (random.nextBoolean()) level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.frozenPotItem)));
+            level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.frozenPotItem)));
             return true;
         } else if (level.getBlockId(x, y, z) == BlockListener.factoryRubble.id) {
             level.setBlock(x, y, z, 0);
             tool.damage(1, player);
-            if (random.nextInt(6) == 0) level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.brickSteelPlate)));
-            if (random.nextInt(6) == 0) level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.bricksidianScrew)));
-            if (random.nextInt(6) == 0) level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.brickSteelIngot)));
-            if (random.nextBoolean()) level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.durableLeatherStrap)));
+            if (random.nextBoolean()) level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.brickSteelPlate)));
+            level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.bricksidianScrew)));
+            if (random.nextInt(3) == 0) level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.brickSteelIngot)));
+            level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.durableLeatherStrap)));
             return true;
         }
         return false;

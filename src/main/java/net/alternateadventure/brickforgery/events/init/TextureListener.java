@@ -342,13 +342,13 @@ public class TextureListener {
         BlockListener.redstoneOreBricks.specifyTextures(RedstoneOreBricks);
         BlockListener.diamondOreBricks.specifyTextures(DiamondOreBricks);
 
-        BlockListener.heatPillar.asItem().setTexturePosition(HeatPillar);
-        BlockListener.heatPillarIgnited.asItem().setTexturePosition(HeatPillarIgnited);
-        BlockListener.heatPillarStoked.asItem().setTexturePosition(HeatPillarStoked);
+        BlockListener.heatPillar.asItem().setTextureId(HeatPillar);
+        BlockListener.heatPillarIgnited.asItem().setTextureId(HeatPillarIgnited);
+        BlockListener.heatPillarStoked.asItem().setTextureId(HeatPillarStoked);
 
-        BlockListener.spikeMount.asItem().setTexturePosition(SpikeMount);
-        BlockListener.exoticShrub.asItem().setTexturePosition(ExoticShrub);
-        BlockListener.nightSapling.asItem().setTexturePosition(NightSapling);
+        BlockListener.spikeMount.asItem().setTextureId(SpikeMount);
+        BlockListener.exoticShrub.asItem().setTextureId(ExoticShrub);
+        BlockListener.nightSapling.asItem().setTextureId(NightSapling);
     }
 
     public static int getIndexForPath(String path) {

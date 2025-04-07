@@ -1,24 +1,24 @@
 package net.alternateadventure.brickforgery.customrecipes;
 
-import net.minecraft.item.ItemInstance;
+import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
 
 public class BrickFramingRecipeRegistry {
     private static final BrickFramingRecipeRegistry INSTANCE = new BrickFramingRecipeRegistry();
-    private final ArrayList<ItemInstance[]> inputsList = new ArrayList<>();
+    private final ArrayList<ItemStack[]> inputsList = new ArrayList<>();
 
     // TODO: Cycling through a list is very inefficient, so this will be replaced later
     public static BrickFramingRecipeRegistry getInstance() {
         return INSTANCE;
     }
 
-    public ItemInstance getResult(ItemInstance inputItem, int[] inputIds) {
-        for (ItemInstance[] referenceInputs : inputsList) {
+    public ItemStack getResult(ItemStack inputItem, int[] inputIds) {
+        for (ItemStack[] referenceInputs : inputsList) {
             if (referenceInputs == null) continue;
             if (inputItem == null) continue;
             if (referenceInputs.length - 2 != inputIds.length) continue;
-            if (!referenceInputs[0].isDamageAndIDIdentical(inputItem)) continue;
+            if (!referenceInputs[0].isItemEqual(inputItem)) continue;
             boolean[] blocksMatching = new boolean[inputIds.length];
             for (int i = 1; i < referenceInputs.length - 1; i++) {
                 for (int j = 0; j < inputIds.length; j++) {
@@ -26,8 +26,8 @@ public class BrickFramingRecipeRegistry {
                 }
             }
             boolean allInputsMatching = true;
-            for (int i = 0; i < blocksMatching.length; i++) {
-                if (!blocksMatching[i]) {
+            for (boolean b : blocksMatching) {
+                if (!b) {
                     allInputsMatching = false;
                     break;
                 }
@@ -38,11 +38,11 @@ public class BrickFramingRecipeRegistry {
         return null;
     }
 
-    public void addRecipe(ItemInstance inputItem, ItemInstance block1, ItemInstance block2, ItemInstance block3, ItemInstance block4, ItemInstance output) {
-        inputsList.add(new ItemInstance[] {inputItem, block1, block2, block3, block4, output});
+    public void addRecipe(ItemStack inputItem, ItemStack block1, ItemStack block2, ItemStack block3, ItemStack block4, ItemStack output) {
+        inputsList.add(new ItemStack[] {inputItem, block1, block2, block3, block4, output});
     }
 
-    public ArrayList<ItemInstance[]> getRecipes() {
+    public ArrayList<ItemStack[]> getRecipes() {
         return inputsList;
     }
 }

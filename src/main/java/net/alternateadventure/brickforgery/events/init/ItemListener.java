@@ -2,7 +2,7 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.items.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
-import net.minecraft.item.ItemBase;
+import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
@@ -14,7 +14,7 @@ public class ItemListener {
     @Entrypoint.Namespace
     public static Namespace MOD_ID;
 
-    public static ItemBase
+    public static Item
             exoticFruit,
             nightSeeds,
             nightWheat,
@@ -190,9 +190,9 @@ public class ItemListener {
 
         toolRepairKit = new LazyItemTemplate(Identifier.of(MOD_ID, "tool_repair_kit"));
 
-        archeologyBrush = new ArcheologyBrush(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
+        archeologyBrush = new ArchaeologyBrush(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
         archeologyChisel = new ArcheologyChisel(Identifier.of(MOD_ID, "archeology_chisel")).setTranslationKey(MOD_ID, "archeology_chisel");
-        archeologyIceKnife = new ArcheologyIceKnife(Identifier.of(MOD_ID, "archeology_ice_knife")).setTranslationKey(MOD_ID, "archeology_ice_knife");
+        archeologyIceKnife = new ArchaeologyIceKnife(Identifier.of(MOD_ID, "archeology_ice_knife")).setTranslationKey(MOD_ID, "archeology_ice_knife");
 
         archeologyToolBase = new TemplateItem(Identifier.of(MOD_ID, "archeology_tool_base")).setTranslationKey(MOD_ID, "archeology_tool_base");
         iceBlade = new TemplateItem(Identifier.of(MOD_ID, "ice_blade")).setTranslationKey(MOD_ID, "ice_blade");

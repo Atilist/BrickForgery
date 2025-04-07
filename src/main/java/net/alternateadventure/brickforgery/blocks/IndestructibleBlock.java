@@ -5,6 +5,7 @@ import net.minecraft.block.BlockBase;
 import net.minecraft.block.BlockSounds;
 import net.minecraft.block.material.Material;
 import net.minecraft.level.Level;
+import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 public class IndestructibleBlock extends LazyBlockTemplate {
@@ -18,7 +19,7 @@ public class IndestructibleBlock extends LazyBlockTemplate {
         return super.setUnbreakable();
     }
 
-    public void convertToRegularBlock(Level level, int x, int y, int z)
+    public void convertToRegularBlock(World level, int x, int y, int z)
     {
         if (level.getTileId(x, y, z) == BlockListener.forestVaultWalls.id) level.setTile(x, y, z, BlockListener.forestOrnament.id);
         else if (level.getTileId(x, y, z) == BlockListener.desertWellBricks.id) level.setTile(x, y, z, BlockListener.ancientSandstoneBricks.id);

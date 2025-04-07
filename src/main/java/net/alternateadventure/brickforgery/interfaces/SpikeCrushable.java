@@ -1,10 +1,10 @@
 package net.alternateadventure.brickforgery.interfaces;
 
-import net.minecraft.item.ItemInstance;
+import net.minecraft.item.ItemStack;
 
 public interface SpikeCrushable {
 
-    ItemInstance crushingOutput();
+    ItemStack crushingOutput();
 
     int requiredDistance();
 
