@@ -106,6 +106,17 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(Block.SLAB, 3, 2), "XXX", 'X', new ItemStack(BlockListener.nightPlanks));
             CraftingRegistry.addShapedRecipe(new ItemStack(Block.WOODEN_STAIRS, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(BlockListener.nightPlanks));
             CraftingRegistry.addShapedRecipe(new ItemStack(Block.WOODEN_STAIRS, 4), "  X", " XX", "XXX", 'X', new ItemStack(BlockListener.nightPlanks));
+
+            addAnvilRecipe(new ItemStack(BlockListener.brickSteelMachineFrame, 1), new Object[] {"XYYYX", "Y###Y", "Y#Z#Y", "Y###Y", "XYYYX", 'X', new ItemStack(ItemListener.bricksidianScrew), 'Y', new ItemStack(ItemListener.brickSteelBeam), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(ItemListener.hardenedBrickFrame)});
+            addAnvilRecipe(new ItemStack(BlockListener.slicer, 1), new Object[] {"XWWWX", "U-#-U", "VYZYV", "V+Y+V", "X+++X", 'U', new ItemStack(Item.DIAMOND), 'V', new ItemStack(ItemListener.nightWoodBeam), 'W', new ItemStack(net.kozibrodka.wolves.events.ItemListener.refinedSword, 1, -1), 'X', new ItemStack(ItemListener.reinforcedBrickFrame), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(BlockListener.brickSteelMachineFrame), '#', new ItemStack(BlockListener.primitiveSlicer), '+', new ItemStack(BlockListener.stoneBricks), '-', new ItemStack(ItemListener.bricksidianIngot)});
+            addAnvilRecipe(new ItemStack(BlockListener.metalworkingStation, 1), new Object[] {"XWWWX","U-#-U", "VYZYV", "V+Y+V", "X+++X", 'U', new ItemStack(Item.DIAMOND), 'V', new ItemStack(ItemListener.goldenScrew), 'W', new ItemStack(net.kozibrodka.wolves.events.ItemListener.refinedAxe, 1, -1), 'X', new ItemStack(ItemListener.reinforcedBrickFrame), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(BlockListener.brickSteelMachineFrame), '#', new ItemStack(BlockListener.primitiveMetalworkingStation), '+', new ItemStack(BlockListener.largeStoneBricks), '-', new ItemStack(ItemListener.brickSteelIngot)});
+            addAnvilRecipe(new ItemStack(BlockListener.brickFrameCrafter, 1), new Object[] {"X---X", "UY#YU", "VYZYV", "WYYYW", "X+++X", 'U', new ItemStack(net.kozibrodka.wolves.events.BlockListener.saw), 'V', new ItemStack(net.kozibrodka.wolves.events.ItemListener.grate), 'W', new ItemStack(net.kozibrodka.wolves.events.BlockListener.turntable), 'X', new ItemStack(ItemListener.reinforcedBrickFrame), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(BlockListener.brickSteelMachineFrame), '#', new ItemStack(BlockListener.primitiveBrickFrameCrafter), '+', new ItemStack(ItemListener.bricksidianIngot), '-', new ItemStack(net.kozibrodka.wolves.events.ItemListener.rollersItem)});
+            addAnvilRecipe(new ItemStack(BlockListener.alloySmelter, 1), new Object[] {"Y+++Y", "Y###Y", "XWZWX", "XWWWX", "X---X", 'W', new ItemStack(net.kozibrodka.wolves.events.ItemListener.concentratedHellfire), 'X', new ItemStack(Block.BRICKS), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(BlockListener.brickSteelMachineFrame), '#', new ItemStack(Block.FURNACE), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.crucible), '-', new ItemStack(ItemListener.thermalGlass)});
+            addAnvilRecipe(new ItemStack(ItemListener.brickSteelBeam, 4), new Object[] {"XY   ", "YX   ", "  X  ", "   XY", "   YX", 'X', new ItemStack(ItemListener.brickSteelIngot), 'Y', new ItemStack(ItemListener.durableLeatherStrap)});
+            addAnvilRecipe(new ItemStack(ItemListener.largeBrickRaw), new Object[] {"XX+XX", "XZYZX", "+Y#Y+", "XZYZX", "XX+XX", 'X', new ItemStack(Item.CLAY), 'Y', new ItemStack(ItemListener.brickSteelIngot), 'Z', new ItemStack(ItemListener.brickSteelPlate), '#', new ItemStack(Block.BRICKS), '+', new ItemStack(ItemListener.stoneBrick)});
+
+            BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), new ItemStack(BlockListener.nightPlanks), new ItemStack(BlockListener.nightPlanks), new ItemStack(Block.CLAY), new ItemStack(Block.CLAY), new ItemStack(ItemListener.brickFrame));
+            BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), new ItemStack(BlockListener.planksPile), new ItemStack(BlockListener.planksPile), new ItemStack(BlockListener.clayPile), new ItemStack(BlockListener.clayPile), new ItemStack(ItemListener.brickFrame));
         }
         // Output <- Input
         else if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type()) {
@@ -130,6 +141,54 @@ public class RecipeListener {
             CraftingRegistry.addShapelessRecipe(new ItemStack(BlockListener.nightPlanks, 4), new ItemStack(BlockListener.nightLog));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightSeeds), new ItemStack(ItemListener.nightWheat));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.exoticCatalyst), new ItemStack(ItemListener.brickCatalyst), new ItemStack(ItemListener.exoticFruit));
+
+            addCauldronRecipe(new ItemStack(ItemListener.denseNightWood), new ItemStack[] {new ItemStack(BlockListener.nightLog), new ItemStack(net.kozibrodka.wolves.events.ItemListener.wicker)});
+            addCauldronRecipe(new ItemStack(ItemListener.concentratedFortune), new ItemStack[] {new ItemStack(ItemListener.fortunePowder, 8), new ItemStack(Item.DYE, 1, 4)});
+            addCauldronRecipe(new ItemStack(ItemListener.illuminantCrystal), new ItemStack[] {new ItemStack(ItemListener.groundSandstone), new ItemStack(Item.GLOWSTONE_DUST)});
+            addCauldronRecipe(new ItemStack(ItemListener.concentratedThermal), new ItemStack[] {new ItemStack(ItemListener.thermalPowder, 8), new ItemStack(ItemListener.illuminantCrystal)});
+            addCauldronRecipe(new ItemStack(ItemListener.concentratedCryogenic), new ItemStack[] {new ItemStack(ItemListener.cryogenicPowder, 8), new ItemStack(Block.SNOW_BLOCK)});
+
+            MillingRecipeRegistry.getInstance().addMillingRecipe(Block.SANDSTONE.id, new ItemStack(ItemListener.groundSandstone));
+
+            MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.ironOreWashed.id, new ItemStack(ItemListener.ironOrePowdered, 2));
+            MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.goldOreWashed.id, new ItemStack(ItemListener.goldOrePowdered, 2));
+
+            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(Item.BRICK), new ItemStack(Block.STONE), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.stoneBrick, 1));
+            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.frozenBrick), new ItemStack(net.kozibrodka.wolves.events.ItemListener.steel), new ItemStack(net.kozibrodka.wolves.events.ItemListener.netherCoal), new ItemStack(ItemListener.brickSteelIngot, 1));
+            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(Item.BRICK), new ItemStack(Item.GOLD_INGOT), new ItemStack(Block.OBSIDIAN), new ItemStack(ItemListener.bricksidianIngot, 1));
+
+            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.tannedLeather), new ItemStack(ItemListener.nightWheat), new ItemStack(ItemListener.exoticFruit), new ItemStack(ItemListener.durableLeather, 1));
+            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.brickSteelIngot), new ItemStack(ItemListener.reinforcedBrickFrame, 1));
+
+            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.largeBrickRaw), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.largeBrick, 1));
+
+            SlicingRecipeRegistry.getInstance().addSlicingRecipe(Item.LEATHER.id, new TieredMachineRecipeData(0, new ItemStack(ItemListener.leatherStrap)));
+            SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(1, new ItemStack(ItemListener.durableLeatherStrap)));
+
+            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(Item.GOLD_INGOT.id, new TieredMachineRecipeData(0, new ItemStack(ItemListener.goldenScrew)));
+            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.bricksidianIngot.id, new TieredMachineRecipeData(1, new ItemStack(ItemListener.bricksidianScrew)));
+            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.brickSteelIngot.id, new TieredMachineRecipeData(1, new ItemStack(ItemListener.brickSteelPlate)));
+
+            HibachiIgnitionRegistry.getInstance().addBlockIgnition(BlockListener.heatPillar.id, BlockListener.heatPillarIgnited.id);
+
+            addCrucibleRecipe(new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack[] {new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.coalDust)});
+            addCrucibleRecipe(new ItemStack(ItemListener.thermalGlass), new ItemStack[] {new ItemStack(Block.GLASS, 8), new ItemStack(ItemListener.concentratedThermal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
+            addCrucibleRecipe(new ItemStack(ItemListener.illuminantCrystal, 8), new ItemStack[] {new ItemStack(ItemListener.groundSandstone, 8), new ItemStack(Item.GLOWSTONE_DUST), new ItemStack(Item.FLINT)});
+
+            addCrucibleRecipe(new ItemStack(ItemListener.ironOrePurified, 4), new ItemStack[] {new ItemStack(ItemListener.ironOrePowdered, 3), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
+            addCrucibleRecipe(new ItemStack(ItemListener.goldOrePurified, 4), new ItemStack[] {new ItemStack(ItemListener.goldOrePowdered, 3), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
+
+            addStokedCauldronRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.glue, 4), new ItemStack[] { new ItemStack(ItemListener.glueMixture)});
+
+            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.SAND.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(BlockListener.dust)), new ItemStack(ItemListener.goldOrePowdered), 0.1));
+            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.IRON_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.ironOreCrushed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
+            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.GOLD_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.goldOreCrushed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+
+            WashingRecipeRegistry.getInstance().addWashingRecipe(Block.DIRT.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(Block.SAND)), new ItemStack(Item.CLAY), 0.75));
+            WashingRecipeRegistry.getInstance().addWashingRecipe(BlockListener.dust.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(Block.CLAY)), new ItemStack(Item.CLAY), 0.25));
+            WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.ironOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.ironOreWashed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
+            WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.goldOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.goldOreWashed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {
@@ -158,65 +217,6 @@ public class RecipeListener {
             SmeltingRegistry.addSmeltingRecipe(ItemListener.diamondOreBrick.id, new ItemStack(Item.DIAMOND));
 
         }
-
-        addAnvilRecipe(new ItemStack(BlockListener.brickSteelMachineFrame, 1), new Object[] {"XYYYX", "Y###Y", "Y#Z#Y", "Y###Y", "XYYYX", 'X', new ItemStack(ItemListener.bricksidianScrew), 'Y', new ItemStack(ItemListener.brickSteelBeam), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(ItemListener.hardenedBrickFrame)});
-        addAnvilRecipe(new ItemStack(BlockListener.slicer, 1), new Object[] {"XWWWX", "U-#-U", "VYZYV", "V+Y+V", "X+++X", 'U', new ItemStack(Item.DIAMOND), 'V', new ItemStack(ItemListener.nightWoodBeam), 'W', new ItemStack(net.kozibrodka.wolves.events.ItemListener.refinedSword, 1, -1), 'X', new ItemStack(ItemListener.reinforcedBrickFrame), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(BlockListener.brickSteelMachineFrame), '#', new ItemStack(BlockListener.primitiveSlicer), '+', new ItemStack(BlockListener.stoneBricks), '-', new ItemStack(ItemListener.bricksidianIngot)});
-        addAnvilRecipe(new ItemStack(BlockListener.metalworkingStation, 1), new Object[] {"XWWWX","U-#-U", "VYZYV", "V+Y+V", "X+++X", 'U', new ItemStack(Item.DIAMOND), 'V', new ItemStack(ItemListener.goldenScrew), 'W', new ItemStack(net.kozibrodka.wolves.events.ItemListener.refinedAxe, 1, -1), 'X', new ItemStack(ItemListener.reinforcedBrickFrame), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(BlockListener.brickSteelMachineFrame), '#', new ItemStack(BlockListener.primitiveMetalworkingStation), '+', new ItemStack(BlockListener.largeStoneBricks), '-', new ItemStack(ItemListener.brickSteelIngot)});
-        addAnvilRecipe(new ItemStack(BlockListener.brickFrameCrafter, 1), new Object[] {"X---X", "UY#YU", "VYZYV", "WYYYW", "X+++X", 'U', new ItemStack(net.kozibrodka.wolves.events.BlockListener.saw), 'V', new ItemStack(net.kozibrodka.wolves.events.ItemListener.grate), 'W', new ItemStack(net.kozibrodka.wolves.events.BlockListener.turntable), 'X', new ItemStack(ItemListener.reinforcedBrickFrame), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(BlockListener.brickSteelMachineFrame), '#', new ItemStack(BlockListener.primitiveBrickFrameCrafter), '+', new ItemStack(ItemListener.bricksidianIngot), '-', new ItemStack(net.kozibrodka.wolves.events.ItemListener.rollersItem)});
-        addAnvilRecipe(new ItemStack(BlockListener.alloySmelter, 1), new Object[] {"Y+++Y", "Y###Y", "XWZWX", "XWWWX", "X---X", 'W', new ItemStack(net.kozibrodka.wolves.events.ItemListener.concentratedHellfire), 'X', new ItemStack(Block.BRICKS), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(BlockListener.brickSteelMachineFrame), '#', new ItemStack(Block.FURNACE), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.crucible), '-', new ItemStack(ItemListener.thermalGlass)});
-        addAnvilRecipe(new ItemStack(ItemListener.brickSteelBeam, 4), new Object[] {"XY   ", "YX   ", "  X  ", "   XY", "   YX", 'X', new ItemStack(ItemListener.brickSteelIngot), 'Y', new ItemStack(ItemListener.durableLeatherStrap)});
-        addAnvilRecipe(new ItemStack(ItemListener.largeBrickRaw), new Object[] {"XX+XX", "XZYZX", "+Y#Y+", "XZYZX", "XX+XX", 'X', new ItemStack(Item.CLAY), 'Y', new ItemStack(ItemListener.brickSteelIngot), 'Z', new ItemStack(ItemListener.brickSteelPlate), '#', new ItemStack(Block.BRICKS), '+', new ItemStack(ItemListener.stoneBrick)});
-
-        addCauldronRecipe(new ItemStack(ItemListener.denseNightWood), new ItemStack[] {new ItemStack(BlockListener.nightLog), new ItemStack(net.kozibrodka.wolves.events.ItemListener.wicker)});
-        addCauldronRecipe(new ItemStack(ItemListener.concentratedFortune), new ItemStack[] {new ItemStack(ItemListener.fortunePowder, 8), new ItemStack(Item.DYE, 1, 4)});
-        addCauldronRecipe(new ItemStack(ItemListener.illuminantCrystal), new ItemStack[] {new ItemStack(ItemListener.groundSandstone), new ItemStack(Item.GLOWSTONE_DUST)});
-        addCauldronRecipe(new ItemStack(ItemListener.concentratedThermal), new ItemStack[] {new ItemStack(ItemListener.thermalPowder, 8), new ItemStack(ItemListener.illuminantCrystal)});
-        addCauldronRecipe(new ItemStack(ItemListener.concentratedCryogenic), new ItemStack[] {new ItemStack(ItemListener.cryogenicPowder, 8), new ItemStack(Block.SNOW_BLOCK)});
-
-        MillingRecipeRegistry.getInstance().addMillingRecipe(Block.SANDSTONE.id, new ItemStack(ItemListener.groundSandstone));
-
-        MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.ironOreWashed.id, new ItemStack(ItemListener.ironOrePowdered, 2));
-        MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.goldOreWashed.id, new ItemStack(ItemListener.goldOrePowdered, 2));
-
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(Item.BRICK), new ItemStack(Block.STONE), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.stoneBrick, 1));
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.frozenBrick), new ItemStack(net.kozibrodka.wolves.events.ItemListener.steel), new ItemStack(net.kozibrodka.wolves.events.ItemListener.netherCoal), new ItemStack(ItemListener.brickSteelIngot, 1));
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(Item.BRICK), new ItemStack(Item.GOLD_INGOT), new ItemStack(Block.OBSIDIAN), new ItemStack(ItemListener.bricksidianIngot, 1));
-
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.tannedLeather), new ItemStack(ItemListener.nightWheat), new ItemStack(ItemListener.exoticFruit), new ItemStack(ItemListener.durableLeather, 1));
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.brickSteelIngot), new ItemStack(ItemListener.reinforcedBrickFrame, 1));
-
-        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.largeBrickRaw), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.largeBrick, 1));
-
-        SlicingRecipeRegistry.getInstance().addSlicingRecipe(Item.LEATHER.id, new TieredMachineRecipeData(0, new ItemStack(ItemListener.leatherStrap)));
-        SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(1, new ItemStack(ItemListener.durableLeatherStrap)));
-
-        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(Item.GOLD_INGOT.id, new TieredMachineRecipeData(0, new ItemStack(ItemListener.goldenScrew)));
-        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.bricksidianIngot.id, new TieredMachineRecipeData(1, new ItemStack(ItemListener.bricksidianScrew)));
-        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.brickSteelIngot.id, new TieredMachineRecipeData(1, new ItemStack(ItemListener.brickSteelPlate)));
-
-        HibachiIgnitionRegistry.getInstance().addBlockIgnition(BlockListener.heatPillar.id, BlockListener.heatPillarIgnited.id);
-
-        addCrucibleRecipe(new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack[] {new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.coalDust)});
-        addCrucibleRecipe(new ItemStack(ItemListener.thermalGlass), new ItemStack[] {new ItemStack(Block.GLASS, 8), new ItemStack(ItemListener.concentratedThermal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
-        addCrucibleRecipe(new ItemStack(ItemListener.illuminantCrystal, 8), new ItemStack[] {new ItemStack(ItemListener.groundSandstone, 8), new ItemStack(Item.GLOWSTONE_DUST), new ItemStack(Item.FLINT)});
-
-        addCrucibleRecipe(new ItemStack(ItemListener.ironOrePurified, 4), new ItemStack[] {new ItemStack(ItemListener.ironOrePowdered, 3), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
-        addCrucibleRecipe(new ItemStack(ItemListener.goldOrePurified, 4), new ItemStack[] {new ItemStack(ItemListener.goldOrePowdered, 3), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
-
-        addStokedCauldronRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.glue, 4), new ItemStack[] { new ItemStack(ItemListener.glueMixture)});
-
-        CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.SAND.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(BlockListener.dust)), new ItemStack(ItemListener.goldOrePowdered), 0.1));
-        CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.IRON_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.ironOreCrushed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
-        CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.GOLD_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.goldOreCrushed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
-
-        WashingRecipeRegistry.getInstance().addWashingRecipe(Block.DIRT.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(Block.SAND)), new ItemStack(Item.CLAY), 0.75));
-        WashingRecipeRegistry.getInstance().addWashingRecipe(BlockListener.dust.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(Block.CLAY)), new ItemStack(Item.CLAY), 0.25));
-        WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.ironOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.ironOreWashed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
-        WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.goldOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.goldOreWashed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
-
-        BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), new ItemStack(BlockListener.nightPlanks), new ItemStack(BlockListener.nightPlanks), new ItemStack(Block.CLAY), new ItemStack(Block.CLAY), new ItemStack(ItemListener.brickFrame));
-        BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), new ItemStack(BlockListener.planksPile), new ItemStack(BlockListener.planksPile), new ItemStack(BlockListener.clayPile), new ItemStack(BlockListener.clayPile), new ItemStack(ItemListener.brickFrame));
-
     }
 
     private static void addAnvilRecipe(ItemStack output, Object[] inputs) {

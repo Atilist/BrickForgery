@@ -8,8 +8,7 @@ public class TieredMachineRecipeData
     public int tierRequirement;
     public ItemStack output;
 
-    public TieredMachineRecipeData(int tierRequirement, ItemStack output)
-    {
+    public TieredMachineRecipeData(int tierRequirement, ItemStack output) {
         this.tierRequirement = tierRequirement;
         this.output = output;
     }

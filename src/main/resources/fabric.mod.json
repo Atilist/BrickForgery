@@ -29,7 +29,8 @@
       "net.alternateadventure.brickforgery.events.init.TextureListener",
       "net.alternateadventure.brickforgery.events.init.GuiListener"
     ],
-    "stationapi:event_bus_server": [
+    "alwaysmoreitems:plugin": [
+      "net.alternateadventure.brickforgery.compat.ami.AMICompat"
     ]
   },
   "mixins": [

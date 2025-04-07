@@ -1,6 +1,7 @@
 package net.alternateadventure.brickforgery.customrecipes;
 
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
+import net.alternateadventure.brickforgery.wrappers.CrushingRecipe;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -23,23 +24,23 @@ public class CrushingRecipeRegistry {
         return (TierAndByproductOutput)this.recipes.get(i);
     }
 
-    public ArrayList<ItemStack[]> getRecipes() {
-        ArrayList<ItemStack[]> ItemStacks = new ArrayList<>();
+    public ArrayList<CrushingRecipe> getRecipes() {
+        ArrayList<CrushingRecipe> convertedRecipes = new ArrayList<>();
         ArrayList<ItemStack> inputs = new ArrayList<>();
-        ArrayList<ItemStack> outputs = new ArrayList<>();
-        ArrayList<ItemStack> byproducts = new ArrayList<>();
-        for (Object obj : recipes.keySet()) {
-            if (obj instanceof Integer)
-            {
+        ArrayList<ItemStack[]> outputs = new ArrayList<>();
+
+        for (Object obj : this.recipes.keySet()) {
+            if (obj instanceof Integer) {
                 inputs.add(new ItemStack((Integer) obj, 1, 0));
-                outputs.add(getResult((Integer) obj).tieredMachineRecipeData.output);
-                byproducts.add(getResult((Integer) obj).byproduct);
+                TierAndByproductOutput result = this.getResult((Integer) obj);
+                outputs.add(new ItemStack[]{result.tieredMachineRecipeData.output, result.byproduct});
             }
         }
-        for (int i = 0; i < inputs.size(); i++) {
-            if (i >= outputs.size()) break;
-            ItemStacks.add(new ItemStack[] {inputs.get(i), outputs.get(i), byproducts.get(i)});
+
+        for(int i = 0; i < inputs.size() && i < outputs.size(); ++i) {
+            convertedRecipes.add(new CrushingRecipe(inputs.get(i), outputs.get(i)));
         }
-        return ItemStacks;
+
+        return convertedRecipes;
     }
 }

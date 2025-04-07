@@ -1,5 +1,7 @@
 package net.alternateadventure.brickforgery.customrecipes;
 
+import net.alternateadventure.brickforgery.wrappers.AlloySmeltingRecipe;
+import net.alternateadventure.brickforgery.wrappers.BrickFramingRecipe;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -42,7 +44,12 @@ public class BrickFramingRecipeRegistry {
         inputsList.add(new ItemStack[] {inputItem, block1, block2, block3, block4, output});
     }
 
-    public ArrayList<ItemStack[]> getRecipes() {
-        return inputsList;
+    public ArrayList<BrickFramingRecipe> getRecipes() {
+        ArrayList<BrickFramingRecipe> convertedRecipes = new ArrayList<>();
+        for (ItemStack[] itemStacks : inputsList) {
+            BrickFramingRecipe alloySmeltingRecipe = new BrickFramingRecipe(new ItemStack[]{itemStacks[0], itemStacks[1], itemStacks[2], itemStacks[3], itemStacks[4]}, itemStacks[5]);
+            convertedRecipes.add(alloySmeltingRecipe);
+        }
+        return convertedRecipes;
     }
 }
