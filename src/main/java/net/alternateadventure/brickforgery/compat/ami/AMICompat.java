@@ -6,9 +6,13 @@ import net.alternateadventure.brickforgery.compat.ami.brickframing.BrickFramingR
 import net.alternateadventure.brickforgery.compat.ami.brickframing.BrickFramingRecipeHandler;
 import net.alternateadventure.brickforgery.compat.ami.crushing.CrushingRecipeCategory;
 import net.alternateadventure.brickforgery.compat.ami.crushing.CrushingRecipeHandler;
-import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
-import net.alternateadventure.brickforgery.customrecipes.BrickFramingRecipeRegistry;
-import net.alternateadventure.brickforgery.customrecipes.CrushingRecipeRegistry;
+import net.alternateadventure.brickforgery.compat.ami.metalworking.MetalworkingRecipeCategory;
+import net.alternateadventure.brickforgery.compat.ami.metalworking.MetalworkingRecipeHandler;
+import net.alternateadventure.brickforgery.compat.ami.slicing.SlicingRecipeCategory;
+import net.alternateadventure.brickforgery.compat.ami.slicing.SlicingRecipeHandler;
+import net.alternateadventure.brickforgery.compat.ami.washing.WashingRecipeCategory;
+import net.alternateadventure.brickforgery.compat.ami.washing.WashingRecipeHandler;
+import net.alternateadventure.brickforgery.customrecipes.*;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.glasslauncher.mods.alwaysmoreitems.api.*;
 import net.minecraft.nbt.NbtCompound;
@@ -50,7 +54,17 @@ public class AMICompat implements ModPluginProvider {
         registry.addRecipeHandlers(new CrushingRecipeHandler());
         registry.addRecipes(CrushingRecipeRegistry.getInstance().getRecipes());
 
-        // TODO: Metalworking, Slicing, and Washing tabs
+        registry.addRecipeCategories(new MetalworkingRecipeCategory());
+        registry.addRecipeHandlers(new MetalworkingRecipeHandler());
+        registry.addRecipes(MetalworkingRecipeRegistry.getInstance().getRecipes());
+
+        registry.addRecipeCategories(new SlicingRecipeCategory());
+        registry.addRecipeHandlers(new SlicingRecipeHandler());
+        registry.addRecipes(SlicingRecipeRegistry.getInstance().getRecipes());
+
+        registry.addRecipeCategories(new WashingRecipeCategory());
+        registry.addRecipeHandlers(new WashingRecipeHandler());
+        registry.addRecipes(WashingRecipeRegistry.getInstance().getRecipes());
     }
 
     @Override

@@ -1,6 +1,8 @@
 package net.alternateadventure.brickforgery.customrecipes;
 
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
+import net.alternateadventure.brickforgery.wrappers.MetalworkingRecipe;
+import net.alternateadventure.brickforgery.wrappers.SlicingRecipe;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -23,21 +25,23 @@ public class SlicingRecipeRegistry {
         return (TieredMachineRecipeData)this.recipes.get(i);
     }
 
-    public ArrayList<ItemStack[]> getRecipes() {
-        ArrayList<ItemStack[]> ItemStacks = new ArrayList<>();
+    public ArrayList<SlicingRecipe> getRecipes() {
+        ArrayList<SlicingRecipe> convertedRecipes = new ArrayList<>();
         ArrayList<ItemStack> inputs = new ArrayList<>();
         ArrayList<ItemStack> outputs = new ArrayList<>();
-        for (Object obj : recipes.keySet()) {
-            if (obj instanceof Integer)
-            {
+
+        for (Object obj : this.recipes.keySet()) {
+            if (obj instanceof Integer) {
                 inputs.add(new ItemStack((Integer) obj, 1, 0));
-                outputs.add(getResult((Integer) obj).output);
+                TieredMachineRecipeData result = this.getResult((Integer) obj);
+                outputs.add(result.output);
             }
         }
-        for (int i = 0; i < inputs.size(); i++) {
-            if (i >= outputs.size()) break;
-            ItemStacks.add(new ItemStack[] {inputs.get(i), outputs.get(i)});
+
+        for(int i = 0; i < inputs.size() && i < outputs.size(); ++i) {
+            convertedRecipes.add(new SlicingRecipe(inputs.get(i), outputs.get(i)));
         }
-        return ItemStacks;
+
+        return convertedRecipes;
     }
 }
