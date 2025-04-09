@@ -25,7 +25,7 @@ tile.@.desert_well_bricks.name=Desert Well Bricks
 tile.@.desert_well_floor.name=Desert Well Floor
 tile.@.desert_well_keyhole.name=Desert Well Keyhole
 tile.@.ancient_sandstone_bricks.name=Ancient Sandstone Bricks
-tile.@.ancient_sandstone_tile.@.name=Ancient Sandstone Tile
+tile.@.ancient_sandstone_tile.name=Ancient Sandstone Tile
 
 tile.@.frost_vault_bricks.name=Frost Vault Bricks
 tile.@.frost_vault_tiling.name=Frost Vault Tiling
