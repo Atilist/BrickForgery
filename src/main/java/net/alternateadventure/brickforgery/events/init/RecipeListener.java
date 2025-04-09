@@ -3,6 +3,7 @@ package net.alternateadventure.brickforgery.events.init;
 import net.alternateadventure.brickforgery.registry.machine.*;
 import net.alternateadventure.brickforgery.registry.tool.BrushRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.tool.ChiselRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.tool.GrabberRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.*;
 import net.kozibrodka.wolves.api.HibachiIgnitionRegistry;
 import net.kozibrodka.wolves.recipe.*;
@@ -194,6 +195,10 @@ public class RecipeListener {
 
             ChiselRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.desertPotSealed.id, new TieredBlockConversionData(new int[] {BlockListener.desertPot.id}, new int[] {90}, TierEnum.PRIMITIVE));
             ChiselRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.frozenPotSealed.id, new TieredBlockConversionData(new int[] {BlockListener.frozenPot.id}, new int[] {90}, TierEnum.PRIMITIVE));
+
+            GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.commonPot.id, new TieredBlockLootingData(new ItemStack[] {new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(Block.GRAVEL, 1)}, new int[] {90, 30}, 40, TierEnum.PRIMITIVE));
+            GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.desertPot.id, new TieredBlockLootingData(new ItemStack[] {new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(ItemListener.goldenScrew, 1), new ItemStack(Block.SAND, 1)}, new int[] {50, 70, 30}, 60, TierEnum.PRIMITIVE));
+            GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.frozenPot.id, new TieredBlockLootingData(new ItemStack[] {new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(ItemListener.goldenScrew, 1), new ItemStack(Block.SNOW_BLOCK, 1)}, new int[] {50, 70, 30}, 60, TierEnum.PRIMITIVE));
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {

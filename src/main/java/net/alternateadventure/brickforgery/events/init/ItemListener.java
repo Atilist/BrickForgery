@@ -142,7 +142,7 @@ public class ItemListener {
 
         primitiveBrush = new BrushToolTemplate(Identifier.of(MOD_ID, "primitive_brush"), 256, TierEnum.PRIMITIVE);
         primitiveChisel = new ChiselToolTemplate(Identifier.of(MOD_ID, "primitive_chisel"), 256, TierEnum.PRIMITIVE);
-        primitiveGrabber = new PrimitiveGrabberItem(Identifier.of(MOD_ID, "primitive_grabber"));
+        primitiveGrabber = new GrabberToolTemplate(Identifier.of(MOD_ID, "primitive_grabber"), 256, TierEnum.PRIMITIVE);
 
         archaeologyBrush = new BrushToolTemplate(Identifier.of(MOD_ID, "archaeology_brush"), 512, TierEnum.BRICK);
         archaeologyChisel = new ChiselToolTemplate(Identifier.of(MOD_ID, "archaeology_chisel"), 512, TierEnum.BRICK);
