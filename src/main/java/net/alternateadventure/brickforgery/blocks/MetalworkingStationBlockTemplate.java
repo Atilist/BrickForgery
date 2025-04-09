@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.containers.ContainerMetalworkingStation;
+import net.alternateadventure.brickforgery.containers.MetalworkingStationScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityMetalworkingStation;
 import net.kozibrodka.wolves.events.BlockListener;
@@ -29,7 +29,7 @@ public class MetalworkingStationBlockTemplate extends LazySimpleMachineBlockTemp
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
         if (tileEntity instanceof TileEntityMetalworkingStation tileEntityMetalworkingStation)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_metalworking_station"), tileEntityMetalworkingStation, new ContainerMetalworkingStation(player.inventory, tileEntityMetalworkingStation));
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_metalworking_station"), tileEntityMetalworkingStation, new MetalworkingStationScreenHandler(player.inventory, tileEntityMetalworkingStation));
         return true;
     }
 

@@ -11,11 +11,11 @@ import net.minecraft.screen.ScreenHandlerListener;
 import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
 
-public class ContainerMetalworkingStation extends ScreenHandler {
+public class MetalworkingStationScreenHandler extends ScreenHandler {
     private final TileEntityMetalworkingStation metalworkingStation;
     private int sliceTime = 0;
 
-    public ContainerMetalworkingStation(PlayerInventory arg, TileEntityMetalworkingStation arg2) {
+    public MetalworkingStationScreenHandler(PlayerInventory arg, TileEntityMetalworkingStation arg2) {
         this.metalworkingStation = arg2;
 
         this.addSlot(new Slot(arg2, 0, 56, 35));

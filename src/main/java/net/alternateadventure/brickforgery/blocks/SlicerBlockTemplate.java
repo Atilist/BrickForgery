@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.containers.ContainerSlicer;
+import net.alternateadventure.brickforgery.containers.SlicerScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntitySlicer;
 import net.kozibrodka.wolves.events.BlockListener;
@@ -28,7 +28,7 @@ public class SlicerBlockTemplate extends LazySimpleMachineBlockTemplate {
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
         if (tileEntity instanceof TileEntitySlicer tileEntitySlicer)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_slicer"), tileEntitySlicer, new ContainerSlicer(player.inventory, tileEntitySlicer));
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_slicer"), tileEntitySlicer, new SlicerScreenHandler(player.inventory, tileEntitySlicer));
         return true;
     }
 

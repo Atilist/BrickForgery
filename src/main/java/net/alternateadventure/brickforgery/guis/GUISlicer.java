@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.guis;
 
-import net.alternateadventure.brickforgery.containers.ContainerSlicer;
+import net.alternateadventure.brickforgery.containers.SlicerScreenHandler;
 import net.alternateadventure.brickforgery.tileentities.TileEntitySlicer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,7 +13,7 @@ public class GUISlicer extends HandledScreen {
     private final TileEntitySlicer slicer;
 
     public GUISlicer(PlayerInventory arg, TileEntitySlicer arg2) {
-        super(new ContainerSlicer(arg, arg2));
+        super(new SlicerScreenHandler(arg, arg2));
         this.slicer = arg2;
     }
 

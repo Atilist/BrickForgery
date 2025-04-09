@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.containers.ContainerImprovedMillstone;
+import net.alternateadventure.brickforgery.containers.ImprovedMillstoneScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityImprovedMillstone;
 import net.kozibrodka.wolves.events.BlockListener;
@@ -26,7 +26,7 @@ public class ImprovedMillstoneBlock extends LazySimpleMachineBlockTemplate {
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
         if (tileEntity instanceof TileEntityImprovedMillstone tileEntityImprovedMillstone)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_improved_millstone"), tileEntityImprovedMillstone, new ContainerImprovedMillstone(player.inventory, tileEntityImprovedMillstone));
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_improved_millstone"), tileEntityImprovedMillstone, new ImprovedMillstoneScreenHandler(player.inventory, tileEntityImprovedMillstone));
         return true;
     }
 

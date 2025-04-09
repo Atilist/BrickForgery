@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.guis;
 
-import net.alternateadventure.brickforgery.containers.ContainerWasher;
+import net.alternateadventure.brickforgery.containers.WasherScreenHandler;
 import net.alternateadventure.brickforgery.tileentities.TileEntityWasher;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,7 +13,7 @@ public class GUIWasher extends HandledScreen {
     private final TileEntityWasher washer;
 
     public GUIWasher(PlayerInventory arg, TileEntityWasher arg2) {
-        super(new ContainerWasher(arg, arg2));
+        super(new WasherScreenHandler(arg, arg2));
         this.washer = arg2;
     }
 

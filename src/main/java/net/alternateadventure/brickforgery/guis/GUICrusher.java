@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.guis;
 
-import net.alternateadventure.brickforgery.containers.ContainerCrusher;
+import net.alternateadventure.brickforgery.containers.CrusherScreenHandler;
 import net.alternateadventure.brickforgery.tileentities.TileEntityCrusher;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,7 +13,7 @@ public class GUICrusher extends HandledScreen {
     private final TileEntityCrusher crusher;
 
     public GUICrusher(PlayerInventory arg, TileEntityCrusher arg2) {
-        super(new ContainerCrusher(arg, arg2));
+        super(new CrusherScreenHandler(arg, arg2));
         this.crusher = arg2;
     }
 

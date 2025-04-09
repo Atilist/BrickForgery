@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.guis;
 
-import net.alternateadventure.brickforgery.containers.ContainerAlloySmelter;
+import net.alternateadventure.brickforgery.containers.AlloySmelterScreenHandler;
 import net.alternateadventure.brickforgery.tileentities.TileEntityAlloySmelter;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -13,7 +13,7 @@ public class GUIAlloySmelter extends HandledScreen {
     private final TileEntityAlloySmelter alloySmelter;
 
     public GUIAlloySmelter(PlayerInventory arg, TileEntityAlloySmelter arg2) {
-        super(new ContainerAlloySmelter(arg, arg2));
+        super(new AlloySmelterScreenHandler(arg, arg2));
         this.alloySmelter = arg2;
     }
 

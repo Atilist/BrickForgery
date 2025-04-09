@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.containers.ContainerWasher;
+import net.alternateadventure.brickforgery.containers.WasherScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityWasher;
 import net.kozibrodka.wolves.events.BlockListener;
@@ -29,7 +29,7 @@ public class WasherBaseBlock extends LazySimpleMachineBlockTemplate {
 
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
         if (tileEntity instanceof TileEntityWasher tileEntityWasher)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_washer"), tileEntityWasher, new ContainerWasher(player.inventory, tileEntityWasher));
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_washer"), tileEntityWasher, new WasherScreenHandler(player.inventory, tileEntityWasher));
 
         return true;
     }

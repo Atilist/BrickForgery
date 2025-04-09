@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.containers.ContainerAlloySmelter;
+import net.alternateadventure.brickforgery.containers.AlloySmelterScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityAlloySmelter;
@@ -40,7 +40,7 @@ public class AlloySmelterBlock extends DirectionalMachineTemplateBlock {
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
         if (tileEntity instanceof TileEntityAlloySmelter tileEntityAlloySmelter)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_alloy_smelter"), tileEntityAlloySmelter, new ContainerAlloySmelter(player.inventory, tileEntityAlloySmelter));
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_alloy_smelter"), tileEntityAlloySmelter, new AlloySmelterScreenHandler(player.inventory, tileEntityAlloySmelter));
         return true;
     }
 

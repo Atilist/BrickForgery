@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.guis;
 
-import net.alternateadventure.brickforgery.containers.ContainerImprovedMillstone;
+import net.alternateadventure.brickforgery.containers.ImprovedMillstoneScreenHandler;
 import net.alternateadventure.brickforgery.tileentities.TileEntityImprovedMillstone;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
@@ -10,7 +10,7 @@ public class GUIImprovedMillstone extends HandledScreen {
     private final TileEntityImprovedMillstone improvedMillstone;
 
     public GUIImprovedMillstone(PlayerInventory arg, TileEntityImprovedMillstone arg2) {
-        super(new ContainerImprovedMillstone(arg, arg2));
+        super(new ImprovedMillstoneScreenHandler(arg, arg2));
         this.improvedMillstone = arg2;
     }
 

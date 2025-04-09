@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.containers.ContainerCrusher;
+import net.alternateadventure.brickforgery.containers.CrusherScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.tileentities.TileEntityCrusher;
 import net.kozibrodka.wolves.events.BlockListener;
@@ -28,7 +28,7 @@ public class CrusherBaseBlock extends LazySimpleMachineBlockTemplate {
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
         if (tileEntity instanceof TileEntityCrusher tileEntityCrusher)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_crusher"), tileEntityCrusher, new ContainerCrusher(player.inventory, tileEntityCrusher));
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_crusher"), tileEntityCrusher, new CrusherScreenHandler(player.inventory, tileEntityCrusher));
         return true;
     }
 

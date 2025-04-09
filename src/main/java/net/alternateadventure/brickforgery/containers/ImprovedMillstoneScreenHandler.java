@@ -11,11 +11,11 @@ import net.minecraft.screen.ScreenHandlerListener;
 import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
 
-public class ContainerImprovedMillstone extends ScreenHandler {
+public class ImprovedMillstoneScreenHandler extends ScreenHandler {
     private final TileEntityImprovedMillstone improvedMillstone;
     private int sliceTime = 0;
 
-    public ContainerImprovedMillstone(PlayerInventory arg, TileEntityImprovedMillstone arg2) {
+    public ImprovedMillstoneScreenHandler(PlayerInventory arg, TileEntityImprovedMillstone arg2) {
         this.improvedMillstone = arg2;
 
         for (int index = 0; index < 3; index++) {
