@@ -6,10 +6,10 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import org.lwjgl.opengl.GL11;
 
-public class GUIImprovedMillstone extends HandledScreen {
+public class ImprovedMillstoneScreen extends HandledScreen {
     private final TileEntityImprovedMillstone improvedMillstone;
 
-    public GUIImprovedMillstone(PlayerInventory arg, TileEntityImprovedMillstone arg2) {
+    public ImprovedMillstoneScreen(PlayerInventory arg, TileEntityImprovedMillstone arg2) {
         super(new ImprovedMillstoneScreenHandler(arg, arg2));
         this.improvedMillstone = arg2;
     }

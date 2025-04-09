@@ -32,26 +32,26 @@ public class GuiListener {
     }
 
     public Screen openAlloySmelter(PlayerEntity playerBase, Inventory inventoryBase) {
-        return new GUIAlloySmelter(playerBase.inventory, (TileEntityAlloySmelter) inventoryBase);
+        return new AlloySmelterScreen(playerBase.inventory, (TileEntityAlloySmelter) inventoryBase);
     }
 
     public Screen openSlicer(PlayerEntity playerBase, Inventory inventoryBase) {
-        return new GUISlicer(playerBase.inventory, (TileEntitySlicer) inventoryBase);
+        return new SlicerScreen(playerBase.inventory, (TileEntitySlicer) inventoryBase);
     }
 
     public Screen openMetalworkingStation(PlayerEntity playerBase, Inventory inventoryBase) {
-        return new GUIMetalworkingStation(playerBase.inventory, (TileEntityMetalworkingStation) inventoryBase);
+        return new MetalworkingStationScreen(playerBase.inventory, (TileEntityMetalworkingStation) inventoryBase);
     }
 
     public Screen openImprovedMillstone(PlayerEntity playerBase, Inventory inventoryBase) {
-        return new GUIImprovedMillstone(playerBase.inventory, (TileEntityImprovedMillstone) inventoryBase);
+        return new ImprovedMillstoneScreen(playerBase.inventory, (TileEntityImprovedMillstone) inventoryBase);
     }
 
     public Screen openCrusher(PlayerEntity playerBase, Inventory inventoryBase) {
-        return new GUICrusher(playerBase.inventory, (TileEntityCrusher) inventoryBase);
+        return new CrusherScreen(playerBase.inventory, (TileEntityCrusher) inventoryBase);
     }
 
     public Screen openWasher(PlayerEntity playerBase, Inventory inventoryBase) {
-        return new GUIWasher(playerBase.inventory, (TileEntityWasher) inventoryBase);
+        return new WasherScreen(playerBase.inventory, (TileEntityWasher) inventoryBase);
     }
 }
