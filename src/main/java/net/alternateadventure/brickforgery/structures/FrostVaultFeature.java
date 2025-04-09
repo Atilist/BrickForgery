@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class FrostVault {
+public class FrostVaultFeature {
 
     public void generate(World level, Random rand, int x, int y, int z) {
         if (!(level.getBlockId(x, y + 1, z) == 0 && level.getBlockId(x, y, z) == Block.SNOW.id)) return;

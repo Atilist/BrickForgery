@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class DesertWell {
+public class DesertWellFeature {
 
     public void generate(World level, Random rand, int x, int y, int z) {
         if (level.getBlockId(x, y, z) != Block.SAND.id || level.getBlockId(x, y + 1, z) != 0) return;

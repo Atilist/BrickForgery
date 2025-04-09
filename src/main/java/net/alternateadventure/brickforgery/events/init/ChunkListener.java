@@ -22,7 +22,7 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(36) + 12;
                 z = event.z + event.random.nextInt(16);
-                new FactoryRuins().generate(event.world, event.random, x, y, z);
+                new FactoryRuinsFeature().generate(event.world, event.random, x, y, z);
             }
         }
         if (event.biome == Biome.DESERT) {
@@ -30,7 +30,7 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(48) + 64;
                 z = event.z + event.random.nextInt(16);
-                new DesertWell().generate(event.world, event.random, x, y, z);
+                new DesertWellFeature().generate(event.world, event.random, x, y, z);
             }
         }
         if (event.biome == Biome.TUNDRA) {
@@ -38,7 +38,7 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(48) + 64;
                 z = event.z + event.random.nextInt(16);
-                new FrostVault().generate(event.world, event.random, x, y, z);
+                new FrostVaultFeature().generate(event.world, event.random, x, y, z);
             }
         }
         if (event.biome == Biome.RAINFOREST) {
@@ -46,7 +46,7 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(96) + 32;
                 z = event.z + event.random.nextInt(16);
-                new MossyPotArea().generate(event.world, event.random, x, y, z);
+                new MossyPotAreaFeature().generate(event.world, event.random, x, y, z);
             }
         }
         if (event.biome == Biome.PLAINS || event.biome == Biome.SHRUBLAND || event.biome == Biome.SAVANNA || event.biome == Biome.SWAMPLAND || event.biome == Biome.TUNDRA) {
@@ -54,14 +54,14 @@ public class ChunkListener {
                 x = event.x + event.random.nextInt(16);
                 y = event.random.nextInt(48) + 64;
                 z = event.z + event.random.nextInt(16);
-                new ExoticShrubArea().generate(event.world, event.random, x, y, z);
+                new ExoticShrubAreaFeature().generate(event.world, event.random, x, y, z);
             }
         }
         if ((event.biome == Biome.FOREST || event.biome == Biome.SEASONAL_FOREST || event.biome == Biome.RAINFOREST || event.biome == Biome.TAIGA) && event.random.nextInt(4) == 0) {
             x = event.x + event.random.nextInt(16);
             y = event.random.nextInt(16) + 64;
             z = event.z + event.random.nextInt(16);
-            new ForestVault().generate(event.world, event.random, x, y, z);
+            new ForestVaultFeature().generate(event.world, event.random, x, y, z);
         }
     }
 }

@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class ForestVault {
+public class ForestVaultFeature {
     public void generate(World level, Random rand, int x, int y, int z) {
         if (level.getBlockId(x, y, z) != Block.GRASS.id) return;
         for (int xOffset = -2; xOffset <= 2; xOffset++) {
