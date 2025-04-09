@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.tileentities;
 
-import net.alternateadventure.brickforgery.blocks.AlloySmelter;
+import net.alternateadventure.brickforgery.blocks.AlloySmelterBlock;
 import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
@@ -164,7 +164,7 @@ public class TileEntityAlloySmelter extends BlockEntity implements Inventory, Bl
 
             if (var1 != this.burnTime > 0) {
                 var2 = true;
-                AlloySmelter.updateAlloySmelterState(this.burnTime > 0, this.world, this.x, this.y, this.z);
+                AlloySmelterBlock.updateAlloySmelterState(this.burnTime > 0, this.world, this.x, this.y, this.z);
             }
         }
 

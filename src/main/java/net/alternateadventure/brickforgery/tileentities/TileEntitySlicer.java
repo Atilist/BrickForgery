@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.tileentities;
 
-import net.alternateadventure.brickforgery.blocks.SlicerBase;
+import net.alternateadventure.brickforgery.blocks.SlicerBlockTemplate;
 import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
@@ -150,9 +150,9 @@ public class TileEntitySlicer extends BlockEntity implements Inventory, BlockWit
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof SlicerBase)
+        if (blockBase instanceof SlicerBlockTemplate)
         {
-            tier = ((SlicerBase) blockBase).tier;
+            tier = ((SlicerBlockTemplate) blockBase).tier;
             tierChecked = true;
         }
     }

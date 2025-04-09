@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.items;
 
-import net.alternateadventure.brickforgery.blocks.IndestructibleBlock;
+import net.alternateadventure.brickforgery.blocks.IndestructibleBlockBlock;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
@@ -28,7 +28,7 @@ public class DesertKey extends LazyItemTemplate {
     private void convertAdjacentBlock(World level, int x, int y, int z) {
         Block block = Block.BLOCKS[level.getBlockId(x, y, z)];
         if (block == null) return;
-        if (!(block instanceof IndestructibleBlock)) return;
-        ((IndestructibleBlock) block).convertToRegularBlock(level, x, y, z);
+        if (!(block instanceof IndestructibleBlockBlock)) return;
+        ((IndestructibleBlockBlock) block).convertToRegularBlock(level, x, y, z);
     }
 }

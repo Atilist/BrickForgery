@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.tileentities;
 
-import net.alternateadventure.brickforgery.blocks.CrusherBase;
+import net.alternateadventure.brickforgery.blocks.CrusherBaseBlock;
 import net.alternateadventure.brickforgery.customrecipes.CrushingRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
 import net.fabricmc.api.EnvType;
@@ -150,9 +150,9 @@ public class TileEntityCrusher extends BlockEntity implements Inventory {
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof CrusherBase)
+        if (blockBase instanceof CrusherBaseBlock)
         {
-            tier = ((CrusherBase) blockBase).tier;
+            tier = ((CrusherBaseBlock) blockBase).tier;
             tierChecked = true;
         }
     }

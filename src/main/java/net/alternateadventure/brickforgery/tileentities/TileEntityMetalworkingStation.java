@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.tileentities;
 
-import net.alternateadventure.brickforgery.blocks.MetalworkingStationBase;
+import net.alternateadventure.brickforgery.blocks.MetalworkingStationBlockTemplate;
 import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
@@ -150,9 +150,9 @@ public class TileEntityMetalworkingStation extends BlockEntity implements Invent
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof MetalworkingStationBase)
+        if (blockBase instanceof MetalworkingStationBlockTemplate)
         {
-            tier = ((MetalworkingStationBase) blockBase).tier;
+            tier = ((MetalworkingStationBlockTemplate) blockBase).tier;
             tierChecked = true;
         }
     }
