@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class DirtBrickSand extends LazyItemTemplate {
-    public DirtBrickSand(Identifier identifier) {
+public class DirtBrickSandItem extends LazyItemTemplate {
+    public DirtBrickSandItem(Identifier identifier) {
         super(identifier);
     }
 

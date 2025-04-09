@@ -12,8 +12,8 @@ import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
-public class PrimitiveGrabber extends LazyItemTemplate {
-    public PrimitiveGrabber(Identifier identifier) {
+public class PrimitiveGrabberItem extends LazyItemTemplate {
+    public PrimitiveGrabberItem(Identifier identifier) {
         super(identifier);
         this.maxCount = 1;
         this.setMaxDamage(127);

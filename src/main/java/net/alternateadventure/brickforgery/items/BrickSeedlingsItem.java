@@ -7,9 +7,9 @@ import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class BrickSeedlings extends TemplateItem {
+public class BrickSeedlingsItem extends TemplateItem {
 
-    public BrickSeedlings(Identifier identifier) {
+    public BrickSeedlingsItem(Identifier identifier) {
         super(identifier);
     }
 

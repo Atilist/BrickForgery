@@ -8,8 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class IceKey extends LazyItemTemplate {
-    public IceKey(Identifier identifier) {
+public class IceKeyItem extends LazyItemTemplate {
+    public IceKeyItem(Identifier identifier) {
         super(identifier);
     }
 

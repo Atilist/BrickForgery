@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class ExoticCatalyst extends LazyItemTemplate{
-    public ExoticCatalyst(Identifier identifier) {
+public class ExoticCatalystItem extends LazyItemTemplate{
+    public ExoticCatalystItem(Identifier identifier) {
         super(identifier);
     }
 

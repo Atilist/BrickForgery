@@ -8,9 +8,9 @@ import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class NightSeeds extends TemplateItem {
+public class NightSeedsItem extends TemplateItem {
 
-    public NightSeeds(Identifier identifier) {
+    public NightSeedsItem(Identifier identifier) {
         super(identifier);
     }
 

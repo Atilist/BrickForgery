@@ -6,9 +6,9 @@ import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.template.item.TemplateItem;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class BrickCatalyst extends TemplateItem {
+public class BrickCatalystItem extends TemplateItem {
 
-    public BrickCatalyst(Identifier identifier) {
+    public BrickCatalystItem(Identifier identifier) {
         super(identifier);
     }
 

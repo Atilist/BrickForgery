@@ -8,8 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class DesertKey extends LazyItemTemplate {
-    public DesertKey(Identifier identifier) {
+public class DesertKeyItem extends LazyItemTemplate {
+    public DesertKeyItem(Identifier identifier) {
         super(identifier);
     }
 

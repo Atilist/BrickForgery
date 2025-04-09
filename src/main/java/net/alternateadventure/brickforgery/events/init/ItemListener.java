@@ -123,11 +123,11 @@ public class ItemListener {
         dirtBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "dirt_brick"));
         sugarCaneStick = new LazyItemTemplate(Identifier.of(MOD_ID, "sugar_cane_stick"));
 
-        dirtBrickSand = new DirtBrickSand(Identifier.of(MOD_ID, "dirt_brick_sand"));
+        dirtBrickSand = new DirtBrickSandItem(Identifier.of(MOD_ID, "dirt_brick_sand"));
         sandBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "sand_brick"));
 
         exoticFruit = new TemplateItem(Identifier.of(MOD_ID, "exotic_fruit")).setTranslationKey(MOD_ID, "exotic_fruit");
-        nightSeeds = new NightSeeds(Identifier.of(MOD_ID, "night_seeds")).setTranslationKey(MOD_ID, "night_seeds");
+        nightSeeds = new NightSeedsItem(Identifier.of(MOD_ID, "night_seeds")).setTranslationKey(MOD_ID, "night_seeds");
         nightWheat = new TemplateItem(Identifier.of(MOD_ID, "night_wheat")).setTranslationKey(MOD_ID, "night_wheat");
         fernItem = new FernItem(Identifier.of(MOD_ID, "fern_item"));
 
@@ -137,16 +137,16 @@ public class ItemListener {
         fortunePowder = new LazyItemTemplate(Identifier.of(MOD_ID, "fortune_powder"));
         concentratedFortune = new LazyItemTemplate(Identifier.of(MOD_ID, "concentrated_fortune"));
 
-        exoticKey = new ExoticKey(Identifier.of(MOD_ID, "exotic_key"));
-        desertKey = new DesertKey(Identifier.of(MOD_ID, "desert_key"));
-        iceKey = new IceKey(Identifier.of(MOD_ID, "ice_key"));
+        exoticKey = new ExoticKeyItem(Identifier.of(MOD_ID, "exotic_key"));
+        desertKey = new DesertKeyItem(Identifier.of(MOD_ID, "desert_key"));
+        iceKey = new IceKeyItem(Identifier.of(MOD_ID, "ice_key"));
 
         desertPotItem = new DesertPotItem(Identifier.of(MOD_ID, "desert_pot_item"));
         frozenPotItem = new FrozenPotItem(Identifier.of(MOD_ID, "frozen_pot_item"));
 
-        primitiveBrush = new PrimitiveBrush(Identifier.of(MOD_ID, "primitive_brush"));
-        primitiveChisel = new PrimitiveChisel(Identifier.of(MOD_ID, "primitive_chisel"));
-        primitiveGrabber = new PrimitiveGrabber(Identifier.of(MOD_ID, "primitive_grabber"));
+        primitiveBrush = new PrimitiveBrushItem(Identifier.of(MOD_ID, "primitive_brush"));
+        primitiveChisel = new PrimitiveChiselItem(Identifier.of(MOD_ID, "primitive_chisel"));
+        primitiveGrabber = new PrimitiveGrabberItem(Identifier.of(MOD_ID, "primitive_grabber"));
 
         groundSandstone = new LazyItemTemplate(Identifier.of(MOD_ID, "ground_sandstone"));
         illuminantCrystal = new LazyItemTemplate(Identifier.of(MOD_ID, "illuminant_crystal"));
@@ -190,9 +190,9 @@ public class ItemListener {
 
         toolRepairKit = new LazyItemTemplate(Identifier.of(MOD_ID, "tool_repair_kit"));
 
-        archeologyBrush = new ArchaeologyBrush(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
-        archeologyChisel = new ArcheologyChisel(Identifier.of(MOD_ID, "archeology_chisel")).setTranslationKey(MOD_ID, "archeology_chisel");
-        archeologyIceKnife = new ArchaeologyIceKnife(Identifier.of(MOD_ID, "archeology_ice_knife")).setTranslationKey(MOD_ID, "archeology_ice_knife");
+        archeologyBrush = new ArchaeologyBrushItem(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
+        archeologyChisel = new ArchaeologyChiselItem(Identifier.of(MOD_ID, "archeology_chisel")).setTranslationKey(MOD_ID, "archeology_chisel");
+        archeologyIceKnife = new ArchaeologyIceKnifeItem(Identifier.of(MOD_ID, "archeology_ice_knife")).setTranslationKey(MOD_ID, "archeology_ice_knife");
 
         archeologyToolBase = new TemplateItem(Identifier.of(MOD_ID, "archeology_tool_base")).setTranslationKey(MOD_ID, "archeology_tool_base");
         iceBlade = new TemplateItem(Identifier.of(MOD_ID, "ice_blade")).setTranslationKey(MOD_ID, "ice_blade");
@@ -207,11 +207,11 @@ public class ItemListener {
         snowBrick = new TemplateItem(Identifier.of(MOD_ID, "snow_brick")).setTranslationKey(MOD_ID, "snow_brick");
         frozenBrick = new TemplateItem(Identifier.of(MOD_ID, "frozen_brick")).setTranslationKey(MOD_ID, "frozen_brick");
 
-        brickSeedlings = new BrickSeedlings(Identifier.of(MOD_ID, "brick_seedlings")).setTranslationKey(MOD_ID, "brick_seedlings");
-        brickCatalyst = new BrickCatalyst(Identifier.of(MOD_ID, "brick_catalyst")).setTranslationKey(MOD_ID, "brick_catalyst");
+        brickSeedlings = new BrickSeedlingsItem(Identifier.of(MOD_ID, "brick_seedlings")).setTranslationKey(MOD_ID, "brick_seedlings");
+        brickCatalyst = new BrickCatalystItem(Identifier.of(MOD_ID, "brick_catalyst")).setTranslationKey(MOD_ID, "brick_catalyst");
         clayPowder = new TemplateItem(Identifier.of(MOD_ID, "clay_powder")).setTranslationKey(MOD_ID, "clay_powder");
 
-        exoticCatalyst = new ExoticCatalyst(Identifier.of(MOD_ID, "exotic_catalyst"));
+        exoticCatalyst = new ExoticCatalystItem(Identifier.of(MOD_ID, "exotic_catalyst"));
 
         coalOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "coal_ore_brick"));
         ironOreBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "iron_ore_brick"));

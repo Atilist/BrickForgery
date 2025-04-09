@@ -8,8 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.util.Identifier;
 
-public class ExoticKey extends LazyItemTemplate {
-    public ExoticKey(Identifier identifier) {
+public class ExoticKeyItem extends LazyItemTemplate {
+    public ExoticKeyItem(Identifier identifier) {
         super(identifier);
     }
 
