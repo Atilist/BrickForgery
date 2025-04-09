@@ -23,8 +23,6 @@ public class RecipeListener {
         Identifier type = event.recipeId;
         // Output <- Input
         if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type()) {
-            RecipeRemover.removeRecipe(Block.CRAFTING_TABLE);
-            RecipeRemover.removeRecipe(Block.FURNACE);
 
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneStick), "X", "X", 'X', new ItemStack(Item.SUGAR_CANE));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneFrame), "XX", "XX", 'X', new ItemStack(ItemListener.sugarCaneStick));
@@ -33,20 +31,15 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.cactusFrame), "XX", "YY", 'X', new ItemStack(Block.CACTUS), 'Y', new ItemStack(ItemListener.sugarCaneFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "XZ", "ZY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
 
-            CraftingRegistry.addShapedRecipe(new ItemStack(Block.CRAFTING_TABLE), "XX", "YY", 'X', new ItemStack(Block.PLANKS), 'Y', new ItemStack(BlockListener.cactusBox));
-            CraftingRegistry.addShapedRecipe(new ItemStack(Block.CRAFTING_TABLE), "XX", "YY", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(BlockListener.cactusBox));
-
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandBricks), "XX", "XX", 'X', new ItemStack(ItemListener.sandBrick));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.flintFrame), " X ", "XYX", " X ", 'X', new ItemStack(Item.FLINT), 'Y', new ItemStack(ItemListener.cactusFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.flintBox), "XYX", "YZY", "XYX", 'X', new ItemStack(ItemListener.flintFrame), 'Y', new ItemStack(Block.GRAVEL), 'Z', new ItemStack(BlockListener.cactusBox));
 
-            CraftingRegistry.addShapedRecipe(new ItemStack(Block.FURNACE), "XYX", "Y Y", "XYX", 'X', new ItemStack(Block.COBBLESTONE), 'Y', new ItemStack(BlockListener.flintBox));
-
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.primitiveBrush), "-X-", "+Y+", "#Z#", 'X', new ItemStack(ItemListener.nightWheat), 'Y', new ItemStack(Item.PAPER), 'Z', new ItemStack(ItemListener.denseNightWood), '#', new ItemStack(ItemListener.leatherStrap), '+', new ItemStack(ItemListener.goldenScrew), '-', new ItemStack(ItemListener.concentratedFortune));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.primitiveBrush), "-X-", "+Y+", "#Z#", 'X', new ItemStack(ItemListener.nightWheat), 'Y', new ItemStack(Item.GOLD_INGOT), 'Z', new ItemStack(ItemListener.denseNightWood), '#', new ItemStack(ItemListener.leatherStrap), '+', new ItemStack(Item.PAPER), '-', new ItemStack(ItemListener.concentratedFortune));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.primitiveChisel), "-X-", "#Y#", "+Z+", 'X', new ItemStack(Item.GOLD_INGOT), 'Y', new ItemStack(Item.FLINT), 'Z', new ItemStack(ItemListener.denseNightWood), '#', new ItemStack(Item.PAPER), '+', new ItemStack(ItemListener.leatherStrap), '-', new ItemStack(ItemListener.concentratedFortune));
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.primitiveGrabber), "-X-", "#Y#", "+Z+", 'X', new ItemStack(Item.DIAMOND), 'Y', new ItemStack(Item.PAPER), 'Z', new ItemStack(ItemListener.denseNightWood), '#', new ItemStack(Item.IRON_INGOT), '+', new ItemStack(net.kozibrodka.wolves.events.ItemListener.hempCloth), '-', new ItemStack(ItemListener.concentratedFortune));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.primitiveGrabber), "-X-", "#Y#", "+Z+", 'X', new ItemStack(Item.DIAMOND), 'Y', new ItemStack(Item.IRON_INGOT), 'Z', new ItemStack(ItemListener.denseNightWood), '#', new ItemStack(Item.PAPER), '+', new ItemStack(net.kozibrodka.wolves.events.ItemListener.hempCloth), '-', new ItemStack(ItemListener.concentratedFortune));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.nightWoodBeam, 2), "XY ", "YZY", " YX", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(ItemListener.leatherStrap), 'Z', new ItemStack(ItemListener.denseNightWood));
 
@@ -56,7 +49,7 @@ public class RecipeListener {
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.improvedMillstone), "Z+Z", "X#X", "XYX", 'X', new ItemStack(ItemListener.denseNightWood), 'Y', new ItemStack(ItemListener.woodenFrame), 'Z', new ItemStack(Block.CHEST), '#', new ItemStack(net.kozibrodka.wolves.events.BlockListener.millStone), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.hopper));
 
-            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveMachineFrame), "XYX", "YZY", "XYX", 'X', new ItemStack(ItemListener.goldenScrew), 'Y', new ItemStack(ItemListener.nightWoodBeam), 'Z', new ItemStack(ItemListener.woodenFrame));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveMachineFrame), "XYX", "Z#Z", "XYX", 'X', new ItemStack(ItemListener.goldenScrew), 'Y', new ItemStack(ItemListener.nightWoodBeam), 'Z', new ItemStack(ItemListener.woodenFrame), '#', new ItemStack(BlockListener.flintBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveBrickFrameCrafter), "#Y#", "YZY", "XYX", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Block.BRICKS), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Block.PISTON));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveSlicer), "#-#", "YZY", "X+X", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Block.OBSIDIAN), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Item.SHEARS), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '-', new ItemStack(ItemListener.dryBrickFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveMetalworkingStation), "#-#", "YZY", "X+X", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Block.SLAB), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Item.IRON_INGOT), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '-', new ItemStack(ItemListener.dryBrickFrame));
@@ -81,7 +74,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archaeologyChisel), "X", "Y", "Z", 'X', new ItemStack(ItemListener.primitiveChisel, 1, -1), 'Y', new ItemStack(ItemListener.brickFrame), 'Z', new ItemStack(ItemListener.archaeologyToolBase));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archaeologyIceKnife), "X", "Y", "Z", 'X', new ItemStack(ItemListener.iceBlade), 'Y', new ItemStack(ItemListener.dryBrickFrame), 'Z', new ItemStack(ItemListener.archaeologyToolBase));
 
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.woodenFrame), "XZX", "ZYZ", "XZX", 'X', new ItemStack(net.kozibrodka.wolves.events.BlockListener.corner), 'Y', new ItemStack(net.kozibrodka.wolves.events.ItemListener.hempFibers), 'Z', new ItemStack(net.kozibrodka.wolves.events.ItemListener.haft));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.woodenFrame), "XZX", "ZYZ", "XZX", 'X', new ItemStack(net.kozibrodka.wolves.events.BlockListener.corner), 'Y', new ItemStack(ItemListener.flintFrame), 'Z', new ItemStack(net.kozibrodka.wolves.events.ItemListener.haft));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.woodenBrick, 8), "YYY", "YXY", "YYY", 'X', new ItemStack(ItemListener.brickFrame), 'Y', new ItemStack(net.kozibrodka.wolves.events.BlockListener.moulding));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.woodenBricks), "XX", "XX", 'X', new ItemStack(ItemListener.woodenBrick));
 
