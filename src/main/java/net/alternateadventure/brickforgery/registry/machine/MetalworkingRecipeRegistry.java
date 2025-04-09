@@ -1,4 +1,4 @@
-package net.alternateadventure.brickforgery.customrecipes;
+package net.alternateadventure.brickforgery.registry.machine;
 
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.alternateadventure.brickforgery.wrappers.MetalworkingRecipe;

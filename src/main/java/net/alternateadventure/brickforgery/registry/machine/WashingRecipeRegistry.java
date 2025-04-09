@@ -1,4 +1,4 @@
-package net.alternateadventure.brickforgery.customrecipes;
+package net.alternateadventure.brickforgery.registry.machine;
 
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
 import net.alternateadventure.brickforgery.wrappers.WashingRecipe;

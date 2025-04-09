@@ -21,7 +21,7 @@ public class FrostVaultFeature {
                         level.setBlock(x + xOffset, y + yOffset, z + zOffset, BlockListener.frostVaultTiling.id);
                     } else {
                         if (yOffset == -5 && rand.nextInt(4) == 0) {
-                            level.setBlock(x + xOffset, y + yOffset, z + zOffset, BlockListener.frozenPot.id);
+                            level.setBlock(x + xOffset, y + yOffset, z + zOffset, BlockListener.bountifulSnow.id);
                         } else {
                             level.setBlock(x + xOffset, y + yOffset, z + zOffset, 0);
                         }

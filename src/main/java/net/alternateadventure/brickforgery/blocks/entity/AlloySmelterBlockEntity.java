@@ -1,7 +1,7 @@
 package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.blocks.AlloySmelterBlock;
-import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.AlloySmeltingRecipeRegistry;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;

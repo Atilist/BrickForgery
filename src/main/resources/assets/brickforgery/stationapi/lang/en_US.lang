@@ -167,11 +167,11 @@ item.@.reinforced_brick_frame.name=Reinforced Brick Frame
 
 item.@.tool_repair_kit.name=Tool Repair Kit
 
-item.@.archeology_brush.name=Archeology Brush
-item.@.archeology_chisel.name=Archeology Chisel
-item.@.archeology_ice_knife.name=Archeology Ice Knife
+item.@.archaeology_brush.name=Archaeology Brush
+item.@.archaeology_chisel.name=Archaeology Chisel
+item.@.archaeology_ice_knife.name=Archaeology Ice Knife
 
-item.@.archeology_tool_base.name=Archeology Tool Handle
+item.@.archaeology_tool_base.name=Archaeology Tool Handle
 item.@.ice_blade.name=Ice Blade
 item.@.broken_spike_holder.name=Broken Spike Holder
 

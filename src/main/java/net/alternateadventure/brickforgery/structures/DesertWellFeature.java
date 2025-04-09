@@ -63,7 +63,7 @@ public class DesertWellFeature {
             for (int zOffset = -5; zOffset <= 5; zOffset++) {
                 for (int yOffset = -9; yOffset >= -14; yOffset--) {
                     if (xOffset < 5 && xOffset > -5 && zOffset < 5 && zOffset > -5 && yOffset < -9 && yOffset > -14) {
-                        if (yOffset == -13 && rand.nextInt(4) == 0) level.setBlock(x + xOffset, y + yOffset, z + zOffset, BlockListener.desertPot.id);
+                        if (yOffset == -13 && rand.nextInt(4) == 0) level.setBlock(x + xOffset, y + yOffset, z + zOffset, BlockListener.bountifulSand.id);
                         else level.setBlock(x + xOffset, y + yOffset, z + zOffset, 0);
                         continue;
                     }

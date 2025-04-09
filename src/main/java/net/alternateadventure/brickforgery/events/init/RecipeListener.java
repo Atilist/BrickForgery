@@ -1,10 +1,8 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.customrecipes.*;
-import net.alternateadventure.brickforgery.utils.RecipeRemover;
-import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
-import net.alternateadventure.brickforgery.utils.TierEnum;
-import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
+import net.alternateadventure.brickforgery.registry.machine.*;
+import net.alternateadventure.brickforgery.registry.tool.BrushRecipeRegistry;
+import net.alternateadventure.brickforgery.utils.*;
 import net.kozibrodka.wolves.api.HibachiIgnitionRegistry;
 import net.kozibrodka.wolves.recipe.*;
 import net.mine_diver.unsafeevents.listener.EventListener;
@@ -74,12 +72,12 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.itemSlideChain), "XYX", " # ", "ZZZ", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Item.IRON_INGOT), 'Z', new ItemStack(BlockListener.largeStoneBricks), '#', new ItemStack(BlockListener.primitiveMachineFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.itemElevatorChain), "X X", "Y#Y", "Z+Z", 'X', new ItemStack(Item.IRON_INGOT), 'Y', new ItemStack(BlockListener.nightPlanks), 'Z', new ItemStack(BlockListener.largeStoneBricks), '#', new ItemStack(BlockListener.primitiveMachineFrame), '+', new ItemStack(Block.PISTON));
 
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archeologyToolBase), "#X#", "YZY", "YZY", 'X', new ItemStack(ItemListener.hardenedBrickFrame), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(ItemListener.brickSteelBeam), '#', new ItemStack(ItemListener.bricksidianScrew));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archaeologyToolBase), "#X#", "YZY", "YZY", 'X', new ItemStack(ItemListener.hardenedBrickFrame), 'Y', new ItemStack(ItemListener.brickSteelPlate), 'Z', new ItemStack(ItemListener.brickSteelBeam), '#', new ItemStack(ItemListener.bricksidianScrew));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.iceBlade), "XXX", "YZY", "YZY", 'X', new ItemStack(ItemListener.dryBrickFrame), 'Y', new ItemStack(Block.SNOW_BLOCK), 'Z', new ItemStack(ItemListener.toolRepairKit));
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archeologyToolBase), "X", "Y", 'X', new ItemStack(ItemListener.dryBrickFrame), 'Y', new ItemStack(ItemListener.brickCatalyst));
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archeologyBrush), "X", "Y", "Z", 'X', new ItemStack(ItemListener.primitiveBrush, 1, -1), 'Y', new ItemStack(ItemListener.brickFrame), 'Z', new ItemStack(ItemListener.archeologyToolBase));
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archeologyChisel), "X", "Y", "Z", 'X', new ItemStack(ItemListener.primitiveChisel, 1, -1), 'Y', new ItemStack(ItemListener.brickFrame), 'Z', new ItemStack(ItemListener.archeologyToolBase));
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archeologyIceKnife), "X", "Y", "Z", 'X', new ItemStack(ItemListener.iceBlade), 'Y', new ItemStack(ItemListener.dryBrickFrame), 'Z', new ItemStack(ItemListener.archeologyToolBase));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archaeologyToolBase), "X", "Y", 'X', new ItemStack(ItemListener.dryBrickFrame), 'Y', new ItemStack(ItemListener.brickCatalyst));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archaeologyBrush), "X", "Y", "Z", 'X', new ItemStack(ItemListener.primitiveBrush, 1, -1), 'Y', new ItemStack(ItemListener.brickFrame), 'Z', new ItemStack(ItemListener.archaeologyToolBase));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archaeologyChisel), "X", "Y", "Z", 'X', new ItemStack(ItemListener.primitiveChisel, 1, -1), 'Y', new ItemStack(ItemListener.brickFrame), 'Z', new ItemStack(ItemListener.archaeologyToolBase));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.archaeologyIceKnife), "X", "Y", "Z", 'X', new ItemStack(ItemListener.iceBlade), 'Y', new ItemStack(ItemListener.dryBrickFrame), 'Z', new ItemStack(ItemListener.archaeologyToolBase));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.woodenFrame), "XZX", "ZYZ", "XZX", 'X', new ItemStack(net.kozibrodka.wolves.events.BlockListener.corner), 'Y', new ItemStack(net.kozibrodka.wolves.events.ItemListener.hempFibers), 'Z', new ItemStack(net.kozibrodka.wolves.events.ItemListener.haft));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.woodenBrick, 8), "YYY", "YXY", "YYY", 'X', new ItemStack(ItemListener.brickFrame), 'Y', new ItemStack(net.kozibrodka.wolves.events.BlockListener.moulding));
@@ -130,9 +128,9 @@ public class RecipeListener {
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.primitiveChisel), new ItemStack(ItemListener.primitiveChisel, 1, -1), new ItemStack(ItemListener.toolRepairKit));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.primitiveGrabber), new ItemStack(ItemListener.primitiveGrabber, 1, -1), new ItemStack(ItemListener.toolRepairKit));
 
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archeologyBrush), new ItemStack(ItemListener.archeologyBrush, 1, -1), new ItemStack(ItemListener.toolRepairKit));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archeologyChisel), new ItemStack(ItemListener.archeologyChisel, 1, -1), new ItemStack(ItemListener.toolRepairKit));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archeologyIceKnife), new ItemStack(ItemListener.archeologyIceKnife, 1, -1), new ItemStack(ItemListener.toolRepairKit));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archaeologyBrush), new ItemStack(ItemListener.archaeologyBrush, 1, -1), new ItemStack(ItemListener.toolRepairKit));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archaeologyChisel), new ItemStack(ItemListener.archaeologyChisel, 1, -1), new ItemStack(ItemListener.toolRepairKit));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archaeologyIceKnife), new ItemStack(ItemListener.archaeologyIceKnife, 1, -1), new ItemStack(ItemListener.toolRepairKit));
 
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.glueMixture), new ItemStack(ItemListener.nightWheat), new ItemStack(net.kozibrodka.wolves.events.ItemListener.flour), new ItemStack(Block.CACTUS));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.brickAsh));
@@ -189,6 +187,9 @@ public class RecipeListener {
             WashingRecipeRegistry.getInstance().addWashingRecipe(BlockListener.dust.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.CLAY)), new ItemStack(Item.CLAY), 0.25));
             WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.ironOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreWashed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
             WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.goldOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreWashed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+
+            BrushRecipeRegistry.getInstance().addBrushingRecipe(BlockListener.bountifulSand.id, new TieredBlockConversionData(new int[] {BlockListener.desertPotSealed.id, BlockListener.desertPot.id}, new int[] {50, 70}, TierEnum.PRIMITIVE));
+            BrushRecipeRegistry.getInstance().addBrushingRecipe(BlockListener.bountifulSnow.id, new TieredBlockConversionData(new int[] {BlockListener.frozenPotSealed.id, BlockListener.frozenPot.id}, new int[] {50, 70}, TierEnum.PRIMITIVE));
 
         }
         // Input -> Output

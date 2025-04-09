@@ -1,7 +1,7 @@
 package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.blocks.MetalworkingStationBlockTemplate;
-import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.MetalworkingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
 import net.alternateadventure.brickforgery.utils.TierEnum;

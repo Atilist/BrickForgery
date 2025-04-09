@@ -1,6 +1,7 @@
 package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.items.*;
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.item.Item;
 import net.modificationstation.stationapi.api.event.registry.ItemRegistryEvent;
@@ -19,11 +20,10 @@ public class ItemListener {
             nightSeeds,
             nightWheat,
 
-            archeologyBrush,
-            archeologyChisel,
-            archeologyIceKnife,
+            archaeologyChisel,
+            archaeologyIceKnife,
 
-            archeologyToolBase,
+    archaeologyToolBase,
             iceBlade,
             brokenSpikeHolder,
 
@@ -63,6 +63,8 @@ public class ItemListener {
             primitiveBrush,
             primitiveChisel,
             primitiveGrabber,
+
+            archaeologyBrush,
 
             groundSandstone,
             illuminantCrystal,
@@ -144,9 +146,11 @@ public class ItemListener {
         desertPotItem = new DesertPotItem(Identifier.of(MOD_ID, "desert_pot_item"));
         frozenPotItem = new FrozenPotItem(Identifier.of(MOD_ID, "frozen_pot_item"));
 
-        primitiveBrush = new PrimitiveBrushItem(Identifier.of(MOD_ID, "primitive_brush"));
+        primitiveBrush = new BrushToolTemplate(Identifier.of(MOD_ID, "primitive_brush"), 256, TierEnum.PRIMITIVE);
         primitiveChisel = new PrimitiveChiselItem(Identifier.of(MOD_ID, "primitive_chisel"));
         primitiveGrabber = new PrimitiveGrabberItem(Identifier.of(MOD_ID, "primitive_grabber"));
+
+        archaeologyBrush = new BrushToolTemplate(Identifier.of(MOD_ID, "archaeology_brush"), 512, TierEnum.BRICK);
 
         groundSandstone = new LazyItemTemplate(Identifier.of(MOD_ID, "ground_sandstone"));
         illuminantCrystal = new LazyItemTemplate(Identifier.of(MOD_ID, "illuminant_crystal"));
@@ -190,11 +194,10 @@ public class ItemListener {
 
         toolRepairKit = new LazyItemTemplate(Identifier.of(MOD_ID, "tool_repair_kit"));
 
-        archeologyBrush = new ArchaeologyBrushItem(Identifier.of(MOD_ID, "archeology_brush")).setTranslationKey(MOD_ID, "archeology_brush");
-        archeologyChisel = new ArchaeologyChiselItem(Identifier.of(MOD_ID, "archeology_chisel")).setTranslationKey(MOD_ID, "archeology_chisel");
-        archeologyIceKnife = new ArchaeologyIceKnifeItem(Identifier.of(MOD_ID, "archeology_ice_knife")).setTranslationKey(MOD_ID, "archeology_ice_knife");
+        archaeologyChisel = new ArchaeologyChiselItem(Identifier.of(MOD_ID, "archaeology_chisel")).setTranslationKey(MOD_ID, "archaeology_chisel");
+        archaeologyIceKnife = new ArchaeologyIceKnifeItem(Identifier.of(MOD_ID, "archaeology_ice_knife")).setTranslationKey(MOD_ID, "archaeology_ice_knife");
 
-        archeologyToolBase = new TemplateItem(Identifier.of(MOD_ID, "archeology_tool_base")).setTranslationKey(MOD_ID, "archeology_tool_base");
+        archaeologyToolBase = new TemplateItem(Identifier.of(MOD_ID, "archaeology_tool_base")).setTranslationKey(MOD_ID, "archaeology_tool_base");
         iceBlade = new TemplateItem(Identifier.of(MOD_ID, "ice_blade")).setTranslationKey(MOD_ID, "ice_blade");
         brokenSpikeHolder = new TemplateItem(Identifier.of(MOD_ID, "broken_spike_holder")).setTranslationKey(MOD_ID, "broken_spike_holder");
 

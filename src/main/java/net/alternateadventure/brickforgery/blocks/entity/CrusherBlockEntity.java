@@ -1,7 +1,7 @@
 package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.blocks.CrusherBaseBlock;
-import net.alternateadventure.brickforgery.customrecipes.CrushingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.CrushingRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.fabricmc.api.EnvType;

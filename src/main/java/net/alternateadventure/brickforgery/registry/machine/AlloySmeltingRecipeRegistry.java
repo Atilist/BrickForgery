@@ -1,4 +1,4 @@
-package net.alternateadventure.brickforgery.customrecipes;
+package net.alternateadventure.brickforgery.registry.machine;
 
 import net.alternateadventure.brickforgery.wrappers.AlloySmeltingRecipe;
 import net.minecraft.item.ItemStack;

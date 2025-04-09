@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.customrecipes.BrickFramingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.BrickFramingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BrickFrameIngredient;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.minecraft.block.Block;

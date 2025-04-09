@@ -1,7 +1,7 @@
 package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.blocks.WasherBaseBlock;
-import net.alternateadventure.brickforgery.customrecipes.WashingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.WashingRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.fabricmc.api.EnvType;

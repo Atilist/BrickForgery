@@ -12,8 +12,8 @@ import net.alternateadventure.brickforgery.compat.ami.slicing.SlicingRecipeCateg
 import net.alternateadventure.brickforgery.compat.ami.slicing.SlicingRecipeHandler;
 import net.alternateadventure.brickforgery.compat.ami.washing.WashingRecipeCategory;
 import net.alternateadventure.brickforgery.compat.ami.washing.WashingRecipeHandler;
-import net.alternateadventure.brickforgery.customrecipes.*;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
+import net.alternateadventure.brickforgery.registry.machine.*;
 import net.glasslauncher.mods.alwaysmoreitems.api.*;
 import net.minecraft.nbt.NbtCompound;
 import net.modificationstation.stationapi.api.util.Identifier;
