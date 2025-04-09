@@ -23,12 +23,10 @@ public class ArchaeologyBrushItem extends TemplateItem {
         if (level.getBlockId(x, y, z) == BlockListener.bountifulSand.id) {
             level.setBlock(x, y, z, 0);
             tool.damage(1, player);
-            level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.desertPotItem)));
             return true;
         } else if (level.getBlockId(x, y, z) == BlockListener.bountifulSnow.id) {
             level.setBlock(x, y, z, 0);
             tool.damage(1, player);
-            level.spawnEntity(new ItemEntity(level, x, y, z, new ItemStack(ItemListener.frozenPotItem)));
             return true;
         } else if (level.getBlockId(x, y, z) == BlockListener.factoryRubble.id) {
             level.setBlock(x, y, z, 0);

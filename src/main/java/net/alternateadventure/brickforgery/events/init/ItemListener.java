@@ -56,9 +56,6 @@ public class ItemListener {
             desertKey,
             iceKey,
 
-            desertPotItem,
-            frozenPotItem,
-
             primitiveBrush,
             primitiveChisel,
             primitiveGrabber,
@@ -142,9 +139,6 @@ public class ItemListener {
         exoticKey = new ExoticKeyItem(Identifier.of(MOD_ID, "exotic_key"));
         desertKey = new DesertKeyItem(Identifier.of(MOD_ID, "desert_key"));
         iceKey = new IceKeyItem(Identifier.of(MOD_ID, "ice_key"));
-
-        desertPotItem = new DesertPotItem(Identifier.of(MOD_ID, "desert_pot_item"));
-        frozenPotItem = new FrozenPotItem(Identifier.of(MOD_ID, "frozen_pot_item"));
 
         primitiveBrush = new BrushToolTemplate(Identifier.of(MOD_ID, "primitive_brush"), 256, TierEnum.PRIMITIVE);
         primitiveChisel = new ChiselToolTemplate(Identifier.of(MOD_ID, "primitive_chisel"), 256, TierEnum.PRIMITIVE);

@@ -39,9 +39,6 @@ public class TextureListener {
         ItemListener.desertKey.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Keys/DesertKey"));
         ItemListener.iceKey.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Keys/IceKey"));
 
-        ItemListener.desertPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/DesertPotItem"));
-        ItemListener.frozenPotItem.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/LootItems/FrozenPotItem"));
-
         ItemListener.primitiveBrush.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveBrush"));
         ItemListener.primitiveChisel.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveChisel"));
         ItemListener.primitiveGrabber.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/ArcheologyTools/PrimitiveGrabber"));
