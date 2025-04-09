@@ -2,17 +2,18 @@ package net.alternateadventure.brickforgery.mixin;
 
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
-import net.minecraft.block.entity.ChestBlockEntity;
+import net.minecraft.block.entity.FurnaceBlockEntity;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 
-@Mixin(ChestBlockEntity.class)
+@Mixin(FurnaceBlockEntity.class)
 @Unique
-public class ChestAutomation implements BlockWithInput, BlockWithOutput {
+public class FurnaceAutomationMixin implements BlockWithInput, BlockWithOutput {
 
-    @Shadow private ItemStack[] inventory;
+    @Shadow
+    private ItemStack[] inventory;
 
     @Override
     public boolean isValidInputSide(int side) {
@@ -21,22 +22,22 @@ public class ChestAutomation implements BlockWithInput, BlockWithOutput {
 
     @Override
     public int getInputSlotCount() {
-        return 27;
+        return 1;
     }
 
     @Override
     public ItemStack getItemFromInputSlot(int slot) {
-        return inventory[slot];
+        return inventory[0];
     }
 
     @Override
     public void setInputItem(int slot, ItemStack itemInstance) {
-        inventory[slot] = itemInstance;
+        inventory[0] = itemInstance;
     }
 
     @Override
     public void setInputItemCount(int slot, int count) {
-        inventory[slot].count = count;
+        inventory[0].count = count;
     }
 
     @Override
@@ -46,21 +47,21 @@ public class ChestAutomation implements BlockWithInput, BlockWithOutput {
 
     @Override
     public int getOutputSlotCount() {
-        return 27;
+        return 1;
     }
 
     @Override
     public ItemStack getItemFromOutputSlot(int slot) {
-        return inventory[slot];
+        return inventory[2];
     }
 
     @Override
     public void clearOutput(int slot) {
-        inventory[slot] = null;
+        inventory[2] = null;
     }
 
     @Override
     public void setOutputItemCount(int slot, int count) {
-        inventory[slot].count = count;
+        inventory[2].count = count;
     }
 }
