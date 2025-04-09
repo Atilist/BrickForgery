@@ -25,11 +25,11 @@ public class RecipeListener {
         if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type()) {
 
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneStick), "X", "X", 'X', new ItemStack(Item.SUGAR_CANE));
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneFrame), "XX", "XX", 'X', new ItemStack(ItemListener.sugarCaneStick));
-            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBox), "XX", "YY", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.sugarCaneFrame));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneFrame), "X X", " X ", "X X", 'X', new ItemStack(ItemListener.sugarCaneStick));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBox), "YXY", "XYX", "YXY", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.sugarCaneFrame));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.cactusFrame), "XX", "YY", 'X', new ItemStack(Block.CACTUS), 'Y', new ItemStack(ItemListener.sugarCaneFrame));
-            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "XZ", "ZY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "YXY", "XZX", "YXY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandBricks), "XX", "XX", 'X', new ItemStack(ItemListener.sandBrick));
@@ -53,7 +53,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveBrickFrameCrafter), "#Y#", "YZY", "XYX", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Block.BRICKS), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Block.PISTON));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveSlicer), "#-#", "YZY", "X+X", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Block.OBSIDIAN), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Item.SHEARS), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '-', new ItemStack(ItemListener.dryBrickFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveMetalworkingStation), "#-#", "YZY", "X+X", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Block.SLAB), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Item.IRON_INGOT), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '-', new ItemStack(ItemListener.dryBrickFrame));
-            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveCrusher), "+X+", "ZYZ", "Z#Z", 'X', new ItemStack(BlockListener.improvedMillstone), 'Y', new ItemStack(BlockListener.primitiveMachineFrame), 'Z', new ItemStack(Block.BRICKS), '#', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '+', new ItemStack(Item.DIAMOND_PICKAXE));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveCrusher), "+X+", "-Y-", "Z#Z", 'X', new ItemStack(BlockListener.improvedMillstone), 'Y', new ItemStack(BlockListener.primitiveMachineFrame), 'Z', new ItemStack(Block.BRICKS), '#', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '+', new ItemStack(Item.DIAMOND_PICKAXE), '-', new ItemStack(Block.OBSIDIAN));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveWasher), "-X-", "+Y+", "Z#Z", 'X', new ItemStack(net.kozibrodka.wolves.events.BlockListener.turntable), 'Y', new ItemStack(BlockListener.primitiveMachineFrame), 'Z', new ItemStack(Block.BRICKS), '#', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '+', new ItemStack(ItemListener.primitiveBrush), '-', new ItemStack(ItemListener.concentratedFortune));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.heatPillar), "XYX", "XZX", "XYX", 'X', new ItemStack(ItemListener.thermalGlass), 'Y', new ItemStack(ItemListener.concentratedThermal), 'Z', new ItemStack(ItemListener.hardenedBrickFrame));
