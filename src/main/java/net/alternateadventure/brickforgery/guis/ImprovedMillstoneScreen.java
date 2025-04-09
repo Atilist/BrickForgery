@@ -1,15 +1,15 @@
 package net.alternateadventure.brickforgery.guis;
 
 import net.alternateadventure.brickforgery.containers.ImprovedMillstoneScreenHandler;
-import net.alternateadventure.brickforgery.tileentities.TileEntityImprovedMillstone;
+import net.alternateadventure.brickforgery.blocks.entity.ImprovedMillstoneBlockEntity;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import org.lwjgl.opengl.GL11;
 
 public class ImprovedMillstoneScreen extends HandledScreen {
-    private final TileEntityImprovedMillstone improvedMillstone;
+    private final ImprovedMillstoneBlockEntity improvedMillstone;
 
-    public ImprovedMillstoneScreen(PlayerInventory arg, TileEntityImprovedMillstone arg2) {
+    public ImprovedMillstoneScreen(PlayerInventory arg, ImprovedMillstoneBlockEntity arg2) {
         super(new ImprovedMillstoneScreenHandler(arg, arg2));
         this.improvedMillstone = arg2;
     }

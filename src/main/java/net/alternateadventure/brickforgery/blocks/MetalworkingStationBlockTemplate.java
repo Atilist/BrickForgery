@@ -2,7 +2,7 @@ package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.containers.MetalworkingStationScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
-import net.alternateadventure.brickforgery.tileentities.TileEntityMetalworkingStation;
+import net.alternateadventure.brickforgery.blocks.entity.MetalworkingStationBlockEntity;
 import net.kozibrodka.wolves.events.BlockListener;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
@@ -28,20 +28,20 @@ public class MetalworkingStationBlockTemplate extends LazySimpleMachineBlockTemp
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
-        if (tileEntity instanceof TileEntityMetalworkingStation tileEntityMetalworkingStation)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_metalworking_station"), tileEntityMetalworkingStation, new MetalworkingStationScreenHandler(player.inventory, tileEntityMetalworkingStation));
+        if (tileEntity instanceof MetalworkingStationBlockEntity metalworkingStationBlockEntity)
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_metalworking_station"), metalworkingStationBlockEntity, new MetalworkingStationScreenHandler(player.inventory, metalworkingStationBlockEntity));
         return true;
     }
 
     @Override
     protected BlockEntity createBlockEntity() {
-        return new TileEntityMetalworkingStation();
+        return new MetalworkingStationBlockEntity();
     }
 
     @Override
     public void onBreak(World arg, int i, int j, int k) {
 
-        TileEntityMetalworkingStation metalworkingStation = (TileEntityMetalworkingStation) arg.getBlockEntity(i, j, k);
+        MetalworkingStationBlockEntity metalworkingStation = (MetalworkingStationBlockEntity) arg.getBlockEntity(i, j, k);
 
         for(int var6 = 0; var6 < metalworkingStation.size(); ++var6) {
             ItemStack var7 = metalworkingStation.getStack(var6);

@@ -1,4 +1,4 @@
-package net.alternateadventure.brickforgery.tileentities;
+package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.blocks.AlloySmelterBlock;
 import net.alternateadventure.brickforgery.customrecipes.AlloySmeltingRecipeRegistry;
@@ -14,13 +14,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 
-public class TileEntityAlloySmelter extends BlockEntity implements Inventory, BlockWithOutput, BlockWithInput {
+public class AlloySmelterBlockEntity extends BlockEntity implements Inventory, BlockWithOutput, BlockWithInput {
     private ItemStack[] inventory = new ItemStack[5];
     public int burnTime = 0;
     public int fuelTime = 0;
     public int cookTime = 0;
 
-    public TileEntityAlloySmelter() {
+    public AlloySmelterBlockEntity() {
     }
 
     @Override

@@ -1,7 +1,7 @@
 package net.alternateadventure.brickforgery.guis;
 
 import net.alternateadventure.brickforgery.containers.SlicerScreenHandler;
-import net.alternateadventure.brickforgery.tileentities.TileEntitySlicer;
+import net.alternateadventure.brickforgery.blocks.entity.SlicerBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -10,9 +10,9 @@ import org.lwjgl.opengl.GL11;
 
 @Environment(EnvType.CLIENT)
 public class SlicerScreen extends HandledScreen {
-    private final TileEntitySlicer slicer;
+    private final SlicerBlockEntity slicer;
 
-    public SlicerScreen(PlayerInventory arg, TileEntitySlicer arg2) {
+    public SlicerScreen(PlayerInventory arg, SlicerBlockEntity arg2) {
         super(new SlicerScreenHandler(arg, arg2));
         this.slicer = arg2;
     }

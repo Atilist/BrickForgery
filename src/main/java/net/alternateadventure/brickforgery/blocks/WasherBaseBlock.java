@@ -2,7 +2,7 @@ package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.containers.WasherScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
-import net.alternateadventure.brickforgery.tileentities.TileEntityWasher;
+import net.alternateadventure.brickforgery.blocks.entity.WasherBlockEntity;
 import net.kozibrodka.wolves.events.BlockListener;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
@@ -28,21 +28,21 @@ public class WasherBaseBlock extends LazySimpleMachineBlockTemplate {
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
 
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
-        if (tileEntity instanceof TileEntityWasher tileEntityWasher)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_washer"), tileEntityWasher, new WasherScreenHandler(player.inventory, tileEntityWasher));
+        if (tileEntity instanceof WasherBlockEntity washerBlockEntity)
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_washer"), washerBlockEntity, new WasherScreenHandler(player.inventory, washerBlockEntity));
 
         return true;
     }
 
     @Override
     protected BlockEntity createBlockEntity() {
-        return new TileEntityWasher();
+        return new WasherBlockEntity();
     }
 
     @Override
     public void onBreak(World arg, int i, int j, int k) {
 
-        TileEntityWasher washer = (TileEntityWasher) arg.getBlockEntity(i, j, k);
+        WasherBlockEntity washer = (WasherBlockEntity) arg.getBlockEntity(i, j, k);
 
         for(int var6 = 0; var6 < washer.size(); ++var6) {
             ItemStack var7 = washer.getStack(var6);

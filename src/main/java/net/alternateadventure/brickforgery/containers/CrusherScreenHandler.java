@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.containers;
 
-import net.alternateadventure.brickforgery.tileentities.TileEntityCrusher;
+import net.alternateadventure.brickforgery.blocks.entity.CrusherBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,10 +12,10 @@ import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
 
 public class CrusherScreenHandler extends ScreenHandler {
-    private final TileEntityCrusher crusher;
+    private final CrusherBlockEntity crusher;
     private int sliceTime = 0;
 
-    public CrusherScreenHandler(PlayerInventory arg, TileEntityCrusher arg2) {
+    public CrusherScreenHandler(PlayerInventory arg, CrusherBlockEntity arg2) {
         this.crusher = arg2;
 
         this.addSlot(new Slot(arg2, 0, 56, 35));

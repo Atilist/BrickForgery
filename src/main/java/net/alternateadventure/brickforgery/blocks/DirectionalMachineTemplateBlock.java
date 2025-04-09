@@ -57,7 +57,8 @@ public class DirectionalMachineTemplateBlock extends TemplateBlockWithEntity {
         return sideTextureInternal;
     }
 
-    public void afterPlaced(World level, int x, int y, int z, LivingEntity living) {
+    @Override
+    public void onPlaced(World level, int x, int y, int z, LivingEntity living) {
         int facing = MathHelper.floor((double)(living.yaw * 4.0F / 360.0F) + 0.5D) & 3;
         level.setBlockMeta(x, y, z, facing);
     }

@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.containers;
 
-import net.alternateadventure.brickforgery.tileentities.TileEntityMetalworkingStation;
+import net.alternateadventure.brickforgery.blocks.entity.MetalworkingStationBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,10 +12,10 @@ import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
 
 public class MetalworkingStationScreenHandler extends ScreenHandler {
-    private final TileEntityMetalworkingStation metalworkingStation;
+    private final MetalworkingStationBlockEntity metalworkingStation;
     private int sliceTime = 0;
 
-    public MetalworkingStationScreenHandler(PlayerInventory arg, TileEntityMetalworkingStation arg2) {
+    public MetalworkingStationScreenHandler(PlayerInventory arg, MetalworkingStationBlockEntity arg2) {
         this.metalworkingStation = arg2;
 
         this.addSlot(new Slot(arg2, 0, 56, 35));

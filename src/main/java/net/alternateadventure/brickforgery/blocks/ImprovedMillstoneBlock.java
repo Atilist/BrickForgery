@@ -2,7 +2,7 @@ package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.containers.ImprovedMillstoneScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
-import net.alternateadventure.brickforgery.tileentities.TileEntityImprovedMillstone;
+import net.alternateadventure.brickforgery.blocks.entity.ImprovedMillstoneBlockEntity;
 import net.kozibrodka.wolves.events.BlockListener;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
@@ -25,20 +25,20 @@ public class ImprovedMillstoneBlock extends LazySimpleMachineBlockTemplate {
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
-        if (tileEntity instanceof TileEntityImprovedMillstone tileEntityImprovedMillstone)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_improved_millstone"), tileEntityImprovedMillstone, new ImprovedMillstoneScreenHandler(player.inventory, tileEntityImprovedMillstone));
+        if (tileEntity instanceof ImprovedMillstoneBlockEntity improvedMillstoneBlockEntity)
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_improved_millstone"), improvedMillstoneBlockEntity, new ImprovedMillstoneScreenHandler(player.inventory, improvedMillstoneBlockEntity));
         return true;
     }
 
     @Override
     protected BlockEntity createBlockEntity() {
-        return new TileEntityImprovedMillstone();
+        return new ImprovedMillstoneBlockEntity();
     }
 
     @Override
     public void onBreak(World arg, int i, int j, int k) {
 
-        TileEntityImprovedMillstone improvedMillstone = (TileEntityImprovedMillstone) arg.getBlockEntity(i, j, k);
+        ImprovedMillstoneBlockEntity improvedMillstone = (ImprovedMillstoneBlockEntity) arg.getBlockEntity(i, j, k);
 
         for(int var6 = 0; var6 < improvedMillstone.size(); ++var6) {
             ItemStack var7 = improvedMillstone.getStack(var6);

@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.containers;
 
-import net.alternateadventure.brickforgery.tileentities.TileEntitySlicer;
+import net.alternateadventure.brickforgery.blocks.entity.SlicerBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,10 +12,10 @@ import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
 
 public class SlicerScreenHandler extends ScreenHandler {
-    private final TileEntitySlicer slicer;
+    private final SlicerBlockEntity slicer;
     private int sliceTime = 0;
 
-    public SlicerScreenHandler(PlayerInventory arg, TileEntitySlicer arg2) {
+    public SlicerScreenHandler(PlayerInventory arg, SlicerBlockEntity arg2) {
         this.slicer = arg2;
 
         this.addSlot(new Slot(arg2, 0, 56, 35));

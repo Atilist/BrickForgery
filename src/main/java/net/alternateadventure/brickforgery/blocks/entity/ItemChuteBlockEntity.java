@@ -1,4 +1,4 @@
-package net.alternateadventure.brickforgery.tileentities;
+package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
@@ -7,7 +7,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 
-public class TileEntityItemElevator extends BlockEntity {
+public class ItemChuteBlockEntity extends BlockEntity {
 
     public int inputCycle;
     public int outputCycle;
@@ -24,22 +24,23 @@ public class TileEntityItemElevator extends BlockEntity {
         }
     }
 
-    public void moveItems() {
-        BlockEntity inputMachine = world.getBlockEntity(x, y - 1, z);
+    public void moveItems()
+    {
+        BlockEntity inputMachine = world.getBlockEntity(x, y + 1, z);
 
         int range = 1;
         for (; range <= 4; range++) {
-            if (world.getBlockId(x, y + range, z) != BlockListener.itemElevatorChain.id) break;
+            if (world.getBlockId(x, y - range, z) != BlockListener.itemChuteChain.id) break;
         }
 
-        BlockEntity outputMachine = world.getBlockEntity(x, y + range, z);
+        BlockEntity outputMachine = world.getBlockEntity(x, y - range, z);
 
         if (inputMachine == null) return;
         if (outputMachine == null) return;
         if (!(inputMachine instanceof BlockWithOutput)) return;
         if (!(outputMachine instanceof BlockWithInput)) return;
-        if (!((BlockWithOutput) inputMachine).isValidOutputSide(1)) return;
-        if (!((BlockWithInput) outputMachine).isValidInputSide(0)) return;
+        if (!((BlockWithOutput) inputMachine).isValidOutputSide(0)) return;
+        if (!((BlockWithInput) outputMachine).isValidInputSide(1)) return;
         if (!(inputCycle < ((BlockWithOutput) inputMachine).getOutputSlotCount())) inputCycle = 0;
         if (!(outputCycle < ((BlockWithInput) outputMachine).getInputSlotCount())) outputCycle = 0;
 

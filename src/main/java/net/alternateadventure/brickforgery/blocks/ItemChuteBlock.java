@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.tileentities.TileEntityItemChute;
+import net.alternateadventure.brickforgery.blocks.entity.ItemChuteBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
 import net.minecraft.sound.BlockSoundGroup;
@@ -18,6 +18,6 @@ public class ItemChuteBlock extends LazySimpleMachineBlockTemplate {
 
     @Override
     protected BlockEntity createBlockEntity() {
-        return new TileEntityItemChute();
+        return new ItemChuteBlockEntity();
     }
 }

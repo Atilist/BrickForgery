@@ -1,7 +1,7 @@
 package net.alternateadventure.brickforgery.guis;
 
 import net.alternateadventure.brickforgery.containers.MetalworkingStationScreenHandler;
-import net.alternateadventure.brickforgery.tileentities.TileEntityMetalworkingStation;
+import net.alternateadventure.brickforgery.blocks.entity.MetalworkingStationBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -10,9 +10,9 @@ import org.lwjgl.opengl.GL11;
 
 @Environment(EnvType.CLIENT)
 public class MetalworkingStationScreen extends HandledScreen {
-    private final TileEntityMetalworkingStation metalworkingStation;
+    private final MetalworkingStationBlockEntity metalworkingStation;
 
-    public MetalworkingStationScreen(PlayerInventory arg, TileEntityMetalworkingStation arg2) {
+    public MetalworkingStationScreen(PlayerInventory arg, MetalworkingStationBlockEntity arg2) {
         super(new MetalworkingStationScreenHandler(arg, arg2));
         this.metalworkingStation = arg2;
     }

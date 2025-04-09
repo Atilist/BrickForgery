@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.tileentities.TileEntityItemSlide;
+import net.alternateadventure.brickforgery.blocks.entity.ItemSlideBlockEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
 import net.minecraft.sound.BlockSoundGroup;
@@ -18,6 +18,6 @@ public class ItemSlideBlock extends DirectionalMachineTemplateBlock {
 
     @Override
     protected BlockEntity createBlockEntity() {
-        return new TileEntityItemSlide();
+        return new ItemSlideBlockEntity();
     }
 }

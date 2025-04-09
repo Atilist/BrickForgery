@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.containers;
 
-import net.alternateadventure.brickforgery.tileentities.TileEntityAlloySmelter;
+import net.alternateadventure.brickforgery.blocks.entity.AlloySmelterBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,12 +12,12 @@ import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
 
 public class AlloySmelterScreenHandler extends ScreenHandler {
-    private final TileEntityAlloySmelter alloySmelter;
+    private final AlloySmelterBlockEntity alloySmelter;
     private int cookTime = 0;
     private int burnTime = 0;
     private int fuelTime = 0;
 
-    public AlloySmelterScreenHandler(PlayerInventory arg, TileEntityAlloySmelter arg2) {
+    public AlloySmelterScreenHandler(PlayerInventory arg, AlloySmelterBlockEntity arg2) {
         this.alloySmelter = arg2;
         this.addSlot(new Slot(arg2, 0, 20, 34));
         this.addSlot(new Slot(arg2, 3, 38, 34));

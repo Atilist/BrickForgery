@@ -1,7 +1,7 @@
-package net.alternateadventure.brickforgery.tileentities;
+package net.alternateadventure.brickforgery.blocks.entity;
 
-import net.alternateadventure.brickforgery.blocks.MetalworkingStationBlockTemplate;
-import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
+import net.alternateadventure.brickforgery.blocks.SlicerBlockTemplate;
+import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
@@ -15,13 +15,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 
-public class TileEntityMetalworkingStation extends BlockEntity implements Inventory, BlockWithOutput, BlockWithInput {
+public class SlicerBlockEntity extends BlockEntity implements Inventory, BlockWithOutput, BlockWithInput {
     private ItemStack[] inventory = new ItemStack[2];
-    public int metalworkingTime = 0;
+    public int sliceTime = 0;
     public int tier = 0;
     public boolean tierChecked = false;
 
-    public TileEntityMetalworkingStation() {
+    public SlicerBlockEntity() {
     }
 
     @Override
@@ -66,7 +66,7 @@ public class TileEntityMetalworkingStation extends BlockEntity implements Invent
 
     @Override
     public String getName() {
-        return "MetalworkingStation";
+        return "Slicer";
     }
 
     @Override
@@ -83,7 +83,7 @@ public class TileEntityMetalworkingStation extends BlockEntity implements Invent
             }
         }
 
-        this.metalworkingTime = arg.getShort("MetalworkingTime");
+        this.sliceTime = arg.getShort("SliceTime");
         this.tierChecked = arg.getBoolean("TierChecked");
         this.tier = arg.getInt("Tier");
     }
@@ -91,7 +91,7 @@ public class TileEntityMetalworkingStation extends BlockEntity implements Invent
     @Override
     public void writeNbt(NbtCompound arg) {
         super.writeNbt(arg);
-        arg.putInt("MetalworkingTime", (short)this.metalworkingTime);
+        arg.putInt("SliceTime", (short)this.sliceTime);
         arg.putBoolean("TierChecked", tierChecked);
         arg.putInt("Tier", tier);
         NbtList var2 = new NbtList();
@@ -114,8 +114,8 @@ public class TileEntityMetalworkingStation extends BlockEntity implements Invent
     }
 
     @Environment(EnvType.CLIENT)
-    public int getMetalworkingTimeDelta(int i) {
-        return this.metalworkingTime * i / 200;
+    public int getSliceTimeDelta(int i) {
+        return this.sliceTime * i / 200;
     }
 
     @Override
@@ -128,14 +128,14 @@ public class TileEntityMetalworkingStation extends BlockEntity implements Invent
         if (!this.world.isRemote) {
 
             if (this.canAcceptRecipeOutput()) {
-                ++this.metalworkingTime;
-                if (this.metalworkingTime == 200) {
-                    this.metalworkingTime = 0;
+                ++this.sliceTime;
+                if (this.sliceTime == 200) {
+                    this.sliceTime = 0;
                     this.craftRecipe();
                     var2 = true;
                 }
             } else {
-                this.metalworkingTime = 0;
+                this.sliceTime = 0;
             }
         }
 
@@ -150,38 +150,38 @@ public class TileEntityMetalworkingStation extends BlockEntity implements Invent
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof MetalworkingStationBlockTemplate)
+        if (blockBase instanceof SlicerBlockTemplate)
         {
-            tier = ((MetalworkingStationBlockTemplate) blockBase).tier;
+            tier = ((SlicerBlockTemplate) blockBase).tier;
             tierChecked = true;
         }
     }
 
     private boolean canAcceptRecipeOutput() {
         if (this.inventory[0] == null) return false;
-        TieredMachineRecipeData metalworkingRecipeData = MetalworkingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
-        if (metalworkingRecipeData == null) {
+        TieredMachineRecipeData slicingRecipeData = SlicingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
+        if (slicingRecipeData == null) {
             return false;
-        } else if (metalworkingRecipeData.tierRequirement > tier) {
+        } else if (slicingRecipeData.tierRequirement > tier) {
             return false;
         } else if (this.inventory[1] == null) {
             return true;
-        } else if (!this.inventory[1].isItemEqual(metalworkingRecipeData.output)) {
+        } else if (!this.inventory[1].isItemEqual(slicingRecipeData.output)) {
             return false;
         } else if (this.inventory[1].count < this.getMaxCountPerStack() && this.inventory[1].count < this.inventory[1].getMaxCount()) {
             return true;
         } else {
-            return this.inventory[1].count < metalworkingRecipeData.output.getMaxCount();
+            return this.inventory[1].count < slicingRecipeData.output.getMaxCount();
         }
 
     }
 
     public void craftRecipe() {
         if (this.canAcceptRecipeOutput()) {
-            TieredMachineRecipeData metalworkingRecipeData = MetalworkingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
+            TieredMachineRecipeData slicingRecipeData = SlicingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
             if (this.inventory[1] == null) {
-                this.inventory[1] = metalworkingRecipeData.output.copy();
-            } else if (this.inventory[1].itemId == metalworkingRecipeData.output.itemId) {
+                this.inventory[1] = slicingRecipeData.output.copy();
+            } else if (this.inventory[1].itemId == slicingRecipeData.output.itemId) {
                 ++this.inventory[1].count;
             }
             --this.inventory[0].count;

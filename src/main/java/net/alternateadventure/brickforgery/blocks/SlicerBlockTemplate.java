@@ -2,7 +2,7 @@ package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.containers.SlicerScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
-import net.alternateadventure.brickforgery.tileentities.TileEntitySlicer;
+import net.alternateadventure.brickforgery.blocks.entity.SlicerBlockEntity;
 import net.kozibrodka.wolves.events.BlockListener;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
@@ -27,19 +27,19 @@ public class SlicerBlockTemplate extends LazySimpleMachineBlockTemplate {
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
-        if (tileEntity instanceof TileEntitySlicer tileEntitySlicer)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_slicer"), tileEntitySlicer, new SlicerScreenHandler(player.inventory, tileEntitySlicer));
+        if (tileEntity instanceof SlicerBlockEntity slicerBlockEntity)
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_slicer"), slicerBlockEntity, new SlicerScreenHandler(player.inventory, slicerBlockEntity));
         return true;
     }
 
     @Override
     protected BlockEntity createBlockEntity() {
-        return new TileEntitySlicer();
+        return new SlicerBlockEntity();
     }
 
     public void onBreak(World arg, int i, int j, int k) {
 
-            TileEntitySlicer slicer = (TileEntitySlicer) arg.getBlockEntity(i, j, k);
+            SlicerBlockEntity slicer = (SlicerBlockEntity) arg.getBlockEntity(i, j, k);
 
             for(int var6 = 0; var6 < slicer.size(); ++var6) {
                 ItemStack var7 = slicer.getStack(var6);

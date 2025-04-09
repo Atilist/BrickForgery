@@ -1,7 +1,7 @@
 package net.alternateadventure.brickforgery.guis;
 
 import net.alternateadventure.brickforgery.containers.CrusherScreenHandler;
-import net.alternateadventure.brickforgery.tileentities.TileEntityCrusher;
+import net.alternateadventure.brickforgery.blocks.entity.CrusherBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -10,9 +10,9 @@ import org.lwjgl.opengl.GL11;
 
 @Environment(EnvType.CLIENT)
 public class CrusherScreen extends HandledScreen {
-    private final TileEntityCrusher crusher;
+    private final CrusherBlockEntity crusher;
 
-    public CrusherScreen(PlayerInventory arg, TileEntityCrusher arg2) {
+    public CrusherScreen(PlayerInventory arg, CrusherBlockEntity arg2) {
         super(new CrusherScreenHandler(arg, arg2));
         this.crusher = arg2;
     }

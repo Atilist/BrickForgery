@@ -1,4 +1,4 @@
-package net.alternateadventure.brickforgery.tileentities;
+package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.blocks.CrusherBaseBlock;
 import net.alternateadventure.brickforgery.customrecipes.WashingRecipeRegistry;
@@ -15,14 +15,14 @@ import net.minecraft.nbt.NbtList;
 
 import java.util.Random;
 
-public class TileEntityWasher extends BlockEntity implements Inventory {
+public class WasherBlockEntity extends BlockEntity implements Inventory {
     private final Random random = new Random();
     private ItemStack[] inventory = new ItemStack[3];
     public int processingTime = 0;
     public int tier = 0;
     public boolean tierChecked = false;
 
-    public TileEntityWasher() {
+    public WasherBlockEntity() {
     }
 
     @Override

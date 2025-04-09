@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.containers;
 
-import net.alternateadventure.brickforgery.tileentities.TileEntityWasher;
+import net.alternateadventure.brickforgery.blocks.entity.WasherBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,10 +12,10 @@ import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
 
 public class WasherScreenHandler extends ScreenHandler {
-    private final TileEntityWasher washer;
+    private final WasherBlockEntity washer;
     private int washingTime = 0;
 
-    public WasherScreenHandler(PlayerInventory arg, TileEntityWasher arg2) {
+    public WasherScreenHandler(PlayerInventory arg, WasherBlockEntity arg2) {
         this.washer = arg2;
 
         this.addSlot(new Slot(arg2, 0, 56, 35));

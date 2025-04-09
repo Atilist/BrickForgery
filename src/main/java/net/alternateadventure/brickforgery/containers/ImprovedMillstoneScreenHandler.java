@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.containers;
 
-import net.alternateadventure.brickforgery.tileentities.TileEntityImprovedMillstone;
+import net.alternateadventure.brickforgery.blocks.entity.ImprovedMillstoneBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerEntity;
@@ -12,10 +12,10 @@ import net.minecraft.screen.slot.FurnaceOutputSlot;
 import net.minecraft.screen.slot.Slot;
 
 public class ImprovedMillstoneScreenHandler extends ScreenHandler {
-    private final TileEntityImprovedMillstone improvedMillstone;
+    private final ImprovedMillstoneBlockEntity improvedMillstone;
     private int sliceTime = 0;
 
-    public ImprovedMillstoneScreenHandler(PlayerInventory arg, TileEntityImprovedMillstone arg2) {
+    public ImprovedMillstoneScreenHandler(PlayerInventory arg, ImprovedMillstoneBlockEntity arg2) {
         this.improvedMillstone = arg2;
 
         for (int index = 0; index < 3; index++) {

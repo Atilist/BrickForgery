@@ -1,8 +1,10 @@
-package net.alternateadventure.brickforgery.tileentities;
+package net.alternateadventure.brickforgery.blocks.entity;
 
-import net.alternateadventure.brickforgery.blocks.CrusherBaseBlock;
-import net.alternateadventure.brickforgery.customrecipes.CrushingRecipeRegistry;
-import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
+import net.alternateadventure.brickforgery.blocks.MetalworkingStationBlockTemplate;
+import net.alternateadventure.brickforgery.customrecipes.MetalworkingRecipeRegistry;
+import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
+import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
+import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -13,16 +15,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 
-import java.util.Random;
-
-public class TileEntityCrusher extends BlockEntity implements Inventory {
-    private final Random random = new Random();
-    private ItemStack[] inventory = new ItemStack[3];
-    public int crushingTime = 0;
+public class MetalworkingStationBlockEntity extends BlockEntity implements Inventory, BlockWithOutput, BlockWithInput {
+    private ItemStack[] inventory = new ItemStack[2];
+    public int metalworkingTime = 0;
     public int tier = 0;
     public boolean tierChecked = false;
 
-    public TileEntityCrusher() {
+    public MetalworkingStationBlockEntity() {
     }
 
     @Override
@@ -67,7 +66,7 @@ public class TileEntityCrusher extends BlockEntity implements Inventory {
 
     @Override
     public String getName() {
-        return "Crusher";
+        return "MetalworkingStation";
     }
 
     @Override
@@ -84,7 +83,7 @@ public class TileEntityCrusher extends BlockEntity implements Inventory {
             }
         }
 
-        this.crushingTime = arg.getShort("CrushingTime");
+        this.metalworkingTime = arg.getShort("MetalworkingTime");
         this.tierChecked = arg.getBoolean("TierChecked");
         this.tier = arg.getInt("Tier");
     }
@@ -92,7 +91,7 @@ public class TileEntityCrusher extends BlockEntity implements Inventory {
     @Override
     public void writeNbt(NbtCompound arg) {
         super.writeNbt(arg);
-        arg.putShort("CrushingTime", (short)this.crushingTime);
+        arg.putInt("MetalworkingTime", (short)this.metalworkingTime);
         arg.putBoolean("TierChecked", tierChecked);
         arg.putInt("Tier", tier);
         NbtList var2 = new NbtList();
@@ -115,8 +114,8 @@ public class TileEntityCrusher extends BlockEntity implements Inventory {
     }
 
     @Environment(EnvType.CLIENT)
-    public int getCrushingTimeDelta(int i) {
-        return this.crushingTime * i / 200;
+    public int getMetalworkingTimeDelta(int i) {
+        return this.metalworkingTime * i / 200;
     }
 
     @Override
@@ -129,14 +128,14 @@ public class TileEntityCrusher extends BlockEntity implements Inventory {
         if (!this.world.isRemote) {
 
             if (this.canAcceptRecipeOutput()) {
-                ++this.crushingTime;
-                if (this.crushingTime == 200) {
-                    this.crushingTime = 0;
+                ++this.metalworkingTime;
+                if (this.metalworkingTime == 200) {
+                    this.metalworkingTime = 0;
                     this.craftRecipe();
                     var2 = true;
                 }
             } else {
-                this.crushingTime = 0;
+                this.metalworkingTime = 0;
             }
         }
 
@@ -146,66 +145,48 @@ public class TileEntityCrusher extends BlockEntity implements Inventory {
 
     }
 
-    public void checkTier() {
+    public void checkTier()
+    {
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof CrusherBaseBlock)
+        if (blockBase instanceof MetalworkingStationBlockTemplate)
         {
-            tier = ((CrusherBaseBlock) blockBase).tier;
+            tier = ((MetalworkingStationBlockTemplate) blockBase).tier;
             tierChecked = true;
         }
     }
 
     private boolean canAcceptRecipeOutput() {
         if (this.inventory[0] == null) return false;
-        TierAndByproductOutput crushingOutput = CrushingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
-        if (crushingOutput == null) {
+        TieredMachineRecipeData metalworkingRecipeData = MetalworkingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
+        if (metalworkingRecipeData == null) {
             return false;
-        } else if (crushingOutput.tieredMachineRecipeData.tierRequirement > tier) {
+        } else if (metalworkingRecipeData.tierRequirement > tier) {
             return false;
-        }
-        if (!canAcceptByproduct(crushingOutput.byproduct.copy())) return false;
-        ItemStack crushedItem = crushingOutput.tieredMachineRecipeData.output.copy();
-        if (this.inventory[1] == null) {
+        } else if (this.inventory[1] == null) {
             return true;
-        } else if (!this.inventory[1].isItemEqual(crushedItem)) {
+        } else if (!this.inventory[1].isItemEqual(metalworkingRecipeData.output)) {
             return false;
+        } else if (this.inventory[1].count < this.getMaxCountPerStack() && this.inventory[1].count < this.inventory[1].getMaxCount()) {
+            return true;
         } else {
-            return this.inventory[1].count + crushedItem.count < crushedItem.getMaxCount();
+            return this.inventory[1].count < metalworkingRecipeData.output.getMaxCount();
         }
 
-    }
-
-    private boolean canAcceptByproduct(ItemStack byproduct) {
-        if (byproduct == null) return true;
-        if (inventory[2] == null) return true;
-        if (!inventory[2].isItemEqual(byproduct)) return false;
-        return byproduct.count + inventory[2].count <= byproduct.getMaxCount();
     }
 
     public void craftRecipe() {
         if (this.canAcceptRecipeOutput()) {
-            TierAndByproductOutput crushingOutput = CrushingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
-            ItemStack crushedItem = crushingOutput.tieredMachineRecipeData.output.copy();
+            TieredMachineRecipeData metalworkingRecipeData = MetalworkingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
             if (this.inventory[1] == null) {
-                this.inventory[1] = crushedItem;
-            } else if (this.inventory[1].itemId == crushedItem.itemId) {
-                this.inventory[1].count += crushedItem.count;
+                this.inventory[1] = metalworkingRecipeData.output.copy();
+            } else if (this.inventory[1].itemId == metalworkingRecipeData.output.itemId) {
+                ++this.inventory[1].count;
             }
             --this.inventory[0].count;
             if (this.inventory[0].count <= 0) {
                 this.inventory[0] = null;
-            }
-            if (random.nextDouble(1.0) > crushingOutput.byproductChance) return;
-            ItemStack byproduct = crushingOutput.byproduct.copy();
-            if (this.inventory[2] == null)
-            {
-                this.inventory[2] = byproduct;
-            }
-            else
-            {
-                this.inventory[2].count += byproduct.count;
             }
         }
     }
@@ -217,5 +198,55 @@ public class TileEntityCrusher extends BlockEntity implements Inventory {
         } else {
             return !(arg.getSquaredDistance((double)this.x + 0.5D, (double)this.y + 0.5D, (double)this.z + 0.5D) > 64.0D);
         }
+    }
+
+    @Override
+    public boolean isValidOutputSide(int side) {
+        return true;
+    }
+
+    @Override
+    public int getOutputSlotCount() {
+        return 1;
+    }
+
+    @Override
+    public ItemStack getItemFromOutputSlot(int slot) {
+        return inventory[1];
+    }
+
+    @Override
+    public void clearOutput(int slot) {
+        inventory[1] = null;
+    }
+
+    @Override
+    public void setOutputItemCount(int slot, int count) {
+        inventory[1].count = count;
+    }
+
+    @Override
+    public boolean isValidInputSide(int side) {
+        return true;
+    }
+
+    @Override
+    public int getInputSlotCount() {
+        return 1;
+    }
+
+    @Override
+    public ItemStack getItemFromInputSlot(int slot) {
+        return inventory[0];
+    }
+
+    @Override
+    public void setInputItem(int slot, ItemStack ItemStack) {
+        inventory[0] = ItemStack;
+    }
+
+    @Override
+    public void setInputItemCount(int slot, int count) {
+        inventory[0].count = count;
     }
 }

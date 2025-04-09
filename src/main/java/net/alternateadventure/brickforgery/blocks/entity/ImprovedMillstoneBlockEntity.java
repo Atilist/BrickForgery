@@ -1,4 +1,4 @@
-package net.alternateadventure.brickforgery.tileentities;
+package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -10,11 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 
-public class TileEntityImprovedMillstone extends BlockEntity implements Inventory {
+public class ImprovedMillstoneBlockEntity extends BlockEntity implements Inventory {
     private ItemStack[] inventory = new ItemStack[6];
     public int millingTime = 0;
 
-    public TileEntityImprovedMillstone() {
+    public ImprovedMillstoneBlockEntity() {
     }
 
     @Override

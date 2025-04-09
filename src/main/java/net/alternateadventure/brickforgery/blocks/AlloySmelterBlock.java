@@ -3,7 +3,7 @@ package net.alternateadventure.brickforgery.blocks;
 import net.alternateadventure.brickforgery.containers.AlloySmelterScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
-import net.alternateadventure.brickforgery.tileentities.TileEntityAlloySmelter;
+import net.alternateadventure.brickforgery.blocks.entity.AlloySmelterBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.entity.BlockEntity;
@@ -39,8 +39,8 @@ public class AlloySmelterBlock extends DirectionalMachineTemplateBlock {
     @Override
     public boolean onUse(World world, int x, int y, int z, PlayerEntity player) {
         BlockEntity tileEntity = world.getBlockEntity(x, y, z);
-        if (tileEntity instanceof TileEntityAlloySmelter tileEntityAlloySmelter)
-            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_alloy_smelter"), tileEntityAlloySmelter, new AlloySmelterScreenHandler(player.inventory, tileEntityAlloySmelter));
+        if (tileEntity instanceof AlloySmelterBlockEntity alloySmelterBlockEntity)
+            GuiHelper.openGUI(player, Identifier.of(BlockEntityListener.MOD_ID, "gui_alloy_smelter"), alloySmelterBlockEntity, new AlloySmelterScreenHandler(player.inventory, alloySmelterBlockEntity));
         return true;
     }
 
@@ -93,7 +93,7 @@ public class AlloySmelterBlock extends DirectionalMachineTemplateBlock {
     @Override
     public void onBreak(World arg, int i, int j, int k) {
         if (!SETTING_TILE) {
-            TileEntityAlloySmelter alloySmelter = (TileEntityAlloySmelter)arg.getBlockEntity(i, j, k);
+            AlloySmelterBlockEntity alloySmelter = (AlloySmelterBlockEntity)arg.getBlockEntity(i, j, k);
 
             for(int var6 = 0; var6 < alloySmelter.size(); ++var6) {
                 ItemStack var7 = alloySmelter.getStack(var6);
@@ -125,6 +125,6 @@ public class AlloySmelterBlock extends DirectionalMachineTemplateBlock {
 
     @Override
     protected BlockEntity createBlockEntity() {
-        return new TileEntityAlloySmelter();
+        return new AlloySmelterBlockEntity();
     }
 }

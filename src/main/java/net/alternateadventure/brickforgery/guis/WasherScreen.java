@@ -1,7 +1,7 @@
 package net.alternateadventure.brickforgery.guis;
 
 import net.alternateadventure.brickforgery.containers.WasherScreenHandler;
-import net.alternateadventure.brickforgery.tileentities.TileEntityWasher;
+import net.alternateadventure.brickforgery.blocks.entity.WasherBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -10,9 +10,9 @@ import org.lwjgl.opengl.GL11;
 
 @Environment(EnvType.CLIENT)
 public class WasherScreen extends HandledScreen {
-    private final TileEntityWasher washer;
+    private final WasherBlockEntity washer;
 
-    public WasherScreen(PlayerInventory arg, TileEntityWasher arg2) {
+    public WasherScreen(PlayerInventory arg, WasherBlockEntity arg2) {
         super(new WasherScreenHandler(arg, arg2));
         this.washer = arg2;
     }
