@@ -2,6 +2,7 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.registry.machine.*;
 import net.alternateadventure.brickforgery.registry.tool.BrushRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.tool.ChiselRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.*;
 import net.kozibrodka.wolves.api.HibachiIgnitionRegistry;
 import net.kozibrodka.wolves.recipe.*;
@@ -191,6 +192,8 @@ public class RecipeListener {
             BrushRecipeRegistry.getInstance().addBrushingRecipe(BlockListener.bountifulSand.id, new TieredBlockConversionData(new int[] {BlockListener.desertPotSealed.id, BlockListener.desertPot.id}, new int[] {50, 70}, TierEnum.PRIMITIVE));
             BrushRecipeRegistry.getInstance().addBrushingRecipe(BlockListener.bountifulSnow.id, new TieredBlockConversionData(new int[] {BlockListener.frozenPotSealed.id, BlockListener.frozenPot.id}, new int[] {50, 70}, TierEnum.PRIMITIVE));
 
+            ChiselRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.desertPotSealed.id, new TieredBlockConversionData(new int[] {BlockListener.desertPot.id}, new int[] {90}, TierEnum.PRIMITIVE));
+            ChiselRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.frozenPotSealed.id, new TieredBlockConversionData(new int[] {BlockListener.frozenPot.id}, new int[] {90}, TierEnum.PRIMITIVE));
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {

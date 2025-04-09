@@ -20,10 +20,9 @@ public class ItemListener {
             nightSeeds,
             nightWheat,
 
-            archaeologyChisel,
             archaeologyIceKnife,
 
-    archaeologyToolBase,
+            archaeologyToolBase,
             iceBlade,
             brokenSpikeHolder,
 
@@ -65,6 +64,7 @@ public class ItemListener {
             primitiveGrabber,
 
             archaeologyBrush,
+            archaeologyChisel,
 
             groundSandstone,
             illuminantCrystal,
@@ -147,10 +147,11 @@ public class ItemListener {
         frozenPotItem = new FrozenPotItem(Identifier.of(MOD_ID, "frozen_pot_item"));
 
         primitiveBrush = new BrushToolTemplate(Identifier.of(MOD_ID, "primitive_brush"), 256, TierEnum.PRIMITIVE);
-        primitiveChisel = new PrimitiveChiselItem(Identifier.of(MOD_ID, "primitive_chisel"));
+        primitiveChisel = new ChiselToolTemplate(Identifier.of(MOD_ID, "primitive_chisel"), 256, TierEnum.PRIMITIVE);
         primitiveGrabber = new PrimitiveGrabberItem(Identifier.of(MOD_ID, "primitive_grabber"));
 
         archaeologyBrush = new BrushToolTemplate(Identifier.of(MOD_ID, "archaeology_brush"), 512, TierEnum.BRICK);
+        archaeologyChisel = new ChiselToolTemplate(Identifier.of(MOD_ID, "archaeology_chisel"), 512, TierEnum.BRICK);
 
         groundSandstone = new LazyItemTemplate(Identifier.of(MOD_ID, "ground_sandstone"));
         illuminantCrystal = new LazyItemTemplate(Identifier.of(MOD_ID, "illuminant_crystal"));
@@ -194,7 +195,6 @@ public class ItemListener {
 
         toolRepairKit = new LazyItemTemplate(Identifier.of(MOD_ID, "tool_repair_kit"));
 
-        archaeologyChisel = new ArchaeologyChiselItem(Identifier.of(MOD_ID, "archaeology_chisel")).setTranslationKey(MOD_ID, "archaeology_chisel");
         archaeologyIceKnife = new ArchaeologyIceKnifeItem(Identifier.of(MOD_ID, "archaeology_ice_knife")).setTranslationKey(MOD_ID, "archaeology_ice_knife");
 
         archaeologyToolBase = new TemplateItem(Identifier.of(MOD_ID, "archaeology_tool_base")).setTranslationKey(MOD_ID, "archaeology_tool_base");
