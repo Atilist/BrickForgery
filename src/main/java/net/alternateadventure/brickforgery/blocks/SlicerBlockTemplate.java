@@ -3,6 +3,7 @@ package net.alternateadventure.brickforgery.blocks;
 import net.alternateadventure.brickforgery.containers.SlicerScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.blocks.entity.SlicerBlockEntity;
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.kozibrodka.wolves.events.BlockListener;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
@@ -18,8 +19,8 @@ import java.util.Random;
 
 public class SlicerBlockTemplate extends LazySimpleMachineBlockTemplate {
     private final Random rand = new Random();
-    public int tier;
-    public SlicerBlockTemplate(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds, int tier) {
+    public TierEnum tier;
+    public SlicerBlockTemplate(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds, TierEnum tier) {
         super(identifier, material, hardness, blockSounds);
         this.tier = tier;
     }

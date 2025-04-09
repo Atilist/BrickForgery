@@ -3,6 +3,7 @@ package net.alternateadventure.brickforgery.events.init;
 import net.alternateadventure.brickforgery.customrecipes.*;
 import net.alternateadventure.brickforgery.utils.RecipeRemover;
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.kozibrodka.wolves.api.HibachiIgnitionRegistry;
 import net.kozibrodka.wolves.recipe.*;
@@ -162,12 +163,12 @@ public class RecipeListener {
 
             AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.largeBrickRaw), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.largeBrick, 1));
 
-            SlicingRecipeRegistry.getInstance().addSlicingRecipe(Item.LEATHER.id, new TieredMachineRecipeData(0, new ItemStack(ItemListener.leatherStrap)));
-            SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(1, new ItemStack(ItemListener.durableLeatherStrap)));
+            SlicingRecipeRegistry.getInstance().addSlicingRecipe(Item.LEATHER.id, new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.leatherStrap)));
+            SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.durableLeatherStrap)));
 
-            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(Item.GOLD_INGOT.id, new TieredMachineRecipeData(0, new ItemStack(ItemListener.goldenScrew)));
-            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.bricksidianIngot.id, new TieredMachineRecipeData(1, new ItemStack(ItemListener.bricksidianScrew)));
-            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.brickSteelIngot.id, new TieredMachineRecipeData(1, new ItemStack(ItemListener.brickSteelPlate)));
+            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(Item.GOLD_INGOT.id, new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldenScrew)));
+            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.bricksidianIngot.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.bricksidianScrew)));
+            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.brickSteelIngot.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.brickSteelPlate)));
 
             HibachiIgnitionRegistry.getInstance().addBlockIgnition(BlockListener.heatPillar.id, BlockListener.heatPillarIgnited.id);
 
@@ -180,14 +181,14 @@ public class RecipeListener {
 
             addStokedCauldronRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.glue, 4), new ItemStack[] { new ItemStack(ItemListener.glueMixture)});
 
-            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.SAND.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(BlockListener.dust)), new ItemStack(ItemListener.goldOrePowdered), 0.1));
-            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.IRON_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.ironOreCrushed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
-            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.GOLD_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.goldOreCrushed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.SAND.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(BlockListener.dust)), new ItemStack(ItemListener.goldOrePowdered), 0.1));
+            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.IRON_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreCrushed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
+            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.GOLD_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreCrushed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
 
-            WashingRecipeRegistry.getInstance().addWashingRecipe(Block.DIRT.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(Block.SAND)), new ItemStack(Item.CLAY), 0.75));
-            WashingRecipeRegistry.getInstance().addWashingRecipe(BlockListener.dust.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(Block.CLAY)), new ItemStack(Item.CLAY), 0.25));
-            WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.ironOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.ironOreWashed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
-            WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.goldOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(0, new ItemStack(ItemListener.goldOreWashed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+            WashingRecipeRegistry.getInstance().addWashingRecipe(Block.DIRT.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.SAND)), new ItemStack(Item.CLAY), 0.75));
+            WashingRecipeRegistry.getInstance().addWashingRecipe(BlockListener.dust.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.CLAY)), new ItemStack(Item.CLAY), 0.25));
+            WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.ironOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreWashed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
+            WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.goldOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreWashed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
 
         }
         // Input -> Output

@@ -2,6 +2,7 @@ package net.alternateadventure.brickforgery.blocks;
 
 import net.alternateadventure.brickforgery.customrecipes.BrickFramingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BrickFrameIngredient;
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.ItemEntity;
@@ -14,10 +15,10 @@ import net.modificationstation.stationapi.api.util.Identifier;
 import java.util.Random;
 
 public class BrickFrameCrafterBlock extends LazyBlockTemplate {
-    public int tier;
+    public TierEnum tier; // TODO: Actually make use of the tier
     private final Random random = new Random();
 
-    public BrickFrameCrafterBlock(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds, int tier) {
+    public BrickFrameCrafterBlock(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds, TierEnum tier) {
         super(identifier, material, hardness, blockSounds);
         this.tier = tier;
     }
@@ -51,7 +52,6 @@ public class BrickFrameCrafterBlock extends LazyBlockTemplate {
         transformBlock(level, x - 1, y, z);
         transformBlock(level, x, y, z + 1);
         transformBlock(level, x, y, z - 1);
-        if (tier < 1 && random.nextBoolean()) return; // 50% chance of failure if tier is below 1
         level.spawnEntity(new ItemEntity(level, x + 0.5, y + 1, z + 0.5, output));
     }
 

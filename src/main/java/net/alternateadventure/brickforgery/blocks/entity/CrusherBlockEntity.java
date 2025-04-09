@@ -3,6 +3,7 @@ package net.alternateadventure.brickforgery.blocks.entity;
 import net.alternateadventure.brickforgery.blocks.CrusherBaseBlock;
 import net.alternateadventure.brickforgery.customrecipes.CrushingRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -19,7 +20,7 @@ public class CrusherBlockEntity extends BlockEntity implements Inventory {
     private final Random random = new Random();
     private ItemStack[] inventory = new ItemStack[3];
     public int crushingTime = 0;
-    public int tier = 0;
+    public TierEnum tier;
     public boolean tierChecked = false;
 
     public CrusherBlockEntity() {
@@ -86,7 +87,7 @@ public class CrusherBlockEntity extends BlockEntity implements Inventory {
 
         this.crushingTime = arg.getShort("CrushingTime");
         this.tierChecked = arg.getBoolean("TierChecked");
-        this.tier = arg.getInt("Tier");
+        this.tier = TierEnum.values()[arg.getInt("Tier")];
     }
 
     @Override
@@ -94,7 +95,7 @@ public class CrusherBlockEntity extends BlockEntity implements Inventory {
         super.writeNbt(arg);
         arg.putShort("CrushingTime", (short)this.crushingTime);
         arg.putBoolean("TierChecked", tierChecked);
-        arg.putInt("Tier", tier);
+        arg.putInt("Tier", tier.ordinal());
         NbtList var2 = new NbtList();
 
         for(int var3 = 0; var3 < this.inventory.length; ++var3) {
@@ -162,7 +163,7 @@ public class CrusherBlockEntity extends BlockEntity implements Inventory {
         TierAndByproductOutput crushingOutput = CrushingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
         if (crushingOutput == null) {
             return false;
-        } else if (crushingOutput.tieredMachineRecipeData.tierRequirement > tier) {
+        } else if (crushingOutput.tieredMachineRecipeData.tierRequirement.ordinal() > tier.ordinal()) {
             return false;
         }
         if (!canAcceptByproduct(crushingOutput.byproduct.copy())) return false;

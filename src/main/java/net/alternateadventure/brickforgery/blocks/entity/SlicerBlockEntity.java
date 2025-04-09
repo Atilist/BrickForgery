@@ -4,6 +4,7 @@ import net.alternateadventure.brickforgery.blocks.SlicerBlockTemplate;
 import net.alternateadventure.brickforgery.customrecipes.SlicingRecipeRegistry;
 import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
 import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -18,7 +19,7 @@ import net.minecraft.nbt.NbtList;
 public class SlicerBlockEntity extends BlockEntity implements Inventory, BlockWithOutput, BlockWithInput {
     private ItemStack[] inventory = new ItemStack[2];
     public int sliceTime = 0;
-    public int tier = 0;
+    public TierEnum tier;
     public boolean tierChecked = false;
 
     public SlicerBlockEntity() {
@@ -83,9 +84,9 @@ public class SlicerBlockEntity extends BlockEntity implements Inventory, BlockWi
             }
         }
 
-        this.sliceTime = arg.getShort("SliceTime");
+        this.sliceTime = arg.getInt("SliceTime");
         this.tierChecked = arg.getBoolean("TierChecked");
-        this.tier = arg.getInt("Tier");
+        this.tier = TierEnum.values()[arg.getInt("Tier")];
     }
 
     @Override
@@ -93,7 +94,7 @@ public class SlicerBlockEntity extends BlockEntity implements Inventory, BlockWi
         super.writeNbt(arg);
         arg.putInt("SliceTime", (short)this.sliceTime);
         arg.putBoolean("TierChecked", tierChecked);
-        arg.putInt("Tier", tier);
+        arg.putInt("Tier", tier.ordinal());
         NbtList var2 = new NbtList();
 
         for(int var3 = 0; var3 < this.inventory.length; ++var3) {
@@ -162,7 +163,7 @@ public class SlicerBlockEntity extends BlockEntity implements Inventory, BlockWi
         TieredMachineRecipeData slicingRecipeData = SlicingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
         if (slicingRecipeData == null) {
             return false;
-        } else if (slicingRecipeData.tierRequirement > tier) {
+        } else if (slicingRecipeData.tierRequirement.ordinal() > tier.ordinal()) {
             return false;
         } else if (this.inventory[1] == null) {
             return true;

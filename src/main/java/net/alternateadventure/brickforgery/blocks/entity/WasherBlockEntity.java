@@ -1,8 +1,9 @@
 package net.alternateadventure.brickforgery.blocks.entity;
 
-import net.alternateadventure.brickforgery.blocks.CrusherBaseBlock;
+import net.alternateadventure.brickforgery.blocks.WasherBaseBlock;
 import net.alternateadventure.brickforgery.customrecipes.WashingRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -19,7 +20,7 @@ public class WasherBlockEntity extends BlockEntity implements Inventory {
     private final Random random = new Random();
     private ItemStack[] inventory = new ItemStack[3];
     public int processingTime = 0;
-    public int tier = 0;
+    public TierEnum tier;
     public boolean tierChecked = false;
 
     public WasherBlockEntity() {
@@ -84,9 +85,9 @@ public class WasherBlockEntity extends BlockEntity implements Inventory {
             }
         }
 
-        this.processingTime = arg.getShort("ProcessingTime");
+        this.processingTime = arg.getInt("ProcessingTime");
         this.tierChecked = arg.getBoolean("TierChecked");
-        this.tier = arg.getInt("Tier");
+        this.tier = TierEnum.values()[arg.getInt("Tier")];
     }
 
     @Override
@@ -94,7 +95,7 @@ public class WasherBlockEntity extends BlockEntity implements Inventory {
         super.writeNbt(arg);
         arg.putShort("ProcessingTime", (short)this.processingTime);
         arg.putBoolean("TierChecked", tierChecked);
-        arg.putInt("Tier", tier);
+        arg.putInt("Tier", tier.ordinal());
         NbtList var2 = new NbtList();
 
         for(int var3 = 0; var3 < this.inventory.length; ++var3) {
@@ -151,9 +152,8 @@ public class WasherBlockEntity extends BlockEntity implements Inventory {
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof CrusherBaseBlock)
-        {
-            tier = ((CrusherBaseBlock) blockBase).tier;
+        if (blockBase instanceof WasherBaseBlock) {
+            tier = ((WasherBaseBlock) blockBase).tier;
             tierChecked = true;
         }
     }
@@ -163,7 +163,7 @@ public class WasherBlockEntity extends BlockEntity implements Inventory {
         TierAndByproductOutput washingOutput = WashingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
         if (washingOutput == null) {
             return false;
-        } else if (washingOutput.tieredMachineRecipeData.tierRequirement > tier) {
+        } else if (washingOutput.tieredMachineRecipeData.tierRequirement.ordinal() > tier.ordinal()) {
             return false;
         }
         if (!canAcceptByproduct(washingOutput.byproduct.copy())) return false;

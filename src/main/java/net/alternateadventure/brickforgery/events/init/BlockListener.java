@@ -1,6 +1,7 @@
 package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.blocks.*;
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -172,11 +173,11 @@ public class BlockListener {
         improvedMillstone = new ImprovedMillstoneBlock(Identifier.of(MOD_ID, "improved_millstone"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP);
 
         primitiveMachineFrame = new MachineFrameBlock(Identifier.of(MOD_ID, "primitive_machine_frame"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
-        primitiveBrickFrameCrafter = new BrickFrameCrafterBlock(Identifier.of(MOD_ID, "primitive_brick_frame_crafter"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, 0);
-        primitiveSlicer = new SlicerBlockTemplate(Identifier.of(MOD_ID, "primitive_slicer"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, 0);
-        primitiveMetalworkingStation = new MetalworkingStationBlockTemplate(Identifier.of(MOD_ID, "primitive_metalworking_station"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, 0);
-        primitiveCrusher = new CrusherBaseBlock(Identifier.of(MOD_ID, "primitive_crusher"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, 0);
-        primitiveWasher = new WasherBaseBlock(Identifier.of(MOD_ID, "primitive_washer"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, 0);
+        primitiveBrickFrameCrafter = new BrickFrameCrafterBlock(Identifier.of(MOD_ID, "primitive_brick_frame_crafter"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.PRIMITIVE);
+        primitiveSlicer = new SlicerBlockTemplate(Identifier.of(MOD_ID, "primitive_slicer"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.PRIMITIVE);
+        primitiveMetalworkingStation = new MetalworkingStationBlockTemplate(Identifier.of(MOD_ID, "primitive_metalworking_station"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.PRIMITIVE);
+        primitiveCrusher = new CrusherBaseBlock(Identifier.of(MOD_ID, "primitive_crusher"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.PRIMITIVE);
+        primitiveWasher = new WasherBaseBlock(Identifier.of(MOD_ID, "primitive_washer"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.PRIMITIVE);
 
         heatPillar = new HeatPillarBlock(Identifier.of(MOD_ID, "heat_pillar"), Material.GLASS, 1.5F, Block.GLASS_SOUND_GROUP);
         heatPillarIgnited = new HeatPillarIgnitedBlock(Identifier.of(MOD_ID, "heat_pillar_ignited"), Material.GLASS, 1.5F, Block.GLASS_SOUND_GROUP);
@@ -186,11 +187,11 @@ public class BlockListener {
         frostburn = new FrostburnBlock(Identifier.of(MOD_ID, "frostburn"), Material.SNOW_BLOCK, 1.5F, Block.GLASS_SOUND_GROUP);
 
         brickSteelMachineFrame = new MachineFrameBlock(Identifier.of(MOD_ID, "brick_steel_machine_frame"), Material.METAL, 1.5F, Block.METAL_SOUND_GROUP);
-        slicer = new SlicerBlockTemplate(Identifier.of(MOD_ID, "slicer"), Material.METAL, 1.5F, Block.METAL_SOUND_GROUP, 1);
-        metalworkingStation = new MetalworkingStationBlockTemplate(Identifier.of(MOD_ID, "metalworking_station"), Material.METAL, 1.5F, Block.METAL_SOUND_GROUP, 1);
+        slicer = new SlicerBlockTemplate(Identifier.of(MOD_ID, "slicer"), Material.METAL, 1.5F, Block.METAL_SOUND_GROUP, TierEnum.BRICK);
+        metalworkingStation = new MetalworkingStationBlockTemplate(Identifier.of(MOD_ID, "metalworking_station"), Material.METAL, 1.5F, Block.METAL_SOUND_GROUP, TierEnum.BRICK);
         alloySmelter = new AlloySmelterBlock(Identifier.of(MOD_ID, "alloy_smelter"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP, false);
         alloySmelterActive = new AlloySmelterBlock(Identifier.of(MOD_ID, "alloy_smelter_active"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP, true);
-        brickFrameCrafter = new BrickFrameCrafterBlock(Identifier.of(MOD_ID, "brick_frame_crafter"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP, 1);
+        brickFrameCrafter = new BrickFrameCrafterBlock(Identifier.of(MOD_ID, "brick_frame_crafter"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP, TierEnum.BRICK);
         brickLauncher = new BrickLauncherBlock(Identifier.of(MOD_ID, "brick_launcher"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_launcher");
 
         itemChute = new ItemChuteBlock(Identifier.of(MOD_ID, "item_chute"), Material.GLASS, 1.5F, Block.METAL_SOUND_GROUP);
