@@ -28,7 +28,13 @@ public class FrozenPotSealedBlock extends TemplateBlock {
     }
 
     @Override
+    public int getDroppedItemCount(Random random) {
+        if (random.nextInt(4) == 0) return 1 + random.nextInt(4);
+        return 0;
+    }
+
+    @Override
     public int getDroppedItemId(int i, Random random) {
-        return ItemListener.frozenPotItem.id;
+        return ItemListener.cryogenicPowder.id;
     }
 }

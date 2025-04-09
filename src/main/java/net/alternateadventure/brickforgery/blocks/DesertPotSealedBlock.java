@@ -14,7 +14,13 @@ public class DesertPotSealedBlock extends LazyBlockTemplate {
     }
 
     @Override
+    public int getDroppedItemCount(Random random) {
+        if (random.nextInt(4) == 0) return 1 + random.nextInt(4);
+        return 0;
+    }
+
+    @Override
     public int getDroppedItemId(int i, Random random) {
-        return ItemListener.desertPotItem.id;
+        return ItemListener.thermalPowder.id;
     }
 }
