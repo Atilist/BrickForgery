@@ -9,6 +9,7 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
+import net.modificationstation.stationapi.api.registry.ItemRegistry;
 
 public class ImprovedMillstoneBlockEntity extends BlockEntity implements Inventory {
     private ItemStack[] inventory = new ItemStack[6];
@@ -132,7 +133,7 @@ public class ImprovedMillstoneBlockEntity extends BlockEntity implements Invento
 
     private boolean canAcceptRecipeOutput(int index) {
         if (this.inventory[index * 2] == null) return false;
-        ItemStack output = MillingRecipeRegistry.getInstance().getResult(inventory[index * 2].itemId);
+        ItemStack output = MillingRecipeRegistry.getInstance().getResult(ItemRegistry.INSTANCE.getId(inventory[index * 2].getItem()));
         if (output == null) return false;
         ItemStack outputCopy = output.copy();
         if (this.inventory[index * 2 + 1] == null) {
@@ -147,7 +148,7 @@ public class ImprovedMillstoneBlockEntity extends BlockEntity implements Invento
 
     public void craftRecipe(int index) {
         if (this.canAcceptRecipeOutput(index)) {
-            ItemStack output = MillingRecipeRegistry.getInstance().getResult(inventory[index * 2].itemId);
+            ItemStack output = MillingRecipeRegistry.getInstance().getResult(ItemRegistry.INSTANCE.getId(inventory[index * 2].getItem()));
             if (output == null) return;
             ItemStack outputCopy = output.copy();
             if (this.inventory[index * 2 + 1] == null) {

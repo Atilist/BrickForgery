@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.recipe.SmeltingRegistry;
+import net.modificationstation.stationapi.api.registry.BlockRegistry;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 public class RecipeListener {
@@ -142,10 +143,10 @@ public class RecipeListener {
             addCauldronRecipe(new ItemStack(ItemListener.concentratedThermal), new ItemStack[] {new ItemStack(ItemListener.thermalPowder, 8), new ItemStack(ItemListener.illuminantCrystal)});
             addCauldronRecipe(new ItemStack(ItemListener.concentratedCryogenic), new ItemStack[] {new ItemStack(ItemListener.cryogenicPowder, 8), new ItemStack(Block.SNOW_BLOCK)});
 
-            MillingRecipeRegistry.getInstance().addMillingRecipe(Block.SANDSTONE.id, new ItemStack(ItemListener.groundSandstone));
+            MillingRecipeRegistry.getInstance().addMillingRecipe(BlockRegistry.INSTANCE.getId(Block.SANDSTONE), new ItemStack(ItemListener.groundSandstone));
 
-            MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.ironOreWashed.id, new ItemStack(ItemListener.ironOrePowdered, 2));
-            MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.goldOreWashed.id, new ItemStack(ItemListener.goldOrePowdered, 2));
+            MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.MOD_ID.id("iron_ore_washed"), new ItemStack(ItemListener.ironOrePowdered, 2));
+            MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.MOD_ID.id("gold_ore_washed"), new ItemStack(ItemListener.goldOrePowdered, 2));
 
             AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(Item.BRICK), new ItemStack(Block.STONE), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.stoneBrick, 1));
             AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.frozenBrick), new ItemStack(net.kozibrodka.wolves.events.ItemListener.steel), new ItemStack(net.kozibrodka.wolves.events.ItemListener.netherCoal), new ItemStack(ItemListener.brickSteelIngot, 1));
