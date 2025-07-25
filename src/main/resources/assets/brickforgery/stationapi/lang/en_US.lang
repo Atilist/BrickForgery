@@ -2,6 +2,7 @@ tile.@.dirt_bricks.name=Dirt Bricks
 tile.@.sugar_cane_box.name=Sugar Cane Box
 tile.@.night_cane.name=Night Cane
 tile.@.sugar_cane_slicer.name=Sugar Cane Slicer
+tile.@.sugar_cane_brick_frame_crafter.name=Sugar Cane Brick Frame Crafter
 
 tile.@.cactus_planks.name=Cactus Planks
 tile.@.cactus_box.name=Cactus Box

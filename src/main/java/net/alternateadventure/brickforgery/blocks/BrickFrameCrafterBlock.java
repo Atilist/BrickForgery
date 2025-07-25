@@ -59,6 +59,8 @@ public class BrickFrameCrafterBlock extends LazyBlockTemplate {
         if (blockBase == null) return;
         if (blockBase instanceof BrickFrameIngredient ingredient) {
             ingredient.transformBlock(world, x, y, z, new Random());
+        } else {
+            world.setBlock(x, y, z, 0);
         }
     }
 }

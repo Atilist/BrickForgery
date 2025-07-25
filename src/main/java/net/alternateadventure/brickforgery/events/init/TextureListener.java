@@ -275,6 +275,7 @@ public class TextureListener {
         BlockListener.sugarCaneBox.specifyTextures(getIndexForPath(materialPath + "SugarCaneBox"));
         BlockListener.nightCane.specifyTextures(getIndexForPath(farmingPath + "NightCaneSingle"));
         BlockListener.sugarCaneSlicer.specifyTextures(getIndexForPath(machinePath + "SugarCaneSlicerTop"), getIndexForPath(machinePath + "SugarCaneSlicerSide"), getIndexForPath(machinePath + "SugarCaneSlicerBottom"));
+        BlockListener.sugarCaneBrickFrameCrafter.specifyTextures(getIndexForPath(machinePath + "SugarCaneBrickFrameCrafterTop"), getIndexForPath(machinePath + "SugarCaneBrickFrameCrafterSide"), getIndexForPath(machinePath + "SugarCaneBrickFrameCrafterBottom"));
 
         BlockListener.cactusPlanks.specifyTextures(getIndexForPath(materialPath + "CactusPlanks"));
         BlockListener.cactusBox.specifyTextures(getIndexForPath(materialPath + "CactusBox"));
