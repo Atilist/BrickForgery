@@ -45,6 +45,8 @@ public class BlockListener {
     public static LazyBlockTemplate
             dirtBricks,
             sugarCaneBox,
+            nightCane,
+
             cactusBox,
             sandBricks,
             flintBox,
@@ -130,6 +132,8 @@ public class BlockListener {
     public void registerBlocks(BlockRegistryEvent event) {
         dirtBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "dirt_bricks"), Material.SOIL, 1.5F, Block.GRAVEL_SOUND_GROUP);
         sugarCaneBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "sugar_cane_box"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
+        nightCane = new NightCaneBlock(Identifier.of(MOD_ID, "night_cane"), Material.PLANT, 0, Block.DIRT_SOUND_GROUP, 1);
+
         cactusBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "cactus_box"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
         sandBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "sand_bricks"), Material.SAND, 1.5F, Block.SAND_SOUND_GROUP);
         flintBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "flint_box"), Material.SOIL, 1.5F, Block.GRAVEL_SOUND_GROUP);

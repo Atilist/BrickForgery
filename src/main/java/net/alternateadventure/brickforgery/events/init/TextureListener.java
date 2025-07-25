@@ -17,6 +17,7 @@ public class TextureListener {
         String worldGenerationPath = "ExplorationFeatures/WorldGeneration/";
         String machinePath = "MaterialProcessing/Machines/";
         String materialPath = "MaterialProcessing/Materials/";
+        String farmingPath = "MaterialProcessing/Farming/";
 
         ItemListener.dirtBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DirtBrick"));
         ItemListener.sugarCaneStick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SugarCaneStick"));
@@ -271,6 +272,8 @@ public class TextureListener {
 
         BlockListener.dirtBricks.specifyTextures(getIndexForPath(materialPath + "DirtBricks"));
         BlockListener.sugarCaneBox.specifyTextures(getIndexForPath(materialPath + "SugarCaneBox"));
+        BlockListener.nightCane.specifyTextures(getIndexForPath(farmingPath + "NightCaneSingle"));
+
         BlockListener.cactusBox.specifyTextures(getIndexForPath(materialPath + "CactusBox"));
         BlockListener.sandBricks.specifyTextures(getIndexForPath(materialPath + "SandBricks"));
         BlockListener.flintBox.specifyTextures(getIndexForPath(materialPath + "FlintBox"));
@@ -338,6 +341,8 @@ public class TextureListener {
         BlockListener.goldOreBricks.specifyTextures(GoldOreBricks);
         BlockListener.redstoneOreBricks.specifyTextures(RedstoneOreBricks);
         BlockListener.diamondOreBricks.specifyTextures(DiamondOreBricks);
+
+        BlockListener.nightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneSingle"));
 
         BlockListener.heatPillar.asItem().setTextureId(HeatPillar);
         BlockListener.heatPillarIgnited.asItem().setTextureId(HeatPillarIgnited);
