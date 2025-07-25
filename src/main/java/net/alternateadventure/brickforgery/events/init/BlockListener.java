@@ -145,14 +145,14 @@ public class BlockListener {
         sandBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "sand_bricks"), Material.SAND, 1.5F, Block.SAND_SOUND_GROUP);
         flintBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "flint_box"), Material.SOIL, 1.5F, Block.GRAVEL_SOUND_GROUP);
 
-        exoticShrub = new ExoticShrubBlock(Identifier.of(MOD_ID, "exotic_shrub"), Material.PLANT).setHardness(0.0F).setSoundGroup(Block.GRAVEL_SOUND_GROUP).setTranslationKey(MOD_ID, "exotic_shrub");
-        exoticShrubDead = new ExoticShrubDeadBlock(Identifier.of(MOD_ID, "exotic_shrub_dead"), Material.PLANT).setHardness(0.0F).setSoundGroup(Block.GRAVEL_SOUND_GROUP).setTranslationKey(MOD_ID, "exotic_shrub_dead");
-        nightWheatCrop = new NightWheatCropBlock(Identifier.of(MOD_ID, "night_wheat_crop"), Material.PLANT).setHardness(0.0F).setSoundGroup(Block.GRAVEL_SOUND_GROUP).setTranslationKey(MOD_ID, "night_wheat_crop");
-        nightSapling = new NightSaplingBlock(Identifier.of(MOD_ID, "night_sapling"), Material.PLANT).setHardness(0.0F).setSoundGroup(Block.GRAVEL_SOUND_GROUP).setTranslationKey(MOD_ID, "night_sapling");
+        exoticShrub = new ExoticShrubBlock(Identifier.of(MOD_ID, "exotic_shrub"), Material.PLANT).setHardness(0.0F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "exotic_shrub");
+        exoticShrubDead = new ExoticShrubDeadBlock(Identifier.of(MOD_ID, "exotic_shrub_dead"), Material.PLANT).setHardness(0.0F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "exotic_shrub_dead");
+        nightWheatCrop = new NightWheatCropBlock(Identifier.of(MOD_ID, "night_wheat_crop"), Material.PLANT).setHardness(0.0F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "night_wheat_crop");
+        nightSapling = new NightSaplingBlock(Identifier.of(MOD_ID, "night_sapling"), Material.PLANT).setHardness(0.0F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "night_sapling");
         nightLog = new NightLogBlock(Identifier.of(MOD_ID, "night_log"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "night_log");
-        nightLeaves = new NightLeavesBlock(Identifier.of(MOD_ID, "night_leaves"), Material.LEAVES).setHardness(0.5F).setSoundGroup(Block.GRAVEL_SOUND_GROUP).setTranslationKey(MOD_ID, "night_leaves");
+        nightLeaves = new NightLeavesBlock(Identifier.of(MOD_ID, "night_leaves"), Material.LEAVES).setHardness(0.5F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "night_leaves");
         nightPlanks = new NightPlanksBlock(Identifier.of(MOD_ID, "night_planks"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "night_planks");
-        doublePlant = new DoublePlantBlock(Identifier.of(MOD_ID, "double_plant"), Material.PLANT, 0.0F, Block.GRAVEL_SOUND_GROUP);
+        doublePlant = new DoublePlantBlock(Identifier.of(MOD_ID, "double_plant"), Material.PLANT, 0.0F, Block.DIRT_SOUND_GROUP);
 
         bountifulSand = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_sand"), Material.SAND, 1.5F, Block.SAND_SOUND_GROUP);
         bountifulSnow = new LazyBlockTemplate(Identifier.of(MOD_ID,  "bountiful_snow"), Material.SNOW_BLOCK, 1.5F, Block.WOOL_SOUND_GROUP);
@@ -222,7 +222,7 @@ public class BlockListener {
 
         dust = new DustBlock(Identifier.of(MOD_ID, "dust"), Material.SAND).setHardness(0.5F).setSoundGroup(Block.SAND_SOUND_GROUP).setTranslationKey(MOD_ID, "dust");
 
-        brickCrop = new BrickCropBlock(Identifier.of(MOD_ID, "brick_crop"), Material.PLANT).setHardness(0.5F).setSoundGroup(Block.GRAVEL_SOUND_GROUP).setTranslationKey(MOD_ID, "brick_crop");
+        brickCrop = new BrickCropBlock(Identifier.of(MOD_ID, "brick_crop"), Material.PLANT).setHardness(0.5F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "brick_crop");
 
         brickSoil = new BrickSoilBlock(Identifier.of(MOD_ID, "brick_soil"), Material.STONE).setHardness(0.5F).setSoundGroup(Block.STONE_SOUND_GROUP).setTranslationKey(MOD_ID, "brick_soil");
         brickSoilDepleted = new BrickSoilDepletedBlock(Identifier.of(MOD_ID, "brick_soil_depleted"), Material.SAND).setHardness(0.5F).setSoundGroup(Block.SAND_SOUND_GROUP).setTranslationKey(MOD_ID, "brick_soil_depleted");

@@ -68,8 +68,9 @@ public class ExoticShrubBlock extends TemplateBlock {
     }
 
     @Override
-    public boolean canPlaceAt(World level, int x, int y, int z) {
-        return level.getBlockId(x, y, z) == 0 && (level.getBlockId(x, y - 1, z) == Block.GRASS.id || level.getBlockId(x, y - 1, z) == Block.DIRT.id || level.getBlockId(x, y - 1, z) == Block.FARMLAND.id);
+    public boolean canPlaceAt(World world, int x, int y, int z) {
+        int belowId = world.getBlockId(x, y - 1, z);
+        return world.getBlockId(x, y, z) == 0 && (belowId == Block.GRASS_BLOCK.id || belowId == Block.DIRT.id || belowId == Block.FARMLAND.id);
     }
 
     @Override
