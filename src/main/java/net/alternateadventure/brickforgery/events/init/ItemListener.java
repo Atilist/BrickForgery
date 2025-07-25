@@ -117,9 +117,13 @@ public class ItemListener {
             largeBrickRaw,
             largeBrick;
 
+    public static LazySecondaryBlockItem
+            nightCaneStick;
+
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
         dirtBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "dirt_brick"));
+        nightCaneStick = new LazySecondaryBlockItem(Identifier.of(MOD_ID, "night_cane_stick"), BlockListener.nightCane);
         sugarCaneStick = new LazyItemTemplate(Identifier.of(MOD_ID, "sugar_cane_stick"));
 
         dirtBrickSand = new DirtBrickSandItem(Identifier.of(MOD_ID, "dirt_brick_sand"));

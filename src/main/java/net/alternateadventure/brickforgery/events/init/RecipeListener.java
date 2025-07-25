@@ -25,7 +25,7 @@ public class RecipeListener {
         // Output <- Input
         if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type()) {
 
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneStick), "X", "X", 'X', new ItemStack(Item.SUGAR_CANE));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneStick), "X", "Y", "X", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.nightCaneStick));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneFrame), "X X", " X ", "X X", 'X', new ItemStack(ItemListener.sugarCaneStick));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBox), "YXY", "XYX", "YXY", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.sugarCaneFrame));
 
@@ -115,6 +115,7 @@ public class RecipeListener {
         }
         // Output <- Input
         else if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type()) {
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightCaneStick), new ItemStack(ItemListener.exoticFruit), new ItemStack(Item.SUGAR_CANE));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dirtBrick), new ItemStack(ItemListener.sugarCaneFrame), new ItemStack(Block.DIRT));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dirtBrickSand), new ItemStack(ItemListener.cactusFrame), new ItemStack(ItemListener.dirtBrick), new ItemStack(Block.SAND));
 

@@ -1,10 +1,10 @@
 package net.alternateadventure.brickforgery.blocks;
 
+import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
@@ -89,7 +89,7 @@ public class NightCaneBlock extends LazyBlockTemplate {
     }
 
     public int getDroppedItemId(int blockMeta, Random random) {
-        return Item.SUGAR_CANE.id;
+        return ItemListener.nightCaneStick.id;
     }
 
     public boolean canGrow(World world, int x, int y, int z) {
