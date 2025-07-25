@@ -28,6 +28,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneStick), "X", "Y", "X", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.nightCaneStick));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneFrame), "X X", " X ", "X X", 'X', new ItemStack(ItemListener.sugarCaneStick));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBox), "YXY", "XYX", "YXY", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.sugarCaneFrame));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneSlicer), "YXY", "YZY", "Y#Y", 'X', new ItemStack(Block.PLANKS), 'Y', new ItemStack(ItemListener.dirtBrick), 'Z', new ItemStack(BlockListener.sugarCaneBox), '#', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.cactusFrame), "XX", "YY", 'X', new ItemStack(Block.CACTUS), 'Y', new ItemStack(ItemListener.sugarCaneFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "YXY", "XZX", "YXY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
@@ -52,7 +53,7 @@ public class RecipeListener {
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveMachineFrame), "XYX", "Z#Z", "XYX", 'X', new ItemStack(ItemListener.goldenScrew), 'Y', new ItemStack(ItemListener.nightWoodBeam), 'Z', new ItemStack(ItemListener.woodenFrame), '#', new ItemStack(BlockListener.flintBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveBrickFrameCrafter), "#Y#", "YZY", "XYX", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Block.BRICKS), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Block.PISTON));
-            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveSlicer), "#-#", "YZY", "X+X", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Block.OBSIDIAN), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Item.SHEARS), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '-', new ItemStack(ItemListener.dryBrickFrame));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveSlicer), "#-#", "ZYZ", "X+X", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(BlockListener.sugarCaneSlicer), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Item.SHEARS), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '-', new ItemStack(ItemListener.dryBrickFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveMetalworkingStation), "#-#", "YZY", "X+X", 'X', new ItemStack(BlockListener.nightPlanks), 'Y', new ItemStack(Block.SLAB), 'Z', new ItemStack(BlockListener.primitiveMachineFrame), '#', new ItemStack(Item.IRON_INGOT), '+', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '-', new ItemStack(ItemListener.dryBrickFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveCrusher), "+X+", "-Y-", "Z#Z", 'X', new ItemStack(BlockListener.improvedMillstone), 'Y', new ItemStack(BlockListener.primitiveMachineFrame), 'Z', new ItemStack(Block.BRICKS), '#', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '+', new ItemStack(Item.DIAMOND_PICKAXE), '-', new ItemStack(Block.OBSIDIAN));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.primitiveWasher), "-X-", "+Y+", "Z#Z", 'X', new ItemStack(net.kozibrodka.wolves.events.BlockListener.turntable), 'Y', new ItemStack(BlockListener.primitiveMachineFrame), 'Z', new ItemStack(Block.BRICKS), '#', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), '+', new ItemStack(ItemListener.primitiveBrush), '-', new ItemStack(ItemListener.concentratedFortune));
@@ -158,6 +159,7 @@ public class RecipeListener {
 
             AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.largeBrickRaw), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.largeBrick, 1));
 
+            SlicingRecipeRegistry.getInstance().addSlicingRecipe(Block.CACTUS.asItem().id, new TieredMachineRecipeData(TierEnum.SUGAR_CANE, new ItemStack(BlockListener.cactusPlanks)));
             SlicingRecipeRegistry.getInstance().addSlicingRecipe(Item.LEATHER.id, new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.leatherStrap)));
             SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.durableLeatherStrap)));
 

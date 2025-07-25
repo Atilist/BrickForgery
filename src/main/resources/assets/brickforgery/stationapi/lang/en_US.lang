@@ -1,7 +1,9 @@
 tile.@.dirt_bricks.name=Dirt Bricks
 tile.@.sugar_cane_box.name=Sugar Cane Box
 tile.@.night_cane.name=Night Cane
+tile.@.sugar_cane_slicer.name=Sugar Cane Slicer
 
+tile.@.cactus_planks.name=Cactus Planks
 tile.@.cactus_box.name=Cactus Box
 tile.@.sand_bricks.name=Sand Bricks
 tile.@.flint_box.name=Flint Box
