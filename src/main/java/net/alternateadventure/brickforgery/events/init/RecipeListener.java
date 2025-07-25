@@ -110,8 +110,8 @@ public class RecipeListener {
             addAnvilRecipe(new ItemStack(ItemListener.brickSteelBeam, 4), new Object[] {"XY   ", "YX   ", "  X  ", "   XY", "   YX", 'X', new ItemStack(ItemListener.brickSteelIngot), 'Y', new ItemStack(ItemListener.durableLeatherStrap)});
             addAnvilRecipe(new ItemStack(ItemListener.largeBrickRaw), new Object[] {"XX+XX", "XZYZX", "+Y#Y+", "XZYZX", "XX+XX", 'X', new ItemStack(Item.CLAY), 'Y', new ItemStack(ItemListener.brickSteelIngot), 'Z', new ItemStack(ItemListener.brickSteelPlate), '#', new ItemStack(Block.BRICKS), '+', new ItemStack(ItemListener.stoneBrick)});
 
-            BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), new ItemStack(BlockListener.nightPlanks), new ItemStack(BlockListener.nightPlanks), new ItemStack(Block.CLAY), new ItemStack(Block.CLAY), new ItemStack(ItemListener.brickFrame));
-            BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), new ItemStack(BlockListener.planksPile), new ItemStack(BlockListener.planksPile), new ItemStack(BlockListener.clayPile), new ItemStack(BlockListener.clayPile), new ItemStack(ItemListener.brickFrame));
+            BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), BlockListener.nightPlanks.id, BlockListener.nightPlanks.id, Block.CLAY.id, Block.CLAY.id, new ItemStack(ItemListener.brickFrame), TierEnum.PRIMITIVE);
+            BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), BlockListener.planksPile.id, BlockListener.planksPile.id, BlockListener.clayPile.id, BlockListener.clayPile.id, new ItemStack(ItemListener.brickFrame), TierEnum.PRIMITIVE);
         }
         // Output <- Input
         else if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type()) {

@@ -36,14 +36,14 @@ public class BrickFrameCrafterBlock extends LazyBlockTemplate {
 
     public void craftFrame(World level, int x, int y, int z, PlayerEntity player) {
         if (level.getBlockId(x, y + 1, z) != 0) return;
-        ItemStack item = player.getHeldItem();
+        ItemStack item = player.getHand();
         if (item == null) return;
         int[] blocks = new int[4];
         blocks[0] = level.getBlockId(x + 1, y, z);
         blocks[1] = level.getBlockId(x - 1, y, z);
         blocks[2] = level.getBlockId(x, y, z + 1);
         blocks[3] = level.getBlockId(x, y, z - 1);
-        ItemStack output = BrickFramingRecipeRegistry.getInstance().getResult(item, blocks);
+        ItemStack output = BrickFramingRecipeRegistry.getInstance().getResult(item, blocks, tier);
         if (output == null) return;
         output = output.copy();
         item.count--;
