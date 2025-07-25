@@ -175,12 +175,12 @@ public class RecipeListener {
 
             addStokedCauldronRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.glue, 4), new ItemStack[] { new ItemStack(ItemListener.glueMixture)});
 
-            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.SAND.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(BlockListener.dust)), new ItemStack(ItemListener.goldOrePowdered), 0.1));
-            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.IRON_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreCrushed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
-            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.GOLD_ORE.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreCrushed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.SAND.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(BlockListener.dust)), new ItemStack(ItemListener.goldOrePowdered), 0.1));
+            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.IRON_ORE.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreCrushed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
+            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.GOLD_ORE.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreCrushed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
 
-            WashingRecipeRegistry.getInstance().addWashingRecipe(Block.DIRT.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.SAND)), new ItemStack(Item.CLAY), 0.75));
-            WashingRecipeRegistry.getInstance().addWashingRecipe(BlockListener.dust.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.CLAY)), new ItemStack(Item.CLAY), 0.25));
+            WashingRecipeRegistry.getInstance().addWashingRecipe(Block.DIRT.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.SAND)), new ItemStack(Item.CLAY), 0.75));
+            WashingRecipeRegistry.getInstance().addWashingRecipe(BlockListener.dust.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.CLAY)), new ItemStack(Item.CLAY), 0.25));
             WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.ironOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreWashed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
             WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.goldOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreWashed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
 
@@ -196,11 +196,11 @@ public class RecipeListener {
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {
-            SmeltingRegistry.addSmeltingRecipe(BlockListener.nightLog.id, new ItemStack(Item.COAL, 1, 1));
-            SmeltingRegistry.addSmeltingRecipe(BlockListener.nightPlanks.id, new ItemStack(Block.PLANKS));
+            SmeltingRegistry.addSmeltingRecipe(BlockListener.nightLog.asItem().id, new ItemStack(Item.COAL, 1, 1));
+            SmeltingRegistry.addSmeltingRecipe(BlockListener.nightPlanks.asItem().id, new ItemStack(Block.PLANKS));
 
             SmeltingRegistry.addSmeltingRecipe(ItemListener.glueMixture.id, new ItemStack(net.kozibrodka.wolves.events.ItemListener.glue));
-            SmeltingRegistry.addSmeltingRecipe(BlockListener.woodenBricks.id, new ItemStack(ItemListener.brickAsh));
+            SmeltingRegistry.addSmeltingRecipe(BlockListener.woodenBricks.asItem().id, new ItemStack(ItemListener.brickAsh));
 
             SmeltingRegistry.addSmeltingRecipe(ItemListener.coalOreBrick.id, new ItemStack(Item.COAL));
 
