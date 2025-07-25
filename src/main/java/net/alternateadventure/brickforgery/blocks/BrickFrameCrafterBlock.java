@@ -15,8 +15,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
 import java.util.Random;
 
 public class BrickFrameCrafterBlock extends LazyBlockTemplate {
-    public TierEnum tier; // TODO: Actually make use of the tier
-    private final Random random = new Random();
+    public TierEnum tier;
 
     public BrickFrameCrafterBlock(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds, TierEnum tier) {
         super(identifier, material, hardness, blockSounds);
