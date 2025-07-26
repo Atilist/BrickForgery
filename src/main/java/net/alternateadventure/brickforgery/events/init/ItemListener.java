@@ -42,6 +42,7 @@ public class ItemListener {
     public static LazyItemTemplate
             dirtBrick,
             sugarCaneStick,
+            exoticMutationSample,
 
             dirtBrickSand,
             sandBrick,
@@ -125,6 +126,7 @@ public class ItemListener {
         dirtBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "dirt_brick"));
         nightCaneStick = new LazySecondaryBlockItem(Identifier.of(MOD_ID, "night_cane_stick"), BlockListener.nightCane);
         sugarCaneStick = new LazyItemTemplate(Identifier.of(MOD_ID, "sugar_cane_stick"));
+        exoticMutationSample = new LazyItemTemplate(Identifier.of(MOD_ID, "exotic_mutation_sample"));
 
         dirtBrickSand = new DirtBrickSandItem(Identifier.of(MOD_ID, "dirt_brick_sand"));
         sandBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "sand_brick"));

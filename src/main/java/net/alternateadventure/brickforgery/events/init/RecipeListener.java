@@ -30,6 +30,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBox), "YXY", "XYX", "YXY", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.sugarCaneFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneSlicer), "YXY", "YZY", "Y#Y", 'X', new ItemStack(Block.PLANKS), 'Y', new ItemStack(ItemListener.dirtBrick), 'Z', new ItemStack(BlockListener.sugarCaneBox), '#', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBrickFrameCrafter), "#X#", "YZY", "YYY", 'X', new ItemStack(Item.CLAY), 'Y', new ItemStack(ItemListener.dirtBrick), 'Z', new ItemStack(BlockListener.sugarCaneBox), '#', new ItemStack(ItemListener.sugarCaneFrame));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.exoticMutationSample), " X ", "XYX", "ZZZ", 'X', new ItemStack(ItemListener.sugarCaneStick), 'Y', new ItemStack(ItemListener.exoticFruit), 'Z', new ItemStack(ItemListener.cactusFrame));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "YXY", "XZX", "YXY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
 
@@ -134,8 +135,8 @@ public class RecipeListener {
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.glueMixture), new ItemStack(ItemListener.nightWheat), new ItemStack(net.kozibrodka.wolves.events.ItemListener.flour), new ItemStack(Block.CACTUS));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.brickAsh));
             CraftingRegistry.addShapelessRecipe(new ItemStack(Item.CLAY), new ItemStack(ItemListener.clayPowder), new ItemStack(ItemListener.snowBrick));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightSeeds), new ItemStack(ItemListener.exoticFruit), new ItemStack(Item.SEEDS));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(BlockListener.nightSapling), new ItemStack(ItemListener.exoticFruit), new ItemStack(Block.SAPLING, 1, -1));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightSeeds), new ItemStack(ItemListener.exoticMutationSample), new ItemStack(Item.SEEDS));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(BlockListener.nightSapling), new ItemStack(ItemListener.exoticMutationSample), new ItemStack(Block.SAPLING, 1, -1));
             CraftingRegistry.addShapelessRecipe(new ItemStack(BlockListener.nightPlanks, 4), new ItemStack(BlockListener.nightLog));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightSeeds), new ItemStack(ItemListener.nightWheat));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.exoticCatalyst), new ItemStack(ItemListener.brickCatalyst), new ItemStack(ItemListener.exoticFruit));

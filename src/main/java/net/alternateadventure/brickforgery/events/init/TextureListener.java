@@ -22,6 +22,7 @@ public class TextureListener {
         ItemListener.dirtBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DirtBrick"));
         ItemListener.nightCaneStick.setTexture(Identifier.of(MOD_ID, farmingPath + "NightCaneStick"));
         ItemListener.sugarCaneStick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SugarCaneStick"));
+        ItemListener.exoticMutationSample.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ExoticMutationSample"));
 
         ItemListener.dirtBrickSand.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DirtBrickSand"));
         ItemListener.sandBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SandBrick"));

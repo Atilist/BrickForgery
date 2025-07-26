@@ -103,6 +103,7 @@ tile.@.diamond_ore_bricks.name=Diamond Ore Bricks
 item.@.dirt_brick.name=Dirt Brick
 item.@.night_cane_stick.name=Night Cane Stick
 item.@.sugar_cane_stick.name=Sugar Cane Stick
+item.@.exotic_mutation_sample.name=Exotic Mutation Sample
 
 item.@.dirt_brick_sand.name=Dirt Brick Sand
 item.@.sand_brick.name=Sand Brick
