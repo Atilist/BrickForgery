@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Brick Forgery",
-  "description": "Successor mod to Beta Extras, with a very complex progression system mainly focused around bricks. Special thanks to paulevs and KydZombie for providing useful code and assets.",
+  "description": "Brick-making tech mod with a very complex progression system mainly focused around creating increasingly absurd bricks. Special thanks to paulevs and KydZombie for providing useful code and assets.",
   "authors": [
     "Atilist"
   ],
