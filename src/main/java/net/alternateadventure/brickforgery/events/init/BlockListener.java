@@ -46,6 +46,7 @@ import net.alternateadventure.brickforgery.blocks.NightSaplingBlock;
 import net.alternateadventure.brickforgery.blocks.NightWheatCropBlock;
 import net.alternateadventure.brickforgery.blocks.RedstoneOreBricksBlock;
 import net.alternateadventure.brickforgery.blocks.ResourcePileBlock;
+import net.alternateadventure.brickforgery.blocks.SandinatorBlock;
 import net.alternateadventure.brickforgery.blocks.SlicerBlockTemplate;
 import net.alternateadventure.brickforgery.blocks.SpikeMountBlock;
 import net.alternateadventure.brickforgery.blocks.StoneBricksBlock;
@@ -101,6 +102,8 @@ public class BlockListener {
             cactusPlanks,
             cactusBox,
             sandBricks,
+            sandinator,
+
             flintBox,
 
             commonPot,
@@ -197,6 +200,7 @@ public class BlockListener {
         cactusPlanks = new LazyBlockTemplate(Identifier.of(MOD_ID, "cactus_planks"), Material.WOOD, 1.0F, Block.WOOD_SOUND_GROUP);
         cactusBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "cactus_box"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
         sandBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "sand_bricks"), Material.SAND, 1.5F, Block.SAND_SOUND_GROUP);
+        sandinator = new SandinatorBlock(Identifier.of(MOD_ID, "sandinator"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
         cactusBrickFrameAutomator = new BrickFrameAutomator(Identifier.of(MOD_ID, "cactus_brick_frame_automator"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
 
         flintBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "flint_box"), Material.SOIL, 1.5F, Block.GRAVEL_SOUND_GROUP);

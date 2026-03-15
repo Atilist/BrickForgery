@@ -46,6 +46,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.exoticMutationSample), " X ", "XYX", "ZZZ", 'X', new ItemStack(ItemListener.sugarCaneStick), 'Y', new ItemStack(ItemListener.exoticFruit), 'Z', new ItemStack(ItemListener.cactusFrame));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "YXY", "XZX", "YXY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandinator), "YDY", "DBD", "YDY", 'D', new ItemStack(ItemListener.dirtBrickSand), 'Y', new ItemStack(ItemListener.cactusFrame), 'B', new ItemStack(BlockListener.cactusBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBrickFrameAutomator), "YGY", "GBG", "YGY", 'G', new ItemStack(net.newfrontiercraft.nfc.events.init.ItemListener.aluminiumGear), 'Y', new ItemStack(ItemListener.cactusFrame), 'B', new ItemStack(BlockListener.cactusBox));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
