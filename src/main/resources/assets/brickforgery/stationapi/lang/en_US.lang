@@ -205,3 +205,12 @@ item.@.diamond_ore_brick.name=Diamond Ore Brick
 
 item.@.large_brick_raw.name=Raw Large Brick
 item.@.large_brick.name=Large Brick
+
+item.@.sugar_cane_framed_brick.name=Sugar Cane Framed Brick
+item.@.cactus_framed_brick.name=Cactus Framed Brick
+item.@.flint_framed_brick.name=Flint Framed Brick
+item.@.wooden_framed_brick.name=Wooden Framed Brick
+item.@.brick_framed_brick.name=Brick Framed Brick
+item.@.dry_brick_framed_brick.name=Dry Brick Framed Brick
+item.@.hardened_brick_framed_brick.name=Hardened Brick Framed Brick
+item.@.reinforced_brick_framed_brick.name=Reinforced Brick Framed Brick

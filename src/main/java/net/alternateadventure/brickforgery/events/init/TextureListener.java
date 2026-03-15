@@ -119,6 +119,15 @@ public class TextureListener {
         ItemListener.largeBrickRaw.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/LargeBrickRaw"));
         ItemListener.largeBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/LargeBrick"));
 
+        ItemListener.sugarCaneFramedBrick.setTexture(Identifier.of(MOD_ID, materialPath + "SugarCaneFramedBrick"));
+        ItemListener.cactusFramedBrick.setTexture(Identifier.of(MOD_ID, materialPath + "CactusFramedBrick"));
+        ItemListener.flintFramedBrick.setTexture(Identifier.of(MOD_ID, materialPath + "FlintFramedBrick"));
+        ItemListener.woodenFramedBrick.setTexture(Identifier.of(MOD_ID, materialPath + "WoodenFramedBrick"));
+        ItemListener.brickFramedBrick.setTexture(Identifier.of(MOD_ID, materialPath + "BrickFramedBrick"));
+        ItemListener.dryBrickFramedBrick.setTexture(Identifier.of(MOD_ID, materialPath + "DryBrickFramedBrick"));
+        ItemListener.hardenedBrickFramedBrick.setTexture(Identifier.of(MOD_ID, materialPath + "HardenedBrickFramedBrick"));
+        ItemListener.reinforcedBrickFramedBrick.setTexture(Identifier.of(MOD_ID, materialPath + "ReinforcedBrickFramedBrick"));
+
         ExoticShrub = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrub")).index;
         ExoticShrubMature = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrubMature")).index;
         ExoticShrubDead = Atlases.getTerrain().addTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticShrubDead")).index;

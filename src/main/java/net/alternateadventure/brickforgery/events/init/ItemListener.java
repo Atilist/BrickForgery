@@ -1,6 +1,20 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.items.*;
+import net.alternateadventure.brickforgery.items.ArchaeologyIceKnifeItem;
+import net.alternateadventure.brickforgery.items.BrickCatalystItem;
+import net.alternateadventure.brickforgery.items.BrickSeedlingsItem;
+import net.alternateadventure.brickforgery.items.BrushToolTemplate;
+import net.alternateadventure.brickforgery.items.ChiselToolTemplate;
+import net.alternateadventure.brickforgery.items.DesertKeyItem;
+import net.alternateadventure.brickforgery.items.DirtBrickSandItem;
+import net.alternateadventure.brickforgery.items.ExoticCatalystItem;
+import net.alternateadventure.brickforgery.items.ExoticKeyItem;
+import net.alternateadventure.brickforgery.items.FernItem;
+import net.alternateadventure.brickforgery.items.GrabberToolTemplate;
+import net.alternateadventure.brickforgery.items.IceKeyItem;
+import net.alternateadventure.brickforgery.items.LazyItemTemplate;
+import net.alternateadventure.brickforgery.items.LazySecondaryBlockItem;
+import net.alternateadventure.brickforgery.items.NightSeedsItem;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.item.Item;
@@ -116,7 +130,16 @@ public class ItemListener {
             diamondOreBrick,
 
             largeBrickRaw,
-            largeBrick;
+            largeBrick,
+
+            sugarCaneFramedBrick,
+            cactusFramedBrick,
+            flintFramedBrick,
+            woodenFramedBrick,
+            brickFramedBrick,
+            dryBrickFramedBrick,
+            hardenedBrickFramedBrick,
+            reinforcedBrickFramedBrick;
 
     public static LazySecondaryBlockItem
             nightCaneStick;
@@ -224,5 +247,14 @@ public class ItemListener {
 
         largeBrickRaw = new LazyItemTemplate(Identifier.of(MOD_ID, "large_brick_raw"));
         largeBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "large_brick"));
+
+        sugarCaneFramedBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "sugar_cane_framed_brick"));
+        cactusFramedBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "cactus_framed_brick"));
+        flintFramedBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "flint_framed_brick"));
+        woodenFramedBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "wooden_framed_brick"));
+        brickFramedBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "brick_framed_brick"));
+        dryBrickFramedBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "dry_brick_framed_brick"));
+        hardenedBrickFramedBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "hardened_brick_framed_brick"));
+        reinforcedBrickFramedBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "reinforced_brick_framed_brick"));
     }
 }

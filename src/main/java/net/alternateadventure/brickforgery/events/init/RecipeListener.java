@@ -213,6 +213,15 @@ public class RecipeListener {
             GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.commonPot.id, new TieredBlockLootingData(new ItemStack[] {new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(Block.GRAVEL, 1)}, new int[] {90, 30}, 40, TierEnum.PRIMITIVE));
             GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.desertPot.id, new TieredBlockLootingData(new ItemStack[] {new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(ItemListener.goldenScrew, 1), new ItemStack(Block.SAND, 1)}, new int[] {50, 70, 30}, 60, TierEnum.PRIMITIVE));
             GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.frozenPot.id, new TieredBlockLootingData(new ItemStack[] {new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(ItemListener.goldenScrew, 1), new ItemStack(Block.SNOW_BLOCK, 1)}, new int[] {50, 70, 30}, 60, TierEnum.PRIMITIVE));
+
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.sugarCaneFramedBrick, 2), new ItemStack(ItemListener.sugarCaneFrame), new ItemStack(Item.CLAY));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.cactusFramedBrick, 2), new ItemStack(ItemListener.cactusFrame), new ItemStack(ItemListener.sugarCaneFramedBrick));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.flintFramedBrick, 2), new ItemStack(ItemListener.flintFrame), new ItemStack(ItemListener.cactusFramedBrick));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.woodenFramedBrick, 2), new ItemStack(ItemListener.woodenFrame), new ItemStack(ItemListener.flintFramedBrick));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.brickFramedBrick, 2), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.woodenFramedBrick));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dryBrickFramedBrick, 2), new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.brickFramedBrick));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.hardenedBrickFramedBrick, 2), new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack(ItemListener.dryBrickFramedBrick));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.reinforcedBrickFramedBrick, 2), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.hardenedBrickFramedBrick));
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {
@@ -239,6 +248,15 @@ public class RecipeListener {
             SmeltingRegistry.addSmeltingRecipe(ItemListener.redstoneOreBrick.id, new ItemStack(Item.REDSTONE, 4));
 
             SmeltingRegistry.addSmeltingRecipe(ItemListener.diamondOreBrick.id, new ItemStack(Item.DIAMOND));
+
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.sugarCaneFramedBrick.id, new ItemStack(Item.BRICK));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.cactusFramedBrick.id, new ItemStack(Item.BRICK));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.flintFramedBrick.id, new ItemStack(Item.BRICK));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.woodenFramedBrick.id, new ItemStack(Item.BRICK));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.brickFramedBrick.id, new ItemStack(Item.BRICK));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.dryBrickFramedBrick.id, new ItemStack(Item.BRICK));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.hardenedBrickFramedBrick.id, new ItemStack(Item.BRICK));
+            SmeltingRegistry.addSmeltingRecipe(ItemListener.reinforcedBrickFramedBrick.id, new ItemStack(Item.BRICK));
 
         }
     }
