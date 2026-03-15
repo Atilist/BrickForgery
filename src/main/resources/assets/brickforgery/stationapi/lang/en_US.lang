@@ -214,3 +214,14 @@ item.@.brick_framed_brick.name=Brick Framed Brick
 item.@.dry_brick_framed_brick.name=Dry Brick Framed Brick
 item.@.hardened_brick_framed_brick.name=Hardened Brick Framed Brick
 item.@.reinforced_brick_framed_brick.name=Reinforced Brick Framed Brick
+
+
+multiblock.@.sand_ritual=Sand Ritual
+
+
+description.brickforgery.sand_brick=Created by using a dirt brick sand on a sand brick ritual. Check the uses for the sugar cane box to see the multiblock
+description.brickforgery.sandinator=Picks up dirt brick sand dropped on top of it and instantly converts it to a sand brick. The sand brick is ejected on a random side. Must be built on top of a sand brick ritual. Check the uses for the sugar cane box to see the multiblock
+description.brickforgery.night_cane=Can be planted like regular sugar cane. Only grows at night
+description.brickforgery.brick_frame_crafter=Consumes a frame and four blocks around it to upgrade the frame. Can be automated by placing a brick frame automator on top and an item chute to supply the automator. Only works if there is air above or below the brick frame crafter
+description.brickforgery.exotic_shrub=Grows exotic fruits which can be harvested. Requires clear visibility of the night sky in order to grow. Only grows at night
+description.brickforgery.exotic_fruit=Can be obtained by being harvested from an exotic shrub

@@ -14,6 +14,8 @@ import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.alternateadventure.brickforgery.utils.TieredBlockConversionData;
 import net.alternateadventure.brickforgery.utils.TieredBlockLootingData;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
+import net.glasslauncher.mods.alwaysmoreitems.recipe.multiblock.BlockPatternEntry;
+import net.glasslauncher.mods.alwaysmoreitems.registry.multiblock.MultiBlockRecipeRegistry;
 import net.kozibrodka.wolves.api.HibachiIgnitionRegistry;
 import net.kozibrodka.wolves.recipe.AnvilCraftingManager;
 import net.kozibrodka.wolves.recipe.CauldronCraftingManager;
@@ -25,12 +27,20 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.modificationstation.stationapi.api.event.recipe.RecipeRegisterEvent;
+import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.recipe.SmeltingRegistry;
 import net.modificationstation.stationapi.api.registry.BlockRegistry;
 import net.modificationstation.stationapi.api.util.Identifier;
+import net.modificationstation.stationapi.api.util.Namespace;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class RecipeListener {
+
+    @Entrypoint.Namespace
+    public static Namespace NAMESPACE;
 
     @EventListener
     public void registerRecipes(RecipeRegisterEvent event) {
@@ -130,6 +140,24 @@ public class RecipeListener {
             BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.sugarCaneFrame), BlockListener.cactusPlanks.id, BlockListener.cactusPlanks.id, BlockListener.cactusPlanks.id, BlockListener.cactusPlanks.id, new ItemStack(ItemListener.cactusFrame), TierEnum.SUGAR_CANE);
             BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), BlockListener.nightPlanks.id, BlockListener.nightPlanks.id, Block.CLAY.id, Block.CLAY.id, new ItemStack(ItemListener.brickFrame), TierEnum.PRIMITIVE);
             BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), BlockListener.planksPile.id, BlockListener.planksPile.id, BlockListener.clayPile.id, BlockListener.clayPile.id, new ItemStack(ItemListener.brickFrame), TierEnum.PRIMITIVE);
+
+            String[][] sandRitualLayers = new String[][] {
+                    new String[]{"sds", "dsd", "sds"}
+            };
+            List<BlockPatternEntry> sandRitualPatterns = List.of(
+                    new BlockPatternEntry('s', BlockListener.sugarCaneBox.getDefaultState(), 0, new ItemStack(BlockListener.sugarCaneBox.asItem())),
+                    new BlockPatternEntry('d', BlockListener.dirtBricks.getDefaultState(), 0, new ItemStack(BlockListener.dirtBricks.asItem()))
+            );
+            List<Object> sandRitualDescription = new ArrayList<>() {
+                {
+                    this.add("Sand Ritual");
+                    this.add("Use a dirt brick sand item on the");
+                    this.add("central block to get a sand brick.");
+                    this.add("A Sandinator can be added on top");
+                    this.add("of the middle block for automation.");
+                }
+            };
+            MultiBlockRecipeRegistry.INSTANCE.addMultiblockRecipe(Identifier.of(NAMESPACE, "sand_ritual"), sandRitualDescription, sandRitualLayers, sandRitualPatterns);
         }
         // Output <- Input
         else if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type()) {
