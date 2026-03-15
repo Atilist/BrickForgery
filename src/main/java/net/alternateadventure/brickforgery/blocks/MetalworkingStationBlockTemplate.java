@@ -1,10 +1,10 @@
 package net.alternateadventure.brickforgery.blocks;
 
+import net.alternateadventure.brickforgery.blocks.entity.MetalworkingStationBlockEntity;
 import net.alternateadventure.brickforgery.containers.MetalworkingStationScreenHandler;
 import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
-import net.alternateadventure.brickforgery.blocks.entity.MetalworkingStationBlockEntity;
 import net.alternateadventure.brickforgery.utils.TierEnum;
-import net.kozibrodka.wolves.events.BlockListener;
+import net.kozibrodka.wolves.utils.MechanicalDevice;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.ItemEntity;
@@ -17,7 +17,7 @@ import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
-public class MetalworkingStationBlockTemplate extends LazySimpleMachineBlockTemplate {
+public class MetalworkingStationBlockTemplate extends LazySimpleMachineBlockTemplate implements MechanicalDevice {
     
     private final Random rand = new Random();
     public TierEnum tier;
@@ -72,19 +72,6 @@ public class MetalworkingStationBlockTemplate extends LazySimpleMachineBlockTemp
     }
 
     @Override
-    public void onPlaced(World level, int x, int y, int z) {
-        super.onPlaced(level, x, y, z);
-        if (level.getBlockId(x, y - 1, z) == BlockListener.axleBlock.id && level.getBlockMeta(x, y - 1, z) == 3) level.setBlockMeta(x, y, z, 1);
-    }
-
-    @Override
-    public void neighborUpdate(World level, int x, int y, int z, int l) {
-        if (level.getBlockId(x, y - 1, z) != BlockListener.axleBlock.id) return;
-        if (level.getBlockMeta(x, y - 1, z) == 3) level.setBlockMeta(x, y, z, 1);
-        else level.setBlockMeta(x, y, z, 0);
-    }
-
-    @Override
     public void randomDisplayTick(World level, int x, int y, int z, Random random) {
         if (level.getBlockMeta(x, y, z) != 1) return;
         for(int counter = 0; counter < 5; counter++) {
@@ -96,5 +83,35 @@ public class MetalworkingStationBlockTemplate extends LazySimpleMachineBlockTemp
         if(random.nextInt(5) == 0) {
             level.playSound((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "random.explode", 0.1F + random.nextFloat() * 0.1F, 1.25F + random.nextFloat() * 0.1F);
         }
+    }
+
+    @Override
+    public boolean canOutputMechanicalPower() {
+        return false;
+    }
+
+    @Override
+    public boolean canInputMechanicalPower() {
+        return true;
+    }
+
+    @Override
+    public boolean canInputMechanicalPower(World world, int x, int y, int z, int side) {
+        return side == 0;
+    }
+
+    @Override
+    public void powerMachine(World world, int x, int y, int z, int side) {
+        world.setBlockMeta(x, y, z, 1);
+    }
+
+    @Override
+    public void unpowerMachine(World world, int x, int y, int z, int side) {
+        world.setBlockMeta(x, y, z, 0);
+    }
+
+    @Override
+    public boolean isMachinePowered(World world, int x, int y, int z) {
+        return world.getBlockMeta(x, y, z) == 1;
     }
 }
