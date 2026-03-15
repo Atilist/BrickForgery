@@ -276,6 +276,7 @@ public class TextureListener {
         BlockListener.sugarCaneBox.specifyTextures(getIndexForPath(materialPath + "SugarCaneBox"));
         BlockListener.nightCane.specifyTextures(getIndexForPath(farmingPath + "NightCaneSingle"));
         BlockListener.sugarCaneSlicer.specifyTextures(getIndexForPath(machinePath + "SugarCaneSlicerTop"), getIndexForPath(machinePath + "SugarCaneSlicerSide"), getIndexForPath(machinePath + "SugarCaneSlicerBottom"));
+        BlockListener.sugarCaneSlicer.specifyInputTexture(getIndexForPath(machinePath + "SugarCaneSlicerSideInput"));
         BlockListener.sugarCaneBrickFrameCrafter.specifyTextures(getIndexForPath(machinePath + "SugarCaneBrickFrameCrafterTop"), getIndexForPath(machinePath + "SugarCaneBrickFrameCrafterSide"), getIndexForPath(machinePath + "SugarCaneBrickFrameCrafterBottom"));
 
         BlockListener.cactusPlanks.specifyTextures(getIndexForPath(materialPath + "CactusPlanks"));
@@ -311,6 +312,7 @@ public class TextureListener {
         BlockListener.primitiveMachineFrame.specifyTextures(PrimitiveMachineFrame);
         BlockListener.primitiveBrickFrameCrafter.specifyTextures(PrimitiveBrickFrameCrafterTop, PrimitiveBrickFrameCrafterSide, PrimitiveBrickFrameCrafterBottom);
         BlockListener.primitiveSlicer.specifyTextures(PrimitiveSlicerTop, PrimitiveSlicerSide, PrimitiveSlicerBottom);
+        BlockListener.primitiveSlicer.specifyInputTexture(getIndexForPath(machinePath + "PrimitiveSlicerSideInput"));
         BlockListener.primitiveMetalworkingStation.specifyTextures(PrimitiveMetalworkingStationTop, PrimitiveMetalworkingStationSide, PrimitiveMetalworkingStationBottom);
         BlockListener.primitiveCrusher.specifyTextures(PrimitiveCrusherTop, PrimitiveCrusherSide, PrimitiveCrusherBottom);
         BlockListener.primitiveWasher.specifyTextures(PrimitiveWasherTop, PrimitiveWasherSide, PrimitiveWasherBottom);
@@ -327,6 +329,7 @@ public class TextureListener {
         BlockListener.brickFrameCrafter.specifyTextures(BrickFrameCrafterTop, BrickFrameCrafterSide, BrickFrameCrafterBottom);
         BlockListener.brickSteelMachineFrame.specifyTextures(BrickSteelMachineFrame);
         BlockListener.slicer.specifyTextures(SlicerTop, SlicerSide, SlicerBottom);
+        BlockListener.slicer.specifyInputTexture(getIndexForPath(machinePath + "SlicerSideInput"));
         BlockListener.metalworkingStation.specifyTextures(MetalworkingStationTop, MetalworkingStationSide, MetalworkingStationBottom);
         BlockListener.alloySmelter.specifyTextures(AlloySmelterTop, AlloySmelterSide, AlloySmelterBottom, AlloySmelterFront);
         BlockListener.alloySmelterActive.specifyTextures(AlloySmelterTopActive, AlloySmelterSideActive, AlloySmelterBottom, AlloySmelterFrontActive);

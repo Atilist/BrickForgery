@@ -2,10 +2,9 @@ package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.blocks.SlicerBlockTemplate;
 import net.alternateadventure.brickforgery.registry.machine.SlicingRecipeRegistry;
-import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
-import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
+import net.danygames2014.nyalib.item.block.ItemHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -15,8 +14,10 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
+import net.modificationstation.stationapi.api.util.math.Direction;
+import org.jetbrains.annotations.Nullable;
 
-public class SlicerBlockEntity extends BlockEntity implements Inventory, BlockWithOutput, BlockWithInput {
+public class SlicerBlockEntity extends BlockEntity implements Inventory, ItemHandler {
     private ItemStack[] inventory = new ItemStack[2];
     public int sliceTime = 0;
     public TierEnum tier;
@@ -122,7 +123,7 @@ public class SlicerBlockEntity extends BlockEntity implements Inventory, BlockWi
     @Override
     public void tick() {
         if (!tierChecked) checkTier();
-        if (world.getBlockMeta(x, y, z) != 1) return;
+        if (world.getBlockMeta(x, y, z) < 6) return;
 
         boolean var2 = false;
 
@@ -202,52 +203,87 @@ public class SlicerBlockEntity extends BlockEntity implements Inventory, BlockWi
     }
 
     @Override
-    public boolean isValidOutputSide(int side) {
+    public boolean canExtractItem(@Nullable Direction direction) {
+        return direction == Direction.DOWN;
+    }
+
+    @Override
+    public ItemStack extractItem(int slot, int amount, @Nullable Direction direction) {
+        ItemStack slotItem = inventory[1];
+        if (slotItem == null) {
+            return null;
+        }
+        if (slotItem.count <= amount) {
+            inventory[1] = null;
+            return slotItem;
+        } else {
+            slotItem.count = amount;
+            inventory[1].count -= amount;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean canInsertItem(@Nullable Direction direction) {
+        return direction == Direction.UP;
+    }
+
+    @Override
+    public ItemStack insertItem(ItemStack itemStack, int i, @Nullable Direction direction) {
+        ItemStack existingStack = inventory[i];
+        if (existingStack == null) {
+            inventory[i] = itemStack;
+            return null;
+        } else {
+            int totalCount = existingStack.count + itemStack.count;
+            if (totalCount < itemStack.getMaxCount()) {
+                inventory[i].count = totalCount;
+                return null;
+            } else {
+                itemStack.count = totalCount - itemStack.getMaxCount();
+                inventory[i].count = itemStack.getMaxCount();
+                return itemStack;
+            }
+        }
+    }
+
+    @Override
+    public ItemStack insertItem(ItemStack itemStack, @Nullable Direction direction) {
+        return insertItem(itemStack, 0, direction);
+    }
+
+    @Override
+    public ItemStack getItem(int i, @Nullable Direction direction) {
+        if (direction == Direction.DOWN) {
+            return inventory[1];
+        }
+        return null;
+    }
+
+    @Override
+    public boolean setItem(ItemStack itemStack, int i, @Nullable Direction direction) {
+        if (i >= inventory.length) {
+            return false;
+        }
+        inventory[i] = itemStack;
         return true;
     }
 
     @Override
-    public int getOutputSlotCount() {
-        return 1;
+    public int getItemSlots(@Nullable Direction direction) {
+        if (direction == Direction.DOWN || direction == Direction.UP) {
+            return 1;
+        }
+        return 0;
     }
 
     @Override
-    public ItemStack getItemFromOutputSlot(int slot) {
-        return inventory[1];
+    public ItemStack[] getInventory(@Nullable Direction direction) {
+        return inventory;
     }
 
     @Override
-    public void clearOutput(int slot) {
-        inventory[1] = null;
-    }
-
-    @Override
-    public void setOutputItemCount(int slot, int count) {
-        inventory[1].count = count;
-    }
-
-    @Override
-    public boolean isValidInputSide(int side) {
-        return true;
-    }
-
-    @Override
-    public int getInputSlotCount() {
-        return 1;
-    }
-
-    @Override
-    public ItemStack getItemFromInputSlot(int slot) {
-        return inventory[0];
-    }
-
-    @Override
-    public void setInputItem(int slot, ItemStack ItemStack) {
-        inventory[0] = ItemStack;
-    }
-
-    @Override
-    public void setInputItemCount(int slot, int count) {
-        inventory[0].count = count;
+    public boolean canConnectItem(Direction direction) {
+        return direction == Direction.DOWN || direction == Direction.UP;
     }
 }

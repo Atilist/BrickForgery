@@ -97,7 +97,7 @@ dependencies {
 	modImplementation("maven.modrinth:better-than-wolves-legacy-unofficial:${project.better_than_wolves_version}") {
 		transitive false
 	}
-    modRuntimeOnly("net.danygames2014:NyaLib:${project.nyalib_version}") {
+    modImplementation("net.danygames2014:NyaLib:${project.nyalib_version}") {
     }
 
 

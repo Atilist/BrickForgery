@@ -8,9 +8,11 @@ import net.kozibrodka.wolves.utils.MechanicalDevice;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.gui.screen.container.GuiHelper;
 import net.modificationstation.stationapi.api.util.Identifier;
@@ -19,10 +21,36 @@ import java.util.Random;
 
 public class SlicerBlockTemplate extends LazySimpleMachineBlockTemplate implements MechanicalDevice {
     private final Random rand = new Random();
+
     public TierEnum tier;
+    private int inputSideTexture;
+
     public SlicerBlockTemplate(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds, TierEnum tier) {
         super(identifier, material, hardness, blockSounds);
         this.tier = tier;
+    }
+
+    public void specifyInputTexture(int inputSideTexture) {
+        this.inputSideTexture = inputSideTexture;
+    }
+
+    @Override
+    public int getTexture(int side, int meta) {
+        if (meta >= 6) {
+            meta -= 6;
+        }
+        if (meta == 0) {
+            if (side == 1) {
+                return topTextureInternal;
+            }
+            if (side == 3) {
+                return inputSideTexture;
+            }
+        }
+        if (side == meta) {
+            return inputSideTexture;
+        }
+        return super.getTexture(side, meta);
     }
 
     @Override
@@ -86,6 +114,26 @@ public class SlicerBlockTemplate extends LazySimpleMachineBlockTemplate implemen
     }
 
     @Override
+    public void onPlaced(World world, int x, int y, int z, LivingEntity placer) {
+        int facing = MathHelper.floor((double)(placer.yaw * 4.0F / 360.0F) + (double)0.5F) & 3;
+        if (facing == 0) {
+            world.setBlockMeta(x, y, z, 2);
+        }
+
+        if (facing == 1) {
+            world.setBlockMeta(x, y, z, 5);
+        }
+
+        if (facing == 2) {
+            world.setBlockMeta(x, y, z, 3);
+        }
+
+        if (facing == 3) {
+            world.setBlockMeta(x, y, z, 4);
+        }
+    }
+
+    @Override
     public boolean canOutputMechanicalPower() {
         return false;
     }
@@ -97,21 +145,21 @@ public class SlicerBlockTemplate extends LazySimpleMachineBlockTemplate implemen
 
     @Override
     public boolean canInputMechanicalPower(World world, int x, int y, int z, int side) {
-        return side == 0;
+        return side == world.getBlockMeta(x, y, z);
     }
 
     @Override
     public void powerMachine(World world, int x, int y, int z, int side) {
-        world.setBlockMeta(x, y, z, 1);
+        world.setBlockMeta(x, y, z, world.getBlockMeta(x, y, z) + 6);
     }
 
     @Override
     public void unpowerMachine(World world, int x, int y, int z, int side) {
-        world.setBlockMeta(x, y, z, 0);
+        world.setBlockMeta(x, y, z, world.getBlockMeta(x, y, z) - 6);
     }
 
     @Override
     public boolean isMachinePowered(World world, int x, int y, int z) {
-        return world.getBlockMeta(x, y, z) == 1;
+        return world.getBlockMeta(x, y, z) >= 6;
     }
 }

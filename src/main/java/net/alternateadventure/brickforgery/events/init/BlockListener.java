@@ -1,6 +1,55 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.blocks.*;
+import net.alternateadventure.brickforgery.blocks.AlloySmelterBlock;
+import net.alternateadventure.brickforgery.blocks.BrickCropBlock;
+import net.alternateadventure.brickforgery.blocks.BrickFrameCrafterBlock;
+import net.alternateadventure.brickforgery.blocks.BrickLauncherBlock;
+import net.alternateadventure.brickforgery.blocks.BrickSoilBlock;
+import net.alternateadventure.brickforgery.blocks.BrickSoilDepletedBlock;
+import net.alternateadventure.brickforgery.blocks.CoalOreBricksBlock;
+import net.alternateadventure.brickforgery.blocks.CommonPotBlock;
+import net.alternateadventure.brickforgery.blocks.CrusherBaseBlock;
+import net.alternateadventure.brickforgery.blocks.CryogenicHibachiBlock;
+import net.alternateadventure.brickforgery.blocks.DesertPotBlock;
+import net.alternateadventure.brickforgery.blocks.DesertPotSealedBlock;
+import net.alternateadventure.brickforgery.blocks.DiamondOreBricksBlock;
+import net.alternateadventure.brickforgery.blocks.DirectionalMachineTemplateBlock;
+import net.alternateadventure.brickforgery.blocks.DoublePlantBlock;
+import net.alternateadventure.brickforgery.blocks.DustBlock;
+import net.alternateadventure.brickforgery.blocks.ExoticShrubBlock;
+import net.alternateadventure.brickforgery.blocks.ExoticShrubDeadBlock;
+import net.alternateadventure.brickforgery.blocks.FastBricksBlock;
+import net.alternateadventure.brickforgery.blocks.FrostburnBlock;
+import net.alternateadventure.brickforgery.blocks.FrozenPotBlock;
+import net.alternateadventure.brickforgery.blocks.FrozenPotSealedBlock;
+import net.alternateadventure.brickforgery.blocks.GoldOreBricksBlock;
+import net.alternateadventure.brickforgery.blocks.HeatPillarBlock;
+import net.alternateadventure.brickforgery.blocks.HeatPillarIgnitedBlock;
+import net.alternateadventure.brickforgery.blocks.HeatPillarStokedBlock;
+import net.alternateadventure.brickforgery.blocks.ImprovedMillstoneBlock;
+import net.alternateadventure.brickforgery.blocks.IndestructibleBlockBlock;
+import net.alternateadventure.brickforgery.blocks.IronOreBricksBlock;
+import net.alternateadventure.brickforgery.blocks.ItemChuteBlock;
+import net.alternateadventure.brickforgery.blocks.ItemElevatorBlock;
+import net.alternateadventure.brickforgery.blocks.ItemSlideBlock;
+import net.alternateadventure.brickforgery.blocks.LazyBlockTemplate;
+import net.alternateadventure.brickforgery.blocks.LazySimpleMachineBlockTemplate;
+import net.alternateadventure.brickforgery.blocks.MachineFrameBlock;
+import net.alternateadventure.brickforgery.blocks.MetalworkingStationBlockTemplate;
+import net.alternateadventure.brickforgery.blocks.MossyPotBlock;
+import net.alternateadventure.brickforgery.blocks.NightCaneBlock;
+import net.alternateadventure.brickforgery.blocks.NightLeavesBlock;
+import net.alternateadventure.brickforgery.blocks.NightLogBlock;
+import net.alternateadventure.brickforgery.blocks.NightPlanksBlock;
+import net.alternateadventure.brickforgery.blocks.NightSaplingBlock;
+import net.alternateadventure.brickforgery.blocks.NightWheatCropBlock;
+import net.alternateadventure.brickforgery.blocks.RedstoneOreBricksBlock;
+import net.alternateadventure.brickforgery.blocks.ResourcePileBlock;
+import net.alternateadventure.brickforgery.blocks.SlicerBlockTemplate;
+import net.alternateadventure.brickforgery.blocks.SpikeMountBlock;
+import net.alternateadventure.brickforgery.blocks.StoneBricksBlock;
+import net.alternateadventure.brickforgery.blocks.WasherBaseBlock;
+import net.alternateadventure.brickforgery.blocks.WoodenBricksBlock;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
@@ -114,20 +163,21 @@ public class BlockListener {
             itemSlide;
 
     public static LazySimpleMachineBlockTemplate
-            sugarCaneSlicer,
-
             improvedMillstone,
 
-            primitiveSlicer,
             primitiveMetalworkingStation,
             primitiveCrusher,
             primitiveWasher,
 
-            slicer,
             metalworkingStation,
 
             itemChute,
             itemElevator;
+
+    public static SlicerBlockTemplate
+            sugarCaneSlicer,
+            primitiveSlicer,
+            slicer;
 
     @Entrypoint.Namespace
     public static Namespace MOD_ID;
