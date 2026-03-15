@@ -91,10 +91,14 @@ dependencies {
 	modImplementation ("net.modificationstation:StationAPI:${project.stapi_version}") {
         exclude group: "babric", module: "fabric-loader"
     }
-
+    modImplementation("maven.modrinth:new-frontier-craft:${project.nfc_version}") {
+        transitive false
+    }
 	modImplementation("maven.modrinth:better-than-wolves-legacy-unofficial:${project.better_than_wolves_version}") {
 		transitive false
 	}
+    modRuntimeOnly("net.danygames2014:NyaLib:${project.nyalib_version}") {
+    }
 
 
 	// Optional, but convenient mods for mod creators and users alike.
