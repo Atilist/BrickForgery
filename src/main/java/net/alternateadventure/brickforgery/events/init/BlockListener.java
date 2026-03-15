@@ -2,6 +2,7 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.blocks.AlloySmelterBlock;
 import net.alternateadventure.brickforgery.blocks.BrickCropBlock;
+import net.alternateadventure.brickforgery.blocks.BrickFrameAutomator;
 import net.alternateadventure.brickforgery.blocks.BrickFrameCrafterBlock;
 import net.alternateadventure.brickforgery.blocks.BrickLauncherBlock;
 import net.alternateadventure.brickforgery.blocks.BrickSoilBlock;
@@ -179,6 +180,9 @@ public class BlockListener {
             primitiveSlicer,
             slicer;
 
+    public static BrickFrameAutomator
+            cactusBrickFrameAutomator;
+
     @Entrypoint.Namespace
     public static Namespace MOD_ID;
 
@@ -193,6 +197,8 @@ public class BlockListener {
         cactusPlanks = new LazyBlockTemplate(Identifier.of(MOD_ID, "cactus_planks"), Material.WOOD, 1.0F, Block.WOOD_SOUND_GROUP);
         cactusBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "cactus_box"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
         sandBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "sand_bricks"), Material.SAND, 1.5F, Block.SAND_SOUND_GROUP);
+        cactusBrickFrameAutomator = new BrickFrameAutomator(Identifier.of(MOD_ID, "cactus_brick_frame_automator"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
+
         flintBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "flint_box"), Material.SOIL, 1.5F, Block.GRAVEL_SOUND_GROUP);
 
         exoticShrub = new ExoticShrubBlock(Identifier.of(MOD_ID, "exotic_shrub"), Material.PLANT).setHardness(0.0F).setSoundGroup(Block.DIRT_SOUND_GROUP).setTranslationKey(MOD_ID, "exotic_shrub");

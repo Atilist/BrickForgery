@@ -7,6 +7,8 @@ tile.@.sugar_cane_brick_frame_crafter.name=Sugar Cane Brick Frame Crafter
 tile.@.cactus_planks.name=Cactus Planks
 tile.@.cactus_box.name=Cactus Box
 tile.@.sand_bricks.name=Sand Bricks
+tile.@.cactus_brick_frame_automator.name=Cactus Brick Frame Automator
+
 tile.@.flint_box.name=Flint Box
 
 tile.@.exotic_shrub.name=Exotic Shrub

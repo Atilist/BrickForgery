@@ -1,12 +1,25 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.registry.machine.*;
+import net.alternateadventure.brickforgery.registry.machine.AlloySmeltingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.BrickFramingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.CrushingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.MetalworkingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.SlicingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.WashingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.tool.BrushRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.tool.ChiselRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.tool.GrabberRecipeRegistry;
-import net.alternateadventure.brickforgery.utils.*;
+import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
+import net.alternateadventure.brickforgery.utils.TierEnum;
+import net.alternateadventure.brickforgery.utils.TieredBlockConversionData;
+import net.alternateadventure.brickforgery.utils.TieredBlockLootingData;
+import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.kozibrodka.wolves.api.HibachiIgnitionRegistry;
-import net.kozibrodka.wolves.recipe.*;
+import net.kozibrodka.wolves.recipe.AnvilCraftingManager;
+import net.kozibrodka.wolves.recipe.CauldronCraftingManager;
+import net.kozibrodka.wolves.recipe.CrucibleCraftingManager;
+import net.kozibrodka.wolves.recipe.MillingRecipeRegistry;
+import net.kozibrodka.wolves.recipe.StokedCauldronCraftingManager;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -33,6 +46,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.exoticMutationSample), " X ", "XYX", "ZZZ", 'X', new ItemStack(ItemListener.sugarCaneStick), 'Y', new ItemStack(ItemListener.exoticFruit), 'Z', new ItemStack(ItemListener.cactusFrame));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "YXY", "XZX", "YXY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBrickFrameAutomator), "YGY", "GBG", "YGY", 'G', new ItemStack(net.newfrontiercraft.nfc.events.init.ItemListener.aluminiumGear), 'Y', new ItemStack(ItemListener.cactusFrame), 'B', new ItemStack(BlockListener.cactusBox));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandBricks), "XX", "XX", 'X', new ItemStack(ItemListener.sandBrick));
