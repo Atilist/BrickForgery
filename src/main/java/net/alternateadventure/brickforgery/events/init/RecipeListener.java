@@ -3,9 +3,12 @@ package net.alternateadventure.brickforgery.events.init;
 import net.alternateadventure.brickforgery.registry.machine.AlloySmeltingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.BrickFramingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.CrushingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.HarvestingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.MetalworkingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.SlicingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.WashingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.records.HarvestingInput;
+import net.alternateadventure.brickforgery.registry.machine.records.HarvestingOutput;
 import net.alternateadventure.brickforgery.registry.tool.BrushRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.tool.ChiselRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.tool.GrabberRecipeRegistry;
@@ -53,6 +56,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBox), "YXY", "XYX", "YXY", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.sugarCaneFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneSlicer), "YXY", "YZY", "Y#Y", 'X', new ItemStack(Block.PLANKS), 'Y', new ItemStack(ItemListener.dirtBrick), 'Z', new ItemStack(BlockListener.sugarCaneBox), '#', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBrickFrameCrafter), "#X#", "YZY", "YYY", 'X', new ItemStack(Item.CLAY), 'Y', new ItemStack(ItemListener.dirtBrick), 'Z', new ItemStack(BlockListener.sugarCaneBox), '#', new ItemStack(ItemListener.sugarCaneFrame));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneHarvester), "HGH", "FBF", "DDD", 'H', new ItemStack(Item.WOODEN_HOE), 'G', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), 'B', new ItemStack(BlockListener.sugarCaneBox), 'F', new ItemStack(ItemListener.sugarCaneFrame), 'D', new ItemStack(BlockListener.dirtBricks));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.exoticMutationSample), " X ", "XYX", "ZZZ", 'X', new ItemStack(ItemListener.sugarCaneStick), 'Y', new ItemStack(ItemListener.exoticFruit), 'Z', new ItemStack(ItemListener.cactusFrame));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "YXY", "XZX", "YXY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
@@ -250,6 +254,15 @@ public class RecipeListener {
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dryBrickFramedBrick, 2), new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.brickFramedBrick));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.hardenedBrickFramedBrick, 2), new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack(ItemListener.dryBrickFramedBrick));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.reinforcedBrickFramedBrick, 2), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.hardenedBrickFramedBrick));
+
+            for (int i = 0; i < 16; i++) {
+                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.SUGAR_CANE.id, i), new HarvestingOutput(new ItemStack(Item.SUGAR_CANE, 1, 0), 0, 0));
+                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 1, 0), 0, 0));
+            }
+            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.exoticShrub.id, 15), new HarvestingOutput(new ItemStack(ItemListener.exoticFruit, 1, 0), BlockListener.exoticShrub.id, 0));
+            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(net.kozibrodka.wolves.events.BlockListener.hempCrop.id, 7), new HarvestingOutput(new ItemStack(net.kozibrodka.wolves.events.ItemListener.hemp, 1, 0), 0, 0));
+            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.WHEAT.id, 7), new HarvestingOutput(new ItemStack(Item.WHEAT, 1, 0), Block.WHEAT.id, 0));
+            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightWheatCrop.id, 7), new HarvestingOutput(new ItemStack(ItemListener.nightWheat, 1, 0), BlockListener.nightWheatCrop.id, 0));
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {
