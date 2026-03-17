@@ -295,6 +295,7 @@ public class TextureListener {
         BlockListener.sandinator.specifyTextures(getIndexForPath(machinePath + "SandinatorTop"), getIndexForPath(machinePath + "SandinatorSide"), getIndexForPath(machinePath + "SandinatorBottom"));
         BlockListener.cactusBrickFrameAutomator.specifyTextures(getIndexForPath(machinePath + "CactusBrickFrameAutomatorTop"), getIndexForPath(machinePath + "CactusBrickFrameAutomatorSide"), getIndexForPath(machinePath + "CactusBrickFrameAutomatorBottom"));
         BlockListener.cactusBrickFrameAutomator.specifyInputTexture(getIndexForPath(machinePath + "CactusBrickFrameAutomatorSideInput"));
+        BlockListener.cactusHarvester.specifyTextures(getIndexForPath(machinePath + "CactusHarvesterTop"), getIndexForPath(machinePath + "CactusHarvesterSide"), getIndexForPath(machinePath + "CactusHarvesterBottom"));
 
         BlockListener.flintBox.specifyTextures(getIndexForPath(materialPath + "FlintBox"));
 

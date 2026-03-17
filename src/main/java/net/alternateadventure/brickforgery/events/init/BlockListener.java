@@ -188,7 +188,8 @@ public class BlockListener {
             cactusBrickFrameAutomator;
 
     public static HarvesterBlockTemplate
-            sugarCaneHarvester;
+            sugarCaneHarvester,
+            cactusHarvester;
 
     @Entrypoint.Namespace
     public static Namespace MOD_ID;
@@ -207,6 +208,7 @@ public class BlockListener {
         sandBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "sand_bricks"), Material.SAND, 1.5F, Block.SAND_SOUND_GROUP);
         sandinator = new SandinatorBlock(Identifier.of(MOD_ID, "sandinator"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
         cactusBrickFrameAutomator = new BrickFrameAutomator(Identifier.of(MOD_ID, "cactus_brick_frame_automator"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
+        cactusHarvester = new HarvesterBlockTemplate(Identifier.of(MOD_ID, "cactus_harvester"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
 
         flintBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "flint_box"), Material.SOIL, 1.5F, Block.GRAVEL_SOUND_GROUP);
 

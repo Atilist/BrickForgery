@@ -62,6 +62,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "YXY", "XZX", "YXY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandinator), "YDY", "DBD", "YDY", 'D', new ItemStack(ItemListener.dirtBrickSand), 'Y', new ItemStack(ItemListener.cactusFrame), 'B', new ItemStack(BlockListener.cactusBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBrickFrameAutomator), "YGY", "GBG", "YGY", 'G', new ItemStack(net.newfrontiercraft.nfc.events.init.ItemListener.aluminiumGear), 'Y', new ItemStack(ItemListener.cactusFrame), 'B', new ItemStack(BlockListener.cactusBox));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusHarvester), "HGH", "FBF", "DSD", 'H', new ItemStack(Item.STONE_HOE), 'G', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), 'B', new ItemStack(BlockListener.cactusBox), 'F', new ItemStack(ItemListener.cactusFrame), 'D', new ItemStack(BlockListener.dirtBricks), 'S', new ItemStack(BlockListener.sugarCaneHarvester));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandBricks), "XX", "XX", 'X', new ItemStack(ItemListener.sandBrick));
@@ -258,6 +259,7 @@ public class RecipeListener {
             for (int i = 0; i < 16; i++) {
                 HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.SUGAR_CANE.id, i), new HarvestingOutput(new ItemStack(Item.SUGAR_CANE, 1, 0), 0, 0));
                 HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 1, 0), 0, 0));
+                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.CACTUS.id, i), new HarvestingOutput(new ItemStack(Block.CACTUS, 1, 0), 0, 0));
             }
             HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.exoticShrub.id, 15), new HarvestingOutput(new ItemStack(ItemListener.exoticFruit, 1, 0), BlockListener.exoticShrub.id, 0));
             HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(net.kozibrodka.wolves.events.BlockListener.hempCrop.id, 7), new HarvestingOutput(new ItemStack(net.kozibrodka.wolves.events.ItemListener.hemp, 1, 0), 0, 0));

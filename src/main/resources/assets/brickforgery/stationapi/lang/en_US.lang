@@ -10,6 +10,7 @@ tile.@.cactus_box.name=Cactus Box
 tile.@.sand_bricks.name=Sand Bricks
 tile.@.sandinator.name=Sandinator
 tile.@.cactus_brick_frame_automator.name=Cactus Brick Frame Automator
+tile.@.cactus_harvester.name=Cactus Harvester
 
 tile.@.flint_box.name=Flint Box
 
