@@ -21,6 +21,7 @@ public class TextureListener {
 
         ItemListener.dirtBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DirtBrick"));
         ItemListener.nightCaneStick.setTexture(Identifier.of(MOD_ID, farmingPath + "NightCaneStick"));
+        ItemListener.doubleNightCaneStick.setTexture(Identifier.of(MOD_ID, farmingPath + "DoubleNightCaneStick"));
         ItemListener.sugarCaneStick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SugarCaneStick"));
         ItemListener.exoticMutationSample.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ExoticMutationSample"));
 
@@ -296,6 +297,7 @@ public class TextureListener {
         BlockListener.cactusBrickFrameAutomator.specifyTextures(getIndexForPath(machinePath + "CactusBrickFrameAutomatorTop"), getIndexForPath(machinePath + "CactusBrickFrameAutomatorSide"), getIndexForPath(machinePath + "CactusBrickFrameAutomatorBottom"));
         BlockListener.cactusBrickFrameAutomator.specifyInputTexture(getIndexForPath(machinePath + "CactusBrickFrameAutomatorSideInput"));
         BlockListener.cactusHarvester.specifyTextures(getIndexForPath(machinePath + "CactusHarvesterTop"), getIndexForPath(machinePath + "CactusHarvesterSide"), getIndexForPath(machinePath + "CactusHarvesterBottom"));
+        BlockListener.doubleNightCane.specifyTextures(getIndexForPath(farmingPath + "NightCaneDouble"));
 
         BlockListener.flintBox.specifyTextures(getIndexForPath(materialPath + "FlintBox"));
 
@@ -366,6 +368,7 @@ public class TextureListener {
         BlockListener.diamondOreBricks.specifyTextures(DiamondOreBricks);
 
         BlockListener.nightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneSingle"));
+        BlockListener.doubleNightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneDouble"));
 
         BlockListener.heatPillar.asItem().setTextureId(HeatPillar);
         BlockListener.heatPillarIgnited.asItem().setTextureId(HeatPillarIgnited);

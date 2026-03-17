@@ -11,6 +11,7 @@ tile.@.sand_bricks.name=Sand Bricks
 tile.@.sandinator.name=Sandinator
 tile.@.cactus_brick_frame_automator.name=Cactus Brick Frame Automator
 tile.@.cactus_harvester.name=Cactus Harvester
+tile.@.double_night_cane.name=Double Night Cane
 
 tile.@.flint_box.name=Flint Box
 
@@ -107,6 +108,7 @@ tile.@.diamond_ore_bricks.name=Diamond Ore Bricks
 
 item.@.dirt_brick.name=Dirt Brick
 item.@.night_cane_stick.name=Night Cane Stick
+item.@.double_night_cane_stick.name=Double Night Cane Stick
 item.@.sugar_cane_stick.name=Sugar Cane Stick
 item.@.exotic_mutation_sample.name=Exotic Mutation Sample
 

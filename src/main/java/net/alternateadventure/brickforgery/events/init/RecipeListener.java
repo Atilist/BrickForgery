@@ -167,6 +167,7 @@ public class RecipeListener {
         // Output <- Input
         else if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type()) {
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightCaneStick), new ItemStack(ItemListener.exoticFruit), new ItemStack(Item.SUGAR_CANE));
+            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.doubleNightCaneStick), new ItemStack(ItemListener.nightCaneStick), new ItemStack(ItemListener.exoticMutationSample));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dirtBrick), new ItemStack(ItemListener.sugarCaneFrame), new ItemStack(Block.DIRT));
             CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dirtBrickSand), new ItemStack(ItemListener.cactusFrame), new ItemStack(ItemListener.dirtBrick), new ItemStack(Block.SAND));
 
@@ -259,6 +260,7 @@ public class RecipeListener {
             for (int i = 0; i < 16; i++) {
                 HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.SUGAR_CANE.id, i), new HarvestingOutput(new ItemStack(Item.SUGAR_CANE, 1, 0), 0, 0));
                 HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 1, 0), 0, 0));
+                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.doubleNightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 2, 0), 0, 0));
                 HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.CACTUS.id, i), new HarvestingOutput(new ItemStack(Block.CACTUS, 1, 0), 0, 0));
             }
             HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.exoticShrub.id, 15), new HarvestingOutput(new ItemStack(ItemListener.exoticFruit, 1, 0), BlockListener.exoticShrub.id, 0));

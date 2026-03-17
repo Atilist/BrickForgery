@@ -142,12 +142,14 @@ public class ItemListener {
             reinforcedBrickFramedBrick;
 
     public static LazySecondaryBlockItem
-            nightCaneStick;
+            nightCaneStick,
+            doubleNightCaneStick;
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
         dirtBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "dirt_brick"));
         nightCaneStick = new LazySecondaryBlockItem(Identifier.of(MOD_ID, "night_cane_stick"), BlockListener.nightCane);
+        doubleNightCaneStick = new LazySecondaryBlockItem(Identifier.of(MOD_ID, "double_night_cane_stick"), BlockListener.doubleNightCane);
         sugarCaneStick = new LazyItemTemplate(Identifier.of(MOD_ID, "sugar_cane_stick"));
         exoticMutationSample = new LazyItemTemplate(Identifier.of(MOD_ID, "exotic_mutation_sample"));
 
