@@ -182,6 +182,7 @@ public class BlockListener {
 
     public static SlicerBlockTemplate
             sugarCaneSlicer,
+            cactusSlicer,
             primitiveSlicer,
             slicer;
 
@@ -208,6 +209,7 @@ public class BlockListener {
         cactusBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "cactus_box"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
         sandBricks = new LazyBlockTemplate(Identifier.of(MOD_ID,  "sand_bricks"), Material.SAND, 1.5F, Block.SAND_SOUND_GROUP);
         sandinator = new SandinatorBlock(Identifier.of(MOD_ID, "sandinator"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
+        cactusSlicer = new SlicerBlockTemplate(Identifier.of(MOD_ID, "cactus_slicer"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
         cactusBrickFrameAutomator = new BrickFrameAutomator(Identifier.of(MOD_ID, "cactus_brick_frame_automator"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
         cactusHarvester = new HarvesterBlockTemplate(Identifier.of(MOD_ID, "cactus_harvester"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
         doubleNightCane = new NightCaneBlock(Identifier.of(MOD_ID, "double_night_cane"), Material.PLANT, 0, Block.DIRT_SOUND_GROUP, 2);
