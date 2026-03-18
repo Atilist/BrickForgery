@@ -298,6 +298,7 @@ public class BrickForgeBlockEntity extends BlockEntity implements Inventory, Ite
             inventory[slot] = itemStack;
             return null;
         } else {
+            if (!existingStack.isItemEqual(itemStack)) return itemStack;
             int totalCount = existingStack.count + itemStack.count;
             if (totalCount < itemStack.getMaxCount()) {
                 inventory[slot].count = totalCount;
