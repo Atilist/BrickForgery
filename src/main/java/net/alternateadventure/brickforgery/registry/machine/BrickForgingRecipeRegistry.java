@@ -1,6 +1,5 @@
 package net.alternateadventure.brickforgery.registry.machine;
 
-import net.alternateadventure.brickforgery.registry.machine.records.BrickForgingInput;
 import net.alternateadventure.brickforgery.registry.machine.records.ComparableIdMeta;
 import net.alternateadventure.brickforgery.registry.machine.records.IdMetaCount;
 import net.alternateadventure.brickforgery.registry.machine.records.OutputAndInputs;
@@ -15,7 +14,7 @@ import java.util.Map;
 
 public class BrickForgingRecipeRegistry {
     private static final BrickForgingRecipeRegistry INSTANCE = new BrickForgingRecipeRegistry();
-    private final Map<BrickForgingInput, OutputAndInputs> recipes = new HashMap<>();
+    private final Map<Integer, OutputAndInputs> recipes = new HashMap<>();
 
     public static BrickForgingRecipeRegistry getInstance() {
         return INSTANCE;
@@ -28,12 +27,12 @@ public class BrickForgingRecipeRegistry {
             rearrangedInputs[i] = new ComparableIdMeta(inputs[i].id(), inputs[i].meta());
         }
         Arrays.sort(rearrangedInputs);
-        this.recipes.put(new BrickForgingInput(rearrangedInputs), new OutputAndInputs(output, inputs, tier));
+        this.recipes.put(Arrays.hashCode(rearrangedInputs), new OutputAndInputs(output, inputs, tier));
     }
 
     public OutputAndInputs getResult(ComparableIdMeta[] inputs) {
         Arrays.sort(inputs);
-        return this.recipes.get(new BrickForgingInput(inputs));
+        return this.recipes.get(Arrays.hashCode(inputs));
     }
 
     public ArrayList<BrickForgingRecipe> getRecipes() {
@@ -42,13 +41,12 @@ public class BrickForgingRecipeRegistry {
         ArrayList<OutputAndInputs> outputs = new ArrayList<>();
 
         for (Object obj : this.recipes.keySet()) {
-            if (obj instanceof BrickForgingInput recipeInputs) {
+            if (obj instanceof Integer recipeKey) {
                 ArrayList<ItemStack> convertedRecipeInputs = new ArrayList<>();
-                OutputAndInputs result = this.getResult(recipeInputs.inputs());
+                OutputAndInputs result = this.recipes.get(recipeKey);
                 IdMetaCount[] completeInputs = result.inputs();
-                for (int i = 0; i < recipeInputs.inputs().length; i++) {
-                    ComparableIdMeta recipeInput = recipeInputs.inputs()[i];
-                    convertedRecipeInputs.add(new ItemStack(recipeInput.id(), completeInputs[i].count(), recipeInput.meta()));
+                for (int i = 0; i < completeInputs.length; i++) {
+                    convertedRecipeInputs.add(new ItemStack(completeInputs[i].id(), completeInputs[i].count(), completeInputs[i].meta()));
                 }
                 inputs.add(convertedRecipeInputs);
                 outputs.add(result);
