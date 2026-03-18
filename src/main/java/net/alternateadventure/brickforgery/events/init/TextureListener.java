@@ -27,6 +27,8 @@ public class TextureListener {
 
         ItemListener.dirtBrickSand.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DirtBrickSand"));
         ItemListener.sandBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SandBrick"));
+        ItemListener.slicedCopper.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SlicedCopper"));
+        ItemListener.bripper.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/Bripper"));
 
         ItemListener.exoticFruit.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticFruit"));
         ItemListener.nightSeeds.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightSeeds"));

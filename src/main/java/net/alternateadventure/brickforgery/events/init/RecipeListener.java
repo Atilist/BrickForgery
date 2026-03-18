@@ -36,6 +36,8 @@ import net.modificationstation.stationapi.api.recipe.SmeltingRegistry;
 import net.modificationstation.stationapi.api.registry.BlockRegistry;
 import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.util.Namespace;
+import net.newfrontiercraft.nfc.registry.BrickOvenManager;
+import net.newfrontiercraft.nfc.utils.FuelLevelEnum;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -229,6 +231,7 @@ public class RecipeListener {
             AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.largeBrickRaw), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.largeBrick, 1));
 
             SlicingRecipeRegistry.getInstance().addSlicingRecipe(Block.CACTUS.asItem().id, new TieredMachineRecipeData(TierEnum.SUGAR_CANE, new ItemStack(BlockListener.cactusPlanks)));
+            SlicingRecipeRegistry.getInstance().addSlicingRecipe(net.newfrontiercraft.nfc.events.init.ItemListener.copperIngot.id, new TieredMachineRecipeData(TierEnum.CACTUS, new ItemStack(ItemListener.slicedCopper)));
             SlicingRecipeRegistry.getInstance().addSlicingRecipe(Item.LEATHER.id, new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.leatherStrap)));
             SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.durableLeatherStrap)));
 
@@ -285,6 +288,8 @@ public class RecipeListener {
             HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(net.kozibrodka.wolves.events.BlockListener.hempCrop.id, 7), new HarvestingOutput(new ItemStack(net.kozibrodka.wolves.events.ItemListener.hemp, 1, 0), 0, 0));
             HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.WHEAT.id, 7), new HarvestingOutput(new ItemStack(Item.WHEAT, 1, 0), Block.WHEAT.id, 0));
             HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightWheatCrop.id, 7), new HarvestingOutput(new ItemStack(ItemListener.nightWheat, 1, 0), BlockListener.nightWheatCrop.id, 0));
+
+            BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.bripper, 3), new Object[]{ItemListener.slicedCopper, ItemListener.sandBrick, Item.BRICK}, 1000, FuelLevelEnum.WARM);
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {

@@ -60,6 +60,8 @@ public class ItemListener {
 
             dirtBrickSand,
             sandBrick,
+            slicedCopper,
+            bripper,
 
             denseNightWood,
             glueMixture,
@@ -155,6 +157,8 @@ public class ItemListener {
 
         dirtBrickSand = new DirtBrickSandItem(Identifier.of(MOD_ID, "dirt_brick_sand"));
         sandBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "sand_brick"));
+        slicedCopper = new LazyItemTemplate(Identifier.of(MOD_ID, "sliced_copper"));
+        bripper = new LazyItemTemplate(Identifier.of(MOD_ID, "bripper"));
 
         exoticFruit = new TemplateItem(Identifier.of(MOD_ID, "exotic_fruit")).setTranslationKey(MOD_ID, "exotic_fruit");
         nightSeeds = new NightSeedsItem(Identifier.of(MOD_ID, "night_seeds")).setTranslationKey(MOD_ID, "night_seeds");
