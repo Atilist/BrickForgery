@@ -21,6 +21,7 @@ public class ResourcePileBlock extends TemplateBlock implements BrickFrameIngred
 
     public ResourcePileBlock(Identifier identifier, Material material) {
         super(identifier, material);
+        setTranslationKey(identifier.namespace, identifier.path);
     }
 
     @Override
@@ -50,6 +51,7 @@ public class ResourcePileBlock extends TemplateBlock implements BrickFrameIngred
         int blockState = world.getBlockState(x, y, z).get(ResourcePileBlock.USES);
         if (blockState == 1) world.setBlock(x, y, z, 0);
         else if (world.getBlockId(x, y, z) == BlockListener.cactusPlanksPile.id) world.setBlockStateWithNotify(x, y, z, BlockListener.cactusPlanksPile.getDefaultState().with(ResourcePileBlock.USES, blockState - 1));
+        else if (world.getBlockId(x, y, z) == BlockListener.plintPile.id) world.setBlockStateWithNotify(x, y, z, BlockListener.plintPile.getDefaultState().with(ResourcePileBlock.USES, blockState - 1));
         else if (world.getBlockId(x, y, z) == BlockListener.clayPile.id) world.setBlockStateWithNotify(x, y, z, BlockListener.clayPile.getDefaultState().with(ResourcePileBlock.USES, blockState - 1));
         else if (world.getBlockId(x, y, z) == BlockListener.planksPile.id) world.setBlockStateWithNotify(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePileBlock.USES, blockState - 1));
     }

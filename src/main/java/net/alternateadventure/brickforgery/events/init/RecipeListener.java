@@ -70,9 +70,10 @@ public class RecipeListener {
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandBricks), "XX", "XX", 'X', new ItemStack(ItemListener.sandBrick));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.bripperBricks), "XX", "XX", 'X', new ItemStack(ItemListener.bripper));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.plintBricks), "XX", "XX", 'X', new ItemStack(ItemListener.plintBrick));
 
-            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.flintFrame), " X ", "XYX", " X ", 'X', new ItemStack(Item.FLINT), 'Y', new ItemStack(ItemListener.cactusFrame));
-            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.flintBox), "XYX", "YZY", "XYX", 'X', new ItemStack(ItemListener.flintFrame), 'Y', new ItemStack(Block.GRAVEL), 'Z', new ItemStack(BlockListener.cactusBox));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.flintBox), "XYX", "YZY", "XYX", 'X', new ItemStack(ItemListener.flintFrame), 'Y', new ItemStack(BlockListener.bripperBricks), 'Z', new ItemStack(BlockListener.cactusBox));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.primitiveBrush), "-X-", "+Y+", "#Z#", 'X', new ItemStack(ItemListener.nightWheat), 'Y', new ItemStack(Item.GOLD_INGOT), 'Z', new ItemStack(ItemListener.denseNightWood), '#', new ItemStack(ItemListener.leatherStrap), '+', new ItemStack(Item.PAPER), '-', new ItemStack(ItemListener.concentratedFortune));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.primitiveChisel), "-X-", "#Y#", "+Z+", 'X', new ItemStack(Item.GOLD_INGOT), 'Y', new ItemStack(Item.FLINT), 'Z', new ItemStack(ItemListener.denseNightWood), '#', new ItemStack(Item.PAPER), '+', new ItemStack(ItemListener.leatherStrap), '-', new ItemStack(ItemListener.concentratedFortune));
@@ -148,6 +149,8 @@ public class RecipeListener {
 
             BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.sugarCaneFrame), BlockListener.cactusPlanks.id, BlockListener.cactusPlanks.id, BlockListener.cactusPlanks.id, BlockListener.cactusPlanks.id, new ItemStack(ItemListener.cactusFrame), TierEnum.SUGAR_CANE);
             BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.sugarCaneFrame), BlockListener.cactusPlanksPile.id, BlockListener.cactusPlanksPile.id, BlockListener.cactusPlanksPile.id, BlockListener.cactusPlanksPile.id, new ItemStack(ItemListener.cactusFrame), TierEnum.SUGAR_CANE);
+            BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.cactusFrame), BlockListener.plintBricks.id, BlockListener.plintBricks.id, BlockListener.plintBricks.id, BlockListener.plintBricks.id, new ItemStack(ItemListener.flintFrame), TierEnum.CACTUS);
+            BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.cactusFrame), BlockListener.plintPile.id, BlockListener.plintPile.id, BlockListener.plintPile.id, BlockListener.plintPile.id, new ItemStack(ItemListener.flintFrame), TierEnum.CACTUS);
             BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), BlockListener.nightPlanks.id, BlockListener.nightPlanks.id, Block.CLAY.id, Block.CLAY.id, new ItemStack(ItemListener.brickFrame), TierEnum.PRIMITIVE);
             BrickFramingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.woodenFrame), BlockListener.planksPile.id, BlockListener.planksPile.id, BlockListener.clayPile.id, BlockListener.clayPile.id, new ItemStack(ItemListener.brickFrame), TierEnum.PRIMITIVE);
 
@@ -292,6 +295,7 @@ public class RecipeListener {
             HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightWheatCrop.id, 7), new HarvestingOutput(new ItemStack(ItemListener.nightWheat, 1, 0), BlockListener.nightWheatCrop.id, 0));
 
             BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.bripper, 3), new Object[]{ItemListener.slicedCopper, ItemListener.sandBrick, Item.BRICK}, 1000, FuelLevelEnum.WARM);
+            BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.plintBrick, 2), new Object[]{net.newfrontiercraft.nfc.events.init.BlockListener.pebble, Item.FLINT}, 1000, FuelLevelEnum.WARM);
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {

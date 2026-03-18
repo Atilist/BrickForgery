@@ -1,5 +1,7 @@
 {
   "values": [
+    "brickforgery:bripper_bricks",
+    "brickforgery:plint_bricks",
     "brickforgery:coal_ore_bricks",
     "brickforgery:iron_ore_bricks",
     "brickforgery:gold_ore_bricks",

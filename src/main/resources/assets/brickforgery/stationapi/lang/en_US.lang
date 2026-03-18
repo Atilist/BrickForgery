@@ -14,6 +14,8 @@ tile.@.cactus_brick_frame_crafter.name=Cactus Brick Frame Crafter
 tile.@.cactus_brick_frame_automator.name=Cactus Brick Frame Automator
 tile.@.cactus_harvester.name=Cactus Harvester
 tile.@.double_night_cane.name=Double Night Cane
+tile.@.bripper_bricks.name=Bripper Bricks
+tile.@.plint_bricks.name=Plint Bricks
 
 tile.@.flint_box.name=Flint Box
 
@@ -85,6 +87,7 @@ tile.@.item_elevator_chain.name=Item Elevator Chain
 tile.@.brick_launcher.name=Brick Launcher
 
 tile.@.cactus_planks_pile.name=Cactus Planks Pile
+tile.@.plint_pile.name=Plint Pile
 tile.@.clay_pile.name=Clay Pile
 tile.@.planks_pile.name=Wooden Planks Pile
 
@@ -119,6 +122,7 @@ item.@.dirt_brick_sand.name=Dirt Brick Sand
 item.@.sand_brick.name=Sand Brick
 item.@.sliced_copper.name=Sliced Copper
 item.@.bripper.name=Bripper
+item.@.plint_brick.name=Plint Brick
 
 item.@.exotic_fruit.name=Exotic Fruit
 item.@.night_seeds.name=Night Seeds

@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "uses=0": {
+      "model": "brickforgery:consumables/plint/plintone"
+    },
+    "uses=1": {
+      "model": "brickforgery:consumables/plint/plinttwo"
+    },
+    "uses=2": {
+      "model": "brickforgery:consumables/plint/plintthree"
+    },
+    "uses=3": {
+      "model": "brickforgery:consumables/plint/plintfour"
+    },
+    "uses=4": {
+      "model": "brickforgery:consumables/plint/plintfive"
+    },
+    "uses=5": {
+      "model": "brickforgery:consumables/plint/plintsix"
+    },
+    "uses=6": {
+      "model": "brickforgery:consumables/plint/plintseven"
+    },
+    "uses=7": {
+      "model": "brickforgery:consumables/plint/plinteight"
+    },
+    "uses=8": {
+      "model": "brickforgery:consumables/plint/plintnine"
+    },
+    "uses=9": {
+      "model": "brickforgery:consumables/plint/plintten"
+    },
+    "uses=10": {
+      "model": "brickforgery:consumables/plint/plinteleven"
+    },
+    "uses=11": {
+      "model": "brickforgery:consumables/plint/plinttwelve"
+    },
+    "uses=12": {
+      "model": "brickforgery:consumables/plint/plintthirteen"
+    },
+    "uses=13": {
+      "model": "brickforgery:consumables/plint/plintfourteen"
+    },
+    "uses=14": {
+      "model": "brickforgery:consumables/plint/plintfifteen"
+    },
+    "uses=15": {
+      "model": "brickforgery:consumables/plint/plintsixteen"
+    }
+  }
+}

@@ -46,6 +46,7 @@ import net.alternateadventure.brickforgery.blocks.NightLogBlock;
 import net.alternateadventure.brickforgery.blocks.NightPlanksBlock;
 import net.alternateadventure.brickforgery.blocks.NightSaplingBlock;
 import net.alternateadventure.brickforgery.blocks.NightWheatCropBlock;
+import net.alternateadventure.brickforgery.blocks.PlintBricksBlock;
 import net.alternateadventure.brickforgery.blocks.RedstoneOreBricksBlock;
 import net.alternateadventure.brickforgery.blocks.ResourcePileBlock;
 import net.alternateadventure.brickforgery.blocks.SandinatorBlock;
@@ -81,6 +82,7 @@ public class BlockListener {
             brickLauncher,
 
             cactusPlanksPile,
+            plintPile,
             clayPile,
             planksPile,
 
@@ -108,6 +110,8 @@ public class BlockListener {
             sandinator,
             cactusBrickFrameCrafter,
             doubleNightCane,
+            bripperBricks,
+            plintBricks,
 
             flintBox,
 
@@ -217,6 +221,8 @@ public class BlockListener {
         cactusBrickFrameAutomator = new BrickFrameAutomator(Identifier.of(MOD_ID, "cactus_brick_frame_automator"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
         cactusHarvester = new HarvesterBlockTemplate(Identifier.of(MOD_ID, "cactus_harvester"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
         doubleNightCane = new NightCaneBlock(Identifier.of(MOD_ID, "double_night_cane"), Material.PLANT, 0, Block.DIRT_SOUND_GROUP, 2);
+        bripperBricks = new LazyBlockTemplate(Identifier.of(MOD_ID, "bripper_bricks"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP);
+        plintBricks = new PlintBricksBlock(Identifier.of(MOD_ID, "plint_bricks"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP);
 
         flintBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "flint_box"), Material.SOIL, 1.5F, Block.GRAVEL_SOUND_GROUP);
 
@@ -287,9 +293,10 @@ public class BlockListener {
         itemSlideChain = new LazyBlockTemplate(Identifier.of(MOD_ID, "item_slide_chain"), Material.GLASS, 1.5F, Block.METAL_SOUND_GROUP);
         itemElevatorChain = new LazyBlockTemplate(Identifier.of(MOD_ID, "item_elevator_chain"), Material.GLASS, 1.5F, Block.METAL_SOUND_GROUP);
 
-        cactusPlanksPile = new ResourcePileBlock(Identifier.of(MOD_ID, "cactus_planks_pile"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "cactus_planks_pile");
-        clayPile = new ResourcePileBlock(Identifier.of(MOD_ID, "clay_pile"), Material.SOIL).setHardness(0.5F).setSoundGroup(Block.GRAVEL_SOUND_GROUP).setTranslationKey(MOD_ID, "clay_pile");
-        planksPile = new ResourcePileBlock(Identifier.of(MOD_ID, "planks_pile"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "planks_pile");
+        cactusPlanksPile = new ResourcePileBlock(Identifier.of(MOD_ID, "cactus_planks_pile"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP);
+        plintPile = new ResourcePileBlock(Identifier.of(MOD_ID, "plint_pile"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP);
+        clayPile = new ResourcePileBlock(Identifier.of(MOD_ID, "clay_pile"), Material.SOIL).setHardness(0.5F).setSoundGroup(Block.GRAVEL_SOUND_GROUP);
+        planksPile = new ResourcePileBlock(Identifier.of(MOD_ID, "planks_pile"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP);
 
         woodenBricks = new WoodenBricksBlock(Identifier.of(MOD_ID, "wooden_bricks"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP).setTranslationKey(MOD_ID, "wooden_bricks");
         stoneBricks = new StoneBricksBlock(Identifier.of(MOD_ID, "stone_bricks"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "stone_bricks");

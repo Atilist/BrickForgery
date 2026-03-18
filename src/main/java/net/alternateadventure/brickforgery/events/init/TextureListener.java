@@ -29,6 +29,7 @@ public class TextureListener {
         ItemListener.sandBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SandBrick"));
         ItemListener.slicedCopper.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SlicedCopper"));
         ItemListener.bripper.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/Bripper"));
+        ItemListener.plintBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/PlintBrick"));
 
         ItemListener.exoticFruit.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticFruit"));
         ItemListener.nightSeeds.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightSeeds"));
@@ -303,6 +304,8 @@ public class TextureListener {
         BlockListener.cactusBrickFrameAutomator.specifyInputTexture(getIndexForPath(machinePath + "CactusBrickFrameAutomatorSideInput"));
         BlockListener.cactusHarvester.specifyTextures(getIndexForPath(machinePath + "CactusHarvesterTop"), getIndexForPath(machinePath + "CactusHarvesterSide"), getIndexForPath(machinePath + "CactusHarvesterBottom"));
         BlockListener.doubleNightCane.specifyTextures(getIndexForPath(farmingPath + "NightCaneDouble"));
+        BlockListener.bripperBricks.specifyTextures(getIndexForPath(materialPath + "BripperBricks"));
+        BlockListener.plintBricks.specifyTextures(getIndexForPath(materialPath + "PlintBricks"));
 
         BlockListener.flintBox.specifyTextures(getIndexForPath(materialPath + "FlintBox"));
 
