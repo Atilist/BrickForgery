@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "uses=0": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksone"
+    },
+    "uses=1": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplankstwo"
+    },
+    "uses=2": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksthree"
+    },
+    "uses=3": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksfour"
+    },
+    "uses=4": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksfive"
+    },
+    "uses=5": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplankssix"
+    },
+    "uses=6": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksseven"
+    },
+    "uses=7": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplankseight"
+    },
+    "uses=8": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksnine"
+    },
+    "uses=9": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksten"
+    },
+    "uses=10": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplankseleven"
+    },
+    "uses=11": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplankstwelve"
+    },
+    "uses=12": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksthirteen"
+    },
+    "uses=13": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksfourteen"
+    },
+    "uses=14": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplanksfifteen"
+    },
+    "uses=15": {
+      "model": "brickforgery:consumables/cactusplanks/cactusplankssixteen"
+    }
+  }
+}
