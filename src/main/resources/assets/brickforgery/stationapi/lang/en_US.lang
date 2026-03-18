@@ -14,6 +14,7 @@ tile.@.cactus_slicer.name=Cactus Slicer
 tile.@.cactus_brick_frame_crafter.name=Cactus Brick Frame Crafter
 tile.@.cactus_brick_frame_automator.name=Cactus Brick Frame Automator
 tile.@.cactus_harvester.name=Cactus Harvester
+tile.@.cactus_brick_forge.name=Cactus Brick Forge
 tile.@.double_night_cane.name=Double Night Cane
 tile.@.bripper_bricks.name=Bripper Bricks
 tile.@.plint_bricks.name=Plint Bricks

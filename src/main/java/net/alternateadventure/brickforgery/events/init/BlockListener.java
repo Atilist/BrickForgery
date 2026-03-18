@@ -202,7 +202,8 @@ public class BlockListener {
             cactusHarvester;
 
     public static BrickForgeBlock
-            sugarCaneBrickForge;
+            sugarCaneBrickForge,
+            cactusBrickForge;
 
     @Entrypoint.Namespace
     public static Namespace MOD_ID;
@@ -225,6 +226,7 @@ public class BlockListener {
         cactusBrickFrameCrafter = new BrickFrameCrafterBlock(Identifier.of(MOD_ID, "cactus_brick_frame_crafter"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
         cactusBrickFrameAutomator = new BrickFrameAutomator(Identifier.of(MOD_ID, "cactus_brick_frame_automator"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
         cactusHarvester = new HarvesterBlockTemplate(Identifier.of(MOD_ID, "cactus_harvester"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
+        cactusBrickForge = new BrickForgeBlock(Identifier.of(MOD_ID, "cactus_brick_forge"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.CACTUS);
         doubleNightCane = new NightCaneBlock(Identifier.of(MOD_ID, "double_night_cane"), Material.PLANT, 0, Block.DIRT_SOUND_GROUP, 2);
         bripperBricks = new LazyBlockTemplate(Identifier.of(MOD_ID, "bripper_bricks"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP);
         plintBricks = new PlintBricksBlock(Identifier.of(MOD_ID, "plint_bricks"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP);

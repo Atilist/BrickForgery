@@ -62,6 +62,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBrickFrameCrafter), "#X#", "YZY", "YYY", 'X', new ItemStack(ItemListener.sugarCaneFramedBrick), 'Y', new ItemStack(ItemListener.dirtBrick), 'Z', new ItemStack(BlockListener.sugarCaneBox), '#', new ItemStack(ItemListener.sugarCaneFrame));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneHarvester), "HGH", "FBF", "DDD", 'H', new ItemStack(Item.WOODEN_HOE), 'G', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), 'B', new ItemStack(BlockListener.sugarCaneBox), 'F', new ItemStack(ItemListener.sugarCaneFrame), 'D', new ItemStack(BlockListener.dirtBricks));
             CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.exoticMutationSample), " X ", "XYX", "ZZZ", 'X', new ItemStack(ItemListener.sugarCaneStick), 'Y', new ItemStack(ItemListener.exoticFruit), 'Z', new ItemStack(ItemListener.cactusFrame));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sugarCaneBrickForge), "AGA", "DBD", "DDD", 'A', new ItemStack(Item.WOODEN_AXE), 'G', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), 'B', new ItemStack(BlockListener.sugarCaneBox), 'D', new ItemStack(BlockListener.dirtBricks));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBox), "YXY", "XZX", "YXY", 'X', new ItemStack(BlockListener.sandBricks), 'Y', new ItemStack(ItemListener.cactusFrame), 'Z', new ItemStack(BlockListener.sugarCaneBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandinator), "YDY", "DBD", "YDY", 'D', new ItemStack(ItemListener.dirtBrickSand), 'Y', new ItemStack(ItemListener.cactusFrame), 'B', new ItemStack(BlockListener.cactusBox));
@@ -69,6 +70,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBrickFrameCrafter), "#X#", "YZY", "YBY", 'X', new ItemStack(ItemListener.cactusFramedBrick), 'Y', new ItemStack(ItemListener.sandBrick), 'Z', new ItemStack(BlockListener.cactusBox), '#', new ItemStack(ItemListener.cactusFrame), 'B', new ItemStack(BlockListener.sugarCaneBrickFrameCrafter));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBrickFrameAutomator), "YGY", "GBG", "YGY", 'G', new ItemStack(net.newfrontiercraft.nfc.events.init.ItemListener.aluminiumGear), 'Y', new ItemStack(ItemListener.cactusFrame), 'B', new ItemStack(BlockListener.cactusBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusHarvester), "HGH", "FBF", "DSD", 'H', new ItemStack(Item.STONE_HOE), 'G', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), 'B', new ItemStack(BlockListener.cactusBox), 'F', new ItemStack(ItemListener.cactusFrame), 'D', new ItemStack(BlockListener.sandBricks), 'S', new ItemStack(BlockListener.sugarCaneHarvester));
+            CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBrickForge), "AGA", "DBD", "DFD", 'A', new ItemStack(Item.STONE_AXE), 'G', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), 'B', new ItemStack(BlockListener.cactusBox), 'D', new ItemStack(BlockListener.sandBricks), 'F', new ItemStack(BlockListener.sugarCaneBrickForge));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandBricks), "XX", "XX", 'X', new ItemStack(ItemListener.sandBrick));
@@ -297,9 +299,10 @@ public class RecipeListener {
             HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightWheatCrop.id, 7), new HarvestingOutput(new ItemStack(ItemListener.nightWheat, 1, 0), BlockListener.nightWheatCrop.id, 0));
 
             BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.bripper, 3), new Object[]{ItemListener.slicedCopper, ItemListener.sandBrick, Item.BRICK}, 1000, FuelLevelEnum.WARM);
-            BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.plintBrick, 2), new Object[]{net.newfrontiercraft.nfc.events.init.BlockListener.pebble, Item.FLINT}, 1000, FuelLevelEnum.WARM);
+            BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.plintBrick, 2), new Object[]{net.newfrontiercraft.nfc.events.init.BlockListener.pebble, Item.FLINT, ItemListener.cactusFrame}, 1000, FuelLevelEnum.WARM);
 
             BrickForgingRecipeRegistry.getInstance().addBrickForgingRecipe(new IdMetaCount[]{new IdMetaCount(Block.DIRT.asItem().id, 0, 1), new IdMetaCount(ItemListener.sugarCaneFrame.id, 0, 1)}, new ItemStack(ItemListener.dirtBrick, 2), TierEnum.SUGAR_CANE);
+            BrickForgingRecipeRegistry.getInstance().addBrickForgingRecipe(new IdMetaCount[]{new IdMetaCount(Block.SAND.asItem().id, 0, 1), new IdMetaCount(ItemListener.cactusFrame.id, 0, 1), new IdMetaCount(ItemListener.dirtBrick.id, 0, 1)}, new ItemStack(ItemListener.dirtBrickSand, 2), TierEnum.CACTUS);
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {
