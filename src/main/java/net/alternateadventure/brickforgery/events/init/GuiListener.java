@@ -1,7 +1,19 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.blocks.entity.*;
-import net.alternateadventure.brickforgery.guis.*;
+import net.alternateadventure.brickforgery.blocks.entity.AlloySmelterBlockEntity;
+import net.alternateadventure.brickforgery.blocks.entity.BrickForgeBlockEntity;
+import net.alternateadventure.brickforgery.blocks.entity.CrusherBlockEntity;
+import net.alternateadventure.brickforgery.blocks.entity.ImprovedMillstoneBlockEntity;
+import net.alternateadventure.brickforgery.blocks.entity.MetalworkingStationBlockEntity;
+import net.alternateadventure.brickforgery.blocks.entity.SlicerBlockEntity;
+import net.alternateadventure.brickforgery.blocks.entity.WasherBlockEntity;
+import net.alternateadventure.brickforgery.guis.AlloySmelterScreen;
+import net.alternateadventure.brickforgery.guis.BrickForgeScreen;
+import net.alternateadventure.brickforgery.guis.CrusherScreen;
+import net.alternateadventure.brickforgery.guis.ImprovedMillstoneScreen;
+import net.alternateadventure.brickforgery.guis.MetalworkingStationScreen;
+import net.alternateadventure.brickforgery.guis.SlicerScreen;
+import net.alternateadventure.brickforgery.guis.WasherScreen;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerEntity;
@@ -29,6 +41,7 @@ public class GuiListener {
         Registry.register(registry, Identifier.of(MOD_ID, "gui_improved_millstone"), new GuiHandler((GuiHandler.ScreenFactoryNoMessage) this::openImprovedMillstone, ImprovedMillstoneBlockEntity::new));
         Registry.register(registry, Identifier.of(MOD_ID, "gui_crusher"), new GuiHandler((GuiHandler.ScreenFactoryNoMessage) this::openCrusher, CrusherBlockEntity::new));
         Registry.register(registry, Identifier.of(MOD_ID, "gui_washer"), new GuiHandler((GuiHandler.ScreenFactoryNoMessage) this::openWasher, WasherBlockEntity::new));
+        Registry.register(registry, Identifier.of(MOD_ID, "gui_brick_forge"), new GuiHandler((GuiHandler.ScreenFactoryNoMessage) this::openBrickForge, BrickForgeBlockEntity::new));
     }
 
     public Screen openAlloySmelter(PlayerEntity playerBase, Inventory inventoryBase) {
@@ -53,5 +66,9 @@ public class GuiListener {
 
     public Screen openWasher(PlayerEntity playerBase, Inventory inventoryBase) {
         return new WasherScreen(playerBase.inventory, (WasherBlockEntity) inventoryBase);
+    }
+
+    public Screen openBrickForge(PlayerEntity playerBase, Inventory inventoryBase) {
+        return new BrickForgeScreen(playerBase.inventory, (BrickForgeBlockEntity) inventoryBase);
     }
 }

@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.blocks.entity;
 
-import net.alternateadventure.brickforgery.blocks.SlicerBlockTemplate;
+import net.alternateadventure.brickforgery.blocks.BrickForgeBlock;
 import net.alternateadventure.brickforgery.registry.machine.SlicingRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
@@ -147,14 +147,12 @@ public class SlicerBlockEntity extends BlockEntity implements Inventory, ItemHan
 
     }
 
-    public void checkTier()
-    {
+    public void checkTier() {
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof SlicerBlockTemplate)
-        {
-            tier = ((SlicerBlockTemplate) blockBase).tier;
+        if (blockBase instanceof BrickForgeBlock brickForgeBlock) {
+            tier = brickForgeBlock.tier;
             tierChecked = true;
         }
     }

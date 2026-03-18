@@ -14,7 +14,7 @@ public class TieredBlockLootingData {
     /**
      * Constructor which specifies all important parameters.
      * @param itemStacks Randomly picked items. Must never be null.
-     * @param weights Weight corresponding to the item of the same index. Weight must be in the range of 1 to 100. Array must have the same length as the itemStacks one.
+     * @param weights Weight corresponding to the id of the same index. Weight must be in the range of 1 to 100. Array must have the same length as the itemStacks one.
      * @param breakingChance Chance of the block to break and be replaced by air after it gets looted.
      * @param tier Required tier to loot the block.
      */

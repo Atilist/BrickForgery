@@ -2,6 +2,8 @@ package net.alternateadventure.brickforgery.compat.ami;
 
 import net.alternateadventure.brickforgery.compat.ami.alloysmelting.AlloySmeltingRecipeCategory;
 import net.alternateadventure.brickforgery.compat.ami.alloysmelting.AlloySmeltingRecipeHandler;
+import net.alternateadventure.brickforgery.compat.ami.brickforging.BrickForgingRecipeCategory;
+import net.alternateadventure.brickforgery.compat.ami.brickforging.BrickForgingRecipeHandler;
 import net.alternateadventure.brickforgery.compat.ami.brickframing.BrickFramingRecipeCategory;
 import net.alternateadventure.brickforgery.compat.ami.brickframing.BrickFramingRecipeHandler;
 import net.alternateadventure.brickforgery.compat.ami.crushing.CrushingRecipeCategory;
@@ -15,6 +17,7 @@ import net.alternateadventure.brickforgery.compat.ami.washing.WashingRecipeHandl
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.events.init.ItemListener;
 import net.alternateadventure.brickforgery.registry.machine.AlloySmeltingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.BrickForgingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.BrickFramingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.CrushingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.MetalworkingRecipeRegistry;
@@ -77,6 +80,10 @@ public class AMICompat implements ModPluginProvider {
         registry.addRecipeCategories(new WashingRecipeCategory());
         registry.addRecipeHandlers(new WashingRecipeHandler());
         registry.addRecipes(WashingRecipeRegistry.getInstance().getRecipes());
+
+        registry.addRecipeCategories(new BrickForgingRecipeCategory());
+        registry.addRecipeHandlers(new BrickForgingRecipeHandler());
+        registry.addRecipes(BrickForgingRecipeRegistry.getInstance().getRecipes());
 
         registry.addDescription(new ItemStack(ItemListener.sandBrick), "description.brickforgery.sand_brick");
         registry.addDescription(new ItemStack(BlockListener.sandinator), "description.brickforgery.sandinator");

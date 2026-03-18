@@ -1,6 +1,7 @@
 package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.registry.machine.AlloySmeltingRecipeRegistry;
+import net.alternateadventure.brickforgery.registry.machine.BrickForgingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.BrickFramingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.CrushingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.HarvestingRecipeRegistry;
@@ -9,6 +10,7 @@ import net.alternateadventure.brickforgery.registry.machine.SlicingRecipeRegistr
 import net.alternateadventure.brickforgery.registry.machine.WashingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.records.HarvestingInput;
 import net.alternateadventure.brickforgery.registry.machine.records.HarvestingOutput;
+import net.alternateadventure.brickforgery.registry.machine.records.IdMetaCount;
 import net.alternateadventure.brickforgery.registry.tool.BrushRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.tool.ChiselRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.tool.GrabberRecipeRegistry;
@@ -181,7 +183,7 @@ public class RecipeListener {
             List<Object> sandRitualDescription = new ArrayList<>() {
                 {
                     this.add("Sand Ritual");
-                    this.add("Use a dirt brick sand item on the");
+                    this.add("Use a dirt brick sand id on the");
                     this.add("central block to get a sand brick.");
                     this.add("A Sandinator can be added on top");
                     this.add("of the middle block for automation.");
@@ -296,6 +298,8 @@ public class RecipeListener {
 
             BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.bripper, 3), new Object[]{ItemListener.slicedCopper, ItemListener.sandBrick, Item.BRICK}, 1000, FuelLevelEnum.WARM);
             BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.plintBrick, 2), new Object[]{net.newfrontiercraft.nfc.events.init.BlockListener.pebble, Item.FLINT}, 1000, FuelLevelEnum.WARM);
+
+            BrickForgingRecipeRegistry.getInstance().addBrickForgingRecipe(new IdMetaCount[]{new IdMetaCount(Block.DIRT.asItem().id, 0, 1), new IdMetaCount(ItemListener.sugarCaneFrame.id, 0, 1)}, new ItemStack(ItemListener.dirtBrick, 2), TierEnum.SUGAR_CANE);
         }
         // Input -> Output
         else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {

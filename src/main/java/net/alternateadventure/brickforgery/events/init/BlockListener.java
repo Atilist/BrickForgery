@@ -2,6 +2,7 @@ package net.alternateadventure.brickforgery.events.init;
 
 import net.alternateadventure.brickforgery.blocks.AlloySmelterBlock;
 import net.alternateadventure.brickforgery.blocks.BrickCropBlock;
+import net.alternateadventure.brickforgery.blocks.BrickForgeBlock;
 import net.alternateadventure.brickforgery.blocks.BrickFrameAutomator;
 import net.alternateadventure.brickforgery.blocks.BrickFrameCrafterBlock;
 import net.alternateadventure.brickforgery.blocks.BrickLauncherBlock;
@@ -200,6 +201,9 @@ public class BlockListener {
             sugarCaneHarvester,
             cactusHarvester;
 
+    public static BrickForgeBlock
+            sugarCaneBrickForge;
+
     @Entrypoint.Namespace
     public static Namespace MOD_ID;
 
@@ -211,6 +215,7 @@ public class BlockListener {
         sugarCaneSlicer = new SlicerBlockTemplate(Identifier.of(MOD_ID, "sugar_cane_slicer"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.SUGAR_CANE);
         sugarCaneBrickFrameCrafter = new BrickFrameCrafterBlock(Identifier.of(MOD_ID, "sugar_cane_brick_frame_crafter"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.SUGAR_CANE);
         sugarCaneHarvester = new HarvesterBlockTemplate(Identifier.of(MOD_ID, "sugar_cane_harvester"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.SUGAR_CANE);
+        sugarCaneBrickForge = new BrickForgeBlock(Identifier.of(MOD_ID, "sugar_cane_brick_forge"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.SUGAR_CANE);
 
         cactusPlanks = new CactusPlanksBlock(Identifier.of(MOD_ID, "cactus_planks"), Material.WOOD, 1.0F, Block.WOOD_SOUND_GROUP);
         cactusBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "cactus_box"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);
