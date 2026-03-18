@@ -26,6 +26,7 @@ public class BrickForgeBlockEntity extends BlockEntity implements Inventory, Ite
 
     private ItemStack[] inventory = new ItemStack[10];
     private ItemStack outputCache;
+    private IdMetaCount[] subtractionCache;
     public int forgeTime = 0;
     public TierEnum tier;
     public boolean tierChecked = false;
@@ -101,31 +102,66 @@ public class BrickForgeBlockEntity extends BlockEntity implements Inventory, Ite
         // Check if there is output space
         ItemStack outputItem = result.output().copy();
         outputCache = outputItem;
+        subtractionCache = references;
         if (inventory[OUTPUT_SLOT] != null) {
             if (!inventory[OUTPUT_SLOT].isItemEqual(outputItem)) {
                 outputCache = null;
+                subtractionCache = null;
                 return false;
             }
             int totalCount = inventory[OUTPUT_SLOT].count + outputItem.count;
             if (totalCount > outputItem.getMaxCount()) {
                 outputCache = null;
+                subtractionCache = null;
                 return false;
             }
-            outputItem.count = totalCount;
         }
-        inventory[OUTPUT_SLOT] = outputItem;
         return true;
     }
 
     public void craftRecipe() {
+        // Check cache
         if (outputCache == null) {
             return;
         }
+        if (subtractionCache == null) {
+            return;
+        }
+        // Count full slots
+        int fullSlots = 0;
+        for (int i = 0; i < OUTPUT_SLOT; i++) {
+            if (inventory[i] != null) {
+                fullSlots++;
+            }
+        }
+        if (fullSlots == 0) return;
+        // Convert full slots into correct data-structures
+        IdMetaCount[] completeInputs = new IdMetaCount[fullSlots];
+        int validInputIndex = 0;
+        for (int i = 0; i < OUTPUT_SLOT; i++) {
+            if (inventory[i] != null) {
+                completeInputs[validInputIndex] = new IdMetaCount(inventory[i].itemId, inventory[i].getDamage(), inventory[i].count);
+                validInputIndex++;
+            }
+        }
+        Arrays.sort(completeInputs);
+        // Rearrange inventory
+        for (int i = 0; i < OUTPUT_SLOT; i++) {
+            inventory[i] = null;
+        }
+        for (int i = 0; i < completeInputs.length; i++) {
+            IdMetaCount inputEntry = completeInputs[i];
+            int subtractedCount = inputEntry.count() - subtractionCache[i].count();
+            if (subtractedCount <= 0) continue;
+            inventory[i] = new ItemStack(inputEntry.id(), subtractedCount, inputEntry.meta());
+        }
+        // Insert recipe output
         if (inventory[OUTPUT_SLOT] != null) {
             outputCache.count = inventory[OUTPUT_SLOT].count + outputCache.count;
         }
         inventory[OUTPUT_SLOT] = outputCache;
         outputCache = null;
+        subtractionCache = null;
     }
 
     @Override
