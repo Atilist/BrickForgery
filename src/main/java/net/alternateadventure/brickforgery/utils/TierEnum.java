@@ -1,9 +1,25 @@
 package net.alternateadventure.brickforgery.utils;
 
 public enum TierEnum {
-    SUGAR_CANE,
-    CACTUS,
-    FLINT,
-    PRIMITIVE,
-    BRICK
+    SUGAR_CANE("§a", "Sugar Cane"),
+    CACTUS("§2", "Cactus"),
+    FLINT("§8", "Flint"),
+    PRIMITIVE("§6", "Primitive"),
+    BRICK("§c", "Brick");
+
+    private final String colourCode;
+    private final String name;
+
+    TierEnum(final String colourCode, final String name) {
+        this.colourCode = colourCode;
+        this.name = name;
+    }
+
+    public String getColourCode() {
+        return colourCode;
+    }
+
+    public String getName() {
+        return name;
+    }
 }

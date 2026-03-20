@@ -53,13 +53,14 @@ public class BrickFramingRecipeRegistry {
 
     public ArrayList<BrickFramingRecipe> getRecipes() {
         ArrayList<BrickFramingRecipe> convertedRecipes = new ArrayList<>();
-        for (TieredBrickFramingRecipe itemStacks : inputsList) {
-            BrickFramingRecipe brickFramingRecipe = new BrickFramingRecipe(new ItemStack[]{itemStacks.inputItem(),
-                    new ItemStack(Block.BLOCKS[itemStacks.block1()].asItem()),
-                    new ItemStack(Block.BLOCKS[itemStacks.block2()].asItem()),
-                    new ItemStack(Block.BLOCKS[itemStacks.block3()].asItem()),
-                    new ItemStack(Block.BLOCKS[itemStacks.block4()].asItem())},
-                    itemStacks.output());
+        for (TieredBrickFramingRecipe tieredBrickFramingRecipe : inputsList) {
+            BrickFramingRecipe brickFramingRecipe = new BrickFramingRecipe(new ItemStack[]{tieredBrickFramingRecipe.inputItem(),
+                    new ItemStack(Block.BLOCKS[tieredBrickFramingRecipe.block1()].asItem()),
+                    new ItemStack(Block.BLOCKS[tieredBrickFramingRecipe.block2()].asItem()),
+                    new ItemStack(Block.BLOCKS[tieredBrickFramingRecipe.block3()].asItem()),
+                    new ItemStack(Block.BLOCKS[tieredBrickFramingRecipe.block4()].asItem())},
+                    tieredBrickFramingRecipe.output(),
+                    tieredBrickFramingRecipe.tier());
             convertedRecipes.add(brickFramingRecipe);
         }
         return convertedRecipes;

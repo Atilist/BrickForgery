@@ -1,6 +1,7 @@
 package net.alternateadventure.brickforgery.registry.machine;
 
 import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.alternateadventure.brickforgery.wrappers.WashingRecipe;
 import net.minecraft.item.ItemStack;
 
@@ -28,17 +29,19 @@ public class WashingRecipeRegistry {
         ArrayList<WashingRecipe> convertedRecipes = new ArrayList<>();
         ArrayList<ItemStack> inputs = new ArrayList<>();
         ArrayList<ItemStack[]> outputs = new ArrayList<>();
+        ArrayList<TierEnum> tiers = new ArrayList<>();
 
         for (Object obj : this.recipes.keySet()) {
             if (obj instanceof Integer) {
                 inputs.add(new ItemStack((Integer) obj, 1, 0));
                 TierAndByproductOutput result = this.getResult((Integer) obj);
                 outputs.add(new ItemStack[]{result.tieredMachineRecipeData.output, result.byproduct});
+                tiers.add(result.tieredMachineRecipeData.tierRequirement);
             }
         }
 
         for(int i = 0; i < inputs.size() && i < outputs.size(); ++i) {
-            convertedRecipes.add(new WashingRecipe(inputs.get(i), outputs.get(i)));
+            convertedRecipes.add(new WashingRecipe(inputs.get(i), outputs.get(i), tiers.get(i)));
         }
 
         return convertedRecipes;

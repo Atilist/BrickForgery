@@ -18,12 +18,12 @@ public class MetalworkingRecipeWrapper implements RecipeWrapper {
 
     @Override
     public List<?> getInputs() {
-        return List.of(recipe.getInput());
+        return List.of(recipe.input());
     }
 
     @Override
     public List<?> getOutputs() {
-        return List.of(recipe.getOutput());
+        return List.of(recipe.output());
     }
 
     @Override
@@ -33,7 +33,8 @@ public class MetalworkingRecipeWrapper implements RecipeWrapper {
 
     @Override
     public void drawAnimations(@NotNull Minecraft minecraft, int recipeWidth, int recipeHeight) {
-
+        minecraft.textRenderer.draw("Machine tier: " + recipe.tier().getName(), 5, 81, 0x7F7F7F);
+        minecraft.textRenderer.draw("Machine tier: " + recipe.tier().getColourCode() + recipe.tier().getName(), 4, 80, 0x000000);
     }
 
     @Nullable

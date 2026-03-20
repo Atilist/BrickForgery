@@ -54,7 +54,7 @@ public class BrickForgingRecipeRegistry {
         }
 
         for(int i = 0; i < inputs.size() && i < outputs.size(); ++i) {
-            convertedRecipes.add(new BrickForgingRecipe(inputs.get(i), outputs.get(i).output()));
+            convertedRecipes.add(new BrickForgingRecipe(inputs.get(i), outputs.get(i).output(), outputs.get(i).minimumTier()));
         }
 
         return convertedRecipes;

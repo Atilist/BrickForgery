@@ -1,21 +1,7 @@
 package net.alternateadventure.brickforgery.wrappers;
 
+import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.minecraft.item.ItemStack;
 
-public class BrickFramingRecipe {
-    private final ItemStack[] inputs;
-    private final ItemStack output;
-
-    public BrickFramingRecipe(ItemStack[] inputs, ItemStack output) {
-        this.inputs = inputs;
-        this.output = output;
-    }
-
-    public ItemStack[] getInputs() {
-        return inputs;
-    }
-
-    public ItemStack getOutput() {
-        return output;
-    }
+public record BrickFramingRecipe(ItemStack[] inputs, ItemStack output, TierEnum tier) {
 }
