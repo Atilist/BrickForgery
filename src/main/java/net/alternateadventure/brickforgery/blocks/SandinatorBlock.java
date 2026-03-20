@@ -44,7 +44,7 @@ public class SandinatorBlock extends LazyBlockTemplate {
             if (world.getBlockId(x, y - 1, z + 1) != BlockListener.dirtBricks.id) return;
             if (world.getBlockId(x, y - 1, z - 1) != BlockListener.dirtBricks.id) return;
             entity.markDead();
-            ItemStack result = new ItemStack(ItemListener.dirtBrick, input.count, 0);
+            ItemStack result = new ItemStack(ItemListener.sandBrick, input.count, 0);
             boolean xOrZ = random.nextBoolean();
             int offset = random.nextInt(3) - 1;
             if (xOrZ) {
