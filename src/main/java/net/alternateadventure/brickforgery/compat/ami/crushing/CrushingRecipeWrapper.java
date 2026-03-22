@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.compat.ami.crushing;
 
-import net.alternateadventure.brickforgery.wrappers.CrushingRecipe;
+import net.alternateadventure.brickforgery.wrapper.CrushingRecipe;
 import net.glasslauncher.mods.alwaysmoreitems.api.recipe.RecipeWrapper;
 import net.minecraft.client.Minecraft;
 import org.jetbrains.annotations.NotNull;

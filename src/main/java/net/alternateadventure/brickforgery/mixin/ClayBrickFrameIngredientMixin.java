@@ -1,8 +1,8 @@
 package net.alternateadventure.brickforgery.mixin;
 
-import net.alternateadventure.brickforgery.blocks.ResourcePileBlock;
+import net.alternateadventure.brickforgery.api.BrickFrameIngredient;
+import net.alternateadventure.brickforgery.block.ResourcePileBlock;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.alternateadventure.brickforgery.interfaces.BrickFrameIngredient;
 import net.minecraft.block.ClayBlock;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Mixin;

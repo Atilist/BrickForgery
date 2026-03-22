@@ -1,7 +1,0 @@
-package net.alternateadventure.brickforgery.wrappers;
-
-import net.alternateadventure.brickforgery.utils.TierEnum;
-import net.minecraft.item.ItemStack;
-
-public record MetalworkingRecipe(ItemStack input, ItemStack output, TierEnum tier) {
-}

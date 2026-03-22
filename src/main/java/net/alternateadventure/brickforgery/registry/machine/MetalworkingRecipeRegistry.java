@@ -1,8 +1,8 @@
 package net.alternateadventure.brickforgery.registry.machine;
 
-import net.alternateadventure.brickforgery.utils.TierEnum;
-import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
-import net.alternateadventure.brickforgery.wrappers.MetalworkingRecipe;
+import net.alternateadventure.brickforgery.util.TierEnum;
+import net.alternateadventure.brickforgery.util.TieredMachineRecipeData;
+import net.alternateadventure.brickforgery.wrapper.MetalworkingRecipe;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;

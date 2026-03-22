@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.compat.ami.alloysmelting;
 
-import net.alternateadventure.brickforgery.wrappers.AlloySmeltingRecipe;
+import net.alternateadventure.brickforgery.wrapper.AlloySmeltingRecipe;
 import net.glasslauncher.mods.alwaysmoreitems.api.recipe.RecipeWrapper;
 import net.minecraft.client.Minecraft;
 import org.jetbrains.annotations.NotNull;

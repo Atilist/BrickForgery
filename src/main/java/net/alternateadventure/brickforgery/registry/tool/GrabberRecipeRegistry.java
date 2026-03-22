@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.registry.tool;
 
-import net.alternateadventure.brickforgery.utils.TieredBlockLootingData;
+import net.alternateadventure.brickforgery.util.TieredBlockLootingData;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,0 +1,7 @@
+package net.alternateadventure.brickforgery.wrapper;
+
+import net.alternateadventure.brickforgery.util.TierEnum;
+import net.minecraft.item.ItemStack;
+
+public record SlicingRecipe(ItemStack input, ItemStack output, TierEnum tier) {
+}

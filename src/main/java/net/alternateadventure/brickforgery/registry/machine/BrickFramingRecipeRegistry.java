@@ -1,8 +1,8 @@
 package net.alternateadventure.brickforgery.registry.machine;
 
-import net.alternateadventure.brickforgery.utils.TierEnum;
-import net.alternateadventure.brickforgery.utils.TieredBrickFramingRecipe;
-import net.alternateadventure.brickforgery.wrappers.BrickFramingRecipe;
+import net.alternateadventure.brickforgery.util.TierEnum;
+import net.alternateadventure.brickforgery.util.TieredBrickFramingRecipe;
+import net.alternateadventure.brickforgery.wrapper.BrickFramingRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 

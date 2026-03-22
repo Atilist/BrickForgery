@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.compat.ami.brickforging;
 
-import net.alternateadventure.brickforgery.wrappers.BrickForgingRecipe;
+import net.alternateadventure.brickforgery.wrapper.BrickForgingRecipe;
 import net.glasslauncher.mods.alwaysmoreitems.api.recipe.RecipeWrapper;
 import net.minecraft.client.Minecraft;
 import org.jetbrains.annotations.NotNull;

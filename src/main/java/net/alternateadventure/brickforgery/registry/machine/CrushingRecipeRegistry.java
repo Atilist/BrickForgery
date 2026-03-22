@@ -1,8 +1,8 @@
 package net.alternateadventure.brickforgery.registry.machine;
 
-import net.alternateadventure.brickforgery.utils.TierAndByproductOutput;
-import net.alternateadventure.brickforgery.utils.TierEnum;
-import net.alternateadventure.brickforgery.wrappers.CrushingRecipe;
+import net.alternateadventure.brickforgery.util.TierAndByproductOutput;
+import net.alternateadventure.brickforgery.util.TierEnum;
+import net.alternateadventure.brickforgery.wrapper.CrushingRecipe;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;

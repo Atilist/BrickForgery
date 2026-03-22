@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.compat.ami.metalworking;
 
-import net.alternateadventure.brickforgery.wrappers.MetalworkingRecipe;
+import net.alternateadventure.brickforgery.wrapper.MetalworkingRecipe;
 import net.glasslauncher.mods.alwaysmoreitems.api.recipe.RecipeWrapper;
 import net.minecraft.client.Minecraft;
 import org.jetbrains.annotations.NotNull;

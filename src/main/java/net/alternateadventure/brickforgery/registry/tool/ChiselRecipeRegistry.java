@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.registry.tool;
 
-import net.alternateadventure.brickforgery.utils.TieredBlockConversionData;
+import net.alternateadventure.brickforgery.util.TieredBlockConversionData;
 
 import java.util.HashMap;
 import java.util.Map;

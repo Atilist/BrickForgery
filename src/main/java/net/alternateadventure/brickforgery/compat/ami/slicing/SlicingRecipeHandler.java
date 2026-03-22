@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.compat.ami.slicing;
 
-import net.alternateadventure.brickforgery.wrappers.SlicingRecipe;
+import net.alternateadventure.brickforgery.wrapper.SlicingRecipe;
 import net.glasslauncher.mods.alwaysmoreitems.api.recipe.RecipeHandler;
 import net.glasslauncher.mods.alwaysmoreitems.api.recipe.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;

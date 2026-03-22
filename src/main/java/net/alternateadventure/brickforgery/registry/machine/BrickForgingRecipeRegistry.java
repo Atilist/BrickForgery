@@ -3,8 +3,8 @@ package net.alternateadventure.brickforgery.registry.machine;
 import net.alternateadventure.brickforgery.registry.machine.records.ComparableIdMeta;
 import net.alternateadventure.brickforgery.registry.machine.records.IdMetaCount;
 import net.alternateadventure.brickforgery.registry.machine.records.OutputAndInputs;
-import net.alternateadventure.brickforgery.utils.TierEnum;
-import net.alternateadventure.brickforgery.wrappers.BrickForgingRecipe;
+import net.alternateadventure.brickforgery.util.TierEnum;
+import net.alternateadventure.brickforgery.wrapper.BrickForgingRecipe;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;

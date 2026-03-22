@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.compat.ami.brickframing;
 
-import net.alternateadventure.brickforgery.wrappers.BrickFramingRecipe;
+import net.alternateadventure.brickforgery.wrapper.BrickFramingRecipe;
 import net.glasslauncher.mods.alwaysmoreitems.api.recipe.RecipeHandler;
 import net.glasslauncher.mods.alwaysmoreitems.api.recipe.RecipeWrapper;
 import org.jetbrains.annotations.NotNull;

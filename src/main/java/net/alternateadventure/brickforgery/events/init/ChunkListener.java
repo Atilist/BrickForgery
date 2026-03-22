@@ -1,6 +1,11 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.structures.*;
+import net.alternateadventure.brickforgery.feature.DesertWellFeature;
+import net.alternateadventure.brickforgery.feature.ExoticShrubAreaFeature;
+import net.alternateadventure.brickforgery.feature.FactoryRuinsFeature;
+import net.alternateadventure.brickforgery.feature.ForestVaultFeature;
+import net.alternateadventure.brickforgery.feature.FrostVaultFeature;
+import net.alternateadventure.brickforgery.feature.MossyPotAreaFeature;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.dimension.OverworldDimension;

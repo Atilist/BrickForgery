@@ -1,6 +1,6 @@
 package net.alternateadventure.brickforgery.registry.machine;
 
-import net.alternateadventure.brickforgery.wrappers.AlloySmeltingRecipe;
+import net.alternateadventure.brickforgery.wrapper.AlloySmeltingRecipe;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;

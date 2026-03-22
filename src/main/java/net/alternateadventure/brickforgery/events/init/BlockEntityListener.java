@@ -1,12 +1,12 @@
 package net.alternateadventure.brickforgery.events.init;
 
-import net.alternateadventure.brickforgery.blocks.entity.AlloySmelterBlockEntity;
-import net.alternateadventure.brickforgery.blocks.entity.BrickForgeBlockEntity;
-import net.alternateadventure.brickforgery.blocks.entity.CrusherBlockEntity;
-import net.alternateadventure.brickforgery.blocks.entity.ImprovedMillstoneBlockEntity;
-import net.alternateadventure.brickforgery.blocks.entity.MetalworkingStationBlockEntity;
-import net.alternateadventure.brickforgery.blocks.entity.SlicerBlockEntity;
-import net.alternateadventure.brickforgery.blocks.entity.WasherBlockEntity;
+import net.alternateadventure.brickforgery.block.entity.AlloySmelterBlockEntity;
+import net.alternateadventure.brickforgery.block.entity.BrickForgeBlockEntity;
+import net.alternateadventure.brickforgery.block.entity.CrusherBlockEntity;
+import net.alternateadventure.brickforgery.block.entity.ImprovedMillstoneBlockEntity;
+import net.alternateadventure.brickforgery.block.entity.MetalworkingStationBlockEntity;
+import net.alternateadventure.brickforgery.block.entity.SlicerBlockEntity;
+import net.alternateadventure.brickforgery.block.entity.WasherBlockEntity;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.modificationstation.stationapi.api.event.block.entity.BlockEntityRegisterEvent;
 import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
