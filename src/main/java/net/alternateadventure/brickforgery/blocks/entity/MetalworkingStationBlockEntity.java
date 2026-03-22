@@ -4,6 +4,7 @@ import net.alternateadventure.brickforgery.blocks.MetalworkingStationBlockTempla
 import net.alternateadventure.brickforgery.registry.machine.MetalworkingRecipeRegistry;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
+import net.danygames2014.nyalib.item.block.ItemHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -13,8 +14,10 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
+import net.modificationstation.stationapi.api.util.math.Direction;
+import org.jetbrains.annotations.Nullable;
 
-public class MetalworkingStationBlockEntity extends BlockEntity implements Inventory {
+public class MetalworkingStationBlockEntity extends BlockEntity implements Inventory, ItemHandler {
     private ItemStack[] inventory = new ItemStack[2];
     public int metalworkingTime = 0;
     public TierEnum tier;
@@ -197,5 +200,90 @@ public class MetalworkingStationBlockEntity extends BlockEntity implements Inven
         } else {
             return !(arg.getSquaredDistance((double)this.x + 0.5D, (double)this.y + 0.5D, (double)this.z + 0.5D) > 64.0D);
         }
+    }
+
+    @Override
+    public boolean canExtractItem(@Nullable Direction direction) {
+        return direction == Direction.DOWN;
+    }
+
+    @Override
+    public ItemStack extractItem(int slot, int amount, @Nullable Direction direction) {
+        ItemStack slotItem = inventory[1];
+        if (slotItem == null) {
+            return null;
+        }
+        if (slotItem.count <= amount) {
+            inventory[1] = null;
+            return slotItem;
+        } else {
+            slotItem.count = amount;
+            inventory[1].count -= amount;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean canInsertItem(@Nullable Direction direction) {
+        return direction == Direction.UP;
+    }
+
+    @Override
+    public ItemStack insertItem(ItemStack itemStack, int i, @Nullable Direction direction) {
+        ItemStack existingStack = inventory[i];
+        if (existingStack == null) {
+            inventory[i] = itemStack;
+            return null;
+        } else {
+            int totalCount = existingStack.count + itemStack.count;
+            if (totalCount < itemStack.getMaxCount()) {
+                inventory[i].count = totalCount;
+                return null;
+            } else {
+                itemStack.count = totalCount - itemStack.getMaxCount();
+                inventory[i].count = itemStack.getMaxCount();
+                return itemStack;
+            }
+        }
+    }
+
+    @Override
+    public ItemStack insertItem(ItemStack itemStack, @Nullable Direction direction) {
+        return insertItem(itemStack, 0, direction);
+    }
+
+    @Override
+    public ItemStack getItem(int i, @Nullable Direction direction) {
+        if (direction == Direction.DOWN) {
+            return inventory[1];
+        }
+        return null;
+    }
+
+    @Override
+    public boolean setItem(ItemStack itemStack, int i, @Nullable Direction direction) {
+        if (i >= inventory.length) {
+            return false;
+        }
+        inventory[i] = itemStack;
+        return true;
+    }
+
+    @Override
+    public int getItemSlots(@Nullable Direction direction) {
+        if (direction == Direction.DOWN || direction == Direction.UP) {
+            return 1;
+        }
+        return 0;
+    }
+
+    @Override
+    public ItemStack[] getInventory(@Nullable Direction direction) {
+        return inventory;
+    }
+
+    @Override
+    public boolean canConnectItem(Direction direction) {
+        return direction == Direction.DOWN || direction == Direction.UP;
     }
 }

@@ -3,6 +3,7 @@ package net.alternateadventure.brickforgery.blocks.entity;
 import net.alternateadventure.brickforgery.blocks.AlloySmelterBlock;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.alternateadventure.brickforgery.registry.machine.AlloySmeltingRecipeRegistry;
+import net.danygames2014.nyalib.item.block.ItemHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.entity.BlockEntity;
@@ -11,8 +12,12 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
+import net.modificationstation.stationapi.api.util.math.Direction;
+import org.jetbrains.annotations.Nullable;
 
-public class AlloySmelterBlockEntity extends BlockEntity implements Inventory {
+public class AlloySmelterBlockEntity extends BlockEntity implements Inventory, ItemHandler {
+    private static final int OUTPUT_SLOT = 2;
+
     private ItemStack[] inventory = new ItemStack[5];
     public int burnTime = 0;
     public int fuelTime = 0;
@@ -179,14 +184,14 @@ public class AlloySmelterBlockEntity extends BlockEntity implements Inventory {
             ItemStack var1 = AlloySmeltingRecipeRegistry.getInstance().getResult(inventory[0], inventory[3], inventory[4]);
             if (var1 == null) {
                 return false;
-            } else if (this.inventory[2] == null) {
+            } else if (this.inventory[OUTPUT_SLOT] == null) {
                 return true;
-            } else if (!this.inventory[2].isItemEqual(var1)) {
+            } else if (!this.inventory[OUTPUT_SLOT].isItemEqual(var1)) {
                 return false;
-            } else if (this.inventory[2].count < this.getMaxCountPerStack() && this.inventory[2].count < this.inventory[2].getMaxCount()) {
+            } else if (this.inventory[OUTPUT_SLOT].count < this.getMaxCountPerStack() && this.inventory[2].count < this.inventory[2].getMaxCount()) {
                 return true;
             } else {
-                return this.inventory[2].count < var1.getMaxCount();
+                return this.inventory[OUTPUT_SLOT].count < var1.getMaxCount();
             }
         }
     }
@@ -194,10 +199,10 @@ public class AlloySmelterBlockEntity extends BlockEntity implements Inventory {
     public void craftRecipe() {
         if (this.canAcceptRecipeOutput()) {
             ItemStack var1 = AlloySmeltingRecipeRegistry.getInstance().getResult(inventory[0], inventory[3], inventory[4]);
-            if (this.inventory[2] == null) {
-                this.inventory[2] = var1.copy();
-            } else if (this.inventory[2].itemId == var1.itemId) {
-                ++this.inventory[2].count;
+            if (this.inventory[OUTPUT_SLOT] == null) {
+                this.inventory[OUTPUT_SLOT] = var1.copy();
+            } else if (this.inventory[OUTPUT_SLOT].itemId == var1.itemId) {
+                ++this.inventory[OUTPUT_SLOT].count;
             }
             --this.inventory[0].count;
             if (this.inventory[0].count <= 0) {
@@ -227,5 +232,98 @@ public class AlloySmelterBlockEntity extends BlockEntity implements Inventory {
         } else {
             return !(arg.getSquaredDistance((double)this.x + 0.5D, (double)this.y + 0.5D, (double)this.z + 0.5D) > 64.0D);
         }
+    }
+
+    @Override
+    public boolean canExtractItem(@Nullable Direction direction) {
+        return direction == Direction.DOWN;
+    }
+
+    @Override
+    public ItemStack extractItem(int slot, int amount, @Nullable Direction direction) {
+        ItemStack slotItem = inventory[OUTPUT_SLOT];
+        if (slotItem == null) {
+            return null;
+        }
+        if (slotItem.count <= amount) {
+            inventory[OUTPUT_SLOT] = null;
+            return slotItem;
+        } else {
+            slotItem.count = amount;
+            inventory[OUTPUT_SLOT].count -= amount;
+        }
+        return null;
+    }
+
+    @Override
+    public boolean canInsertItem(@Nullable Direction direction) {
+        return direction == Direction.UP;
+    }
+
+    @Override
+    public ItemStack insertItem(ItemStack itemStack, int slot, @Nullable Direction direction) {
+        ItemStack existingStack = inventory[slot];
+        if (existingStack == null) {
+            inventory[slot] = itemStack;
+            return null;
+        } else {
+            if (!existingStack.isItemEqual(itemStack)) return itemStack;
+            int totalCount = existingStack.count + itemStack.count;
+            if (totalCount < itemStack.getMaxCount()) {
+                inventory[slot].count = totalCount;
+                return null;
+            } else {
+                itemStack.count = totalCount - itemStack.getMaxCount();
+                inventory[slot].count = itemStack.getMaxCount();
+                return itemStack;
+            }
+        }
+    }
+
+    @Override
+    public ItemStack insertItem(ItemStack itemStack, @Nullable Direction direction) {
+        ItemStack leftovers = itemStack;
+        for (int i = 0; i < OUTPUT_SLOT; i++) {
+            if (leftovers == null) return null;
+            leftovers = insertItem(leftovers, i, direction);
+        }
+        return leftovers;
+    }
+
+    @Override
+    public ItemStack getItem(int slot, @Nullable Direction direction) {
+        if (direction == Direction.DOWN) {
+            return inventory[OUTPUT_SLOT];
+        }
+        return inventory[slot];
+    }
+
+    @Override
+    public boolean setItem(ItemStack itemStack, int slot, @Nullable Direction direction) {
+        if (slot >= inventory.length) {
+            return false;
+        }
+        inventory[slot] = itemStack;
+        return true;
+    }
+
+    @Override
+    public int getItemSlots(@Nullable Direction direction) {
+        if (direction == Direction.DOWN) {
+            return 1;
+        } else if (direction == Direction.UP) {
+            return 9;
+        }
+        return 0;
+    }
+
+    @Override
+    public ItemStack[] getInventory(@Nullable Direction direction) {
+        return inventory;
+    }
+
+    @Override
+    public boolean canConnectItem(Direction direction) {
+        return direction == Direction.DOWN || direction == Direction.UP;
     }
 }
