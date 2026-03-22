@@ -365,13 +365,6 @@ public class TextureListener {
         BlockListener.alloySmelter.specifyTextures(AlloySmelterTop, AlloySmelterSide, AlloySmelterBottom, AlloySmelterFront);
         BlockListener.alloySmelterActive.specifyTextures(AlloySmelterTopActive, AlloySmelterSideActive, AlloySmelterBottom, AlloySmelterFrontActive);
 
-        BlockListener.itemChute.specifyTextures(ItemChuteTop, ItemChuteSide, ItemChuteBottom);
-        BlockListener.itemSlide.specifyTextures(ItemSlideTop, ItemSlideSide, ItemSlideBottom, ItemSlideFront, ItemSlideBack);
-        BlockListener.itemElevator.specifyTextures(ItemElevatorTop, ItemElevatorSide, ItemElevatorBottom);
-        BlockListener.itemChuteChain.specifyTextures(ItemChuteChainTop, ItemChuteChainSide, ItemChuteChainBottom);
-        BlockListener.itemSlideChain.specifyTextures(ItemSlideChainTop, ItemSlideChainSide, ItemSlideChainBottom, ItemSlideChainFront, ItemSlideChainBack);
-        BlockListener.itemElevatorChain.specifyTextures(ItemElevatorChainTop, ItemElevatorChainSide, ItemElevatorChainBottom);
-
         BlockListener.largeStoneBricks.specifyTextures(LargeStoneBricks);
         BlockListener.fastBricks.specifyTextures(FastBricks);
 

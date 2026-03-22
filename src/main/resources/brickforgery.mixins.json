@@ -4,8 +4,6 @@
   "package": "net.alternateadventure.brickforgery.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "ChestAutomationMixin",
-    "FurnaceAutomationMixin",
     "ClayBrickFrameIngredientMixin"
   ],
   "server": [

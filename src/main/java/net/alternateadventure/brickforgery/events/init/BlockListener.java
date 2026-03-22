@@ -33,9 +33,6 @@ import net.alternateadventure.brickforgery.blocks.HeatPillarStokedBlock;
 import net.alternateadventure.brickforgery.blocks.ImprovedMillstoneBlock;
 import net.alternateadventure.brickforgery.blocks.IndestructibleBlockBlock;
 import net.alternateadventure.brickforgery.blocks.IronOreBricksBlock;
-import net.alternateadventure.brickforgery.blocks.ItemChuteBlock;
-import net.alternateadventure.brickforgery.blocks.ItemElevatorBlock;
-import net.alternateadventure.brickforgery.blocks.ItemSlideBlock;
 import net.alternateadventure.brickforgery.blocks.LazyBlockTemplate;
 import net.alternateadventure.brickforgery.blocks.LazySimpleMachineBlockTemplate;
 import net.alternateadventure.brickforgery.blocks.MachineFrameBlock;
@@ -158,10 +155,6 @@ public class BlockListener {
             brickFrameCrafter,
             brickSteelMachineFrame,
 
-            itemChuteChain,
-            itemSlideChain,
-            itemElevatorChain,
-
             largeStoneBricks,
             fastBricks,
 
@@ -173,9 +166,7 @@ public class BlockListener {
 
     public static DirectionalMachineTemplateBlock
             alloySmelter,
-            alloySmelterActive,
-
-            itemSlide;
+            alloySmelterActive;
 
     public static LazySimpleMachineBlockTemplate
             improvedMillstone,
@@ -184,10 +175,7 @@ public class BlockListener {
             primitiveCrusher,
             primitiveWasher,
 
-            metalworkingStation,
-
-            itemChute,
-            itemElevator;
+            metalworkingStation;
 
     public static SlicerBlockTemplate
             sugarCaneSlicer,
@@ -296,13 +284,6 @@ public class BlockListener {
         alloySmelterActive = new AlloySmelterBlock(Identifier.of(MOD_ID, "alloy_smelter_active"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP, true);
         brickFrameCrafter = new BrickFrameCrafterBlock(Identifier.of(MOD_ID, "brick_frame_crafter"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP, TierEnum.BRICK);
         brickLauncher = new BrickLauncherBlock(Identifier.of(MOD_ID, "brick_launcher"), Material.STONE).setHardness(1.5F).setTranslationKey(MOD_ID, "brick_launcher");
-
-        itemChute = new ItemChuteBlock(Identifier.of(MOD_ID, "item_chute"), Material.GLASS, 1.5F, Block.METAL_SOUND_GROUP);
-        itemSlide = new ItemSlideBlock(Identifier.of(MOD_ID, "item_slide"), Material.GLASS, 1.5F, Block.METAL_SOUND_GROUP);
-        itemElevator = new ItemElevatorBlock(Identifier.of(MOD_ID, "item_elevator"), Material.GLASS, 1.5F, Block.METAL_SOUND_GROUP);
-        itemChuteChain = new LazyBlockTemplate(Identifier.of(MOD_ID, "item_chute_chain"), Material.GLASS, 1.5F, Block.METAL_SOUND_GROUP);
-        itemSlideChain = new LazyBlockTemplate(Identifier.of(MOD_ID, "item_slide_chain"), Material.GLASS, 1.5F, Block.METAL_SOUND_GROUP);
-        itemElevatorChain = new LazyBlockTemplate(Identifier.of(MOD_ID, "item_elevator_chain"), Material.GLASS, 1.5F, Block.METAL_SOUND_GROUP);
 
         cactusPlanksPile = new ResourcePileBlock(Identifier.of(MOD_ID, "cactus_planks_pile"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP);
         plintPile = new ResourcePileBlock(Identifier.of(MOD_ID, "plint_pile"), Material.WOOD).setHardness(1.5F).setSoundGroup(Block.WOOD_SOUND_GROUP);

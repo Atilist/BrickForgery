@@ -2,8 +2,6 @@ package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.blocks.MetalworkingStationBlockTemplate;
 import net.alternateadventure.brickforgery.registry.machine.MetalworkingRecipeRegistry;
-import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
-import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.alternateadventure.brickforgery.utils.TieredMachineRecipeData;
 import net.fabricmc.api.EnvType;
@@ -16,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 
-public class MetalworkingStationBlockEntity extends BlockEntity implements Inventory, BlockWithOutput, BlockWithInput {
+public class MetalworkingStationBlockEntity extends BlockEntity implements Inventory {
     private ItemStack[] inventory = new ItemStack[2];
     public int metalworkingTime = 0;
     public TierEnum tier;
@@ -199,55 +197,5 @@ public class MetalworkingStationBlockEntity extends BlockEntity implements Inven
         } else {
             return !(arg.getSquaredDistance((double)this.x + 0.5D, (double)this.y + 0.5D, (double)this.z + 0.5D) > 64.0D);
         }
-    }
-
-    @Override
-    public boolean isValidOutputSide(int side) {
-        return true;
-    }
-
-    @Override
-    public int getOutputSlotCount() {
-        return 1;
-    }
-
-    @Override
-    public ItemStack getItemFromOutputSlot(int slot) {
-        return inventory[1];
-    }
-
-    @Override
-    public void clearOutput(int slot) {
-        inventory[1] = null;
-    }
-
-    @Override
-    public void setOutputItemCount(int slot, int count) {
-        inventory[1].count = count;
-    }
-
-    @Override
-    public boolean isValidInputSide(int side) {
-        return true;
-    }
-
-    @Override
-    public int getInputSlotCount() {
-        return 1;
-    }
-
-    @Override
-    public ItemStack getItemFromInputSlot(int slot) {
-        return inventory[0];
-    }
-
-    @Override
-    public void setInputItem(int slot, ItemStack ItemStack) {
-        inventory[0] = ItemStack;
-    }
-
-    @Override
-    public void setInputItemCount(int slot, int count) {
-        inventory[0].count = count;
     }
 }

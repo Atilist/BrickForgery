@@ -1,10 +1,8 @@
 package net.alternateadventure.brickforgery.blocks.entity;
 
 import net.alternateadventure.brickforgery.blocks.AlloySmelterBlock;
-import net.alternateadventure.brickforgery.registry.machine.AlloySmeltingRecipeRegistry;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.alternateadventure.brickforgery.interfaces.BlockWithInput;
-import net.alternateadventure.brickforgery.interfaces.BlockWithOutput;
+import net.alternateadventure.brickforgery.registry.machine.AlloySmeltingRecipeRegistry;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.entity.BlockEntity;
@@ -14,7 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
 
-public class AlloySmelterBlockEntity extends BlockEntity implements Inventory, BlockWithOutput, BlockWithInput {
+public class AlloySmelterBlockEntity extends BlockEntity implements Inventory {
     private ItemStack[] inventory = new ItemStack[5];
     public int burnTime = 0;
     public int fuelTime = 0;
@@ -229,62 +227,5 @@ public class AlloySmelterBlockEntity extends BlockEntity implements Inventory, B
         } else {
             return !(arg.getSquaredDistance((double)this.x + 0.5D, (double)this.y + 0.5D, (double)this.z + 0.5D) > 64.0D);
         }
-    }
-
-    @Override
-    public boolean isValidOutputSide(int side) {
-        return true;
-    }
-
-    @Override
-    public int getOutputSlotCount() {
-        return 1;
-    }
-
-    @Override
-    public ItemStack getItemFromOutputSlot(int slot) {
-        return inventory[2];
-    }
-
-    @Override
-    public void clearOutput(int slot) {
-        inventory[2] = null;
-    }
-
-    @Override
-    public void setOutputItemCount(int slot, int count) {
-        inventory[2].count = count;
-    }
-
-    @Override
-    public boolean isValidInputSide(int side) {
-        return true;
-    }
-
-    @Override
-    public int getInputSlotCount() {
-        return 3;
-    }
-
-    @Override
-    public ItemStack getItemFromInputSlot(int slot) {
-        if (slot == 0) return inventory[0];
-        else if (slot == 1) return inventory[3];
-        else if (slot == 2) return inventory[4];
-        return null;
-    }
-
-    @Override
-    public void setInputItem(int slot, ItemStack ItemStack) {
-        if (slot == 0) inventory[0] = ItemStack;
-        else if (slot == 1) inventory[3] = ItemStack;
-        else if (slot == 2) inventory[4] = ItemStack;
-    }
-
-    @Override
-    public void setInputItemCount(int slot, int count) {
-        if (slot == 0) inventory[0].count = count;
-        else if (slot == 1) inventory[3].count = count;
-        else if (slot == 2) inventory[4].count = count;
     }
 }
