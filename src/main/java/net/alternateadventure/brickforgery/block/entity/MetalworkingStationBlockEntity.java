@@ -2,7 +2,6 @@ package net.alternateadventure.brickforgery.block.entity;
 
 import net.alternateadventure.brickforgery.block.MetalworkingStationBlockTemplate;
 import net.alternateadventure.brickforgery.registry.machine.MetalworkingRecipeRegistry;
-import net.alternateadventure.brickforgery.util.TierEnum;
 import net.alternateadventure.brickforgery.util.TieredMachineRecipeData;
 import net.danygames2014.nyalib.item.block.ItemHandler;
 import net.fabricmc.api.EnvType;
@@ -19,8 +18,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class MetalworkingStationBlockEntity extends BlockEntity implements Inventory, ItemHandler {
     private ItemStack[] inventory = new ItemStack[2];
+    private int tierOrdinal;
     public int metalworkingTime = 0;
-    public TierEnum tier;
     public boolean tierChecked = false;
 
     public MetalworkingStationBlockEntity() {
@@ -86,16 +85,12 @@ public class MetalworkingStationBlockEntity extends BlockEntity implements Inven
         }
 
         this.metalworkingTime = arg.getInt("MetalworkingTime");
-        this.tierChecked = arg.getBoolean("TierChecked");
-        this.tier = TierEnum.values()[arg.getInt("Tier")];
     }
 
     @Override
     public void writeNbt(NbtCompound arg) {
         super.writeNbt(arg);
         arg.putInt("MetalworkingTime", (short)this.metalworkingTime);
-        arg.putBoolean("TierChecked", tierChecked);
-        arg.putInt("Tier", tier.ordinal());
         NbtList var2 = new NbtList();
 
         for(int var3 = 0; var3 < this.inventory.length; ++var3) {
@@ -147,14 +142,12 @@ public class MetalworkingStationBlockEntity extends BlockEntity implements Inven
 
     }
 
-    public void checkTier()
-    {
+    public void checkTier() {
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof MetalworkingStationBlockTemplate)
-        {
-            tier = ((MetalworkingStationBlockTemplate) blockBase).tier;
+        if (blockBase instanceof MetalworkingStationBlockTemplate) {
+            tierOrdinal = ((MetalworkingStationBlockTemplate) blockBase).tier.ordinal();
             tierChecked = true;
         }
     }
@@ -164,7 +157,7 @@ public class MetalworkingStationBlockEntity extends BlockEntity implements Inven
         TieredMachineRecipeData metalworkingRecipeData = MetalworkingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
         if (metalworkingRecipeData == null) {
             return false;
-        } else if (metalworkingRecipeData.tierRequirement.ordinal() > tier.ordinal()) {
+        } else if (metalworkingRecipeData.tierRequirement.ordinal() > tierOrdinal) {
             return false;
         } else if (this.inventory[1] == null) {
             return true;

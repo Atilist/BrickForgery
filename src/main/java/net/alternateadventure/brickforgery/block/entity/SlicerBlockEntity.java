@@ -1,8 +1,7 @@
 package net.alternateadventure.brickforgery.block.entity;
 
-import net.alternateadventure.brickforgery.block.BrickForgeBlock;
+import net.alternateadventure.brickforgery.block.SlicerBlockTemplate;
 import net.alternateadventure.brickforgery.registry.machine.SlicingRecipeRegistry;
-import net.alternateadventure.brickforgery.util.TierEnum;
 import net.alternateadventure.brickforgery.util.TieredMachineRecipeData;
 import net.danygames2014.nyalib.item.block.ItemHandler;
 import net.fabricmc.api.EnvType;
@@ -19,8 +18,8 @@ import org.jetbrains.annotations.Nullable;
 
 public class SlicerBlockEntity extends BlockEntity implements Inventory, ItemHandler {
     private ItemStack[] inventory = new ItemStack[2];
+    private int tierOrdinal;
     public int sliceTime = 0;
-    public TierEnum tier;
     public boolean tierChecked = false;
 
     public SlicerBlockEntity() {
@@ -86,16 +85,12 @@ public class SlicerBlockEntity extends BlockEntity implements Inventory, ItemHan
         }
 
         this.sliceTime = arg.getInt("SliceTime");
-        this.tierChecked = arg.getBoolean("TierChecked");
-        this.tier = TierEnum.values()[arg.getInt("Tier")];
     }
 
     @Override
     public void writeNbt(NbtCompound arg) {
         super.writeNbt(arg);
         arg.putInt("SliceTime", (short)this.sliceTime);
-        arg.putBoolean("TierChecked", tierChecked);
-        arg.putInt("Tier", tier.ordinal());
         NbtList var2 = new NbtList();
 
         for(int var3 = 0; var3 < this.inventory.length; ++var3) {
@@ -151,8 +146,8 @@ public class SlicerBlockEntity extends BlockEntity implements Inventory, ItemHan
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof BrickForgeBlock brickForgeBlock) {
-            tier = brickForgeBlock.tier;
+        if (blockBase instanceof SlicerBlockTemplate slicerBlock) {
+            tierOrdinal = slicerBlock.tier.ordinal();
             tierChecked = true;
         }
     }
@@ -162,7 +157,7 @@ public class SlicerBlockEntity extends BlockEntity implements Inventory, ItemHan
         TieredMachineRecipeData slicingRecipeData = SlicingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
         if (slicingRecipeData == null) {
             return false;
-        } else if (slicingRecipeData.tierRequirement.ordinal() > tier.ordinal()) {
+        } else if (slicingRecipeData.tierRequirement.ordinal() > tierOrdinal) {
             return false;
         } else if (this.inventory[1] == null) {
             return true;

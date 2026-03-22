@@ -3,7 +3,6 @@ package net.alternateadventure.brickforgery.block.entity;
 import net.alternateadventure.brickforgery.block.CrusherBaseBlock;
 import net.alternateadventure.brickforgery.registry.machine.CrushingRecipeRegistry;
 import net.alternateadventure.brickforgery.util.TierAndByproductOutput;
-import net.alternateadventure.brickforgery.util.TierEnum;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -18,9 +17,10 @@ import java.util.Random;
 
 public class CrusherBlockEntity extends BlockEntity implements Inventory {
     private final Random random = new Random();
+
+    private int tierOrdinal;
     private ItemStack[] inventory = new ItemStack[3];
     public int crushingTime = 0;
-    public TierEnum tier;
     public boolean tierChecked = false;
 
     public CrusherBlockEntity() {
@@ -86,16 +86,12 @@ public class CrusherBlockEntity extends BlockEntity implements Inventory {
         }
 
         this.crushingTime = arg.getShort("CrushingTime");
-        this.tierChecked = arg.getBoolean("TierChecked");
-        this.tier = TierEnum.values()[arg.getInt("Tier")];
     }
 
     @Override
     public void writeNbt(NbtCompound arg) {
         super.writeNbt(arg);
         arg.putShort("CrushingTime", (short)this.crushingTime);
-        arg.putBoolean("TierChecked", tierChecked);
-        arg.putInt("Tier", tier.ordinal());
         NbtList var2 = new NbtList();
 
         for(int var3 = 0; var3 < this.inventory.length; ++var3) {
@@ -151,9 +147,8 @@ public class CrusherBlockEntity extends BlockEntity implements Inventory {
         if (world == null) return;
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
-        if (blockBase instanceof CrusherBaseBlock)
-        {
-            tier = ((CrusherBaseBlock) blockBase).tier;
+        if (blockBase instanceof CrusherBaseBlock) {
+            tierOrdinal = ((CrusherBaseBlock) blockBase).tier.ordinal();
             tierChecked = true;
         }
     }
@@ -163,7 +158,7 @@ public class CrusherBlockEntity extends BlockEntity implements Inventory {
         TierAndByproductOutput crushingOutput = CrushingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
         if (crushingOutput == null) {
             return false;
-        } else if (crushingOutput.tieredMachineRecipeData.tierRequirement.ordinal() > tier.ordinal()) {
+        } else if (crushingOutput.tieredMachineRecipeData.tierRequirement.ordinal() > tierOrdinal) {
             return false;
         }
         if (!canAcceptByproduct(crushingOutput.byproduct.copy())) return false;

@@ -5,7 +5,6 @@ import net.alternateadventure.brickforgery.registry.machine.BrickForgingRecipeRe
 import net.alternateadventure.brickforgery.registry.machine.records.ComparableIdMeta;
 import net.alternateadventure.brickforgery.registry.machine.records.IdMetaCount;
 import net.alternateadventure.brickforgery.registry.machine.records.OutputAndInputs;
-import net.alternateadventure.brickforgery.util.TierEnum;
 import net.danygames2014.nyalib.item.block.ItemHandler;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -24,11 +23,11 @@ import java.util.Arrays;
 public class BrickForgeBlockEntity extends BlockEntity implements Inventory, ItemHandler {
     private static final int OUTPUT_SLOT = 9;
 
+    private int tierOrdinal;
     private ItemStack[] inventory = new ItemStack[10];
     private ItemStack outputCache;
     private IdMetaCount[] subtractionCache;
     public int forgeTime = 0;
-    public TierEnum tier;
     public boolean tierChecked = false;
 
     @Override
@@ -58,7 +57,7 @@ public class BrickForgeBlockEntity extends BlockEntity implements Inventory, Ite
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
         if (blockBase instanceof BrickForgeBlock) {
-            tier = ((BrickForgeBlock) blockBase).tier;
+            tierOrdinal = ((BrickForgeBlock) blockBase).tier.ordinal();
             tierChecked = true;
         }
     }
@@ -89,7 +88,7 @@ public class BrickForgeBlockEntity extends BlockEntity implements Inventory, Ite
         OutputAndInputs result = BrickForgingRecipeRegistry.getInstance().getResult(inputs);
         // Verify recipe validity
         if (result == null) return false;
-        if (result.minimumTier().ordinal() > tier.ordinal()) return false;
+        if (result.minimumTier().ordinal() > tierOrdinal) return false;
         // Check if there are enough ingredients
         IdMetaCount[] references = result.inputs();
         Arrays.sort(references);
@@ -222,16 +221,12 @@ public class BrickForgeBlockEntity extends BlockEntity implements Inventory, Ite
         }
 
         this.forgeTime = arg.getInt("ForgeTime");
-        this.tierChecked = arg.getBoolean("TierChecked");
-        this.tier = TierEnum.values()[arg.getInt("Tier")];
     }
 
     @Override
     public void writeNbt(NbtCompound arg) {
         super.writeNbt(arg);
         arg.putInt("ForgeTime", (short)this.forgeTime);
-        arg.putBoolean("TierChecked", tierChecked);
-        arg.putInt("Tier", tier.ordinal());
         NbtList var2 = new NbtList();
 
         for(int var3 = 0; var3 < this.inventory.length; ++var3) {

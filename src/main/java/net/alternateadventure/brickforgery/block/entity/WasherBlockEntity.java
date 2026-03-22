@@ -3,7 +3,6 @@ package net.alternateadventure.brickforgery.block.entity;
 import net.alternateadventure.brickforgery.block.WasherBaseBlock;
 import net.alternateadventure.brickforgery.registry.machine.WashingRecipeRegistry;
 import net.alternateadventure.brickforgery.util.TierAndByproductOutput;
-import net.alternateadventure.brickforgery.util.TierEnum;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -18,9 +17,10 @@ import java.util.Random;
 
 public class WasherBlockEntity extends BlockEntity implements Inventory {
     private final Random random = new Random();
+
+    private int tierOrdinal;
     private ItemStack[] inventory = new ItemStack[3];
     public int processingTime = 0;
-    public TierEnum tier;
     public boolean tierChecked = false;
 
     public WasherBlockEntity() {
@@ -86,16 +86,12 @@ public class WasherBlockEntity extends BlockEntity implements Inventory {
         }
 
         this.processingTime = arg.getInt("ProcessingTime");
-        this.tierChecked = arg.getBoolean("TierChecked");
-        this.tier = TierEnum.values()[arg.getInt("Tier")];
     }
 
     @Override
     public void writeNbt(NbtCompound arg) {
         super.writeNbt(arg);
         arg.putShort("ProcessingTime", (short)this.processingTime);
-        arg.putBoolean("TierChecked", tierChecked);
-        arg.putInt("Tier", tier.ordinal());
         NbtList var2 = new NbtList();
 
         for(int var3 = 0; var3 < this.inventory.length; ++var3) {
@@ -153,7 +149,7 @@ public class WasherBlockEntity extends BlockEntity implements Inventory {
         Block blockBase = Block.BLOCKS[world.getBlockId(x, y, z)];
         if (blockBase == null) return;
         if (blockBase instanceof WasherBaseBlock) {
-            tier = ((WasherBaseBlock) blockBase).tier;
+            tierOrdinal = ((WasherBaseBlock) blockBase).tier.ordinal();
             tierChecked = true;
         }
     }
@@ -163,7 +159,7 @@ public class WasherBlockEntity extends BlockEntity implements Inventory {
         TierAndByproductOutput washingOutput = WashingRecipeRegistry.getInstance().getResult(inventory[0].itemId);
         if (washingOutput == null) {
             return false;
-        } else if (washingOutput.tieredMachineRecipeData.tierRequirement.ordinal() > tier.ordinal()) {
+        } else if (washingOutput.tieredMachineRecipeData.tierRequirement.ordinal() > tierOrdinal) {
             return false;
         }
         if (!canAcceptByproduct(washingOutput.byproduct.copy())) return false;
