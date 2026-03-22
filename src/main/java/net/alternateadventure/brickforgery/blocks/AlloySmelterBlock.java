@@ -1,9 +1,9 @@
 package net.alternateadventure.brickforgery.blocks;
 
-import net.alternateadventure.brickforgery.containers.AlloySmelterScreenHandler;
-import net.alternateadventure.brickforgery.events.init.BlockListener;
-import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
 import net.alternateadventure.brickforgery.blocks.entity.AlloySmelterBlockEntity;
+import net.alternateadventure.brickforgery.containers.AlloySmelterScreenHandler;
+import net.alternateadventure.brickforgery.events.init.BlockEntityListener;
+import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.entity.BlockEntity;
@@ -33,7 +33,7 @@ public class AlloySmelterBlock extends DirectionalMachineTemplateBlock {
 
     @Override
     public int getDroppedItemId(int blockMeta, Random random) {
-        return BlockListener.alloySmelter.id;
+        return BlockListener.alloySmelter.asItem().id;
     }
 
     @Override

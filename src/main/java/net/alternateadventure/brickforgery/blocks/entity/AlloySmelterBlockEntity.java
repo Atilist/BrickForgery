@@ -283,9 +283,10 @@ public class AlloySmelterBlockEntity extends BlockEntity implements Inventory, I
     @Override
     public ItemStack insertItem(ItemStack itemStack, @Nullable Direction direction) {
         ItemStack leftovers = itemStack;
-        for (int i = 0; i < OUTPUT_SLOT; i++) {
+        int[] inputSlots = new int[] {0, 3, 4};
+        for (int i = 0; i < 3; i++) {
             if (leftovers == null) return null;
-            leftovers = insertItem(leftovers, i, direction);
+            leftovers = insertItem(leftovers, inputSlots[i], direction);
         }
         return leftovers;
     }
