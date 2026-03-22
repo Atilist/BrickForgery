@@ -30,6 +30,7 @@ public class TextureListener {
         ItemListener.slicedCopper.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SlicedCopper"));
         ItemListener.bripper.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/Bripper"));
         ItemListener.plintBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/PlintBrick"));
+        ItemListener.superCaneItem.setTexture(Identifier.of(MOD_ID, farmingPath + "SuperCaneItem"));
 
         ItemListener.exoticFruit.setTexture(Identifier.of(MOD_ID, "ExplorationFeatures/Plants/ExoticFruit"));
         ItemListener.nightSeeds.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Farming/NightSeeds"));
@@ -310,6 +311,7 @@ public class TextureListener {
         BlockListener.doubleNightCane.specifyTextures(getIndexForPath(farmingPath + "NightCaneDouble"));
         BlockListener.bripperBricks.specifyTextures(getIndexForPath(materialPath + "BripperBricks"));
         BlockListener.plintBricks.specifyTextures(getIndexForPath(materialPath + "PlintBricks"));
+        BlockListener.superCane.specifyTextures(getIndexForPath(farmingPath + "SuperCane"));
 
         BlockListener.flintBox.specifyTextures(getIndexForPath(materialPath + "FlintBox"));
 
@@ -381,6 +383,7 @@ public class TextureListener {
 
         BlockListener.nightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneSingle"));
         BlockListener.doubleNightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneDouble"));
+        BlockListener.superCane.asItem().setTextureId(getIndexForPath(farmingPath + "SuperCane"));
 
         BlockListener.heatPillar.asItem().setTextureId(HeatPillar);
         BlockListener.heatPillarIgnited.asItem().setTextureId(HeatPillarIgnited);

@@ -71,6 +71,7 @@ public class RecipeListener {
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBrickFrameAutomator), "YGY", "GBG", "YGY", 'G', new ItemStack(net.newfrontiercraft.nfc.events.init.ItemListener.aluminiumGear), 'Y', new ItemStack(ItemListener.cactusFrame), 'B', new ItemStack(BlockListener.cactusBox));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusHarvester), "HGH", "FBF", "DSD", 'H', new ItemStack(Item.STONE_HOE), 'G', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), 'B', new ItemStack(BlockListener.cactusBox), 'F', new ItemStack(ItemListener.cactusFrame), 'D', new ItemStack(BlockListener.sandBricks), 'S', new ItemStack(BlockListener.sugarCaneHarvester));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.cactusBrickForge), "AGA", "DBD", "DFD", 'A', new ItemStack(Item.STONE_AXE), 'G', new ItemStack(net.kozibrodka.wolves.events.BlockListener.gearBox), 'B', new ItemStack(BlockListener.cactusBox), 'D', new ItemStack(BlockListener.sandBricks), 'F', new ItemStack(BlockListener.sugarCaneBrickForge));
+            CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.superCaneItem), "SFS", "MDM", "SFS", 'S', new ItemStack(Item.SUGAR_CANE), 'F', new ItemStack(ItemListener.cactusFrame), 'M', new ItemStack(ItemListener.exoticMutationSample), 'D', new ItemStack(ItemListener.dirtBrick));
 
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
             CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.sandBricks), "XX", "XX", 'X', new ItemStack(ItemListener.sandBrick));
@@ -289,6 +290,7 @@ public class RecipeListener {
 
             for (int i = 0; i < 16; i++) {
                 HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.SUGAR_CANE.id, i), new HarvestingOutput(new ItemStack(Item.SUGAR_CANE, 1, 0), 0, 0));
+                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.superCane.id, i), new HarvestingOutput(new ItemStack(Item.SUGAR_CANE, 4, 0), 0, 0));
                 HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 1, 0), 0, 0));
                 HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.doubleNightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 2, 0), 0, 0));
                 HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.CACTUS.id, i), new HarvestingOutput(new ItemStack(Block.CACTUS, 1, 0), 0, 0));

@@ -15,6 +15,7 @@ import net.alternateadventure.brickforgery.items.IceKeyItem;
 import net.alternateadventure.brickforgery.items.LazyItemTemplate;
 import net.alternateadventure.brickforgery.items.LazySecondaryBlockItem;
 import net.alternateadventure.brickforgery.items.NightSeedsItem;
+import net.alternateadventure.brickforgery.items.SuperCaneItem;
 import net.alternateadventure.brickforgery.utils.TierEnum;
 import net.mine_diver.unsafeevents.listener.EventListener;
 import net.minecraft.item.Item;
@@ -146,7 +147,8 @@ public class ItemListener {
 
     public static LazySecondaryBlockItem
             nightCaneStick,
-            doubleNightCaneStick;
+            doubleNightCaneStick,
+            superCaneItem;
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
@@ -161,6 +163,7 @@ public class ItemListener {
         slicedCopper = new LazyItemTemplate(Identifier.of(MOD_ID, "sliced_copper"));
         bripper = new LazyItemTemplate(Identifier.of(MOD_ID, "bripper"));
         plintBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "plint_brick"));
+        superCaneItem = new SuperCaneItem(Identifier.of(MOD_ID, "super_cane_item"), BlockListener.superCane);
 
         exoticFruit = new TemplateItem(Identifier.of(MOD_ID, "exotic_fruit")).setTranslationKey(MOD_ID, "exotic_fruit");
         nightSeeds = new NightSeedsItem(Identifier.of(MOD_ID, "night_seeds")).setTranslationKey(MOD_ID, "night_seeds");

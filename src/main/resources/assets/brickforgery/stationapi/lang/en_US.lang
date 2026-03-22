@@ -18,6 +18,7 @@ tile.@.cactus_brick_forge.name=Cactus Brick Forge
 tile.@.double_night_cane.name=Double Night Cane
 tile.@.bripper_bricks.name=Bripper Bricks
 tile.@.plint_bricks.name=Plint Bricks
+tile.@.super_cane.name=Super Cane
 
 tile.@.flint_box.name=Flint Box
 
@@ -125,6 +126,7 @@ item.@.sand_brick.name=Sand Brick
 item.@.sliced_copper.name=Sliced Copper
 item.@.bripper.name=Bripper
 item.@.plint_brick.name=Plint Brick
+item.@.super_cane_item.name=Super Cane Item
 
 item.@.exotic_fruit.name=Exotic Fruit
 item.@.night_seeds.name=Night Seeds
