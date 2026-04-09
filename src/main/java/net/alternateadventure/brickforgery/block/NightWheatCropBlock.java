@@ -91,16 +91,16 @@ public class NightWheatCropBlock extends TemplateBlock {
     }
 
     @Override
-    public void onTick(World level, int x, int y, int z, Random randomom) {
+    public void onTick(World level, int x, int y, int z, Random random) {
         if (level.getTime() % 24000 < 12000) return;
         if (level.getBlockMeta(x, y, z) == 7) {
-            if (randomom.nextInt(16) != 0) return;
+            if (random.nextInt(16) != 0) return;
             if (level.getBlockId(x + 1, y, z) == Block.GRASS.id && level.getBlockMeta(x + 1, y, z) == 2) level.setBlock(x + 1, y, z, BlockListener.exoticShrub.id);
             if (level.getBlockId(x - 1, y, z) == Block.GRASS.id && level.getBlockMeta(x - 1, y, z) == 2) level.setBlock(x - 1, y, z, BlockListener.exoticShrub.id);
             if (level.getBlockId(x, y, z + 1) == Block.GRASS.id && level.getBlockMeta(x, y, z + 1) == 2) level.setBlock(x, y, z + 1, BlockListener.exoticShrub.id);
             if (level.getBlockId(x, y, z - 1) == Block.GRASS.id && level.getBlockMeta(x, y, z - 1) == 2) level.setBlock(x, y, z - 1, BlockListener.exoticShrub.id);
         }
-        else if (randomom.nextInt(4) == 0) level.setBlock(x, y, z, level.getBlockMeta(x, y, z) + 1);
+        else if (random.nextInt(4) == 0) level.setBlockMeta(x, y, z, level.getBlockMeta(x, y, z) + 1);
     }
     
     @Override
@@ -108,11 +108,11 @@ public class NightWheatCropBlock extends TemplateBlock {
         super.dropStacks(level, x, y, z, meta, luck);
         for(int attempts = 0; attempts < 3; ++attempts) {
             if (!(level.random.nextInt(15) <= meta)) continue;
-            float askNotchWhyThisVariableExists = 0.7F;
-            float randomomX = level.random.nextFloat() * askNotchWhyThisVariableExists + (1.0F - askNotchWhyThisVariableExists) * 0.5F;
-            float randomomY = level.random.nextFloat() * askNotchWhyThisVariableExists + (1.0F - askNotchWhyThisVariableExists) * 0.5F;
-            float randomomZ = level.random.nextFloat() * askNotchWhyThisVariableExists + (1.0F - askNotchWhyThisVariableExists) * 0.5F;
-            ItemEntity item = new ItemEntity(level, (float) x + randomomX, (float) y + randomomY, (float) z + randomomZ, new ItemStack(ItemListener.nightSeeds));
+            float randomizerMultiplier = 0.7F;
+            float randomX = level.random.nextFloat() * randomizerMultiplier + (1.0F - randomizerMultiplier) * 0.5F;
+            float randomY = level.random.nextFloat() * randomizerMultiplier + (1.0F - randomizerMultiplier) * 0.5F;
+            float randomZ = level.random.nextFloat() * randomizerMultiplier + (1.0F - randomizerMultiplier) * 0.5F;
+            ItemEntity item = new ItemEntity(level, (float) x + randomX, (float) y + randomY, (float) z + randomZ, new ItemStack(ItemListener.nightSeeds));
             item.pickupDelay = 10;
             level.spawnEntity(item);
         }
