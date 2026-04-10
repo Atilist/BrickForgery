@@ -4,6 +4,8 @@ public enum TierEnum {
     SUGAR_CANE("§a", "Sugar Cane"),
     CACTUS("§2", "Cactus"),
     FLINT("§8", "Flint"),
+    WOOD("§4", "Wood"),
+    STONE("§7", "Stone"),
     PRIMITIVE("§6", "Primitive"),
     BRICK("§c", "Brick");
 
