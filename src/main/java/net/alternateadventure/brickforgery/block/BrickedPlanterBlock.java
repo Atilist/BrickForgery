@@ -1,13 +1,16 @@
 package net.alternateadventure.brickforgery.block;
 
+import net.alternateadventure.brickforgery.block.item.BrickedPlanterBlockItem;
 import net.alternateadventure.brickforgery.events.init.BlockListener;
 import net.minecraft.block.material.Material;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.world.World;
+import net.modificationstation.stationapi.api.block.HasCustomBlockItemFactory;
 import net.modificationstation.stationapi.api.util.Identifier;
 
 import java.util.Random;
 
+@HasCustomBlockItemFactory(BrickedPlanterBlockItem.class)
 public class BrickedPlanterBlock extends LazyBlockTemplate {
     public BrickedPlanterBlock(Identifier identifier, Material material, float hardness, BlockSoundGroup blockSounds) {
         super(identifier, material, hardness, blockSounds);
