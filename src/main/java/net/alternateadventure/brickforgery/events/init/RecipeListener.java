@@ -45,197 +45,194 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecipeListener {
+    private boolean addedRecipes = false;
 
     @Entrypoint.Namespace
     public static Namespace NAMESPACE;
 
     @EventListener
     public void registerRecipes(RecipeRegisterEvent event) {
-        Identifier type = event.recipeId;
-        // Output <- Input
-        if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPED.type()) {
-            // Age specific
-            addSugarCaneAgeRecipes();
-            addCactusAgeRecipes();
-            addFlintAgeRecipes();
-            addWoodAgeRecipes();
-            addStoneAgeRecipes();
-            addPrimitiveAgeRecipes();
-            addBrickAgeRecipes();
-
-            // Archaeology
-            addPrimitiveTools();
-            addArchaeologyTools();
-            addKeyRecipes();
-
-            // Frame upgrades
-            addFramingRecipes();
-
-            // Exploration themes
-            addThermalRecipes();
-            addCryogenicRecipes();
-
-            // Convenience
-            addConvenienceRecipes();
-
-            // Brick launching
-            addBrickLaunchingRecipes();
-
-            // Alternates
-            addNightPlankRecipes();
-            addEfficientNfcRecipes();
-
-            // Multiblocks
-            addMultiblockTabs();
+        if (addedRecipes) {
+            return;
         }
-        // Output <- Input
-        else if (type == RecipeRegisterEvent.Vanilla.CRAFTING_SHAPELESS.type()) {
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightCaneStick), new ItemStack(ItemListener.exoticFruit), new ItemStack(Item.SUGAR_CANE));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.doubleNightCaneStick), new ItemStack(ItemListener.nightCaneStick), new ItemStack(ItemListener.exoticMutationSample));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dirtBrick), new ItemStack(ItemListener.sugarCaneFrame), new ItemStack(Block.DIRT));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dirtBrickSand), new ItemStack(ItemListener.cactusFrame), new ItemStack(ItemListener.dirtBrick), new ItemStack(Block.SAND));
+        addedRecipes = true;
 
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.toolRepairKit, 8), new ItemStack(ItemListener.nightWoodBeam), new ItemStack(ItemListener.goldenScrew), new ItemStack(Item.PAPER));
+        // Age specific
+        addSugarCaneAgeRecipes();
+        addCactusAgeRecipes();
+        addFlintAgeRecipes();
+        addWoodAgeRecipes();
+        addStoneAgeRecipes();
+        addPrimitiveAgeRecipes();
+        addBrickAgeRecipes();
 
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.primitiveBrush), new ItemStack(ItemListener.primitiveBrush, 1, -1), new ItemStack(ItemListener.toolRepairKit));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.primitiveChisel), new ItemStack(ItemListener.primitiveChisel, 1, -1), new ItemStack(ItemListener.toolRepairKit));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.primitiveGrabber), new ItemStack(ItemListener.primitiveGrabber, 1, -1), new ItemStack(ItemListener.toolRepairKit));
+        // Archaeology
+        addPrimitiveTools();
+        addArchaeologyTools();
+        addKeyRecipes();
 
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archaeologyBrush), new ItemStack(ItemListener.archaeologyBrush, 1, -1), new ItemStack(ItemListener.toolRepairKit));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archaeologyChisel), new ItemStack(ItemListener.archaeologyChisel, 1, -1), new ItemStack(ItemListener.toolRepairKit));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archaeologyIceKnife), new ItemStack(ItemListener.archaeologyIceKnife, 1, -1), new ItemStack(ItemListener.toolRepairKit));
+        // Frame upgrades
+        addFramingRecipes();
 
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.glueMixture), new ItemStack(ItemListener.nightWheat), new ItemStack(net.kozibrodka.wolves.events.ItemListener.flour), new ItemStack(Block.CACTUS));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.brickAsh));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(Item.CLAY), new ItemStack(ItemListener.clayPowder), new ItemStack(ItemListener.snowBrick));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightSeeds), new ItemStack(ItemListener.exoticMutationSample), new ItemStack(Item.SEEDS));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(BlockListener.nightSapling), new ItemStack(ItemListener.exoticMutationSample), new ItemStack(Block.SAPLING, 1, -1));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(BlockListener.nightPlanks, 4), new ItemStack(BlockListener.nightLog));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightSeeds), new ItemStack(ItemListener.nightWheat));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.exoticCatalyst), new ItemStack(ItemListener.brickCatalyst), new ItemStack(ItemListener.exoticFruit));
+        // Exploration themes
+        addThermalRecipes();
+        addCryogenicRecipes();
 
-            addCauldronRecipe(new ItemStack(ItemListener.denseNightWood), new ItemStack[] {new ItemStack(BlockListener.nightLog), new ItemStack(net.kozibrodka.wolves.events.ItemListener.wicker)});
-            addCauldronRecipe(new ItemStack(ItemListener.concentratedFortune), new ItemStack[] {new ItemStack(ItemListener.fortunePowder, 8), new ItemStack(Item.DYE, 1, 4)});
-            addCauldronRecipe(new ItemStack(ItemListener.illuminantCrystal), new ItemStack[] {new ItemStack(ItemListener.groundSandstone), new ItemStack(Item.GLOWSTONE_DUST)});
-            addCauldronRecipe(new ItemStack(ItemListener.concentratedThermal), new ItemStack[] {new ItemStack(ItemListener.thermalPowder, 8), new ItemStack(ItemListener.illuminantCrystal)});
-            addCauldronRecipe(new ItemStack(ItemListener.concentratedCryogenic), new ItemStack[] {new ItemStack(ItemListener.cryogenicPowder, 8), new ItemStack(Block.SNOW_BLOCK)});
+        // Convenience
+        addConvenienceRecipes();
 
-            MillingRecipeRegistry.getInstance().addMillingRecipe(BlockRegistry.INSTANCE.getId(Block.SANDSTONE), new ItemStack(ItemListener.groundSandstone));
+        // Brick launching
+        addBrickLaunchingRecipes();
 
-            MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.MOD_ID.id("iron_ore_washed"), new ItemStack(ItemListener.ironOrePowdered, 2));
-            MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.MOD_ID.id("gold_ore_washed"), new ItemStack(ItemListener.goldOrePowdered, 2));
+        // Alternates
+        addNightPlankRecipes();
+        addEfficientNfcRecipes();
 
-            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(Item.BRICK), new ItemStack(Block.STONE), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.stoneBrick, 1));
-            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.frozenBrick), new ItemStack(net.kozibrodka.wolves.events.ItemListener.steel), new ItemStack(net.kozibrodka.wolves.events.ItemListener.netherCoal), new ItemStack(ItemListener.brickSteelIngot, 1));
-            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(Item.BRICK), new ItemStack(Item.GOLD_INGOT), new ItemStack(Block.OBSIDIAN), new ItemStack(ItemListener.bricksidianIngot, 1));
+        // Multiblocks
+        addMultiblockTabs();
 
-            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.tannedLeather), new ItemStack(ItemListener.nightWheat), new ItemStack(ItemListener.exoticFruit), new ItemStack(ItemListener.durableLeather, 1));
-            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.brickSteelIngot), new ItemStack(ItemListener.reinforcedBrickFrame, 1));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightCaneStick), new ItemStack(ItemListener.exoticFruit), new ItemStack(Item.SUGAR_CANE));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.doubleNightCaneStick), new ItemStack(ItemListener.nightCaneStick), new ItemStack(ItemListener.exoticMutationSample));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dirtBrick), new ItemStack(ItemListener.sugarCaneFrame), new ItemStack(Block.DIRT));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dirtBrickSand), new ItemStack(ItemListener.cactusFrame), new ItemStack(ItemListener.dirtBrick), new ItemStack(Block.SAND));
 
-            AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.largeBrickRaw), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.largeBrick, 1));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.toolRepairKit, 8), new ItemStack(ItemListener.nightWoodBeam), new ItemStack(ItemListener.goldenScrew), new ItemStack(Item.PAPER));
 
-            SlicingRecipeRegistry.getInstance().addSlicingRecipe(Block.CACTUS.asItem().id, new TieredMachineRecipeData(TierEnum.SUGAR_CANE, new ItemStack(BlockListener.cactusPlanks)));
-            SlicingRecipeRegistry.getInstance().addSlicingRecipe(net.newfrontiercraft.nfc.events.init.ItemListener.copperIngot.id, new TieredMachineRecipeData(TierEnum.CACTUS, new ItemStack(ItemListener.slicedCopper)));
-            SlicingRecipeRegistry.getInstance().addSlicingRecipe(Item.LEATHER.id, new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.leatherStrap)));
-            SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.durableLeatherStrap)));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.primitiveBrush), new ItemStack(ItemListener.primitiveBrush, 1, -1), new ItemStack(ItemListener.toolRepairKit));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.primitiveChisel), new ItemStack(ItemListener.primitiveChisel, 1, -1), new ItemStack(ItemListener.toolRepairKit));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.primitiveGrabber), new ItemStack(ItemListener.primitiveGrabber, 1, -1), new ItemStack(ItemListener.toolRepairKit));
 
-            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(Item.GOLD_INGOT.id, new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldenScrew)));
-            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.bricksidianIngot.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.bricksidianScrew)));
-            MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.brickSteelIngot.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.brickSteelPlate)));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archaeologyBrush), new ItemStack(ItemListener.archaeologyBrush, 1, -1), new ItemStack(ItemListener.toolRepairKit));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archaeologyChisel), new ItemStack(ItemListener.archaeologyChisel, 1, -1), new ItemStack(ItemListener.toolRepairKit));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.archaeologyIceKnife), new ItemStack(ItemListener.archaeologyIceKnife, 1, -1), new ItemStack(ItemListener.toolRepairKit));
 
-            HibachiIgnitionRegistry.getInstance().addBlockIgnition(BlockListener.heatPillar.id, BlockListener.heatPillarIgnited.id);
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.glueMixture), new ItemStack(ItemListener.nightWheat), new ItemStack(net.kozibrodka.wolves.events.ItemListener.flour), new ItemStack(Block.CACTUS));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.brickAsh));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(Item.CLAY), new ItemStack(ItemListener.clayPowder), new ItemStack(ItemListener.snowBrick));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightSeeds), new ItemStack(ItemListener.exoticMutationSample), new ItemStack(Item.SEEDS));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(BlockListener.nightSapling), new ItemStack(ItemListener.exoticMutationSample), new ItemStack(Block.SAPLING, 1, -1));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(BlockListener.nightPlanks, 4), new ItemStack(BlockListener.nightLog));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.nightSeeds), new ItemStack(ItemListener.nightWheat));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.exoticCatalyst), new ItemStack(ItemListener.brickCatalyst), new ItemStack(ItemListener.exoticFruit));
 
-            addCrucibleRecipe(new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack[] {new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.coalDust)});
-            addCrucibleRecipe(new ItemStack(ItemListener.thermalGlass), new ItemStack[] {new ItemStack(Block.GLASS, 8), new ItemStack(ItemListener.concentratedThermal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
-            addCrucibleRecipe(new ItemStack(ItemListener.illuminantCrystal, 8), new ItemStack[] {new ItemStack(ItemListener.groundSandstone, 8), new ItemStack(Item.GLOWSTONE_DUST), new ItemStack(Item.FLINT)});
+        addCauldronRecipe(new ItemStack(ItemListener.denseNightWood), new ItemStack[]{new ItemStack(BlockListener.nightLog), new ItemStack(net.kozibrodka.wolves.events.ItemListener.wicker)});
+        addCauldronRecipe(new ItemStack(ItemListener.concentratedFortune), new ItemStack[]{new ItemStack(ItemListener.fortunePowder, 8), new ItemStack(Item.DYE, 1, 4)});
+        addCauldronRecipe(new ItemStack(ItemListener.illuminantCrystal), new ItemStack[]{new ItemStack(ItemListener.groundSandstone), new ItemStack(Item.GLOWSTONE_DUST)});
+        addCauldronRecipe(new ItemStack(ItemListener.concentratedThermal), new ItemStack[]{new ItemStack(ItemListener.thermalPowder, 8), new ItemStack(ItemListener.illuminantCrystal)});
+        addCauldronRecipe(new ItemStack(ItemListener.concentratedCryogenic), new ItemStack[]{new ItemStack(ItemListener.cryogenicPowder, 8), new ItemStack(Block.SNOW_BLOCK)});
 
-            addCrucibleRecipe(new ItemStack(ItemListener.ironOrePurified, 4), new ItemStack[] {new ItemStack(ItemListener.ironOrePowdered, 3), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
-            addCrucibleRecipe(new ItemStack(ItemListener.goldOrePurified, 4), new ItemStack[] {new ItemStack(ItemListener.goldOrePowdered, 3), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
+        MillingRecipeRegistry.getInstance().addMillingRecipe(BlockRegistry.INSTANCE.getId(Block.SANDSTONE), new ItemStack(ItemListener.groundSandstone));
 
-            addStokedCauldronRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.glue, 4), new ItemStack[] { new ItemStack(ItemListener.glueMixture)});
+        MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.MOD_ID.id("iron_ore_washed"), new ItemStack(ItemListener.ironOrePowdered, 2));
+        MillingRecipeRegistry.getInstance().addMillingRecipe(ItemListener.MOD_ID.id("gold_ore_washed"), new ItemStack(ItemListener.goldOrePowdered, 2));
 
-            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.SAND.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(BlockListener.dust)), new ItemStack(ItemListener.goldOrePowdered), 0.1));
-            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.IRON_ORE.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreCrushed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
-            CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.GOLD_ORE.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreCrushed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(Item.BRICK), new ItemStack(Block.STONE), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.stoneBrick, 1));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.frozenBrick), new ItemStack(net.kozibrodka.wolves.events.ItemListener.steel), new ItemStack(net.kozibrodka.wolves.events.ItemListener.netherCoal), new ItemStack(ItemListener.brickSteelIngot, 1));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(Item.BRICK), new ItemStack(Item.GOLD_INGOT), new ItemStack(Block.OBSIDIAN), new ItemStack(ItemListener.bricksidianIngot, 1));
 
-            WashingRecipeRegistry.getInstance().addWashingRecipe(Block.DIRT.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.SAND)), new ItemStack(Item.CLAY), 0.75));
-            WashingRecipeRegistry.getInstance().addWashingRecipe(BlockListener.dust.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.CLAY)), new ItemStack(Item.CLAY), 0.25));
-            WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.ironOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreWashed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
-            WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.goldOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreWashed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.tannedLeather), new ItemStack(ItemListener.nightWheat), new ItemStack(ItemListener.exoticFruit), new ItemStack(ItemListener.durableLeather, 1));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.brickSteelIngot), new ItemStack(ItemListener.reinforcedBrickFrame, 1));
 
-            BrushRecipeRegistry.getInstance().addBrushingRecipe(BlockListener.bountifulSand.id, new TieredBlockConversionData(new int[] {BlockListener.desertPotSealed.id, BlockListener.desertPot.id}, new int[] {50, 70}, TierEnum.PRIMITIVE));
-            BrushRecipeRegistry.getInstance().addBrushingRecipe(BlockListener.bountifulSnow.id, new TieredBlockConversionData(new int[] {BlockListener.frozenPotSealed.id, BlockListener.frozenPot.id}, new int[] {50, 70}, TierEnum.PRIMITIVE));
+        AlloySmeltingRecipeRegistry.getInstance().addRecipe(new ItemStack(ItemListener.largeBrickRaw), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.bricksidianIngot), new ItemStack(ItemListener.largeBrick, 1));
 
-            ChiselRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.desertPotSealed.id, new TieredBlockConversionData(new int[] {BlockListener.desertPot.id}, new int[] {90}, TierEnum.PRIMITIVE));
-            ChiselRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.frozenPotSealed.id, new TieredBlockConversionData(new int[] {BlockListener.frozenPot.id}, new int[] {90}, TierEnum.PRIMITIVE));
+        SlicingRecipeRegistry.getInstance().addSlicingRecipe(Block.CACTUS.asItem().id, new TieredMachineRecipeData(TierEnum.SUGAR_CANE, new ItemStack(BlockListener.cactusPlanks)));
+        SlicingRecipeRegistry.getInstance().addSlicingRecipe(net.newfrontiercraft.nfc.events.init.ItemListener.copperIngot.id, new TieredMachineRecipeData(TierEnum.CACTUS, new ItemStack(ItemListener.slicedCopper)));
+        SlicingRecipeRegistry.getInstance().addSlicingRecipe(Item.LEATHER.id, new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.leatherStrap)));
+        SlicingRecipeRegistry.getInstance().addSlicingRecipe(ItemListener.durableLeather.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.durableLeatherStrap)));
 
-            GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.commonPot.id, new TieredBlockLootingData(new ItemStack[] {new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(Block.GRAVEL, 1)}, new int[] {90, 30}, 40, TierEnum.PRIMITIVE));
-            GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.desertPot.id, new TieredBlockLootingData(new ItemStack[] {new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(ItemListener.goldenScrew, 1), new ItemStack(Block.SAND, 1)}, new int[] {50, 70, 30}, 60, TierEnum.PRIMITIVE));
-            GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.frozenPot.id, new TieredBlockLootingData(new ItemStack[] {new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(ItemListener.goldenScrew, 1), new ItemStack(Block.SNOW_BLOCK, 1)}, new int[] {50, 70, 30}, 60, TierEnum.PRIMITIVE));
+        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(Item.GOLD_INGOT.id, new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldenScrew)));
+        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.bricksidianIngot.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.bricksidianScrew)));
+        MetalworkingRecipeRegistry.getInstance().addMetalworkingRecipe(ItemListener.brickSteelIngot.id, new TieredMachineRecipeData(TierEnum.BRICK, new ItemStack(ItemListener.brickSteelPlate)));
 
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.sugarCaneFramedBrick, 2), new ItemStack(ItemListener.sugarCaneFrame), new ItemStack(Item.CLAY));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.cactusFramedBrick, 2), new ItemStack(ItemListener.cactusFrame), new ItemStack(ItemListener.sugarCaneFramedBrick));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.flintFramedBrick, 2), new ItemStack(ItemListener.flintFrame), new ItemStack(ItemListener.cactusFramedBrick));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.woodenFramedBrick, 2), new ItemStack(ItemListener.woodenFrame), new ItemStack(ItemListener.flintFramedBrick));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.brickFramedBrick, 2), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.woodenFramedBrick));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dryBrickFramedBrick, 2), new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.brickFramedBrick));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.hardenedBrickFramedBrick, 2), new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack(ItemListener.dryBrickFramedBrick));
-            CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.reinforcedBrickFramedBrick, 2), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.hardenedBrickFramedBrick));
+        HibachiIgnitionRegistry.getInstance().addBlockIgnition(BlockListener.heatPillar.id, BlockListener.heatPillarIgnited.id);
 
-            for (int i = 0; i < 16; i++) {
-                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.SUGAR_CANE.id, i), new HarvestingOutput(new ItemStack(Item.SUGAR_CANE, 1, 0), 0, 0));
-                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.superCane.id, i), new HarvestingOutput(new ItemStack(Item.SUGAR_CANE, 4, 0), 0, 0));
-                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 1, 0), 0, 0));
-                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.doubleNightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 2, 0), 0, 0));
-                HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.CACTUS.id, i), new HarvestingOutput(new ItemStack(Block.CACTUS, 1, 0), 0, 0));
-            }
-            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.exoticShrub.id, 15), new HarvestingOutput(new ItemStack(ItemListener.exoticFruit, 1, 0), BlockListener.exoticShrub.id, 0));
-            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(net.kozibrodka.wolves.events.BlockListener.hempCrop.id, 7), new HarvestingOutput(new ItemStack(net.kozibrodka.wolves.events.ItemListener.hemp, 1, 0), 0, 0));
-            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.WHEAT.id, 7), new HarvestingOutput(new ItemStack(Item.WHEAT, 1, 0), Block.WHEAT.id, 0));
-            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightWheatCrop.id, 7), new HarvestingOutput(new ItemStack(ItemListener.nightWheat, 1, 0), BlockListener.nightWheatCrop.id, 0));
+        addCrucibleRecipe(new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack[]{new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.coalDust)});
+        addCrucibleRecipe(new ItemStack(ItemListener.thermalGlass), new ItemStack[]{new ItemStack(Block.GLASS, 8), new ItemStack(ItemListener.concentratedThermal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
+        addCrucibleRecipe(new ItemStack(ItemListener.illuminantCrystal, 8), new ItemStack[]{new ItemStack(ItemListener.groundSandstone, 8), new ItemStack(Item.GLOWSTONE_DUST), new ItemStack(Item.FLINT)});
 
-            BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.bripper, 3), new Object[]{ItemListener.slicedCopper, ItemListener.sandBrick, Item.BRICK}, 1000, FuelLevelEnum.WARM);
-            BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.plintBrick, 2), new Object[]{net.newfrontiercraft.nfc.events.init.BlockListener.pebble, Item.FLINT, ItemListener.cactusFrame}, 1000, FuelLevelEnum.WARM);
+        addCrucibleRecipe(new ItemStack(ItemListener.ironOrePurified, 4), new ItemStack[]{new ItemStack(ItemListener.ironOrePowdered, 3), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
+        addCrucibleRecipe(new ItemStack(ItemListener.goldOrePurified, 4), new ItemStack[]{new ItemStack(ItemListener.goldOrePowdered, 3), new ItemStack(ItemListener.illuminantCrystal), new ItemStack(net.kozibrodka.wolves.events.ItemListener.hellfireDust)});
 
-            BrickForgingRecipeRegistry.getInstance().addBrickForgingRecipe(new IdMetaCount[]{new IdMetaCount(Block.DIRT.asItem().id, 0, 1), new IdMetaCount(ItemListener.sugarCaneFrame.id, 0, 1)}, new ItemStack(ItemListener.dirtBrick, 2), TierEnum.SUGAR_CANE);
-            BrickForgingRecipeRegistry.getInstance().addBrickForgingRecipe(new IdMetaCount[]{new IdMetaCount(Block.SAND.asItem().id, 0, 1), new IdMetaCount(ItemListener.cactusFrame.id, 0, 1), new IdMetaCount(ItemListener.dirtBrick.id, 0, 1)}, new ItemStack(ItemListener.dirtBrickSand, 2), TierEnum.CACTUS);
+        addStokedCauldronRecipe(new ItemStack(net.kozibrodka.wolves.events.ItemListener.glue, 4), new ItemStack[]{new ItemStack(ItemListener.glueMixture)});
+
+        CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.SAND.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(BlockListener.dust)), new ItemStack(ItemListener.goldOrePowdered), 0.1));
+        CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.IRON_ORE.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreCrushed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
+        CrushingRecipeRegistry.getInstance().addCrushingRecipe(Block.GOLD_ORE.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreCrushed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+
+        WashingRecipeRegistry.getInstance().addWashingRecipe(Block.DIRT.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.SAND)), new ItemStack(Item.CLAY), 0.75));
+        WashingRecipeRegistry.getInstance().addWashingRecipe(BlockListener.dust.asItem().id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(Block.CLAY)), new ItemStack(Item.CLAY), 0.25));
+        WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.ironOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.ironOreWashed)), new ItemStack(ItemListener.ironOrePowdered), 0.5));
+        WashingRecipeRegistry.getInstance().addWashingRecipe(ItemListener.goldOreCrushed.id, new TierAndByproductOutput(new TieredMachineRecipeData(TierEnum.PRIMITIVE, new ItemStack(ItemListener.goldOreWashed)), new ItemStack(ItemListener.goldOrePowdered), 0.5));
+
+        BrushRecipeRegistry.getInstance().addBrushingRecipe(BlockListener.bountifulSand.id, new TieredBlockConversionData(new int[]{BlockListener.desertPotSealed.id, BlockListener.desertPot.id}, new int[]{50, 70}, TierEnum.PRIMITIVE));
+        BrushRecipeRegistry.getInstance().addBrushingRecipe(BlockListener.bountifulSnow.id, new TieredBlockConversionData(new int[]{BlockListener.frozenPotSealed.id, BlockListener.frozenPot.id}, new int[]{50, 70}, TierEnum.PRIMITIVE));
+
+        ChiselRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.desertPotSealed.id, new TieredBlockConversionData(new int[]{BlockListener.desertPot.id}, new int[]{90}, TierEnum.PRIMITIVE));
+        ChiselRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.frozenPotSealed.id, new TieredBlockConversionData(new int[]{BlockListener.frozenPot.id}, new int[]{90}, TierEnum.PRIMITIVE));
+
+        GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.commonPot.id, new TieredBlockLootingData(new ItemStack[]{new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(Block.GRAVEL, 1)}, new int[]{90, 30}, 40, TierEnum.PRIMITIVE));
+        GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.desertPot.id, new TieredBlockLootingData(new ItemStack[]{new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(ItemListener.goldenScrew, 1), new ItemStack(Block.SAND, 1)}, new int[]{50, 70, 30}, 60, TierEnum.PRIMITIVE));
+        GrabberRecipeRegistry.getInstance().addChiselingRecipe(BlockListener.frozenPot.id, new TieredBlockLootingData(new ItemStack[]{new ItemStack(ItemListener.leatherStrap, 1), new ItemStack(ItemListener.goldenScrew, 1), new ItemStack(Block.SNOW_BLOCK, 1)}, new int[]{50, 70, 30}, 60, TierEnum.PRIMITIVE));
+
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.sugarCaneFramedBrick, 2), new ItemStack(ItemListener.sugarCaneFrame), new ItemStack(Item.CLAY));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.cactusFramedBrick, 2), new ItemStack(ItemListener.cactusFrame), new ItemStack(ItemListener.sugarCaneFramedBrick));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.flintFramedBrick, 2), new ItemStack(ItemListener.flintFrame), new ItemStack(ItemListener.cactusFramedBrick));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.woodenFramedBrick, 2), new ItemStack(ItemListener.woodenFrame), new ItemStack(ItemListener.flintFramedBrick));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.brickFramedBrick, 2), new ItemStack(ItemListener.brickFrame), new ItemStack(ItemListener.woodenFramedBrick));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.dryBrickFramedBrick, 2), new ItemStack(ItemListener.dryBrickFrame), new ItemStack(ItemListener.brickFramedBrick));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.hardenedBrickFramedBrick, 2), new ItemStack(ItemListener.hardenedBrickFrame), new ItemStack(ItemListener.dryBrickFramedBrick));
+        CraftingRegistry.addShapelessRecipe(new ItemStack(ItemListener.reinforcedBrickFramedBrick, 2), new ItemStack(ItemListener.reinforcedBrickFrame), new ItemStack(ItemListener.hardenedBrickFramedBrick));
+
+        for (int i = 0; i < 16; i++) {
+            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.SUGAR_CANE.id, i), new HarvestingOutput(new ItemStack(Item.SUGAR_CANE, 1, 0), 0, 0));
+            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.superCane.id, i), new HarvestingOutput(new ItemStack(Item.SUGAR_CANE, 4, 0), 0, 0));
+            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 1, 0), 0, 0));
+            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.doubleNightCane.id, i), new HarvestingOutput(new ItemStack(ItemListener.nightCaneStick, 2, 0), 0, 0));
+            HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.CACTUS.id, i), new HarvestingOutput(new ItemStack(Block.CACTUS, 1, 0), 0, 0));
         }
-        // Input -> Output
-        else if (type == RecipeRegisterEvent.Vanilla.SMELTING.type()) {
-            SmeltingRegistry.addSmeltingRecipe(BlockListener.nightLog.asItem().id, new ItemStack(Item.COAL, 1, 1));
-            SmeltingRegistry.addSmeltingRecipe(BlockListener.nightPlanks.asItem().id, new ItemStack(Block.PLANKS));
+        HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.exoticShrub.id, 15), new HarvestingOutput(new ItemStack(ItemListener.exoticFruit, 1, 0), BlockListener.exoticShrub.id, 0));
+        HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(net.kozibrodka.wolves.events.BlockListener.hempCrop.id, 7), new HarvestingOutput(new ItemStack(net.kozibrodka.wolves.events.ItemListener.hemp, 1, 0), 0, 0));
+        HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(Block.WHEAT.id, 7), new HarvestingOutput(new ItemStack(Item.WHEAT, 1, 0), Block.WHEAT.id, 0));
+        HarvestingRecipeRegistry.getInstance().addRecipe(new HarvestingInput(BlockListener.nightWheatCrop.id, 7), new HarvestingOutput(new ItemStack(ItemListener.nightWheat, 1, 0), BlockListener.nightWheatCrop.id, 0));
 
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.glueMixture.id, new ItemStack(net.kozibrodka.wolves.events.ItemListener.glue));
-            SmeltingRegistry.addSmeltingRecipe(BlockListener.woodenBricks.asItem().id, new ItemStack(ItemListener.brickAsh));
+        BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.bripper, 3), new Object[]{ItemListener.slicedCopper, ItemListener.sandBrick, Item.BRICK}, 1000, FuelLevelEnum.WARM);
+        BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.plintBrick, 2), new Object[]{net.newfrontiercraft.nfc.events.init.BlockListener.pebble, Item.FLINT, ItemListener.cactusFrame}, 1000, FuelLevelEnum.WARM);
 
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.coalOreBrick.id, new ItemStack(Item.COAL));
+        BrickForgingRecipeRegistry.getInstance().addBrickForgingRecipe(new IdMetaCount[]{new IdMetaCount(Block.DIRT.asItem().id, 0, 1), new IdMetaCount(ItemListener.sugarCaneFrame.id, 0, 1)}, new ItemStack(ItemListener.dirtBrick, 2), TierEnum.SUGAR_CANE);
+        BrickForgingRecipeRegistry.getInstance().addBrickForgingRecipe(new IdMetaCount[]{new IdMetaCount(Block.SAND.asItem().id, 0, 1), new IdMetaCount(ItemListener.cactusFrame.id, 0, 1), new IdMetaCount(ItemListener.dirtBrick.id, 0, 1)}, new ItemStack(ItemListener.dirtBrickSand, 2), TierEnum.CACTUS);
 
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreBrick.id, new ItemStack(Item.IRON_INGOT));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreCrushed.id, new ItemStack(Item.IRON_INGOT));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreWashed.id, new ItemStack(Item.IRON_INGOT));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOrePowdered.id, new ItemStack(Item.IRON_INGOT));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOrePurified.id, new ItemStack(Item.IRON_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(BlockListener.nightLog.asItem().id, new ItemStack(Item.COAL, 1, 1));
+        SmeltingRegistry.addSmeltingRecipe(BlockListener.nightPlanks.asItem().id, new ItemStack(Block.PLANKS));
 
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOreBrick.id, new ItemStack(Item.GOLD_INGOT));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOreCrushed.id, new ItemStack(Item.GOLD_INGOT));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOreWashed.id, new ItemStack(Item.GOLD_INGOT));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOrePowdered.id, new ItemStack(Item.GOLD_INGOT));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOrePurified.id, new ItemStack(Item.GOLD_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.glueMixture.id, new ItemStack(net.kozibrodka.wolves.events.ItemListener.glue));
+        SmeltingRegistry.addSmeltingRecipe(BlockListener.woodenBricks.asItem().id, new ItemStack(ItemListener.brickAsh));
 
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.redstoneOreBrick.id, new ItemStack(Item.REDSTONE, 4));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.coalOreBrick.id, new ItemStack(Item.COAL));
 
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.diamondOreBrick.id, new ItemStack(Item.DIAMOND));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreBrick.id, new ItemStack(Item.IRON_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreCrushed.id, new ItemStack(Item.IRON_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOreWashed.id, new ItemStack(Item.IRON_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOrePowdered.id, new ItemStack(Item.IRON_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.ironOrePurified.id, new ItemStack(Item.IRON_INGOT));
 
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.sugarCaneFramedBrick.id, new ItemStack(Item.BRICK));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.cactusFramedBrick.id, new ItemStack(Item.BRICK));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.flintFramedBrick.id, new ItemStack(Item.BRICK));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.woodenFramedBrick.id, new ItemStack(Item.BRICK));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.brickFramedBrick.id, new ItemStack(Item.BRICK));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.dryBrickFramedBrick.id, new ItemStack(Item.BRICK));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.hardenedBrickFramedBrick.id, new ItemStack(Item.BRICK));
-            SmeltingRegistry.addSmeltingRecipe(ItemListener.reinforcedBrickFramedBrick.id, new ItemStack(Item.BRICK));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOreBrick.id, new ItemStack(Item.GOLD_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOreCrushed.id, new ItemStack(Item.GOLD_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOreWashed.id, new ItemStack(Item.GOLD_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOrePowdered.id, new ItemStack(Item.GOLD_INGOT));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.goldOrePurified.id, new ItemStack(Item.GOLD_INGOT));
 
-        }
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.redstoneOreBrick.id, new ItemStack(Item.REDSTONE, 4));
+
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.diamondOreBrick.id, new ItemStack(Item.DIAMOND));
+
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.sugarCaneFramedBrick.id, new ItemStack(Item.BRICK));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.cactusFramedBrick.id, new ItemStack(Item.BRICK));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.flintFramedBrick.id, new ItemStack(Item.BRICK));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.woodenFramedBrick.id, new ItemStack(Item.BRICK));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.brickFramedBrick.id, new ItemStack(Item.BRICK));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.dryBrickFramedBrick.id, new ItemStack(Item.BRICK));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.hardenedBrickFramedBrick.id, new ItemStack(Item.BRICK));
+        SmeltingRegistry.addSmeltingRecipe(ItemListener.reinforcedBrickFramedBrick.id, new ItemStack(Item.BRICK));
     }
 
     private static void addConvenienceRecipes() {
