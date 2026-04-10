@@ -58,48 +58,22 @@ public class RecipeListener {
         addedRecipes = true;
 
         // Age specific
-        addSugarCaneAgeRecipes();
-        addCactusAgeRecipes();
-        addFlintAgeRecipes();
-        addWoodAgeRecipes();
-        addStoneAgeRecipes();
-        addPrimitiveAgeRecipes();
-        addBrickAgeRecipes();
+        addAgeSpecificRecipes();
 
         // Farming
-        addCropRecipes();
-        addTreeRecipes();
-        addCropHarvestingRecipes();
+        addFarmingRecipes();
 
         // Archaeology
-        addPrimitiveTools();
-        addArchaeologyTools();
-        addKeyRecipes();
-        addRepairRecipes();
-        addBrushingRecipes();
-        addChiselingRecipes();
-        addGrabbingRecipes();
+        addArchaeologyRecipes();
 
         // Exploration
-        addFortuneRecipes();
-        addThermalRecipes();
-        addCryogenicRecipes();
+        addExplorationRecipes();
 
         // Catalysts
         addCatalystRecipes();
 
         // Material processing
-        addOreMillingRecipes();
-        addRockGrindingRecipes();
-        addPurificationRecipes();
-        addCrushingRecipes();
-        addWashingRecipes();
-        addClayEnhancingRecipes();
-        addCoalProcessingRecipes();
-        addIronProcessingRecipes();
-        addGoldProcessingRecipes();
-        addRedstoneProcessingRecipes();
-        addDiamondProcessingRecipes();
+        addMaterialProcessingRecipes();
 
         // Frame upgrades
         addFramingRecipes();
@@ -111,15 +85,65 @@ public class RecipeListener {
         addBrickLaunchingRecipes();
 
         // Alternates
+        addAlternateRecipes();
+
+        // Multiblocks
+        addMultiblockTabs();
+    }
+
+    private static void addAlternateRecipes() {
         addNightWoodRecipes();
         addEfficientNfcRecipes();
         addAlternateBtwRecipes();
         addAlternateVanillaRecipes();
         addBrickForgingRecipes();
         addAlternateBrickRecipes();
+    }
 
-        // Multiblocks
-        addMultiblockTabs();
+    private static void addMaterialProcessingRecipes() {
+        addOreMillingRecipes();
+        addRockGrindingRecipes();
+        addPurificationRecipes();
+        addCrushingRecipes();
+        addWashingRecipes();
+        addClayEnhancingRecipes();
+        addCoalProcessingRecipes();
+        addIronProcessingRecipes();
+        addGoldProcessingRecipes();
+        addRedstoneProcessingRecipes();
+        addDiamondProcessingRecipes();
+    }
+
+    private static void addExplorationRecipes() {
+        addFortuneRecipes();
+        addThermalRecipes();
+        addCryogenicRecipes();
+    }
+
+    private static void addArchaeologyRecipes() {
+        addPrimitiveTools();
+        addArchaeologyTools();
+        addKeyRecipes();
+        addRepairRecipes();
+        addBrushingRecipes();
+        addChiselingRecipes();
+        addGrabbingRecipes();
+    }
+
+    private static void addFarmingRecipes() {
+        addCropRecipes();
+        addTreeRecipes();
+        addCropHarvestingRecipes();
+    }
+
+    private static void addAgeSpecificRecipes() {
+        addSugarCaneAgeRecipes();
+        addCactusAgeRecipes();
+        addFlintAgeRecipes();
+        addWoodAgeRecipes();
+        addStoneAgeRecipes();
+        addPrimitiveAgeRecipes();
+        addBrickAgeRecipes();
     }
 
     private static void addAlternateBrickRecipes() {
