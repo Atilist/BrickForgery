@@ -1,5 +1,6 @@
 package net.alternateadventure.brickforgery.block;
 
+import net.alternateadventure.brickforgery.block.item.HarvesterBlockItem;
 import net.alternateadventure.brickforgery.registry.machine.HarvestingRecipeRegistry;
 import net.alternateadventure.brickforgery.registry.machine.records.HarvestingOutput;
 import net.alternateadventure.brickforgery.util.TierEnum;
@@ -8,11 +9,13 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.world.World;
+import net.modificationstation.stationapi.api.block.HasCustomBlockItemFactory;
 import net.modificationstation.stationapi.api.util.Identifier;
 import net.newfrontiercraft.nfc.block.entity.BasicItemChuteBlockEntity;
 
 import java.util.Random;
 
+@HasCustomBlockItemFactory(HarvesterBlockItem.class)
 public class HarvesterBlockTemplate extends LazyBlockTemplate implements MechanicalDevice {
     private final TierEnum tier;
 
@@ -91,5 +94,9 @@ public class HarvesterBlockTemplate extends LazyBlockTemplate implements Mechani
     @Override
     public boolean isMachinePowered(World world, int x, int y, int z) {
         return world.getBlockMeta(x, y, z) == 1;
+    }
+
+    public TierEnum getTier() {
+        return tier;
     }
 }
