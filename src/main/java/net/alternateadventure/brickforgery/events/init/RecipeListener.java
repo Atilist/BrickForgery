@@ -436,6 +436,15 @@ public class RecipeListener {
         CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.frame, 32, 0), "XYX", "XBX", "XYX", 'X', net.newfrontiercraft.nfc.events.init.ItemListener.aluminiumIngot, 'Y', Block.PLANKS, 'B', BlockListener.sugarCaneBox);
         CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.frame, 48, 0), "XYX", "XBX", "XYX", 'X', net.newfrontiercraft.nfc.events.init.ItemListener.aluminiumIngot, 'Y', Block.PLANKS, 'B', BlockListener.cactusBox);
         CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.frame, 64, 0), "XYX", "XBX", "XYX", 'X', net.newfrontiercraft.nfc.events.init.ItemListener.aluminiumIngot, 'Y', Block.PLANKS, 'B', BlockListener.flintBox);
+
+        CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.unfiredPlanter, 2, 0), "X X", "X X", "XXX", 'X', ItemListener.sugarCaneFramedBrick);
+        CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.unfiredPlanter, 2, 0), "X X", "X X", "XXX", 'X', ItemListener.cactusFramedBrick);
+        CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.unfiredPlanter, 2, 0), "X X", "X X", "XXX", 'X', ItemListener.flintFramedBrick);
+        CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.unfiredPlanter, 2, 0), "X X", "X X", "XXX", 'X', ItemListener.woodenFramedBrick);
+        CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.unfiredPlanter, 2, 0), "X X", "X X", "XXX", 'X', ItemListener.brickFramedBrick);
+        CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.unfiredPlanter, 2, 0), "X X", "X X", "XXX", 'X', ItemListener.dryBrickFramedBrick);
+        CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.unfiredPlanter, 2, 0), "X X", "X X", "XXX", 'X', ItemListener.hardenedBrickFramedBrick);
+        CraftingRegistry.addShapedRecipe(new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.unfiredPlanter, 2, 0), "X X", "X X", "XXX", 'X', ItemListener.reinforcedBrickFramedBrick);
     }
 
     private static void addNightWoodRecipes() {
