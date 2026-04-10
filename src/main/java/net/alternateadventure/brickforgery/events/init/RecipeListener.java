@@ -134,6 +134,7 @@ public class RecipeListener {
         addCropRecipes();
         addTreeRecipes();
         addCropHarvestingRecipes();
+        addPlanterRecipes();
     }
 
     private static void addAgeSpecificRecipes() {
@@ -188,6 +189,10 @@ public class RecipeListener {
     private static void addBrickForgingRecipes() {
         BrickForgingRecipeRegistry.getInstance().addBrickForgingRecipe(new IdMetaCount[]{new IdMetaCount(Block.DIRT.asItem().id, 0, 1), new IdMetaCount(ItemListener.sugarCaneFrame.id, 0, 1)}, new ItemStack(ItemListener.dirtBrick, 2), TierEnum.SUGAR_CANE);
         BrickForgingRecipeRegistry.getInstance().addBrickForgingRecipe(new IdMetaCount[]{new IdMetaCount(Block.SAND.asItem().id, 0, 1), new IdMetaCount(ItemListener.cactusFrame.id, 0, 1), new IdMetaCount(ItemListener.dirtBrick.id, 0, 1)}, new ItemStack(ItemListener.dirtBrickSand, 2), TierEnum.CACTUS);
+    }
+
+    private static void addPlanterRecipes() {
+        CraftingRegistry.addShapelessRecipe(new ItemStack(BlockListener.brickedPlanter), new ItemStack(BlockListener.dirtBricks), new ItemStack(net.newfrontiercraft.nfc.events.init.BlockListener.planter));
     }
 
     private static void addCropHarvestingRecipes() {

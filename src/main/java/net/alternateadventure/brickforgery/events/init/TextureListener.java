@@ -312,6 +312,7 @@ public class TextureListener {
         BlockListener.bripperBricks.specifyTextures(getIndexForPath(materialPath + "BripperBricks"));
         BlockListener.plintBricks.specifyTextures(getIndexForPath(materialPath + "PlintBricks"));
         BlockListener.superCane.specifyTextures(getIndexForPath(farmingPath + "SuperCane"));
+        BlockListener.brickedPlanter.specifyTextures(getIndexForPath(farmingPath + "PlanterDirtBricks"), getIndexForPath(farmingPath + "PlanterSide"), getIndexForPath(farmingPath + "PlanterSide"));
 
         BlockListener.flintBox.specifyTextures(getIndexForPath(materialPath + "FlintBox"));
 

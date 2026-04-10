@@ -8,6 +8,7 @@ import net.alternateadventure.brickforgery.block.BrickFrameCrafterBlock;
 import net.alternateadventure.brickforgery.block.BrickLauncherBlock;
 import net.alternateadventure.brickforgery.block.BrickSoilBlock;
 import net.alternateadventure.brickforgery.block.BrickSoilDepletedBlock;
+import net.alternateadventure.brickforgery.block.BrickedPlanterBlock;
 import net.alternateadventure.brickforgery.block.CactusPlanksBlock;
 import net.alternateadventure.brickforgery.block.CoalOreBricksBlock;
 import net.alternateadventure.brickforgery.block.CommonPotBlock;
@@ -195,6 +196,7 @@ public class BlockListener {
             cactusBrickForge;
 
     public static SuperCaneBlock superCane;
+    public static BrickedPlanterBlock brickedPlanter;
 
     @Entrypoint.Namespace
     public static Namespace MOD_ID;
@@ -222,6 +224,7 @@ public class BlockListener {
         bripperBricks = new LazyBlockTemplate(Identifier.of(MOD_ID, "bripper_bricks"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP);
         plintBricks = new PlintBricksBlock(Identifier.of(MOD_ID, "plint_bricks"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP);
         superCane = new SuperCaneBlock(Identifier.of(MOD_ID, "super_cane"), Material.PLANT, 0, Block.DIRT_SOUND_GROUP);
+        brickedPlanter = new BrickedPlanterBlock(Identifier.of(MOD_ID, "bricked_planter"), Material.STONE, 1.5F, Block.STONE_SOUND_GROUP);
 
         flintBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "flint_box"), Material.SOIL, 1.5F, Block.GRAVEL_SOUND_GROUP);
 

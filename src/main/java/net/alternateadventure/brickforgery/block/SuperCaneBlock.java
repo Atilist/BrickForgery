@@ -46,7 +46,7 @@ public class SuperCaneBlock extends LazyBlockTemplate {
         int belowId = world.getBlockId(x, y - 1, z);
         if (belowId == this.id) {
             return true;
-        } else if (belowId != BlockListener.dirtBricks.id) {
+        } else if (belowId != BlockListener.dirtBricks.id && belowId != BlockListener.brickedPlanter.id) {
             return false;
         } else if (world.getMaterial(x - 1, y - 1, z) == Material.WATER) {
             return true;
