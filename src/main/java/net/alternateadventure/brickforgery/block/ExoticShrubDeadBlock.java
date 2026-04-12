@@ -39,7 +39,7 @@ public class ExoticShrubDeadBlock extends TemplateBlock {
 
     @Override
     public int getDroppedItemId(int i, Random random) {
-        return BlockListener.exoticShrub.id;
+        return BlockListener.exoticShrub.asItem().id;
     }
 
     @Override
@@ -78,8 +78,7 @@ public class ExoticShrubDeadBlock extends TemplateBlock {
         level.setBlock(x, y, z, BlockListener.exoticShrub.id, level.getBlockMeta(x, y, z));
     }
 
-    public boolean getsSkylight(World level, int x, int y, int z)
-    {
+    public boolean getsSkylight(World level, int x, int y, int z) {
         for (int height = y + 1; height <= level.getTopSolidBlockY(x, z); height++) {
             if (level.getBlockId(x, height, z) == 0) continue;
             if (level.method_1783(x, height, z)) return false;
