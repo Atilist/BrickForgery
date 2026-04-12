@@ -121,6 +121,8 @@ item.@.night_cane_stick.name=Night Cane Stick
 item.@.double_night_cane_stick.name=Double Night Cane Stick
 item.@.sugar_cane_stick.name=Sugar Cane Stick
 item.@.exotic_mutation_sample.name=Exotic Mutation Sample
+item.@.moonlight_powder.name=Moonlight Powder
+item.@.moonlight_crystal.name=Moonlight Crystal
 
 item.@.dirt_brick_sand.name=Dirt Brick Sand
 item.@.sand_brick.name=Sand Brick

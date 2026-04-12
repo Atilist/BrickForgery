@@ -58,6 +58,8 @@ public class ItemListener {
             dirtBrick,
             sugarCaneStick,
             exoticMutationSample,
+            moonlightPowder,
+            moonlightCrystal,
 
             dirtBrickSand,
             sandBrick,
@@ -157,6 +159,8 @@ public class ItemListener {
         doubleNightCaneStick = new LazySecondaryBlockItem(Identifier.of(MOD_ID, "double_night_cane_stick"), BlockListener.doubleNightCane);
         sugarCaneStick = new LazyItemTemplate(Identifier.of(MOD_ID, "sugar_cane_stick"));
         exoticMutationSample = new LazyItemTemplate(Identifier.of(MOD_ID, "exotic_mutation_sample"));
+        moonlightPowder = new LazyItemTemplate(Identifier.of(MOD_ID, "moonlight_powder"));
+        moonlightCrystal = new LazyItemTemplate(Identifier.of(MOD_ID, "moonlight_crystal"));
 
         dirtBrickSand = new DirtBrickSandItem(Identifier.of(MOD_ID, "dirt_brick_sand"));
         sandBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "sand_brick"));

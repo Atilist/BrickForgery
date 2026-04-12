@@ -36,6 +36,7 @@ import net.modificationstation.stationapi.api.mod.entrypoint.Entrypoint;
 import net.modificationstation.stationapi.api.recipe.CraftingRegistry;
 import net.modificationstation.stationapi.api.recipe.SmeltingRegistry;
 import net.modificationstation.stationapi.api.registry.BlockRegistry;
+import net.modificationstation.stationapi.api.registry.ItemRegistry;
 import net.modificationstation.stationapi.api.util.Identifier;
 import net.modificationstation.stationapi.api.util.Namespace;
 import net.newfrontiercraft.nfc.registry.BrickOvenManager;
@@ -493,6 +494,8 @@ public class RecipeListener {
     }
 
     private static void addSugarCaneAgeRecipes() {
+        MillingRecipeRegistry.getInstance().addMillingRecipe(ItemRegistry.INSTANCE.getId(ItemListener.nightCaneStick), new ItemStack(ItemListener.moonlightPowder));
+        CauldronCraftingManager.getInstance().addRecipe(new ItemStack(ItemListener.moonlightCrystal), new ItemStack[] {new ItemStack(Item.SUGAR), new ItemStack(ItemListener.moonlightPowder)});
         SlicingRecipeRegistry.getInstance().addSlicingRecipe(Block.CACTUS.asItem().id, new TieredMachineRecipeData(TierEnum.SUGAR_CANE, new ItemStack(BlockListener.cactusPlanks)));
         CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
         CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneStick), "X", "Y", "X", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.nightCaneStick));

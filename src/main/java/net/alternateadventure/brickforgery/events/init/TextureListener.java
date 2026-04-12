@@ -24,6 +24,8 @@ public class TextureListener {
         ItemListener.doubleNightCaneStick.setTexture(Identifier.of(MOD_ID, farmingPath + "DoubleNightCaneStick"));
         ItemListener.sugarCaneStick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SugarCaneStick"));
         ItemListener.exoticMutationSample.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ExoticMutationSample"));
+        ItemListener.moonlightPowder.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/MoonlightPowder"));
+        ItemListener.moonlightCrystal.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/MoonlightCrystal"));
 
         ItemListener.dirtBrickSand.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DirtBrickSand"));
         ItemListener.sandBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SandBrick"));
