@@ -477,6 +477,9 @@ public class RecipeListener {
     }
 
     private static void addCactusAgeRecipes() {
+        CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.nightGrowthBoosterItem), " C ", "HSH", " N ", 'C', new ItemStack(ItemListener.moonlightCrystal), 'H', new ItemStack(net.kozibrodka.wolves.events.ItemListener.hemp), 'S', new ItemStack(ItemListener.exoticMutationSample), 'N', new ItemStack(ItemListener.nightCaneStick));
+        MillingRecipeRegistry.getInstance().addMillingRecipe(ItemRegistry.INSTANCE.getId(ItemListener.nightWheat), new ItemStack(ItemListener.moonlightPowder));
+        CauldronCraftingManager.getInstance().addRecipe(new ItemStack(ItemListener.moonlightCrystal), new ItemStack[] {new ItemStack(Item.SUGAR), new ItemStack(ItemListener.moonlightPowder)});
         BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.bripper, 3), new Object[]{ItemListener.slicedCopper, ItemListener.sandBrick, Item.BRICK}, 1000, FuelLevelEnum.WARM);
         BrickOvenManager.getInstance().addShapelessOvenRecipe(new ItemStack(ItemListener.plintBrick, 2), new Object[]{net.newfrontiercraft.nfc.events.init.BlockListener.pebble, Item.FLINT, ItemListener.cactusFrame}, 1000, FuelLevelEnum.WARM);
         SlicingRecipeRegistry.getInstance().addSlicingRecipe(net.newfrontiercraft.nfc.events.init.ItemListener.copperIngot.id, new TieredMachineRecipeData(TierEnum.CACTUS, new ItemStack(ItemListener.slicedCopper)));
@@ -494,8 +497,6 @@ public class RecipeListener {
     }
 
     private static void addSugarCaneAgeRecipes() {
-        MillingRecipeRegistry.getInstance().addMillingRecipe(ItemRegistry.INSTANCE.getId(ItemListener.nightCaneStick), new ItemStack(ItemListener.moonlightPowder));
-        CauldronCraftingManager.getInstance().addRecipe(new ItemStack(ItemListener.moonlightCrystal), new ItemStack[] {new ItemStack(Item.SUGAR), new ItemStack(ItemListener.moonlightPowder)});
         SlicingRecipeRegistry.getInstance().addSlicingRecipe(Block.CACTUS.asItem().id, new TieredMachineRecipeData(TierEnum.SUGAR_CANE, new ItemStack(BlockListener.cactusPlanks)));
         CraftingRegistry.addShapedRecipe(new ItemStack(BlockListener.dirtBricks), "XX", "XX", 'X', new ItemStack(ItemListener.dirtBrick));
         CraftingRegistry.addShapedRecipe(new ItemStack(ItemListener.sugarCaneStick), "X", "Y", "X", 'X', new ItemStack(Item.SUGAR_CANE), 'Y', new ItemStack(ItemListener.nightCaneStick));

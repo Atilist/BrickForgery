@@ -40,6 +40,7 @@ import net.alternateadventure.brickforgery.block.MachineFrameBlock;
 import net.alternateadventure.brickforgery.block.MetalworkingStationBlockTemplate;
 import net.alternateadventure.brickforgery.block.MossyPotBlock;
 import net.alternateadventure.brickforgery.block.NightCaneBlock;
+import net.alternateadventure.brickforgery.block.NightGrowthBoosterBlock;
 import net.alternateadventure.brickforgery.block.NightLeavesBlock;
 import net.alternateadventure.brickforgery.block.NightLogBlock;
 import net.alternateadventure.brickforgery.block.NightPlanksBlock;
@@ -197,6 +198,7 @@ public class BlockListener {
 
     public static SuperCaneBlock superCane;
     public static BrickedPlanterBlock brickedPlanter;
+    public static NightGrowthBoosterBlock nightGrowthBooster;
 
     @Entrypoint.Namespace
     public static Namespace MOD_ID;
@@ -210,6 +212,7 @@ public class BlockListener {
         sugarCaneBrickFrameCrafter = new BrickFrameCrafterBlock(Identifier.of(MOD_ID, "sugar_cane_brick_frame_crafter"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.SUGAR_CANE);
         sugarCaneHarvester = new HarvesterBlockTemplate(Identifier.of(MOD_ID, "sugar_cane_harvester"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.SUGAR_CANE);
         sugarCaneBrickForge = new BrickForgeBlock(Identifier.of(MOD_ID, "sugar_cane_brick_forge"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP, TierEnum.SUGAR_CANE);
+        nightGrowthBooster = new NightGrowthBoosterBlock(Identifier.of(MOD_ID, "night_growth_booster"), Material.PLANT, 0, Block.DIRT_SOUND_GROUP);
 
         cactusPlanks = new CactusPlanksBlock(Identifier.of(MOD_ID, "cactus_planks"), Material.WOOD, 1.0F, Block.WOOD_SOUND_GROUP);
         cactusBox = new LazyBlockTemplate(Identifier.of(MOD_ID,  "cactus_box"), Material.WOOD, 1.5F, Block.WOOD_SOUND_GROUP);

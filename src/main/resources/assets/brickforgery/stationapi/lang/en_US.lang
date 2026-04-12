@@ -5,6 +5,7 @@ tile.@.sugar_cane_slicer.name=Sugar Cane Slicer
 tile.@.sugar_cane_brick_frame_crafter.name=Sugar Cane Brick Frame Crafter
 tile.@.sugar_cane_harvester.name=Sugar Cane Harvester
 tile.@.sugar_cane_brick_forge.name=Sugar Cane Brick Forge
+tile.@.night_growth_booster.name=Night Growth Booster
 
 tile.@.cactus_planks.name=Cactus Planks
 tile.@.cactus_box.name=Cactus Box
@@ -123,6 +124,7 @@ item.@.sugar_cane_stick.name=Sugar Cane Stick
 item.@.exotic_mutation_sample.name=Exotic Mutation Sample
 item.@.moonlight_powder.name=Moonlight Powder
 item.@.moonlight_crystal.name=Moonlight Crystal
+item.@.night_growth_booster_item.name=Night Growth Booster Item
 
 item.@.dirt_brick_sand.name=Dirt Brick Sand
 item.@.sand_brick.name=Sand Brick

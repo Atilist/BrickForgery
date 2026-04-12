@@ -14,6 +14,7 @@ import net.alternateadventure.brickforgery.item.GrabberToolTemplate;
 import net.alternateadventure.brickforgery.item.IceKeyItem;
 import net.alternateadventure.brickforgery.item.LazyItemTemplate;
 import net.alternateadventure.brickforgery.item.LazySecondaryBlockItem;
+import net.alternateadventure.brickforgery.item.NightGrowthBoosterItem;
 import net.alternateadventure.brickforgery.item.NightSeedsItem;
 import net.alternateadventure.brickforgery.item.SuperCaneItem;
 import net.alternateadventure.brickforgery.util.TierEnum;
@@ -150,7 +151,8 @@ public class ItemListener {
     public static LazySecondaryBlockItem
             nightCaneStick,
             doubleNightCaneStick,
-            superCaneItem;
+            superCaneItem,
+            nightGrowthBoosterItem;
 
     @EventListener
     public void registerItems(ItemRegistryEvent event) {
@@ -161,6 +163,7 @@ public class ItemListener {
         exoticMutationSample = new LazyItemTemplate(Identifier.of(MOD_ID, "exotic_mutation_sample"));
         moonlightPowder = new LazyItemTemplate(Identifier.of(MOD_ID, "moonlight_powder"));
         moonlightCrystal = new LazyItemTemplate(Identifier.of(MOD_ID, "moonlight_crystal"));
+        nightGrowthBoosterItem = new NightGrowthBoosterItem(Identifier.of(MOD_ID, "night_growth_booster_item"), BlockListener.nightGrowthBooster);
 
         dirtBrickSand = new DirtBrickSandItem(Identifier.of(MOD_ID, "dirt_brick_sand"));
         sandBrick = new LazyItemTemplate(Identifier.of(MOD_ID, "sand_brick"));

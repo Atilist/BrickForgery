@@ -26,6 +26,7 @@ public class TextureListener {
         ItemListener.exoticMutationSample.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/ExoticMutationSample"));
         ItemListener.moonlightPowder.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/MoonlightPowder"));
         ItemListener.moonlightCrystal.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/MoonlightCrystal"));
+        ItemListener.nightGrowthBoosterItem.setTexture(Identifier.of(MOD_ID, farmingPath + "NightGrowthBoosterItem"));
 
         ItemListener.dirtBrickSand.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/DirtBrickSand"));
         ItemListener.sandBrick.setTexture(Identifier.of(MOD_ID, "MaterialProcessing/Materials/SandBrick"));
@@ -297,6 +298,7 @@ public class TextureListener {
         BlockListener.sugarCaneHarvester.specifyTextures(getIndexForPath(machinePath + "SugarCaneHarvesterTop"), getIndexForPath(machinePath + "SugarCaneHarvesterSide"), getIndexForPath(machinePath + "SugarCaneHarvesterBottom"));
         BlockListener.sugarCaneBrickForge.specifyTextures(getIndexForPath(machinePath + "SugarCaneBrickForgeTop"), getIndexForPath(machinePath + "SugarCaneBrickForgeSide"), getIndexForPath(machinePath + "SugarCaneBrickForgeBottom"));
         BlockListener.sugarCaneBrickForge.specifyInputTexture(getIndexForPath(machinePath + "SugarCaneBrickForgeSideInput"));
+        BlockListener.nightGrowthBooster.specifyTextures(getIndexForPath(farmingPath + "NightGrowthBooster"));
 
         BlockListener.cactusPlanks.specifyTextures(getIndexForPath(materialPath + "CactusPlanks"));
         BlockListener.cactusBox.specifyTextures(getIndexForPath(materialPath + "CactusBox"));
@@ -380,6 +382,7 @@ public class TextureListener {
         BlockListener.nightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneSingle"));
         BlockListener.doubleNightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneDouble"));
         BlockListener.superCane.asItem().setTextureId(getIndexForPath(farmingPath + "SuperCane"));
+        BlockListener.nightGrowthBooster.asItem().setTextureId(getIndexForPath(farmingPath + "NightGrowthBooster"));
 
         BlockListener.heatPillar.asItem().setTextureId(HeatPillar);
         BlockListener.heatPillarIgnited.asItem().setTextureId(HeatPillarIgnited);
