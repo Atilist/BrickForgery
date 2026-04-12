@@ -379,19 +379,20 @@ public class TextureListener {
         BlockListener.redstoneOreBricks.specifyTextures(RedstoneOreBricks);
         BlockListener.diamondOreBricks.specifyTextures(DiamondOreBricks);
 
+        BlockListener.exoticShrub.asItem().setTextureId(ExoticShrub);
+        BlockListener.exoticShrubDead.asItem().setTextureId(ExoticShrubDead);
         BlockListener.nightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneSingle"));
         BlockListener.doubleNightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneDouble"));
         BlockListener.superCane.asItem().setTextureId(getIndexForPath(farmingPath + "SuperCane"));
         BlockListener.nightGrowthBooster.asItem().setTextureId(getIndexForPath(farmingPath + "NightGrowthBooster"));
         BlockListener.nightWheatCrop.asItem().setTextureId(getIndexForPath(farmingPath + "NightWheatCropRipe"));
+        BlockListener.nightSapling.asItem().setTextureId(NightSapling);
 
         BlockListener.heatPillar.asItem().setTextureId(HeatPillar);
         BlockListener.heatPillarIgnited.asItem().setTextureId(HeatPillarIgnited);
         BlockListener.heatPillarStoked.asItem().setTextureId(HeatPillarStoked);
 
         BlockListener.spikeMount.asItem().setTextureId(SpikeMount);
-        BlockListener.exoticShrub.asItem().setTextureId(ExoticShrub);
-        BlockListener.nightSapling.asItem().setTextureId(NightSapling);
     }
 
     public static int getIndexForPath(String path) {
