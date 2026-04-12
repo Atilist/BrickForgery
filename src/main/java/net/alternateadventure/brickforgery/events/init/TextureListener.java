@@ -383,6 +383,7 @@ public class TextureListener {
         BlockListener.doubleNightCane.asItem().setTextureId(getIndexForPath(farmingPath + "NightCaneDouble"));
         BlockListener.superCane.asItem().setTextureId(getIndexForPath(farmingPath + "SuperCane"));
         BlockListener.nightGrowthBooster.asItem().setTextureId(getIndexForPath(farmingPath + "NightGrowthBooster"));
+        BlockListener.nightWheatCrop.asItem().setTextureId(getIndexForPath(farmingPath + "NightWheatCropRipe"));
 
         BlockListener.heatPillar.asItem().setTextureId(HeatPillar);
         BlockListener.heatPillarIgnited.asItem().setTextureId(HeatPillarIgnited);
