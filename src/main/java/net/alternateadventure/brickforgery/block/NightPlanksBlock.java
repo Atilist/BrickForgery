@@ -29,6 +29,6 @@ public class NightPlanksBlock extends TemplateBlock implements BrickFrameIngredi
     @Override
     public void transformBlock(World world, int x, int y, int z, Random random) {
         world.setBlock(x, y, z, BlockListener.planksPile.id);
-        world.setBlockStateWithNotify(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePileBlock.USES, 15));
+        world.setBlockState(x, y, z, BlockListener.planksPile.getDefaultState().with(ResourcePileBlock.USES, 15));
     }
 }

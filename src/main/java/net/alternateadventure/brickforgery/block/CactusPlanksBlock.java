@@ -17,6 +17,6 @@ public class CactusPlanksBlock extends LazyBlockTemplate implements BrickFrameIn
     @Override
     public void transformBlock(World world, int x, int y, int z, Random random) {
         world.setBlock(x, y, z, BlockListener.cactusPlanksPile.id);
-        world.setBlockStateWithNotify(x, y, z, BlockListener.cactusPlanksPile.getDefaultState().with(ResourcePileBlock.USES, 15));
+        world.setBlockState(x, y, z, BlockListener.cactusPlanksPile.getDefaultState().with(ResourcePileBlock.USES, 15));
     }
 }

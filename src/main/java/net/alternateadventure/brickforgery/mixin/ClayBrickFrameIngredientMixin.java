@@ -16,6 +16,6 @@ public class ClayBrickFrameIngredientMixin implements BrickFrameIngredient {
     @Override
     public void transformBlock(World world, int x, int y, int z, Random random) {
         world.setBlock(x, y, z, BlockListener.clayPile.id);
-        world.setBlockStateWithNotify(x, y, z, BlockListener.clayPile.getDefaultState().with(ResourcePileBlock.USES, 15));
+        world.setBlockState(x, y, z, BlockListener.clayPile.getDefaultState().with(ResourcePileBlock.USES, 15));
     }
 }

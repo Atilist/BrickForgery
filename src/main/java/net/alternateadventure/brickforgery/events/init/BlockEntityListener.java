@@ -20,12 +20,12 @@ public class BlockEntityListener {
 
     @EventListener
     public static void registerBlockEntities(BlockEntityRegisterEvent event) {
-        event.register(AlloySmelterBlockEntity.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_alloy_smelter")));
-        event.register(SlicerBlockEntity.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_slicer")));
-        event.register(MetalworkingStationBlockEntity.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_metalworking_station")));
-        event.register(ImprovedMillstoneBlockEntity.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_improved_millstone")));
-        event.register(CrusherBlockEntity.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_crusher")));
-        event.register(WasherBlockEntity.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_washer")));
-        event.register(BrickForgeBlockEntity.class, String.valueOf(Identifier.of(MOD_ID, "tile_entity_brick_forge")));
+        event.register(String.valueOf(Identifier.of(MOD_ID, "tile_entity_alloy_smelter")), AlloySmelterBlockEntity.class);
+        event.register(String.valueOf(Identifier.of(MOD_ID, "tile_entity_slicer")), SlicerBlockEntity.class);
+        event.register(String.valueOf(Identifier.of(MOD_ID, "tile_entity_metalworking_station")), MetalworkingStationBlockEntity.class);
+        event.register(String.valueOf(Identifier.of(MOD_ID, "tile_entity_improved_millstone")), ImprovedMillstoneBlockEntity.class);
+        event.register(String.valueOf(Identifier.of(MOD_ID, "tile_entity_crusher")), CrusherBlockEntity.class);
+        event.register(String.valueOf(Identifier.of(MOD_ID, "tile_entity_washer")), WasherBlockEntity.class);
+        event.register(String.valueOf(Identifier.of(MOD_ID, "tile_entity_brick_forge")), BrickForgeBlockEntity.class);
     }
 }
